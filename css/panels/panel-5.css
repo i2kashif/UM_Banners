@@ -105,7 +105,6 @@
   height: auto;
   max-height: 2400px;
   object-fit: contain;
-  mix-blend-mode: multiply;
   filter: drop-shadow(0 24px 72px rgba(178, 103, 62, 0.22));
 }
 

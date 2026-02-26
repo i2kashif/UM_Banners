@@ -37,25 +37,30 @@
           <stop offset="50%"  stop-color="#F5B880" stop-opacity="0.7"/>
           <stop offset="100%" stop-color="#CE7340" stop-opacity="0.75"/>
         </linearGradient>
-        <filter id="p4-glow">
-          <feGaussianBlur stdDeviation="10" result="blur"/>
-          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        <filter id="p4-glow" x="-20%" y="-150%" width="140%" height="400%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
         </filter>
       </defs>
+      <!-- Panel 4 slice: x=9036–12048, wire descends then rises into centre -->
       <path
         d="M 9036,5130
            C 9400,5100  10200,5000  11000,4500
-           C 11600,4380  12048,4320  12248,4280"
+           C 11400,4360  11800,4310  12048,4280"
         fill="none"
         stroke="url(#p4-wire-grad)"
         stroke-width="32"
         stroke-linecap="round"
         filter="url(#p4-glow)"
       />
+      <!-- Secondary parallel strand — 60px offset below primary -->
       <path
         d="M 9036,5190
            C 9400,5160  10200,5060  11000,4560
-           C 11600,4440  12048,4380  12248,4340"
+           C 11400,4420  11800,4370  12048,4340"
         fill="none"
         stroke="#F5B880"
         stroke-width="10"
@@ -101,9 +106,9 @@
        ========================================================= -->
   <section class="zone-b" aria-label="Paper covered copper strip product image">
 
-    <figure class="product-hero-frame" style="margin: 0; width: 100%; max-height: 2861px;">
+    <figure class="product-hero-frame" style="margin: 0;">
       <img
-        src="../assets/images/products/paper-covered-strip-ai.png"
+        src="../assets/images/products/paper-covered-strip-ai-transparent.png"
         alt="Paper Covered Copper Strip — PCCS &amp; PCAS, TUK paper insulation"
         class="product-image"
         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"

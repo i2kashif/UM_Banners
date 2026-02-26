@@ -39,9 +39,12 @@
           <stop offset="50%"  stop-color="#CE7340" stop-opacity="0.7"/>
           <stop offset="100%" stop-color="#F5B880" stop-opacity="0.8"/>
         </linearGradient>
-        <filter id="p1-glow">
-          <feGaussianBlur stdDeviation="10" result="blur"/>
-          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        <filter id="p1-glow" x="-20%" y="-150%" width="140%" height="400%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
         </filter>
       </defs>
       <!-- Panel 1 slice of the cross-panel wire (viewBox 0 0 3012 7441) -->

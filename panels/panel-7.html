@@ -38,9 +38,12 @@
           <stop offset="50%"  stop-color="#B2673E" stop-opacity="0.55"/>
           <stop offset="100%" stop-color="#8B4A28" stop-opacity="0.6"/>
         </linearGradient>
-        <filter id="p7-glow">
-          <feGaussianBlur stdDeviation="10" result="blur"/>
-          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        <filter id="p7-glow" x="-20%" y="-150%" width="140%" height="400%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
         </filter>
       </defs>
       <!-- Panel 7 slice — wire rises toward top right -->
@@ -109,39 +112,43 @@
       <!-- ISO 9001 — Quality Management -->
       <div class="cert-badge-lg" role="listitem">
         <svg class="cert-badge-svg" width="580" height="580" viewBox="0 0 580 580"
+             xmlns:xlink="http://www.w3.org/1999/xlink"
              aria-label="ISO 9001 Quality Management System certification badge"
              role="img">
-          <!-- Outer ring — copper gradient -->
+          <defs>
+            <!-- Top arc bows upward through (290,100) — text reads on the outer upper rim -->
+            <path id="iso9001-top-arc" d="M 100,290 A 190,190 0 0 1 480,290"/>
+            <!-- Bottom arc bows downward through (290,450) — text reads along lower rim -->
+            <path id="iso9001-bot-arc" d="M 130,290 A 160,160 0 0 0 450,290"/>
+          </defs>
+          <!-- Outer fill + rings -->
           <circle cx="290" cy="290" r="280" fill="#FDE8D0" stroke="none"/>
           <circle cx="290" cy="290" r="280" fill="none" stroke="#8B4A28" stroke-width="8"/>
           <circle cx="290" cy="290" r="260" fill="none" stroke="#CE7340" stroke-width="3"/>
-          <!-- Inner accent ring -->
           <circle cx="290" cy="290" r="240" fill="#FAF8F5" stroke="#B2673E" stroke-width="6"/>
-          <!-- ISO text arc — top -->
-          <path id="iso9001-top-arc" d="M 100,290 A 190,190 0 0 1 480,290" fill="none"/>
+          <!-- "ISO 9001 : 2015" on top arc -->
           <text font-family="'Barlow Condensed', Arial, sans-serif" font-weight="700"
                 font-size="52" fill="#8B4A28" letter-spacing="0.08em" text-anchor="middle">
-            <textPath href="#iso9001-top-arc" startOffset="50%">ISO 9001 : 2015</textPath>
+            <textPath xlink:href="#iso9001-top-arc" href="#iso9001-top-arc" startOffset="50%">ISO 9001 : 2015</textPath>
           </text>
-          <!-- Standard number — large centre -->
-          <text x="290" y="270" text-anchor="middle"
+          <!-- Large centred number -->
+          <text x="290" y="275" text-anchor="middle"
                 font-family="'Barlow Condensed', Arial, sans-serif"
                 font-weight="800" font-size="110" fill="#B2673E"
                 letter-spacing="-0.02em">9001</text>
-          <!-- Descriptor below number -->
-          <text x="290" y="350" text-anchor="middle"
+          <!-- Descriptors -->
+          <text x="290" y="355" text-anchor="middle"
                 font-family="'Poppins', Arial, sans-serif"
                 font-weight="600" font-size="36" fill="#1A1208"
                 letter-spacing="0.06em">QUALITY</text>
-          <text x="290" y="396" text-anchor="middle"
+          <text x="290" y="400" text-anchor="middle"
                 font-family="'Poppins', Arial, sans-serif"
                 font-weight="500" font-size="30" fill="#4A3728"
                 letter-spacing="0.04em">MANAGEMENT</text>
-          <!-- Bottom arc — "CERTIFIED" -->
-          <path id="iso9001-bot-arc" d="M 130,290 A 160,160 0 0 0 450,290" fill="none"/>
+          <!-- "CERTIFIED" on bottom arc -->
           <text font-family="'Poppins', Arial, sans-serif" font-weight="600"
                 font-size="34" fill="#CE7340" letter-spacing="0.10em" text-anchor="middle">
-            <textPath href="#iso9001-bot-arc" startOffset="50%">CERTIFIED</textPath>
+            <textPath xlink:href="#iso9001-bot-arc" href="#iso9001-bot-arc" startOffset="50%">CERTIFIED</textPath>
           </text>
         </svg>
         <span class="cert-badge-label">ISO 9001:2015<br>Quality Management</span>
@@ -150,33 +157,40 @@
       <!-- ISO 14001 — Environmental Management -->
       <div class="cert-badge-lg" role="listitem">
         <svg class="cert-badge-svg" width="580" height="580" viewBox="0 0 580 580"
+             xmlns:xlink="http://www.w3.org/1999/xlink"
              aria-label="ISO 14001 Environmental Management System certification badge"
              role="img">
+          <defs>
+            <path id="iso14001-top-arc" d="M 100,290 A 190,190 0 0 1 480,290"/>
+            <path id="iso14001-bot-arc" d="M 130,290 A 160,160 0 0 0 450,290"/>
+          </defs>
           <circle cx="290" cy="290" r="280" fill="#FDE8D0" stroke="none"/>
           <circle cx="290" cy="290" r="280" fill="none" stroke="#8B4A28" stroke-width="8"/>
           <circle cx="290" cy="290" r="260" fill="none" stroke="#CE7340" stroke-width="3"/>
           <circle cx="290" cy="290" r="240" fill="#FAF8F5" stroke="#B2673E" stroke-width="6"/>
-          <path id="iso14001-top-arc" d="M 100,290 A 190,190 0 0 1 480,290" fill="none"/>
+          <!-- "ISO 14001 : 2015" on top arc (slightly smaller font for longer text) -->
           <text font-family="'Barlow Condensed', Arial, sans-serif" font-weight="700"
-                font-size="48" fill="#8B4A28" letter-spacing="0.06em" text-anchor="middle">
-            <textPath href="#iso14001-top-arc" startOffset="50%">ISO 14001 : 2015</textPath>
+                font-size="46" fill="#8B4A28" letter-spacing="0.05em" text-anchor="middle">
+            <textPath xlink:href="#iso14001-top-arc" href="#iso14001-top-arc" startOffset="50%">ISO 14001 : 2015</textPath>
           </text>
-          <text x="290" y="270" text-anchor="middle"
+          <!-- Large centred number -->
+          <text x="290" y="275" text-anchor="middle"
                 font-family="'Barlow Condensed', Arial, sans-serif"
                 font-weight="800" font-size="100" fill="#B2673E"
                 letter-spacing="-0.02em">14001</text>
-          <text x="290" y="350" text-anchor="middle"
+          <!-- Descriptors -->
+          <text x="290" y="352" text-anchor="middle"
                 font-family="'Poppins', Arial, sans-serif"
                 font-weight="600" font-size="34" fill="#1A1208"
-                letter-spacing="0.06em">ENVIRONMENTAL</text>
-          <text x="290" y="396" text-anchor="middle"
+                letter-spacing="0.05em">ENVIRONMENTAL</text>
+          <text x="290" y="398" text-anchor="middle"
                 font-family="'Poppins', Arial, sans-serif"
                 font-weight="500" font-size="30" fill="#4A3728"
                 letter-spacing="0.04em">MANAGEMENT</text>
-          <path id="iso14001-bot-arc" d="M 130,290 A 160,160 0 0 0 450,290" fill="none"/>
+          <!-- "CERTIFIED" on bottom arc -->
           <text font-family="'Poppins', Arial, sans-serif" font-weight="600"
                 font-size="34" fill="#CE7340" letter-spacing="0.10em" text-anchor="middle">
-            <textPath href="#iso14001-bot-arc" startOffset="50%">CERTIFIED</textPath>
+            <textPath xlink:href="#iso14001-bot-arc" href="#iso14001-bot-arc" startOffset="50%">CERTIFIED</textPath>
           </text>
         </svg>
         <span class="cert-badge-label">ISO 14001:2015<br>Environmental Management</span>
@@ -185,33 +199,40 @@
       <!-- ISO 45001 — Occupational Health & Safety -->
       <div class="cert-badge-lg" role="listitem">
         <svg class="cert-badge-svg" width="580" height="580" viewBox="0 0 580 580"
+             xmlns:xlink="http://www.w3.org/1999/xlink"
              aria-label="ISO 45001 Occupational Health and Safety Management certification badge"
              role="img">
+          <defs>
+            <path id="iso45001-top-arc" d="M 100,290 A 190,190 0 0 1 480,290"/>
+            <path id="iso45001-bot-arc" d="M 130,290 A 160,160 0 0 0 450,290"/>
+          </defs>
           <circle cx="290" cy="290" r="280" fill="#FDE8D0" stroke="none"/>
           <circle cx="290" cy="290" r="280" fill="none" stroke="#8B4A28" stroke-width="8"/>
           <circle cx="290" cy="290" r="260" fill="none" stroke="#CE7340" stroke-width="3"/>
           <circle cx="290" cy="290" r="240" fill="#FAF8F5" stroke="#B2673E" stroke-width="6"/>
-          <path id="iso45001-top-arc" d="M 100,290 A 190,190 0 0 1 480,290" fill="none"/>
+          <!-- "ISO 45001 : 2018" on top arc -->
           <text font-family="'Barlow Condensed', Arial, sans-serif" font-weight="700"
-                font-size="48" fill="#8B4A28" letter-spacing="0.06em" text-anchor="middle">
-            <textPath href="#iso45001-top-arc" startOffset="50%">ISO 45001 : 2018</textPath>
+                font-size="46" fill="#8B4A28" letter-spacing="0.05em" text-anchor="middle">
+            <textPath xlink:href="#iso45001-top-arc" href="#iso45001-top-arc" startOffset="50%">ISO 45001 : 2018</textPath>
           </text>
-          <text x="290" y="270" text-anchor="middle"
+          <!-- Large centred number -->
+          <text x="290" y="275" text-anchor="middle"
                 font-family="'Barlow Condensed', Arial, sans-serif"
                 font-weight="800" font-size="100" fill="#B2673E"
                 letter-spacing="-0.02em">45001</text>
-          <text x="290" y="350" text-anchor="middle"
+          <!-- Descriptors -->
+          <text x="290" y="352" text-anchor="middle"
                 font-family="'Poppins', Arial, sans-serif"
                 font-weight="600" font-size="30" fill="#1A1208"
                 letter-spacing="0.04em">OCCUPATIONAL</text>
-          <text x="290" y="394" text-anchor="middle"
+          <text x="290" y="396" text-anchor="middle"
                 font-family="'Poppins', Arial, sans-serif"
                 font-weight="500" font-size="28" fill="#4A3728"
                 letter-spacing="0.04em">HEALTH &amp; SAFETY</text>
-          <path id="iso45001-bot-arc" d="M 130,290 A 160,160 0 0 0 450,290" fill="none"/>
+          <!-- "CERTIFIED" on bottom arc -->
           <text font-family="'Poppins', Arial, sans-serif" font-weight="600"
                 font-size="34" fill="#CE7340" letter-spacing="0.10em" text-anchor="middle">
-            <textPath href="#iso45001-bot-arc" startOffset="50%">CERTIFIED</textPath>
+            <textPath xlink:href="#iso45001-bot-arc" href="#iso45001-bot-arc" startOffset="50%">CERTIFIED</textPath>
           </text>
         </svg>
         <span class="cert-badge-label">ISO 45001:2018<br>OH&amp;S Management</span>
@@ -220,31 +241,48 @@
       <!-- CE Marking — EU Product Conformity -->
       <div class="cert-badge-lg" role="listitem">
         <svg class="cert-badge-svg" width="580" height="580" viewBox="0 0 580 580"
+             xmlns:xlink="http://www.w3.org/1999/xlink"
              aria-label="CE marking EU product conformity badge"
              role="img">
+          <defs>
+            <!-- Top label arc: bows upward for readable "CE MARKING" text -->
+            <path id="ce-top-arc" d="M 100,290 A 190,190 0 0 1 480,290"/>
+          </defs>
           <circle cx="290" cy="290" r="280" fill="#FDE8D0" stroke="none"/>
           <circle cx="290" cy="290" r="280" fill="none" stroke="#8B4A28" stroke-width="8"/>
           <circle cx="290" cy="290" r="260" fill="none" stroke="#CE7340" stroke-width="3"/>
           <circle cx="290" cy="290" r="240" fill="#FAF8F5" stroke="#B2673E" stroke-width="6"/>
-          <!-- CE logotype — proportional rendering -->
-          <!-- C arc -->
-          <path d="M 342,175 A 130,130 0 1 0 342,405" fill="none" stroke="#B2673E" stroke-width="46"
-                stroke-linecap="butt"/>
-          <!-- E vertical -->
-          <line x1="340" y1="175" x2="420" y2="175" stroke="#B2673E" stroke-width="46" stroke-linecap="round"/>
-          <line x1="340" y1="290" x2="400" y2="290" stroke="#B2673E" stroke-width="46" stroke-linecap="round"/>
-          <line x1="340" y1="405" x2="420" y2="405" stroke="#B2673E" stroke-width="46" stroke-linecap="round"/>
-          <!-- Top label -->
-          <text x="290" y="130" text-anchor="middle"
-                font-family="'Barlow Condensed', Arial, sans-serif"
-                font-weight="700" font-size="44" fill="#8B4A28"
-                letter-spacing="0.06em">CE MARKING</text>
+          <!--
+            CE logotype — standard geometric proportions per EU Commission guide.
+            The C arc subtends 300° of a circle (60° gap on the right opening).
+            Letter height: y=186 (cap) to y=394 (base) = 208px, centred at y=290.
+            C center at (180,290), radius=120.
+            Gap: ±30° from 3-o'clock position.
+              Arc start: (180+120·sin30°, 290−120·cos30°) = (240, 186)
+              Arc end:   (180+120·sin30°, 290+120·cos30°) = (240, 394)
+            E: spine at x=252 (12px gap from C endpoint x=240), bars to x=360 (top/bottom),
+               x=333 (middle, ~75% width per CE standard).
+          -->
+          <!-- C arc: 300° counterclockwise from (240,186) to (240,394) -->
+          <path d="M 240,186 A 120,120 0 1 0 240,394"
+                fill="none" stroke="#B2673E" stroke-width="46" stroke-linecap="butt"/>
+          <!-- E top bar (full width) -->
+          <line x1="252" y1="186" x2="360" y2="186" stroke="#B2673E" stroke-width="46" stroke-linecap="round"/>
+          <!-- E middle bar (~75% of top/bottom width per CE spec) -->
+          <line x1="252" y1="290" x2="333" y2="290" stroke="#B2673E" stroke-width="46" stroke-linecap="round"/>
+          <!-- E bottom bar (full width) -->
+          <line x1="252" y1="394" x2="360" y2="394" stroke="#B2673E" stroke-width="46" stroke-linecap="round"/>
+          <!-- "CE MARKING" on top arc -->
+          <text font-family="'Barlow Condensed', Arial, sans-serif" font-weight="700"
+                font-size="44" fill="#8B4A28" letter-spacing="0.06em" text-anchor="middle">
+            <textPath xlink:href="#ce-top-arc" href="#ce-top-arc" startOffset="50%">CE MARKING</textPath>
+          </text>
           <!-- Bottom label -->
-          <text x="290" y="475" text-anchor="middle"
+          <text x="290" y="488" text-anchor="middle"
                 font-family="'Poppins', Arial, sans-serif"
                 font-weight="600" font-size="34" fill="#CE7340"
                 letter-spacing="0.08em">EU CONFORMITY</text>
-          <text x="290" y="520" text-anchor="middle"
+          <text x="290" y="530" text-anchor="middle"
                 font-family="'Poppins', Arial, sans-serif"
                 font-weight="500" font-size="28" fill="#4A3728"
                 letter-spacing="0.04em">ELIGIBLE EXPORTS</text>

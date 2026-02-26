@@ -1,9 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="ISO 14001 Environmental Management System certification badge">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="ISO 14001 Environmental Management System certification badge">
   <defs>
     <linearGradient id="bg14001" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#FDE8D0"/>
       <stop offset="100%" stop-color="#FAF8F5"/>
     </linearGradient>
+    <!-- Top arc: bows upward for "ISO 14001 : 2015" text -->
+    <path id="arc14001-top" d="M 24,100 A 76,76 0 0 1 176,100"/>
+    <!-- Bottom arc: bows downward through (100,164) for "CERTIFIED" text -->
+    <path id="arc14001-bot" d="M 36,100 A 64,64 0 0 0 164,100"/>
   </defs>
   <!-- Background fill -->
   <circle cx="100" cy="100" r="98" fill="url(#bg14001)"/>
@@ -13,19 +17,17 @@
   <circle cx="100" cy="100" r="86" fill="none" stroke="#CE7340" stroke-width="1.5"/>
   <!-- Inner ring -->
   <circle cx="100" cy="100" r="78" fill="none" stroke="#B2673E" stroke-width="2"/>
-  <!-- Top arc path for text -->
-  <path id="arc14001-top" d="M 24,100 A 76,76 0 0 1 176,100" fill="none"/>
+  <!-- "ISO 14001 : 2015" on top arc -->
   <text font-family="Arial, sans-serif" font-weight="700" font-size="13" fill="#8B4A28" letter-spacing="0.5" text-anchor="middle">
-    <textPath href="#arc14001-top" startOffset="50%">ISO 14001 : 2015</textPath>
+    <textPath xlink:href="#arc14001-top" href="#arc14001-top" startOffset="50%">ISO 14001 : 2015</textPath>
   </text>
-  <!-- Large standard number -->
+  <!-- Large standard number centred -->
   <text x="100" y="96" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="28" fill="#B2673E" letter-spacing="-1">14001</text>
   <!-- Descriptor lines -->
   <text x="100" y="116" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="11" fill="#1A1208" letter-spacing="1.5">ENVIRONMENTAL</text>
   <text x="100" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-weight="500" font-size="10" fill="#4A3728" letter-spacing="1">MANAGEMENT</text>
-  <!-- Bottom arc path for CERTIFIED text -->
-  <path id="arc14001-bot" d="M 36,100 A 64,64 0 0 0 164,100" fill="none"/>
+  <!-- "CERTIFIED" on bottom arc -->
   <text font-family="Arial, sans-serif" font-weight="600" font-size="11" fill="#CE7340" letter-spacing="2" text-anchor="middle">
-    <textPath href="#arc14001-bot" startOffset="50%">CERTIFIED</textPath>
+    <textPath xlink:href="#arc14001-bot" href="#arc14001-bot" startOffset="50%">CERTIFIED</textPath>
   </text>
 </svg>

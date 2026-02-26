@@ -38,27 +38,31 @@
           <stop offset="50%"  stop-color="#CE7340" stop-opacity="0.8"/>
           <stop offset="100%" stop-color="#B2673E" stop-opacity="0.7"/>
         </linearGradient>
-        <filter id="p5-glow">
-          <feGaussianBlur stdDeviation="10" result="blur"/>
-          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        <filter id="p5-glow" x="-20%" y="-150%" width="140%" height="400%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
         </filter>
       </defs>
-      <!-- Panel 5 slice of the cross-panel flowing copper wire -->
+      <!-- Panel 5 slice: x=12048–15060, wire rises gently across centre -->
+      <!-- Starts at y=4280 (matching Panel 4 exit), rises to y=3980 at Panel 6 entry -->
       <path
-        d="M 12048,4200
-           C 12600,4050  13400,3800  14200,3600
-           C 14800,3460  15000,3440  15060,3430"
+        d="M 12048,4280
+           C 12600,4200  13000,4100  13800,3950
+           C 14400,3840  14800,3820  15060,3820"
         fill="none"
         stroke="url(#p5-wire-grad)"
         stroke-width="32"
         stroke-linecap="round"
         filter="url(#p5-glow)"
       />
-      <!-- Secondary parallel strand -->
+      <!-- Secondary parallel strand — 60px offset below primary -->
       <path
-        d="M 12048,4260
-           C 12600,4110  13400,3860  14200,3660
-           C 14800,3520  15000,3500  15060,3490"
+        d="M 12048,4340
+           C 12600,4260  13000,4160  13800,4010
+           C 14400,3900  14800,3880  15060,3880"
         fill="none"
         stroke="#F5B880"
         stroke-width="10"
@@ -117,7 +121,7 @@
     <!-- Product coil figure -->
     <figure class="product-hero-frame" style="margin: 0;" aria-label="Copper rod coil">
       <img
-        src="../assets/images/products/ccr-copper-rod-ai.png"
+        src="../assets/images/products/ccr-copper-rod-ai-transparent.png"
         alt="CCR Copper Rod — OFC 99.99% purity, European CCR continuous cast and roll process"
         class="product-image"
         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"

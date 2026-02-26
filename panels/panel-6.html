@@ -44,27 +44,31 @@
           <stop offset="50%"  stop-color="#CE7340" stop-opacity="0.8"/>
           <stop offset="100%" stop-color="#E8A065" stop-opacity="0.5"/>
         </linearGradient>
-        <filter id="p6-glow">
-          <feGaussianBlur stdDeviation="10" result="blur"/>
-          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        <filter id="p6-glow" x="-20%" y="-150%" width="140%" height="400%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
         </filter>
       </defs>
-      <!-- Panel 6 slice — wire descends toward floor zone -->
+      <!-- Panel 6 slice: x=15060–18072, wire descends back toward lower zone -->
+      <!-- Starts at y=3820 (matching Panel 5 exit), descends to y=4560 at Panel 7 entry -->
       <path
-        d="M 15060,3430
-           C 15600,3380  16400,3600  17200,4000
-           C 17800,4300  18000,4500  18072,4560"
+        d="M 15060,3820
+           C 15600,3820  16400,4100  17200,4350
+           C 17700,4500  17900,4540  18072,4560"
         fill="none"
         stroke="url(#p6-wire-grad)"
         stroke-width="32"
         stroke-linecap="round"
         filter="url(#p6-glow)"
       />
-      <!-- Secondary parallel strand -->
+      <!-- Secondary parallel strand — 60px offset below primary -->
       <path
-        d="M 15060,3490
-           C 15600,3440  16400,3660  17200,4060
-           C 17800,4360  18000,4560  18072,4620"
+        d="M 15060,3880
+           C 15600,3880  16400,4160  17200,4410
+           C 17700,4560  17900,4600  18072,4620"
         fill="none"
         stroke="#F5B880"
         stroke-width="10"
@@ -120,7 +124,7 @@
       <article class="product-card product-card--nmn" role="listitem" aria-label="NMN Nomex-Mylar-Nomex insulation">
         <div class="product-card-image">
           <img
-            src="../assets/images/products/nmn-nomex.jpeg"
+            src="../assets/images/products/nmn-nomex-transparent.png"
             alt="NMN Nomex-Mylar-Nomex insulation material"
             class="product-image"
             onerror="this.parentElement.style.display='none';"
@@ -140,7 +144,7 @@
       <article class="product-card" role="listitem" aria-label="DMD Dacron-Mylar-Dacron insulation">
         <div class="product-card-image">
           <img
-            src="../assets/images/products/dmd-insulation.jpg"
+            src="../assets/images/products/dmd-insulation-transparent.png"
             alt="DMD Dacron-Mylar-Dacron insulation material"
             class="product-image"
             onerror="this.parentElement.style.display='none';"
@@ -159,7 +163,7 @@
       <article class="product-card" role="listitem" aria-label="Film composite insulation">
         <div class="product-card-image">
           <img
-            src="../assets/images/products/film-composite.jpeg"
+            src="../assets/images/products/film-composite-transparent.png"
             alt="Film Composite polyester insulation material"
             class="product-image"
             onerror="this.parentElement.style.display='none';"
@@ -178,7 +182,7 @@
       <article class="product-card" role="listitem" aria-label="AMA Aramid-Mylar-Aramid insulation">
         <div class="product-card-image">
           <img
-            src="../assets/images/products/ama.jpeg"
+            src="../assets/images/products/ama-transparent.png"
             alt="AMA Aramid-Mylar-Aramid insulation material"
             class="product-image"
             onerror="this.parentElement.style.display='none';"
@@ -197,7 +201,7 @@
       <article class="product-card" role="listitem" aria-label="PET polyester film insulation">
         <div class="product-card-image">
           <img
-            src="../assets/images/products/pet-film.jpeg"
+            src="../assets/images/products/pet-film-transparent.png"
             alt="PET polyester film insulation material"
             class="product-image"
             onerror="this.parentElement.style.display='none';"

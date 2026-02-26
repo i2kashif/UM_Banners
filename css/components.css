@@ -395,7 +395,7 @@
 /* ============================================================
    PRODUCT HERO FRAME
    Container for product photography.
-   mix-blend-mode: multiply removes white background from photos.
+   Images use transparent PNG backgrounds — no blend mode needed.
    ============================================================ */
 
 .product-hero-frame {
@@ -409,7 +409,6 @@
 .product-hero-frame img {
   display: block;
   object-fit: contain;
-  mix-blend-mode: multiply;
   filter: drop-shadow(0 24px 72px rgba(178, 103, 62, 0.22));
 }
 
@@ -735,8 +734,8 @@
 
 /* ============================================================
    PRODUCT IMAGE
-   Real photography integration. mix-blend-mode: multiply
-   removes white backgrounds seamlessly on cream/white panels.
+   Real photography integration. Transparent PNG backgrounds
+   allow the panel CSS background to show through naturally.
    ============================================================ */
 
 .product-image {

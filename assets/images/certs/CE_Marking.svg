@@ -13,13 +13,22 @@
   <circle cx="100" cy="100" r="86" fill="none" stroke="#CE7340" stroke-width="1.5"/>
   <!-- Inner ring -->
   <circle cx="100" cy="100" r="78" fill="none" stroke="#B2673E" stroke-width="2"/>
-  <!-- CE Logotype — standard geometric proportions -->
-  <!-- C arc (left letter) -->
-  <path d="M 90,55 A 42,42 0 1 0 90,145" fill="none" stroke="#B2673E" stroke-width="14" stroke-linecap="butt"/>
-  <!-- E vertical stroke (right letter) -->
-  <line x1="88" y1="55" x2="130" y2="55" stroke="#B2673E" stroke-width="14" stroke-linecap="round"/>
-  <line x1="88" y1="100" x2="122" y2="100" stroke="#B2673E" stroke-width="14" stroke-linecap="round"/>
-  <line x1="88" y1="145" x2="130" y2="145" stroke="#B2673E" stroke-width="14" stroke-linecap="round"/>
+  <!--
+    CE Logotype — standard EU Commission geometric proportions.
+    C arc: 300° counterclockwise, center (67,100), radius=42.
+    Gap ±30° from 3-o'clock: start=(88,64), end=(88,136).
+    E bars aligned to C arc endpoints: y=64 top, y=100 mid, y=136 bottom.
+    E bars: x=92 to x=130 (top/bottom), x=92 to x=123 (middle, ~75%).
+  -->
+  <!-- C arc: 300° counterclockwise from (88,64) to (88,136) -->
+  <path d="M 88,64 A 42,42 0 1 0 88,136"
+        fill="none" stroke="#B2673E" stroke-width="16" stroke-linecap="butt"/>
+  <!-- E top bar (cap height) -->
+  <line x1="92" y1="64"  x2="130" y2="64"  stroke="#B2673E" stroke-width="16" stroke-linecap="round"/>
+  <!-- E middle bar (~75% width per CE spec) -->
+  <line x1="92" y1="100" x2="120" y2="100" stroke="#B2673E" stroke-width="16" stroke-linecap="round"/>
+  <!-- E bottom bar (baseline) -->
+  <line x1="92" y1="136" x2="130" y2="136" stroke="#B2673E" stroke-width="16" stroke-linecap="round"/>
   <!-- Top label -->
   <text x="100" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="11" fill="#8B4A28" letter-spacing="2">CE MARKING</text>
   <!-- Bottom label -->
