@@ -29,6 +29,8 @@
   <!-- =========================================================
        FLOW SVG LAYER — Panel 6 slice
        Panel 6: x offset = 5 × 3012 = 15060
+       Entry y ~3820 (matching Panel 5 exit)
+       Exit  y ~4560 (to Panel 7 entry)
        ========================================================= -->
   <div class="flow-svg-layer" aria-hidden="true">
     <svg
@@ -40,9 +42,9 @@
     >
       <defs>
         <linearGradient id="p6-wire-grad" x1="15060" y1="0" x2="18072" y2="0" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stop-color="#B2673E" stop-opacity="0.7"/>
-          <stop offset="50%"  stop-color="#CE7340" stop-opacity="0.8"/>
-          <stop offset="100%" stop-color="#E8A065" stop-opacity="0.5"/>
+          <stop offset="0%"   stop-color="#B2673E" stop-opacity="0.70"/>
+          <stop offset="50%"  stop-color="#CE7340" stop-opacity="0.80"/>
+          <stop offset="100%" stop-color="#E8A065" stop-opacity="0.50"/>
         </linearGradient>
         <filter id="p6-glow" x="-20%" y="-150%" width="140%" height="400%">
           <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
@@ -52,23 +54,24 @@
           </feMerge>
         </filter>
       </defs>
-      <!-- Panel 6 slice: x=15060–18072, wire descends back toward lower zone -->
-      <!-- Starts at y=3820 (matching Panel 5 exit), descends to y=4560 at Panel 7 entry -->
+
+      <!-- Primary wire strand — 32px stroke, copper gradient -->
       <path
         d="M 15060,3820
-           C 15600,3820  16400,4100  17200,4350
-           C 17700,4500  17900,4540  18072,4560"
+           C 15560,3820 16300,4060 17100,4300
+           C 17650,4480 17900,4540 18072,4560"
         fill="none"
         stroke="url(#p6-wire-grad)"
         stroke-width="32"
         stroke-linecap="round"
         filter="url(#p6-glow)"
       />
-      <!-- Secondary parallel strand — 60px offset below primary -->
+
+      <!-- Secondary parallel strand — 10px, #F5B880, 0.35 opacity, 60px below primary -->
       <path
         d="M 15060,3880
-           C 15600,3880  16400,4160  17200,4410
-           C 17700,4560  17900,4600  18072,4620"
+           C 15560,3880 16300,4120 17100,4360
+           C 17650,4540 17900,4600 18072,4620"
         fill="none"
         stroke="#F5B880"
         stroke-width="10"
@@ -108,130 +111,53 @@
   </header>
 
   <!-- =========================================================
-       ZONE B — PRODUCT RANGE DISPLAY (783px – 3644px)
-       2×3 grid: NMN / DMD / Film Composite | AMA / PET Film / Range Summary
-       NMN card features DuPont™ Nomex® 410 callout.
+       ZONE B — HERO COMPOSITE IMAGE (783px – 3644px)
+       Single AI-generated composite showing all 5 insulation
+       materials. Overlaid product name tags + DuPont callout.
        ========================================================= -->
-  <section class="zone-b" aria-label="Insulation product range">
+  <section class="zone-b" aria-label="Insulation product range composite">
 
-    <!-- Section label -->
-    <span class="zone-b-label" role="presentation">Full product range</span>
+    <!-- Decorative background rings — subtle depth behind image -->
+    <div class="p6-hero-rings" aria-hidden="true">
+      <div class="p6-ring p6-ring--1"></div>
+      <div class="p6-ring p6-ring--2"></div>
+      <div class="p6-ring p6-ring--3"></div>
+    </div>
 
-    <!-- 2×3 product card grid -->
-    <div class="product-grid" role="list" aria-label="Insulation material product cards">
+    <!-- Hero composite image frame -->
+    <div class="p6-hero-frame" role="img" aria-label="All five insulation materials: NMN, DMD, Film Composite, AMA, PET Film">
 
-      <!-- NMN — Nomex/Mylar/Nomex composite, Class H -->
-      <article class="product-card product-card--nmn" role="listitem" aria-label="NMN Nomex-Mylar-Nomex insulation">
-        <div class="product-card-image">
-          <img
-            src="../assets/images/products/nmn-nomex-transparent.png"
-            alt="NMN Nomex-Mylar-Nomex insulation material"
-            class="product-image"
-            onerror="this.parentElement.style.display='none';"
-          >
-        </div>
-        <h3 class="product-card-name">NMN</h3>
-        <span class="product-card-grade">Class H</span>
-        <p class="product-card-desc">
-          Nomex&#8203;&#8209;Mylar&#8203;&#8209;Nomex flexible laminate.<br>
-          Thermal Class H (180&#176;C). Excellent dielectric strength.<br>
-          Slot &amp; phase insulation for transformers &amp; motors.
-        </p>
-        <span class="dupont-callout">DuPont&#8482; Nomex&#174; 410</span>
-      </article>
+      <img
+        src="../assets/images/products/insulation-composite-ai-transparent.png"
+        alt="All five UMPL insulation materials artfully arranged — NMN Nomex, DMD, Film Composite, AMA, PET Film"
+        class="p6-hero-image"
+        onerror="
+          this.style.display='none';
+          this.parentElement.querySelector('.p6-hero-fallback').style.display='flex';
+        "
+      >
 
-      <!-- DMD — Dacron/Mylar/Dacron, Class F & B -->
-      <article class="product-card" role="listitem" aria-label="DMD Dacron-Mylar-Dacron insulation">
-        <div class="product-card-image">
-          <img
-            src="../assets/images/products/dmd-insulation-transparent.png"
-            alt="DMD Dacron-Mylar-Dacron insulation material"
-            class="product-image"
-            onerror="this.parentElement.style.display='none';"
-          >
-        </div>
-        <h3 class="product-card-name">DMD</h3>
-        <span class="product-card-grade">Class F/B</span>
-        <p class="product-card-desc">
-          Polyester fibre&#8209;Mylar&#8209;Polyester fibre laminate.<br>
-          Thermal Class F (155&#176;C) and Class B (137&#176;C).<br>
-          High tensile strength. Cost-effective alternative.
-        </p>
-      </article>
+      <!-- CSS gradient fallback shown when image fails to load -->
+      <div class="p6-hero-fallback" style="display:none;" aria-hidden="true">
+        <span class="p6-fallback-label">5 Materials · 1 Source</span>
+        <span class="p6-fallback-sub">NMN · DMD · Film Composite · AMA · PET Film</span>
+      </div>
 
-      <!-- Film Composite — polyester film laminates -->
-      <article class="product-card" role="listitem" aria-label="Film composite insulation">
-        <div class="product-card-image">
-          <img
-            src="../assets/images/products/film-composite-transparent.png"
-            alt="Film Composite polyester insulation material"
-            class="product-image"
-            onerror="this.parentElement.style.display='none';"
-          >
-        </div>
-        <h3 class="product-card-name">Film Composite</h3>
-        <span class="product-card-grade">Class F</span>
-        <p class="product-card-desc">
-          Polyester film composite laminates for slot liners,<br>
-          end turns, and phase barriers.<br>
-          Customisable thickness: 0.13–0.50mm.
-        </p>
-      </article>
+    </div>
 
-      <!-- AMA — Aramid/Mylar/Aramid -->
-      <article class="product-card" role="listitem" aria-label="AMA Aramid-Mylar-Aramid insulation">
-        <div class="product-card-image">
-          <img
-            src="../assets/images/products/ama-transparent.png"
-            alt="AMA Aramid-Mylar-Aramid insulation material"
-            class="product-image"
-            onerror="this.parentElement.style.display='none';"
-          >
-        </div>
-        <h3 class="product-card-name">AMA</h3>
-        <span class="product-card-grade">Class H</span>
-        <p class="product-card-desc">
-          Aramid fibre&#8209;Mylar&#8209;Aramid fibre flexible laminate.<br>
-          Thermal Class H (180&#176;C). Superior arc resistance.<br>
-          High-voltage transformer slot insulation.
-        </p>
-      </article>
+    <!-- Product name tag row — below the hero image -->
+    <div class="p6-product-tags" role="list" aria-label="Insulation material product names">
 
-      <!-- PET Film — bare polyester film -->
-      <article class="product-card" role="listitem" aria-label="PET polyester film insulation">
-        <div class="product-card-image">
-          <img
-            src="../assets/images/products/pet-film-transparent.png"
-            alt="PET polyester film insulation material"
-            class="product-image"
-            onerror="this.parentElement.style.display='none';"
-          >
-        </div>
-        <h3 class="product-card-name">PET Film</h3>
-        <span class="product-card-grade">Class E</span>
-        <p class="product-card-desc">
-          Biaxially-oriented PET polyester film.<br>
-          Thermal Class E (120&#176;C). Ultra-smooth surface.<br>
-          IEC 60626. Capacitor and motor insulation.
-        </p>
-      </article>
+      <span class="p6-product-tag" role="listitem">NMN</span>
+      <span class="p6-product-tag" role="listitem">DMD</span>
+      <span class="p6-product-tag" role="listitem">Film Composite</span>
+      <span class="p6-product-tag" role="listitem">AMA</span>
+      <span class="p6-product-tag" role="listitem">PET Film</span>
 
-      <!-- Summary card — one-stop-shop message -->
-      <article class="product-card" role="listitem" aria-label="Complete insulation range summary" style="
-        background: linear-gradient(135deg, var(--bg-copper-lightest) 0%, var(--bg-cream) 100%);
-        border-color: var(--copper-500);
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-      ">
-        <h3 class="product-card-name" style="text-align: center;">5 Materials</h3>
-        <span class="product-card-grade" style="align-self: center;">1 Source</span>
-        <p class="product-card-desc" style="text-align: center;">
-          All insulation grades stocked in Lahore.<br>
-          One PO, one supplier, full traceability.<br>
-          Certified Class B through Class H.
-        </p>
-      </article>
+      <!-- DuPont Nomex premium badge — anchored inside the tag row alongside NMN -->
+      <span class="p6-dupont-badge" role="note" aria-label="Authentic DuPont Nomex 410 source">
+        DuPont&#8482; Nomex&#174; 410
+      </span>
 
     </div>
 
@@ -239,7 +165,7 @@
 
   <!-- =========================================================
        ZONE C — INFORMATION (3644px – 5150px)
-       Main headline + one-stop-shop subhead + spec badge row
+       Headline + subhead + 5-column product specification grid
        ========================================================= -->
   <section class="zone-c" aria-labelledby="p6-zone-c-headline">
 
@@ -251,13 +177,33 @@
       NMN Nomex &nbsp;&middot;&nbsp; DMD &nbsp;&middot;&nbsp; Film Composite &nbsp;&middot;&nbsp; AMA &nbsp;&middot;&nbsp; PET Film
     </p>
 
-    <!-- Spec badge row — certifications and grades -->
-    <div class="spec-badge-row" role="list" aria-label="Thermal class certifications">
+    <!-- 5-column product specification grid -->
+    <div class="p6-spec-grid" role="list" aria-label="Insulation material specifications">
 
-      <span class="spec-badge" role="listitem">Thermal Class B &nbsp;137&#176;C</span>
-      <span class="spec-badge" role="listitem">Thermal Class F &nbsp;155&#176;C</span>
-      <span class="spec-badge" role="listitem">Thermal Class H &nbsp;180&#176;C</span>
-      <span class="spec-badge" role="listitem">IEC 60626</span>
+      <div class="p6-spec-card" role="listitem" aria-label="NMN specification">
+        <span class="p6-spec-name">NMN</span>
+        <span class="p6-spec-value">Class H &nbsp;&middot;&nbsp; 180&#176;C</span>
+      </div>
+
+      <div class="p6-spec-card" role="listitem" aria-label="DMD specification">
+        <span class="p6-spec-name">DMD</span>
+        <span class="p6-spec-value">Class F/B &nbsp;&middot;&nbsp; 155&#176;C</span>
+      </div>
+
+      <div class="p6-spec-card" role="listitem" aria-label="Film Composite specification">
+        <span class="p6-spec-name">Film Composite</span>
+        <span class="p6-spec-value">Class F &nbsp;&middot;&nbsp; &#8805;8 kV/mm</span>
+      </div>
+
+      <div class="p6-spec-card" role="listitem" aria-label="AMA specification">
+        <span class="p6-spec-name">AMA</span>
+        <span class="p6-spec-value">Class H &nbsp;&middot;&nbsp; 180&#176;C</span>
+      </div>
+
+      <div class="p6-spec-card" role="listitem" aria-label="PET Film specification">
+        <span class="p6-spec-name">PET Film</span>
+        <span class="p6-spec-value">Class E &nbsp;&middot;&nbsp; 120&#176;C</span>
+      </div>
 
     </div>
 
@@ -265,11 +211,11 @@
 
   <!-- =========================================================
        ZONE D — DETAIL (5150px – 6054px)
-       DuPont Nomex 410 authentication panel + body bullets + contact row
+       DuPont Nomex authentication callout + body bullets + contact row
        ========================================================= -->
   <section class="zone-d" aria-label="Supplier details and contact">
 
-    <!-- DuPont Nomex authentication callout -->
+    <!-- DuPont Nomex authentication callout — key differentiator -->
     <div class="nomex-auth-box" role="note" aria-label="DuPont Nomex 410 authentication">
       <span class="nomex-auth-icon" aria-hidden="true">N</span>
       <p class="nomex-auth-text">

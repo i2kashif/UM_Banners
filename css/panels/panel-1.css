@@ -38,50 +38,17 @@
   position: relative;
 }
 
-#panel-1 .zone-a-rings {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: var(--z-texture);
-  opacity: var(--opacity-decorative);
-}
-
 #panel-1 .logo-lockup {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
   position: relative;
   z-index: var(--z-content);
 }
 
 #panel-1 .logo-lockup img {
-  width: var(--logo-width-hero);
+  width: 600px;
   height: auto;
-}
-
-#panel-1 .company-name-display {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: 72px;
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  text-align: center;
-  line-height: 1;
-  text-rendering: geometricPrecision;
-}
-
-#panel-1 .company-sub-name {
-  font-family: var(--font-body);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-body-sm);
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  text-align: center;
 }
 
 /* ============================================================
@@ -207,9 +174,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: var(--gap-sm);
+  justify-content: space-between;
   padding-top: 60px;
+  padding-bottom: 40px;
 }
 
 #panel-1 .zone-d .ccr-line {
@@ -225,6 +192,7 @@
   justify-content: center;
   gap: 120px;
   border-top-color: var(--copper-300);
+  margin-top: auto;
 }
 
 /* ============================================================

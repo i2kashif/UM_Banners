@@ -1,27 +1,30 @@
 /*
  * panel-2.css
- * Banner 2: Vertical Integration — Left Wall, Position 2
- * "Rod to Wire. Zero Hand-Offs. Full Traceability."
+ * Banner 2: Company History Timeline — Left Wall, Position 2
+ * "30 Years of Growth. From Rod to Wire."
  *
  * Background: #FAF8F5 (cream) full panel
  * Wall: Left Wall — viewed at 5–10m distance
  *
- * Key visual: Vertical process flow diagram (4 stages)
- * Cross-panel copper wire continues from Banner 1.
+ * Key visual: Central vertical timeline bar with 8 alternating entries.
+ * Timeline spans Zone B (783px–3644px). Each entry alternates left/right.
+ * Major milestones (1994, 2006, 2016, 2025) use larger nodes + badge labels.
  */
+
 
 /* ============================================================
    PANEL 2 BACKGROUND
-   Solid cream — consistent #FAF8F5 throughout.
+   Solid cream throughout.
    ============================================================ */
 
 #panel-2 {
   background: var(--bg-cream);
 }
 
+
 /* ============================================================
    ZONE A — BRAND HEADER
-   Small logo mark top-left corner within safe zone.
+   Small logo mark + company label, top-left.
    ============================================================ */
 
 #panel-2 .zone-a {
@@ -51,10 +54,11 @@
   letter-spacing: 0.10em;
 }
 
+
 /* ============================================================
-   ZONE B — HERO ZONE
-   Main headline in large Barlow Condensed Bold, left-aligned.
-   Vertical process flow SVG diagram below headline.
+   ZONE B — HERO / TIMELINE ZONE
+   Full vertical timeline. Zone spans 2861px (783–3644).
+   Layout: headline block at top, timeline fills remaining space.
    ============================================================ */
 
 #panel-2 .zone-b {
@@ -62,156 +66,454 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding-top: 60px;
-  gap: 80px;
+  padding-top: 64px;
 }
 
-#panel-2 .zone-b .hero-headline {
+
+/* ============================================================
+   TIMELINE HEADLINE BLOCK
+   Sits at the top of Zone B above the timeline proper.
+   ============================================================ */
+
+#panel-2 .timeline-headline-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 96px;
+}
+
+#panel-2 .timeline-eyebrow {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-sm);
+  color: var(--text-copper-stat);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-widest);
+  text-align: center;
+}
+
+#panel-2 .timeline-headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  text-align: center;
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
   font-size: var(--fs-h1);
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-wide);
   line-height: var(--lh-heading);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
   text-rendering: geometricPrecision;
 }
 
-#panel-2 .zone-b .hero-headline span {
+#panel-2 .timeline-headline--light {
+  color: var(--text-copper-bold);
   display: block;
 }
 
+#panel-2 .timeline-headline--accent {
+  color: var(--text-copper-headline);
+  display: block;
+}
+
+/* Copper rule below headline — decorative divider */
+#panel-2 .timeline-headline-rule {
+  width: 480px;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--copper-300) 20%,
+    var(--copper-500) 50%,
+    var(--copper-300) 80%,
+    transparent 100%
+  );
+  border-radius: 2px;
+}
+
+
 /* ============================================================
-   PROCESS FLOW DIAGRAM
-   Vertical flow with 4 stages.
-   Stages: COPPER CATHODE > COPPER ROD > ENAMELLED WIRE > FINISHED PRODUCT
-   Connected by a gradient vertical line.
+   TIMELINE WRAPPER
+   Full-width relative container. Central bar sits inside here.
+   Height is determined by the stacked entry elements.
    ============================================================ */
 
-#panel-2 .process-flow-wrapper {
+#panel-2 .timeline {
+  position: relative;
   width: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 0;
-  position: relative;
-}
-
-#panel-2 .process-flow-column {
-  display: flex;
   flex-direction: column;
-  gap: 0;
-  position: relative;
-  padding-left: 60px;
-  flex: 1;
+  align-items: stretch;
+  padding-bottom: 48px;
 }
 
-/* Vertical connecting line */
-#panel-2 .process-flow-column::before {
-  content: '';
+
+/* ============================================================
+   CENTRAL VERTICAL BAR (TBAR)
+   2.5px wide copper gradient bar — runs full height of timeline.
+   Centered horizontally at 50% of content width.
+   ============================================================ */
+
+#panel-2 .tbar {
   position: absolute;
-  left: calc(60px + 90px - 4px);  /* center of circle (180px/2 = 90px) */
-  top: 90px;                        /* half of first circle */
-  bottom: 90px;
-  width: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  border-radius: 3px;
   background: linear-gradient(
     to bottom,
-    var(--copper-700) 0%,
-    var(--copper-500) 33%,
-    var(--copper-400) 66%,
-    var(--copper-300) 100%
+    var(--copper-700)  0%,
+    var(--copper-500) 25%,
+    var(--copper-300) 50%,
+    var(--copper-500) 75%,
+    var(--copper-700) 100%
   );
-  border-radius: 4px;
-  z-index: 0;
-}
-
-#panel-2 .process-stage {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 60px;
-  position: relative;
   z-index: 1;
-  padding: 30px 0;
 }
 
-#panel-2 .process-circle {
-  flex-shrink: 0;
-  width: 180px;
-  height: 180px;
+/* Cap dots at top and bottom of the bar */
+#panel-2 .tcap {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  background: var(--bg-copper-lightest);
-  border: 6px solid var(--copper-500);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 16px;
-  position: relative;
+  background: var(--copper-500);
   z-index: 2;
 }
 
-/* Stage number indicator in circle */
-#panel-2 .process-circle-num {
-  font-family: var(--font-display);
-  font-weight: var(--fw-extrabold);
-  font-size: 72px;
-  color: var(--copper-500);
-  line-height: 1;
-  text-rendering: geometricPrecision;
+#panel-2 .tcap--top {
+  top: -9px;
 }
 
-#panel-2 .process-stage-text {
+#panel-2 .tcap--bot {
+  bottom: -9px;
+}
+
+
+/* ============================================================
+   TIMELINE ENTRY (TE)
+   Each .te contains: node (on bar), arm (connector), content (card).
+   Left entries: content on the left, right entries: content on right.
+   Minimum height ensures even vertical spacing between entries.
+   ============================================================ */
+
+#panel-2 .te {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  z-index: 3;
+  min-height: 280px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+/* LEFT entry — content on left side */
+#panel-2 .te--left {
+  flex-direction: row;
+  /* Reserve right half for empty space, left half for content */
+  padding-right: calc(50% + 60px);
+  padding-left: 0;
+}
+
+/* RIGHT entry — content on right side */
+#panel-2 .te--right {
+  flex-direction: row-reverse;
+  /* Reserve left half for empty space, right half for content */
+  padding-left: calc(50% + 60px);
+  padding-right: 0;
+}
+
+
+/* ============================================================
+   NODE — circular marker on the center bar
+   ============================================================ */
+
+#panel-2 .te-node {
+  position: absolute;
+  left: 50%;
+  top: 44px;
+  transform: translateX(-50%);
+  z-index: 6;
+}
+
+/* Standard node ring */
+#panel-2 .te-node-ring {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-cream);
+  border: 4px solid var(--copper-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* White halo to separate from bar */
+  box-shadow: 0 0 0 5px var(--bg-cream);
+}
+
+/* Major event node ring — larger, deeper copper border */
+#panel-2 .te-node-ring--major {
+  width: 52px;
+  height: 52px;
+  border: 5px solid var(--copper-700);
+  box-shadow: 0 0 0 7px var(--bg-cream);
+}
+
+/* Inner dot */
+#panel-2 .te-node-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--copper-500);
+  flex-shrink: 0;
+}
+
+#panel-2 .te--major .te-node-ring--major .te-node-dot {
+  width: 18px;
+  height: 18px;
+  background: var(--copper-700);
+}
+
+/* Adjust node top offset for major (larger node needs recentering) */
+#panel-2 .te--major .te-node {
+  top: 36px;
+}
+
+
+/* ============================================================
+   CONNECTOR ARM
+   Thin horizontal line from node to content card.
+   Left arms grow from node leftward; right arms grow rightward.
+   ============================================================ */
+
+#panel-2 .te-arm {
+  position: absolute;
+  top: 57px;
+  height: 3px;
+  z-index: 4;
+  border-radius: 2px;
+}
+
+#panel-2 .te-arm--left {
+  /* Spans from content edge to node center */
+  right: calc(50% + 2px);
+  width: 52px;
+  background: linear-gradient(
+    to right,
+    var(--copper-100),
+    var(--copper-300)
+  );
+}
+
+#panel-2 .te-arm--right {
+  left: calc(50% + 2px);
+  width: 52px;
+  background: linear-gradient(
+    to right,
+    var(--copper-300),
+    var(--copper-100)
+  );
+}
+
+/* Shift arm top for major entries (taller node) */
+#panel-2 .te--major .te-arm {
+  top: 63px;
+}
+
+
+/* ============================================================
+   CONTENT CARD
+   Text content: year prominently + description below.
+   ============================================================ */
+
+#panel-2 .te-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 18px;
+  position: relative;
 }
 
-#panel-2 .process-stage-name {
+#panel-2 .te-content--left {
+  text-align: right;
+  align-items: flex-end;
+  padding-right: 0;
+}
+
+#panel-2 .te-content--right {
+  text-align: left;
+  align-items: flex-start;
+  padding-left: 0;
+}
+
+/* Year — prominent display number */
+#panel-2 .te-year {
   font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-h3);
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-wide);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-stat-sub);   /* 120px — prominent but not stat-hero */
+  color: var(--text-copper-headline);
+  letter-spacing: var(--ls-tight);
+  line-height: 1;
   text-rendering: geometricPrecision;
-  line-height: 1.1;
+  display: block;
 }
 
-#panel-2 .process-stage-detail {
+/* Major entry years — slightly larger */
+#panel-2 .te--major .te-year {
+  font-size: 148px;
+  color: var(--text-copper-bold);
+}
+
+/* Description text */
+#panel-2 .te-text {
   font-family: var(--font-body);
   font-weight: var(--fw-medium);
   font-size: var(--fs-body);
   color: var(--text-primary);
   line-height: var(--lh-body);
+  text-rendering: optimizeLegibility;
+  max-width: 1200px;
 }
 
+/* Badge label for major milestones */
+#panel-2 .te-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 36px;
+  border-radius: var(--spec-badge-radius);
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-sm);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-rendering: optimizeLegibility;
+}
+
+#panel-2 .te-badge--major {
+  background: var(--bg-copper-lightest);
+  border: 3px solid var(--copper-500);
+  color: var(--text-copper-bold);
+}
+
+
 /* ============================================================
-   ZONE C — INFORMATION
-   Subhead + body bullets, left-aligned.
+   ZONE C — SUMMARY STATS
+   Three landmark stats in a flex row with dividers.
    ============================================================ */
 
 #panel-2 .zone-c {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   padding-top: 80px;
-  gap: var(--gap-md);
+  gap: 80px;
 }
 
-#panel-2 .zone-c .subhead {
+/* Decorative rule with diamond center — matches History.html divider style */
+#panel-2 .timeline-rule-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+}
+
+#panel-2 .timeline-rule-line {
+  flex: 1;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--copper-300) 40%,
+    var(--copper-500) 100%
+  );
+  border-radius: 2px;
+}
+
+#panel-2 .timeline-rule-line:last-child {
+  background: linear-gradient(
+    to left,
+    transparent 0%,
+    var(--copper-300) 40%,
+    var(--copper-500) 100%
+  );
+}
+
+#panel-2 .timeline-rule-diamond {
+  width: 20px;
+  height: 20px;
+  background: var(--copper-500);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+#panel-2 .zone-c-subhead {
   font-size: var(--fs-body-lg);
-  line-height: 1.6;
+  line-height: 1.5;
+  text-align: center;
+  max-width: 2200px;
 }
 
-#panel-2 .zone-c .body-list li {
-  font-weight: var(--fw-medium);
+/* Stats row — centered with vertical dividers between blocks */
+#panel-2 .zone-c-stats {
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
 }
+
+/* Stat number superscript (the + sign) */
+#panel-2 .stat-number-sup {
+  font-size: 0.55em;
+  vertical-align: super;
+  font-weight: var(--fw-extrabold);
+  line-height: 1;
+  color: var(--copper-500);
+}
+
+/* Vertical dividers between stat blocks */
+#panel-2 .stat-divider {
+  width: 4px;
+  height: 200px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--copper-300) 30%,
+    var(--copper-500) 50%,
+    var(--copper-300) 70%,
+    transparent 100%
+  );
+  align-self: center;
+  flex-shrink: 0;
+  border-radius: 2px;
+  margin: 0 120px;
+}
+
+/* Stat blocks inside zone-c-stats need even spacing */
+#panel-2 .zone-c-stats .stat-block {
+  flex: 1;
+}
+
+/* Stat label line-height adjustment for two-line labels */
+#panel-2 .zone-c-stats .stat-label {
+  line-height: 1.3;
+  text-align: center;
+}
+
 
 /* ============================================================
-   ZONE D — DETAIL
-   Closing statement: "One Roof. Complete Control."
+   ZONE D — CLOSING STATEMENT + CONTACT
    ============================================================ */
 
 #panel-2 .zone-d {
@@ -241,8 +543,10 @@
   margin-top: var(--gap-sm);
 }
 
+
 /* ============================================================
    ZONE E — FURNITURE RESERVE
+   Subtle warm gradient fade toward bottom edge.
    ============================================================ */
 
 #panel-2 .zone-e {

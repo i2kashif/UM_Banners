@@ -134,6 +134,12 @@ body {
   right: var(--content-inset);
   height: var(--zone-d-height);
   z-index: var(--z-content);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: 60px;
+  padding-bottom: 40px;
 }
 
 /* Zone E: Furniture Reserve | 6054px–7411px */
@@ -235,6 +241,7 @@ body {
   z-index: var(--z-flow);
   pointer-events: none;
   overflow: hidden;
+  display: none; /* TEMPORARILY DISABLED — remove this line to re-enable */
 }
 
 .flow-svg-layer svg {

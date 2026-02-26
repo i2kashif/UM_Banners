@@ -23,6 +23,7 @@
   <!-- =========================================================
        FLOW SVG LAYER — Panel 5 slice
        Panel 5: x offset = 4 × 3012 = 12048
+       Entry y ~4280 (Panel 4 exit), exit y ~3820 (Panel 6 entry)
        ========================================================= -->
   <div class="flow-svg-layer" aria-hidden="true">
     <svg
@@ -46,12 +47,12 @@
           </feMerge>
         </filter>
       </defs>
-      <!-- Panel 5 slice: x=12048–15060, wire rises gently across centre -->
-      <!-- Starts at y=4280 (matching Panel 4 exit), rises to y=3980 at Panel 6 entry -->
+      <!-- Primary wire — smooth cubic Bézier only, gently rises left→right -->
       <path
         d="M 12048,4280
-           C 12600,4200  13000,4100  13800,3950
-           C 14400,3840  14800,3820  15060,3820"
+           C 12348,4210 12748,4110 13200,3990
+           C 13650,3870 14200,3840 14600,3830
+           C 14820,3825 14980,3822 15060,3820"
         fill="none"
         stroke="url(#p5-wire-grad)"
         stroke-width="32"
@@ -61,8 +62,9 @@
       <!-- Secondary parallel strand — 60px offset below primary -->
       <path
         d="M 12048,4340
-           C 12600,4260  13000,4160  13800,4010
-           C 14400,3900  14800,3880  15060,3880"
+           C 12348,4270 12748,4170 13200,4050
+           C 13650,3930 14200,3900 14600,3890
+           C 14820,3885 14980,3882 15060,3880"
         fill="none"
         stroke="#F5B880"
         stroke-width="10"
@@ -103,46 +105,100 @@
 
   <!-- =========================================================
        ZONE B — HERO VISUAL (783px – 3644px)
-       Left: copper rod coil product image / placeholder
-       Right: OFC 99.99% hero stat + CCR technology badge
+       Dual product display: copper rod (left) + aluminium rod (right)
+       Stats for each product below respective images
        ========================================================= -->
-  <section class="zone-b" aria-label="Copper rod product and key specification">
+  <section class="zone-b" aria-label="Copper and aluminium rod products and key specifications">
 
-    <!-- Decorative background rings -->
-    <svg class="product-bg-rings" width="2000" height="2000" viewBox="0 0 2000 2000"
+    <!-- Decorative background rings — centred in zone -->
+    <svg class="product-bg-rings" width="2400" height="2400" viewBox="0 0 2400 2400"
          aria-hidden="true" role="presentation">
-      <circle cx="1000" cy="1000" r="950" fill="none" stroke="#F5B880" stroke-width="3"/>
-      <circle cx="1000" cy="1000" r="780" fill="none" stroke="#F5B880" stroke-width="3"/>
-      <circle cx="1000" cy="1000" r="610" fill="none" stroke="#CE7340" stroke-width="3"/>
-      <circle cx="1000" cy="1000" r="440" fill="none" stroke="#CE7340" stroke-width="2"/>
-      <circle cx="1000" cy="1000" r="270" fill="none" stroke="#B2673E" stroke-width="2"/>
+      <circle cx="1200" cy="1200" r="1150" fill="none" stroke="#F5B880" stroke-width="3"/>
+      <circle cx="1200" cy="1200" r="940"  fill="none" stroke="#F5B880" stroke-width="3"/>
+      <circle cx="1200" cy="1200" r="730"  fill="none" stroke="#CE7340" stroke-width="3"/>
+      <circle cx="1200" cy="1200" r="520"  fill="none" stroke="#CE7340" stroke-width="2"/>
+      <circle cx="1200" cy="1200" r="310"  fill="none" stroke="#B2673E" stroke-width="2"/>
     </svg>
 
-    <!-- Product coil figure -->
-    <figure class="product-hero-frame" style="margin: 0;" aria-label="Copper rod coil">
-      <img
-        src="../assets/images/products/ccr-copper-rod-ai-transparent.png"
-        alt="CCR Copper Rod — OFC 99.99% purity, European CCR continuous cast and roll process"
-        class="product-image"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-      >
-      <!-- CSS coil placeholder — visible if no image -->
-      <div class="rod-placeholder" aria-hidden="true" style="display: none;"></div>
-    </figure>
+    <!-- Dual product columns wrapper -->
+    <div class="zone-b-dual-col">
 
-    <!-- OFC stat + CCR badge — right column -->
-    <div class="zone-b-stat-col" role="group" aria-label="Key specifications">
+      <!-- LEFT COLUMN — Copper Rod -->
+      <div class="zone-b-product-col" aria-label="Copper rod">
 
-      <div class="ofc-stat-hero">
-        <span class="ofc-number">99.99%</span>
-        <span class="ofc-label">OFC Purity</span>
+        <!-- Product label above image -->
+        <span class="zone-b-product-label zone-b-product-label--copper">Copper Rod</span>
+
+        <!-- Copper rod image -->
+        <figure class="product-hero-frame product-hero-frame--half" style="margin: 0;" aria-label="Copper rod coil">
+          <img
+            src="../assets/images/products/ccr-copper-rod-ai-transparent.png"
+            alt="CCR Copper Rod — OFC 99.99% purity, European CCR continuous cast and roll process"
+            class="product-image"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <!-- CSS coil placeholder — visible if no image -->
+          <div class="rod-placeholder" aria-hidden="true" style="display: none;"></div>
+        </figure>
+
+        <!-- Copper stats -->
+        <div class="zone-b-product-stats" role="group" aria-label="Copper rod specifications">
+          <div class="zone-b-stat-item">
+            <span class="zone-b-stat-number">99.99%</span>
+            <span class="zone-b-stat-label">OFC Purity</span>
+          </div>
+          <div class="zone-b-stat-divider" aria-hidden="true"></div>
+          <div class="zone-b-stat-item">
+            <span class="zone-b-stat-number" style="font-size: var(--fs-stat-sub);">&#8805;101%</span>
+            <span class="zone-b-stat-label">IACS Conductivity</span>
+          </div>
+        </div>
+
       </div>
 
-      <span class="ccr-tech-badge">European CCR Technology</span>
+      <!-- CENTRE DIVIDER -->
+      <div class="zone-b-centre-divider" aria-hidden="true">
+        <div class="zone-b-divider-line"></div>
+        <span class="ccr-tech-badge">European CCR Technology</span>
+        <div class="zone-b-divider-line"></div>
+      </div>
 
-      <div class="stat-block">
-        <span class="stat-number" style="font-size: var(--fs-stat-sub);">&#8805;101%</span>
-        <span class="stat-label">IACS Conductivity</span>
+      <!-- RIGHT COLUMN — Aluminium Rod -->
+      <div class="zone-b-product-col" aria-label="Aluminium rod">
+
+        <!-- Product label above image -->
+        <span class="zone-b-product-label zone-b-product-label--aluminium">Aluminium Rod</span>
+
+        <!-- Aluminium rod image -->
+        <figure class="product-hero-frame product-hero-frame--half" style="margin: 0;" aria-label="Aluminium rod coil">
+          <img
+            src="../assets/images/products/aluminium-rod-ai-transparent.png"
+            alt="EC Grade Aluminium Rod — EC 1350 alloy, 9.5mm and 12mm, European CCR second line"
+            class="product-image product-image--aluminium"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <!-- CSS aluminium coil placeholder — visible if no image -->
+          <div class="rod-placeholder rod-placeholder--aluminium" aria-hidden="true" style="display: none;"></div>
+        </figure>
+
+        <!-- Aluminium stats -->
+        <div class="zone-b-product-stats" role="group" aria-label="Aluminium rod specifications">
+          <div class="zone-b-stat-item">
+            <span class="zone-b-stat-number zone-b-stat-number--al">EC Grade</span>
+            <span class="zone-b-stat-label">Alloy EC 1350</span>
+          </div>
+          <div class="zone-b-stat-divider" aria-hidden="true"></div>
+          <div class="zone-b-stat-item">
+            <span class="zone-b-stat-number zone-b-stat-number--al" style="font-size: var(--fs-stat-sub);">9.5 &amp; 12mm</span>
+            <span class="zone-b-stat-label">Rod Diameter</span>
+          </div>
+          <div class="zone-b-stat-divider" aria-hidden="true"></div>
+          <div class="zone-b-stat-item">
+            <span class="zone-b-stat-number zone-b-stat-number--al" style="font-size: var(--fs-stat-sub);">&#8805;61%</span>
+            <span class="zone-b-stat-label">IACS Conductivity</span>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -151,22 +207,22 @@
 
   <!-- =========================================================
        ZONE C — INFORMATION (3644px – 5150px)
-       Headline + subhead + three rod grade specification cards
+       Headline + subhead + four rod grade specification cards
        CRITICAL: &#8805; entity for ≥ symbol
        ========================================================= -->
   <section class="zone-c" aria-labelledby="p5-zone-c-headline">
 
     <!-- Main headline -->
     <h1 id="p5-zone-c-headline" class="zone-c-headline">
-      European CCR Technology. OFC 99.99%. Made Here.
+      Copper &amp; Aluminium. European CCR. Made Here.
     </h1>
 
     <!-- Subhead -->
     <p class="subhead">
-      Copper rod: OFC &nbsp;&middot;&nbsp; ETP &nbsp;&middot;&nbsp; FRHC &mdash; three grades, all &#8805;101% IACS
+      Copper rod: OFC &nbsp;&middot;&nbsp; ETP &nbsp;&middot;&nbsp; FRHC &nbsp;|&nbsp; Aluminium rod: EC Grade &mdash; all in-house CCR
     </p>
 
-    <!-- Three rod grade cards: OFC / ETP / FRHC -->
+    <!-- Four rod grade cards: OFC / ETP / FRHC / EC Grade -->
     <div class="rod-grades-grid" role="list" aria-label="Rod grade specifications">
 
       <!-- OFC — premium grade -->
@@ -176,7 +232,7 @@
         <p class="rod-grade-iacs">&#8805;101% IACS conductivity</p>
         <p class="rod-grade-desc">
           Oxygen-Free Copper. Zero oxygen inclusions. Highest conductivity and ductility.
-          Precision wound coils 2.5–12mm. Preferred for fine enamelled wire downstream.
+          Precision wound coils 2.5&ndash;12mm. Preferred for fine enamelled wire downstream.
         </p>
       </article>
 
@@ -187,7 +243,7 @@
         <p class="rod-grade-iacs">&#8805;101% IACS conductivity</p>
         <p class="rod-grade-desc">
           Electrolytic Tough Pitch Copper. Standard commercial grade. IEC 60028 compliant.
-          Available 6–25mm rod. Broad application in power cables and winding wire.
+          Available 6&ndash;25mm rod. Broad application in power cables and winding wire.
         </p>
       </article>
 
@@ -200,6 +256,17 @@
           Fire-Refined High Conductivity. Produced from recycled copper scrap.
           Same electrical performance, reduced carbon footprint. Qualifies for
           recycled-content certifications.
+        </p>
+      </article>
+
+      <!-- EC Grade — aluminium rod -->
+      <article class="rod-grade-card rod-grade-card--ec" role="listitem">
+        <h3 class="rod-grade-name rod-grade-name--al">EC Grade</h3>
+        <span class="rod-grade-purity rod-grade-purity--al">99.70%</span>
+        <p class="rod-grade-iacs rod-grade-iacs--al">&#8805;61% IACS conductivity</p>
+        <p class="rod-grade-desc">
+          Electrical Conductor Grade Aluminium. EC 1350 alloy, 9.5mm and 12mm rod.
+          For overhead conductors, transformer windings, and winding wire.
         </p>
       </article>
 
@@ -228,7 +295,7 @@
       <li>European CCR line &mdash; continuous cast &amp; roll process</li>
       <li>OFC Grade: 99.99% purity &mdash; &#8804;10 ppm oxygen</li>
       <li>FRHC Grade: 100% recycled copper &mdash; 94% CO&#8322; reduction</li>
-      <li>Aluminium rod: EC grade, 9.5 mm &amp; 12 mm</li>
+      <li class="body-list-item--al">Aluminium rod: EC grade, 9.5 mm &amp; 12 mm &mdash; second CCR line installed 2021</li>
     </ul>
 
     <div class="contact-row" style="margin-top: var(--gap-sm);">

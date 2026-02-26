@@ -50,19 +50,19 @@
       <!-- Panel 1 slice of the cross-panel wire (viewBox 0 0 3012 7441) -->
       <path
         d="M -200,5420
-           C 600,5300   1400,5100  2200,4700
-           C 2800,4400  3012,4350  3200,4300"
+           C 400,5300 1200,5000 1800,4700
+           C 2400,4500 2800,4380 3212,4350"
         fill="none"
         stroke="url(#p1-wire-grad)"
         stroke-width="32"
         stroke-linecap="round"
         filter="url(#p1-glow)"
       />
-      <!-- Secondary parallel strand -->
+      <!-- Secondary parallel strand (60px y-offset below primary) -->
       <path
         d="M -200,5480
-           C 600,5360   1400,5160  2200,4760
-           C 2800,4460  3012,4410  3200,4360"
+           C 400,5360 1200,5060 1800,4760
+           C 2400,4560 2800,4440 3212,4410"
         fill="none"
         stroke="#F5B880"
         stroke-width="10"
@@ -79,38 +79,26 @@
        ========================================================= -->
   <header class="zone-a" role="banner">
 
-    <!-- Decorative concentric rings behind logo -->
-    <svg class="zone-a-rings" width="1200" height="1200" viewBox="0 0 1200 1200"
-         aria-hidden="true" role="presentation">
-      <circle cx="600" cy="600" r="550" fill="none" stroke="#F5B880" stroke-width="2"/>
-      <circle cx="600" cy="600" r="450" fill="none" stroke="#F5B880" stroke-width="2"/>
-      <circle cx="600" cy="600" r="350" fill="none" stroke="#CE7340" stroke-width="2"/>
-      <circle cx="600" cy="600" r="250" fill="none" stroke="#CE7340" stroke-width="2"/>
-      <circle cx="600" cy="600" r="150" fill="none" stroke="#B2673E" stroke-width="2"/>
-      <circle cx="600" cy="600" r="600" fill="none" stroke="#F5B880" stroke-width="1" stroke-dasharray="12,8"/>
-    </svg>
-
     <div class="logo-lockup" style="position: relative; z-index: 6;">
-      <!-- Logo image — using text lockup as placeholder until Logo.png resolution is verified -->
       <figure style="margin: 0;">
         <img
           src="../assets/images/branding/Logo.png"
-          alt="Universal Metals Pakistan Limited"
+          alt="Universal Metals — Wires, Cables, Insulations"
           class="logo-image"
-          width="240"
+          width="600"
           height="auto"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
         >
         <!-- CSS fallback logo if image fails to load -->
         <div class="logo-fallback" style="
           display: none;
-          flex-direction: row;
+          flex-direction: column;
           align-items: center;
           gap: 16px;
         ">
           <div style="
-            width: 240px;
-            height: 240px;
+            width: 600px;
+            height: 600px;
             border-radius: 50%;
             background: linear-gradient(135deg, #8B4A28 0%, #F5B880 50%, #CE7340 100%);
             display: flex;
@@ -120,7 +108,7 @@
             <span style="
               font-family: 'Barlow Condensed', Arial, sans-serif;
               font-weight: 800;
-              font-size: 96px;
+              font-size: 160px;
               color: #FFFFFF;
               letter-spacing: 0.02em;
               text-rendering: geometricPrecision;
@@ -128,9 +116,6 @@
           </div>
         </div>
       </figure>
-
-      <p class="company-name-display">Universal Metals</p>
-      <p class="company-sub-name">Pakistan Limited &nbsp;·&nbsp; Est. 1996</p>
     </div>
 
   </header>
