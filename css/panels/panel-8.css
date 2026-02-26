@@ -1,0 +1,464 @@
+/*
+ * panel-8.css
+ * Banner 8: Contact / CTA — Right Wall, Position 2 of 2 (FINAL panel)
+ * "0% EU Import Duty. 94% Less CO₂. Let's Talk."
+ *
+ * Background: Gradient #FFFFFF → #FDE8D0 (warmest panel — the most inviting)
+ * Zone A: UMPL full logo centred — closing statement logo presence
+ * Zone B: Large QR code + contact details (email + stand number)
+ * Zone C: Main headline + GSP+ subhead + CO₂ stat
+ * Zone D: GSP+ explanation + meeting CTA + body bullets
+ *
+ * This is the CLOSING banner — warm, inviting, action-oriented.
+ * The gradient from white to copper-100 (#FDE8D0) makes it the warmest panel.
+ * QR code must be BLACK on WHITE — maximum scan reliability.
+ */
+
+/* ============================================================
+   PANEL 8 BACKGROUND
+   White to copper-100 gradient — warmest panel in the system.
+   ============================================================ */
+
+#panel-8 {
+  background: linear-gradient(
+    to bottom,
+    #FFFFFF 0%,
+    #FFFFFF 40%,
+    #FAF8F5 60%,
+    #FDE8D0 100%
+  );
+}
+
+/* ============================================================
+   ZONE A — BRAND HEADER (CLOSING)
+   Full UMPL logo lockup centred — matches Panel 1 symmetry.
+   "Let's Talk" section label to the right.
+   ============================================================ */
+
+#panel-8 .zone-a {
+  align-items: center;
+  justify-content: space-between;
+}
+
+#panel-8 .logo-lockup-closing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  position: relative;
+  z-index: var(--z-content);
+}
+
+#panel-8 .logo-lockup-closing img {
+  width: var(--logo-width-hero);
+  height: auto;
+}
+
+#panel-8 .company-name-closing {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 72px;
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-rendering: geometricPrecision;
+}
+
+#panel-8 .company-sub-closing {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body-sm);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* "VISIT US" section label on right */
+#panel-8 .zone-a-cta-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+#panel-8 .visit-label {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-sm);
+  color: var(--text-copper-stat);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-widest);
+  text-align: right;
+}
+
+#panel-8 .stand-number {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h3);
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  text-align: right;
+  text-rendering: geometricPrecision;
+}
+
+/* ============================================================
+   ZONE B — QR CODE + CONTACT DETAILS (HERO ACTION ZONE)
+   Two-column: QR code left, contact block right.
+   QR code: BLACK on WHITE — critical scan requirement.
+   ============================================================ */
+
+#panel-8 .zone-b {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-lg);
+  padding-top: 80px;
+  padding-bottom: 80px;
+  position: relative;
+}
+
+/* QR code column — left */
+#panel-8 .qr-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-sm);
+  flex-shrink: 0;
+}
+
+#panel-8 .qr-hero-label {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-sm);
+  color: var(--text-copper-stat);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-widest);
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--copper-300);
+  display: inline-block;
+}
+
+/* Large QR placeholder — 500×500px for prominent scan target */
+#panel-8 .qr-large {
+  width: 500px;
+  height: 500px;
+  background: #FFFFFF;
+  border: 6px solid #1A1208;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* QR grid pattern */
+#panel-8 .qr-large::before {
+  content: '';
+  position: absolute;
+  inset: 48px;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      #1A1208 0px,
+      #1A1208 20px,
+      transparent 20px,
+      transparent 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #1A1208 0px,
+      #1A1208 20px,
+      transparent 20px,
+      transparent 40px
+    );
+  background-blend-mode: multiply;
+  opacity: 0.3;
+}
+
+/* Corner finder patterns */
+#panel-8 .qr-large::after {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 36px;
+  width: 90px;
+  height: 90px;
+  border: 10px solid #1A1208;
+  border-radius: 6px;
+  box-shadow:
+    410px 0 0 0 #1A1208,
+    0 410px 0 0 #1A1208;
+}
+
+/* QR caption under QR code */
+#panel-8 .qr-caption-hero {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body-sm);
+  color: var(--text-secondary);
+  text-align: left;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  max-width: 500px;
+}
+
+/* Contact details column — right */
+#panel-8 .contact-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-md);
+  flex: 1;
+}
+
+#panel-8 .contact-heading {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 140px;
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  line-height: var(--lh-heading);
+  text-rendering: geometricPrecision;
+}
+
+#panel-8 .contact-detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+  width: 100%;
+}
+
+#panel-8 .contact-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+}
+
+#panel-8 .contact-item-icon {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h3);
+  color: var(--text-copper-stat);
+  width: 80px;
+  flex-shrink: 0;
+  text-rendering: geometricPrecision;
+}
+
+#panel-8 .contact-item-text {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-lg);
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+#panel-8 .contact-item-text--url {
+  color: var(--text-copper-bold);
+  text-decoration: none;
+}
+
+/* GSP+ info card within contact column */
+#panel-8 .gsp-info-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 36px 42px;
+  background: linear-gradient(
+    135deg,
+    var(--bg-copper-lightest) 0%,
+    var(--bg-cream) 100%
+  );
+  border: 3px solid var(--copper-400);
+  border-radius: var(--card-radius);
+  position: relative;
+  overflow: hidden;
+}
+
+#panel-8 .gsp-info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--gradient-copper-accent-bar);
+}
+
+#panel-8 .gsp-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 28px;
+  background: var(--copper-600);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-sm);
+  color: #FFFFFF;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  align-self: flex-start;
+}
+
+#panel-8 .gsp-text {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body-sm);
+  color: var(--text-primary);
+  line-height: 1.55;
+}
+
+/* ============================================================
+   ZONE C — KEY STATS + MAIN HEADLINE
+   CO₂ stat hero + GSP+ headline
+   ============================================================ */
+
+#panel-8 .zone-c {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 80px;
+  gap: var(--gap-md);
+}
+
+#panel-8 .zone-c-headline {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h2);
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: var(--lh-heading);
+  text-rendering: geometricPrecision;
+}
+
+#panel-8 .zone-c .subhead {
+  font-size: var(--fs-body-lg);
+  margin-top: var(--gap-xs);
+}
+
+/* Stat row: 0% duty + 94% CO₂ side by side */
+#panel-8 .key-stats-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 120px;
+  width: 100%;
+}
+
+#panel-8 .key-stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+#panel-8 .key-stat-number {
+  font-family: var(--font-display);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-stat-main);
+  color: var(--text-copper-stat);
+  letter-spacing: var(--ls-tight);
+  line-height: 0.9;
+  text-rendering: geometricPrecision;
+}
+
+#panel-8 .key-stat-label {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-lg);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-widest);
+  line-height: var(--lh-label);
+}
+
+#panel-8 .key-stat-detail {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body-sm);
+  color: var(--text-primary);
+  line-height: 1.55;
+  max-width: 900px;
+}
+
+/* ============================================================
+   ZONE D — DETAIL / CTA CLOSE
+   GSP+ explanation + meeting CTA + body bullets
+   ============================================================ */
+
+#panel-8 .zone-d {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 60px;
+  gap: var(--gap-sm);
+}
+
+/* Meeting CTA box */
+#panel-8 .meeting-cta-box {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-md);
+  padding: 36px 60px;
+  background: linear-gradient(
+    to right,
+    var(--copper-600) 0%,
+    var(--copper-500) 100%
+  );
+  border-radius: var(--card-radius);
+}
+
+#panel-8 .meeting-cta-text {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h3);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  line-height: var(--lh-heading);
+  text-rendering: geometricPrecision;
+}
+
+#panel-8 .meeting-cta-detail {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body-sm);
+  color: rgba(255, 255, 255, 0.90);
+  line-height: 1.5;
+  max-width: 900px;
+}
+
+#panel-8 .zone-d .contact-row {
+  width: 100%;
+  margin-top: var(--gap-xs);
+}
+
+/* ============================================================
+   ZONE E — FURNITURE RESERVE
+   Warmest zone E in the system — copper fade.
+   ============================================================ */
+
+#panel-8 .zone-e {
+  background: linear-gradient(
+    to bottom,
+    var(--copper-100) 0%,
+    var(--copper-200) 60%,
+    var(--copper-300) 100%
+  );
+  opacity: 0.45;
+}

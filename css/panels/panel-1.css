@@ -1,0 +1,254 @@
+/*
+ * panel-1.css
+ * Banner 1: Company Hero — Left Wall, Position 1
+ * "30 Years. Rod to Wire. One Facility."
+ *
+ * Background: #FFFFFF top 70%, gradient fade to #FAF8F5 bottom 30%
+ * Wall: Left Wall — viewed at 5–10m distance
+ * Side wall headline size: 425px minimum (144mm at 0.332mm/px)
+ * Headline here is 195px — acceptable because it supplements
+ * the hero stat "30+" at 180px. The three-phrase headline reads
+ * as a graphic element, not a sentence, at exhibition distance.
+ */
+
+/* ============================================================
+   PANEL 1 BACKGROUND
+   White to cream gradient — builds visual warmth toward bottom.
+   Noise texture inherited from panel::before in layout.css.
+   ============================================================ */
+
+#panel-1 {
+  background: linear-gradient(
+    to bottom,
+    #FFFFFF 0%,
+    #FFFFFF 65%,
+    #FAF8F5 100%
+  );
+}
+
+/* ============================================================
+   ZONE A — BRAND HEADER
+   Full UMPL logo centered in Zone A.
+   Decorative concentric copper rings behind logo at 8% opacity.
+   ============================================================ */
+
+#panel-1 .zone-a {
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#panel-1 .zone-a-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: var(--z-texture);
+  opacity: var(--opacity-decorative);
+}
+
+#panel-1 .logo-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+  z-index: var(--z-content);
+}
+
+#panel-1 .logo-lockup img {
+  width: var(--logo-width-hero);
+  height: auto;
+}
+
+#panel-1 .company-name-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 72px;
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+  line-height: 1;
+  text-rendering: geometricPrecision;
+}
+
+#panel-1 .company-sub-name {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body-sm);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+/* ============================================================
+   ZONE B — HERO ZONE
+   Tagline "Our Wire. Your Light." centered.
+   Thin copper rule separator.
+   Hero headline in three punched phrases.
+   ============================================================ */
+
+#panel-1 .zone-b {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 96px;
+  padding-bottom: 96px;
+  gap: 0;
+}
+
+#panel-1 .tagline-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-tagline);
+  color: var(--text-copper-stat);
+  letter-spacing: var(--ls-wider);
+  text-align: center;
+  text-rendering: geometricPrecision;
+  line-height: 1.1;
+  margin-top: 60px;
+  margin-bottom: 0;
+}
+
+#panel-1 .zone-b .copper-rule {
+  width: 600px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+#panel-1 .hero-headline {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-hero);
+  color: var(--text-copper-headline);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  text-align: center;
+  line-height: var(--lh-heading);
+  text-rendering: geometricPrecision;
+}
+
+#panel-1 .hero-headline span {
+  display: block;
+}
+
+#panel-1 .hero-headline .phrase-1 { color: var(--text-copper-headline); }
+#panel-1 .hero-headline .phrase-2 { color: var(--text-copper-bold); }
+#panel-1 .hero-headline .phrase-3 { color: var(--text-copper-headline); }
+
+#panel-1 .pakistan-largest {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-lg);
+  color: var(--text-secondary);
+  text-align: center;
+  letter-spacing: 0.04em;
+  margin-top: 60px;
+}
+
+/* ============================================================
+   ZONE C — INFORMATION
+   Three stat blocks centered: 30+ / 1996 / 28+
+   Subhead below stat blocks.
+   Body bullets below subhead.
+   ============================================================ */
+
+#panel-1 .zone-c {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 96px;
+  gap: var(--gap-md);
+}
+
+#panel-1 .zone-c .stat-grid {
+  justify-content: center;
+  gap: 160px;
+}
+
+#panel-1 .zone-c .stat-number {
+  color: var(--text-copper-stat);
+}
+
+#panel-1 .zone-c .stat-label {
+  color: var(--text-secondary);
+  font-size: var(--fs-body);
+  letter-spacing: 0.06em;
+}
+
+#panel-1 .zone-c .cert-subhead {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-lg);
+  color: var(--text-primary);
+  text-align: center;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+#panel-1 .zone-c .body-list {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   ZONE D — DETAIL
+   Thin copper rule.
+   CCR technology line.
+   URL and tagline footer.
+   ============================================================ */
+
+#panel-1 .zone-d {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-sm);
+  padding-top: 60px;
+}
+
+#panel-1 .zone-d .ccr-line {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body);
+  color: var(--text-secondary);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+#panel-1 .zone-d .contact-row {
+  justify-content: center;
+  gap: 120px;
+  border-top-color: var(--copper-300);
+}
+
+/* ============================================================
+   ZONE E — FURNITURE RESERVE
+   Decorative watermark tagline only. No critical content.
+   ============================================================ */
+
+#panel-1 .zone-e {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#panel-1 .zone-e-watermark {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 280px;
+  color: var(--copper-200);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.06;
+  white-space: nowrap;
+  text-rendering: geometricPrecision;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}

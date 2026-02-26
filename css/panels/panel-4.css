@@ -1,0 +1,231 @@
+/*
+ * panel-4.css
+ * Banner 4: Paper Covered Strip — Centre Wall, Position 2 of 4
+ * "PCCS & PCAS — OFC Copper, TUK Paper, IEC 60076"
+ *
+ * Background: #FAF8F5 (cream)
+ * Zone A: Product name "PAPER COVERED COPPER STRIP" + small logo
+ * Zone B: Hero product photograph (PCCS coil, cross-section)
+ * Zone C: Headline + "TUK Paper" premium badge + subhead
+ * Zone D: Body bullets + application context
+ *
+ * PCCS = Paper Covered Copper Strip
+ * PCAS = Paper Covered Aluminium Strip
+ * TUK = Thermally Upgraded Kraft paper
+ */
+
+/* ============================================================
+   PANEL 4 BACKGROUND
+   Solid cream — alternating with white across centre wall.
+   ============================================================ */
+
+#panel-4 {
+  background: var(--bg-cream);
+}
+
+/* ============================================================
+   ZONE A — PRODUCT NAME
+   Slightly smaller font (170px) to fit the longer name.
+   Logo mark top-left.
+   ============================================================ */
+
+#panel-4 .zone-a {
+  align-items: center;
+  justify-content: space-between;
+}
+
+#panel-4 .product-name-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h1-sm);
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  line-height: var(--lh-heading);
+  text-rendering: geometricPrecision;
+}
+
+#panel-4 .zone-a-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+#panel-4 .zone-a-logo img {
+  width: var(--logo-width-sm);
+  height: auto;
+}
+
+/* ============================================================
+   ZONE B — HERO PRODUCT IMAGE
+   PCCS coil showing layered paper insulation texture.
+   Cross-section view preferred.
+   Photo: ~60% zone width, centered.
+   ============================================================ */
+
+#panel-4 .zone-b {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#panel-4 .product-hero-frame {
+  width: 60%;
+  max-height: 2500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: var(--z-photo);
+  isolation: isolate;
+}
+
+#panel-4 .product-hero-frame img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 24px 72px rgba(178, 103, 62, 0.22));
+}
+
+/* PCCS coil placeholder */
+#panel-4 .strip-placeholder {
+  width: 1600px;
+  height: 1100px;
+  background: linear-gradient(
+    to right,
+    var(--copper-100) 0%,
+    var(--copper-300) 20%,
+    var(--copper-400) 40%,
+    var(--copper-300) 55%,
+    var(--copper-100) 60%,
+    /* Paper layers */
+    #D4BC8A 65%,
+    #C4A870 70%,
+    #D4BC8A 75%,
+    var(--copper-300) 80%,
+    var(--copper-400) 90%,
+    var(--copper-300) 100%
+  );
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Cross-section marker lines */
+#panel-4 .strip-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 60%;
+  width: 6px;
+  background: var(--copper-700);
+  opacity: 0.6;
+}
+
+#panel-4 .strip-placeholder-label {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  color: var(--copper-700);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 24px;
+  background: rgba(250, 248, 245, 0.7);
+  border-radius: 12px;
+}
+
+/* ============================================================
+   ZONE C — INFORMATION
+   Headline: PCCS & PCAS — OFC Copper, TUK Paper, IEC 60076
+   TUK Paper premium badge.
+   Subhead.
+   ============================================================ */
+
+#panel-4 .zone-c {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 80px;
+  gap: var(--gap-md);
+}
+
+#panel-4 .zone-c-headline {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h2);
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: var(--lh-heading);
+  text-rendering: geometricPrecision;
+}
+
+#panel-4 .tuk-badge-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+#panel-4 .zone-c .subhead {
+  font-size: var(--fs-body-lg);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   ZONE D — DETAIL
+   Body bullets + application context note.
+   ============================================================ */
+
+#panel-4 .zone-d {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 60px;
+  gap: var(--gap-sm);
+}
+
+#panel-4 .application-note {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body);
+  color: var(--text-secondary);
+  font-style: normal;
+  letter-spacing: 0.01em;
+  border-left: 6px solid var(--copper-300);
+  padding-left: 36px;
+  margin-top: var(--gap-xs);
+}
+
+#panel-4 .zone-d .contact-row {
+  width: 100%;
+  margin-top: var(--gap-sm);
+}
+
+/* ============================================================
+   ZONE E — FURNITURE RESERVE
+   ============================================================ */
+
+#panel-4 .zone-e {
+  background: linear-gradient(
+    to bottom,
+    var(--bg-cream) 0%,
+    var(--copper-100) 60%,
+    var(--copper-200) 100%
+  );
+  opacity: 0.4;
+}

@@ -1,0 +1,382 @@
+/*
+ * panel-5.css
+ * Banner 5: Copper / Aluminium Rod (CCR) — Centre Wall, Position 3 of 4
+ * "European CCR Technology. OFC 99.99%. Made Here."
+ *
+ * Background: #FFFFFF (white) — clean industrial product presentation
+ * Wall: Centre Wall — maximum visitor traffic
+ * Zone A: Product name "COPPER & ALUMINIUM ROD" + UMPL logo mark
+ * Zone B: Product visual (copper rod coil placeholder) + key stat OFC 99.99%
+ * Zone C: Headline + rod grade specifications (OFC, ETP, FRHC)
+ * Zone D: European CCR detail + FRHC sustainability note + contact
+ *
+ * CRITICAL: &#8805; HTML entity for ≥ symbol (never literal ≥)
+ * CRITICAL: Never use #F5B880 as text colour
+ */
+
+/* ============================================================
+   PANEL 5 BACKGROUND
+   Pure white — clean industrial product presentation.
+   ============================================================ */
+
+#panel-5 {
+  background: var(--bg-white);
+}
+
+/* ============================================================
+   ZONE A — PRODUCT NAME
+   "COPPER & ALUMINIUM ROD" in Barlow Condensed Bold.
+   Left-aligned. UMPL logo mark top-right.
+   ============================================================ */
+
+#panel-5 .zone-a {
+  align-items: center;
+  justify-content: space-between;
+}
+
+#panel-5 .product-name-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h1);
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  line-height: var(--lh-heading);
+  text-rendering: geometricPrecision;
+}
+
+#panel-5 .zone-a-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+#panel-5 .zone-a-logo img {
+  width: var(--logo-width-sm);
+  height: auto;
+}
+
+/* ============================================================
+   ZONE B — HERO VISUAL
+   Two-column layout: product coil visual left, OFC stat right.
+   Product image fills ~60% of zone width.
+   OFC 99.99% stat block anchored right.
+   ============================================================ */
+
+#panel-5 .zone-b {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-md);
+  padding-top: 60px;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+/* Background ring decoration centred behind product */
+#panel-5 .product-bg-rings {
+  position: absolute;
+  top: 50%;
+  left: 32%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: var(--z-texture);
+  opacity: 0.05;
+}
+
+/* Product coil figure — left column */
+#panel-5 .product-hero-frame {
+  width: 55%;
+  max-height: 2500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: var(--z-photo);
+  isolation: isolate;
+  flex-shrink: 0;
+}
+
+#panel-5 .product-hero-frame img {
+  width: 100%;
+  height: auto;
+  max-height: 2400px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 24px 72px rgba(178, 103, 62, 0.22));
+}
+
+/* Copper rod coil CSS placeholder */
+#panel-5 .rod-placeholder {
+  width: 1500px;
+  height: 1500px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #8B4A28 0deg 30deg,
+    #CE7340 30deg 60deg,
+    #F5B880 60deg 90deg,
+    #E8A065 90deg 120deg,
+    #CE7340 120deg 150deg,
+    #B2673E 150deg 180deg,
+    #8B4A28 180deg 210deg,
+    #CE7340 210deg 240deg,
+    #F5B880 240deg 270deg,
+    #E8A065 270deg 300deg,
+    #CE7340 300deg 330deg,
+    #8B4A28 330deg 360deg
+  );
+  border: 28px solid #B2673E;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Inner hub */
+#panel-5 .rod-placeholder::before {
+  content: '';
+  position: absolute;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 40% 35%, #FAF8F5, #CE7340 80%, #8B4A28);
+  border: 16px solid #CE7340;
+  z-index: 2;
+}
+
+/* Label on coil */
+#panel-5 .rod-placeholder::after {
+  content: 'CCR Rod';
+  position: absolute;
+  bottom: 240px;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 54px;
+  color: #FAF8F5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  z-index: 3;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* OFC 99.99% stat block — right column */
+#panel-5 .zone-b-stat-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--gap-md);
+  flex: 1;
+  padding-right: 30px;
+}
+
+#panel-5 .ofc-stat-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+#panel-5 .ofc-number {
+  font-family: var(--font-display);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-stat-hero);
+  color: var(--text-copper-stat);
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  text-rendering: geometricPrecision;
+  text-align: right;
+}
+
+#panel-5 .ofc-label {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-lg);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-widest);
+  text-align: right;
+  line-height: var(--lh-label);
+}
+
+#panel-5 .ccr-tech-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 60px;
+  background: var(--bg-copper-lightest);
+  border: 3px solid var(--dark-rust);
+  border-radius: var(--spec-badge-radius);
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-badge-lg);
+  color: var(--dark-rust);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* ============================================================
+   ZONE C — INFORMATION
+   Main headline + rod grade specifications block
+   Three grades: OFC 99.99% / ETP / FRHC
+   ============================================================ */
+
+#panel-5 .zone-c {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 80px;
+  gap: var(--gap-md);
+}
+
+#panel-5 .zone-c-headline {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h2);
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: var(--lh-heading);
+  text-rendering: geometricPrecision;
+}
+
+#panel-5 .zone-c .subhead {
+  font-size: var(--fs-body-lg);
+  margin-top: var(--gap-xs);
+}
+
+/* Rod grades grid — three columns */
+#panel-5 .rod-grades-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap-sm);
+  width: 100%;
+}
+
+#panel-5 .rod-grade-card {
+  background: var(--bg-cream);
+  border: 3px solid var(--copper-300);
+  border-radius: var(--card-radius);
+  padding: 48px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Highlight border for OFC — premium grade */
+#panel-5 .rod-grade-card--ofc {
+  border-color: var(--copper-600);
+  background: var(--bg-copper-light);
+}
+
+#panel-5 .rod-grade-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--gradient-copper-accent-bar);
+}
+
+#panel-5 .rod-grade-name {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h3);
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  line-height: 1;
+  text-rendering: geometricPrecision;
+}
+
+#panel-5 .rod-grade-purity {
+  font-family: var(--font-display);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-stat-sub);
+  color: var(--text-copper-stat);
+  letter-spacing: var(--ls-tight);
+  line-height: 1;
+  text-rendering: geometricPrecision;
+}
+
+#panel-5 .rod-grade-iacs {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body);
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  line-height: var(--lh-body);
+}
+
+#panel-5 .rod-grade-desc {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   ZONE D — DETAIL
+   European CCR technology note + FRHC sustainability note
+   Body bullets + contact row
+   ============================================================ */
+
+#panel-5 .zone-d {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 60px;
+  gap: var(--gap-sm);
+}
+
+#panel-5 .zone-d .body-list {
+  margin-bottom: var(--gap-xs);
+}
+
+#panel-5 .zone-d .contact-row {
+  width: 100%;
+  margin-top: var(--gap-xs);
+}
+
+/* FRHC sustainability highlight */
+#panel-5 .frhc-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 36px;
+  background: linear-gradient(to right, var(--copper-100), var(--bg-cream));
+  border-left: 6px solid var(--copper-600);
+  border-radius: 0 var(--card-radius) var(--card-radius) 0;
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   ZONE E — FURNITURE RESERVE
+   ============================================================ */
+
+#panel-5 .zone-e {
+  background: linear-gradient(
+    to bottom,
+    var(--bg-white) 0%,
+    var(--bg-cream) 50%,
+    var(--copper-100) 100%
+  );
+  opacity: 0.6;
+}

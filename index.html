@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CWIEME Berlin 2026 — Universal Metals Pakistan Limited — 8 Banner Preview</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #1A1208;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    header {
+      color: #F5B880;
+      text-align: center;
+      padding: 32px 0 48px;
+    }
+
+    header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      font-size: 16px;
+      color: #CE7340;
+      letter-spacing: 0.06em;
+    }
+
+    header .meta {
+      font-size: 13px;
+      color: #8B4A28;
+      margin-top: 8px;
+    }
+
+    /* Wall group labels */
+    .wall-group {
+      margin-bottom: 30px;
+    }
+
+    .wall-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: #B2673E;
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      margin-bottom: 20px;
+      padding: 8px 20px;
+      border-left: 4px solid #CE7340;
+      background: rgba(178, 103, 62, 0.1);
+      display: inline-block;
+    }
+
+    /* Panel grid */
+    .panel-row {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    /* 2-panel walls: each panel max 180px wide */
+    .wall-group:nth-child(1) .panel-card,
+    .wall-group:nth-child(5) .panel-card {
+      max-width: 180px;
+    }
+
+    /* 4-panel wall: each panel max 160px wide */
+    .wall-group:nth-child(3) .panel-card {
+      max-width: 160px;
+    }
+
+    /* Individual panel preview card */
+    .panel-card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .panel-card .panel-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #CE7340;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-align: center;
+    }
+
+    .panel-card .panel-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #F5B880;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+
+    /* iframe wrapper — scaled down for full-banner visibility */
+    .iframe-wrapper {
+      width: 100%;
+      /* Aspect ratio: 3012:7441 = 1:2.47 */
+      aspect-ratio: 3012 / 7441;
+      overflow: hidden;
+      border: 2px solid #4A3728;
+      border-radius: 4px;
+      background: #FAF8F5;
+      position: relative;
+    }
+
+    .iframe-wrapper iframe {
+      width: 3012px;
+      height: 7441px;
+      border: none;
+      transform-origin: top left;
+      /* Scale iframe to fit the card width */
+      /* JS computes this dynamically, fallback below */
+      transform: scale(calc(100% / 3012));
+    }
+
+    /* Status badges for panels not yet built */
+    .panel-card.pending .iframe-wrapper {
+      background: #2C1100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pending-badge {
+      color: #4A3728;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Wall divider line */
+    .wall-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #4A3728, transparent);
+      margin: 40px 0;
+    }
+
+    footer {
+      text-align: center;
+      color: #4A3728;
+      font-size: 12px;
+      padding: 40px 0 20px;
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CWIEME Berlin 2026</h1>
+    <p>Universal Metals Pakistan Limited &mdash; 8-Panel Exhibition Banner System</p>
+    <p class="meta">3,012 &times; 7,441 CSS px per panel &nbsp;|&nbsp; DSF 2 &nbsp;|&nbsp; 1,020 &times; 2,520mm output &nbsp;|&nbsp; Fogra39 CMYK target</p>
+  </header>
+
+  <!-- LEFT WALL: Panels 1 + 2 -->
+  <div class="wall-group">
+    <div class="wall-label">Left Wall (2 panels)</div>
+    <div class="panel-row">
+
+      <div class="panel-card">
+        <div class="panel-number">Panel 1</div>
+        <div class="panel-label">Company Hero</div>
+        <div class="iframe-wrapper" id="wrapper-1">
+          <iframe
+            src="panels/panel-1.html"
+            id="iframe-1"
+            title="Banner 1 — Company Hero"
+            scrolling="no"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="panel-card">
+        <div class="panel-number">Panel 2</div>
+        <div class="panel-label">Vertical Integration</div>
+        <div class="iframe-wrapper" id="wrapper-2">
+          <iframe
+            src="panels/panel-2.html"
+            id="iframe-2"
+            title="Banner 2 — Vertical Integration"
+            scrolling="no"
+          ></iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="wall-divider"></div>
+
+  <!-- CENTRE WALL: Panels 3 + 4 + 5 + 6 -->
+  <div class="wall-group">
+    <div class="wall-label">Centre / Back Wall (4 panels)</div>
+    <div class="panel-row">
+
+      <div class="panel-card">
+        <div class="panel-number">Panel 3</div>
+        <div class="panel-label">Copper Enamelled Wire</div>
+        <div class="iframe-wrapper" id="wrapper-3">
+          <iframe
+            src="panels/panel-3.html"
+            id="iframe-3"
+            title="Banner 3 — Copper Enamelled Wire (HERO product)"
+            scrolling="no"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="panel-card">
+        <div class="panel-number">Panel 4</div>
+        <div class="panel-label">Paper Covered Strip</div>
+        <div class="iframe-wrapper" id="wrapper-4">
+          <iframe
+            src="panels/panel-4.html"
+            id="iframe-4"
+            title="Banner 4 — Paper Covered Strip"
+            scrolling="no"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="panel-card">
+        <div class="panel-number">Panel 5</div>
+        <div class="panel-label">Copper &amp; Aluminium Rod</div>
+        <div class="iframe-wrapper" id="wrapper-5">
+          <iframe
+            src="panels/panel-5.html"
+            id="iframe-5"
+            title="Banner 5 — Copper &amp; Aluminium Rod"
+            scrolling="no"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="panel-card">
+        <div class="panel-number">Panel 6</div>
+        <div class="panel-label">Insulation Materials</div>
+        <div class="iframe-wrapper" id="wrapper-6">
+          <iframe
+            src="panels/panel-6.html"
+            id="iframe-6"
+            title="Banner 6 — Insulation Materials"
+            scrolling="no"
+          ></iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="wall-divider"></div>
+
+  <!-- RIGHT WALL: Panels 7 + 8 -->
+  <div class="wall-group">
+    <div class="wall-label">Right Wall (2 panels)</div>
+    <div class="panel-row">
+
+      <div class="panel-card">
+        <div class="panel-number">Panel 7</div>
+        <div class="panel-label">Quality &amp; Certifications</div>
+        <div class="iframe-wrapper" id="wrapper-7">
+          <iframe
+            src="panels/panel-7.html"
+            id="iframe-7"
+            title="Banner 7 — Quality &amp; Certifications"
+            scrolling="no"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="panel-card">
+        <div class="panel-number">Panel 8</div>
+        <div class="panel-label">Contact / CTA</div>
+        <div class="iframe-wrapper" id="wrapper-8">
+          <iframe
+            src="panels/panel-8.html"
+            id="iframe-8"
+            title="Banner 8 — Contact &amp; CTA"
+            scrolling="no"
+          ></iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    CWIEME Berlin 2026 &nbsp;|&nbsp; Universal Metals Pakistan Limited &nbsp;|&nbsp; Build: Phase 3 &nbsp;|&nbsp; All 8 panels complete
+  </footer>
+
+  <script>
+    // Scale each iframe to fit its wrapper
+    // iframe is 3012px wide; wrapper is responsive
+    function scaleIframes() {
+      const iframes = ['iframe-1', 'iframe-2', 'iframe-3', 'iframe-4', 'iframe-5', 'iframe-6', 'iframe-7', 'iframe-8'];
+      iframes.forEach(function(id) {
+        const iframe = document.getElementById(id);
+        if (!iframe) return;
+        const wrapper = iframe.parentElement;
+        if (!wrapper) return;
+        const wrapperWidth = wrapper.clientWidth;
+        const scale = wrapperWidth / 3012;
+        iframe.style.transform = 'scale(' + scale + ')';
+        iframe.style.transformOrigin = 'top left';
+      });
+    }
+
+    // Run on load and resize
+    window.addEventListener('load', scaleIframes);
+    window.addEventListener('resize', scaleIframes);
+  </script>
+
+</body>
+</html>

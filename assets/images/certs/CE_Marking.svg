@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="CE Marking EU product conformity badge">
+  <defs>
+    <linearGradient id="bgce" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDE8D0"/>
+      <stop offset="100%" stop-color="#FAF8F5"/>
+    </linearGradient>
+  </defs>
+  <!-- Background fill -->
+  <circle cx="100" cy="100" r="98" fill="url(#bgce)"/>
+  <!-- Outer border ring -->
+  <circle cx="100" cy="100" r="98" fill="none" stroke="#8B4A28" stroke-width="3"/>
+  <!-- Inner accent ring -->
+  <circle cx="100" cy="100" r="86" fill="none" stroke="#CE7340" stroke-width="1.5"/>
+  <!-- Inner ring -->
+  <circle cx="100" cy="100" r="78" fill="none" stroke="#B2673E" stroke-width="2"/>
+  <!-- CE Logotype — standard geometric proportions -->
+  <!-- C arc (left letter) -->
+  <path d="M 90,55 A 42,42 0 1 0 90,145" fill="none" stroke="#B2673E" stroke-width="14" stroke-linecap="butt"/>
+  <!-- E vertical stroke (right letter) -->
+  <line x1="88" y1="55" x2="130" y2="55" stroke="#B2673E" stroke-width="14" stroke-linecap="round"/>
+  <line x1="88" y1="100" x2="122" y2="100" stroke="#B2673E" stroke-width="14" stroke-linecap="round"/>
+  <line x1="88" y1="145" x2="130" y2="145" stroke="#B2673E" stroke-width="14" stroke-linecap="round"/>
+  <!-- Top label -->
+  <text x="100" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="11" fill="#8B4A28" letter-spacing="2">CE MARKING</text>
+  <!-- Bottom label -->
+  <text x="100" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600" font-size="10" fill="#CE7340" letter-spacing="1.5">EU CONFORMITY</text>
+  <text x="100" y="184" text-anchor="middle" font-family="Arial, sans-serif" font-weight="500" font-size="9" fill="#4A3728" letter-spacing="1">ELIGIBLE EXPORTS</text>
+</svg>

@@ -1,0 +1,230 @@
+/*
+ * panel-3.css
+ * Banner 3: Copper Enamelled Wire — Centre Wall, Position 1 of 4
+ * "≥101% IACS. Triple-Certified. Up to 220°C."
+ *
+ * This is the HERO product banner — maximum visual impact.
+ * Background: #FFFFFF (white)
+ * Left edge accent stripe: 18px copper stripe marks start of centre wall.
+ * Zone A: Product name "COPPER ENAMELLED WIRE" in large Barlow Condensed.
+ * Zone B: Hero product photograph (placeholder spool).
+ * Zone C: Headline with ≥ entity + spec badges.
+ * Zone D: Body bullets.
+ *
+ * CRITICAL QR NOTE: Use &#8805; HTML entity for ≥ symbol.
+ */
+
+/* ============================================================
+   PANEL 3 BACKGROUND
+   Pure white — hero product always on white for maximum contrast.
+   ============================================================ */
+
+#panel-3 {
+  background: var(--bg-white);
+}
+
+/* ============================================================
+   LEFT EDGE ACCENT STRIPE
+   18px vertical copper stripe on left edge only.
+   Marks the start of the centre wall product zone.
+   Implemented via pseudo-element to avoid extra DOM.
+   ============================================================ */
+
+#panel-3 .edge-stripe--left {
+  width: 18px;
+  background: var(--copper-500);
+}
+
+/* ============================================================
+   ZONE A — PRODUCT NAME
+   "COPPER ENAMELLED WIRE" in large Barlow Condensed Bold.
+   Left-aligned with safe zone inset.
+   UMPL logo mark small top-right.
+   ============================================================ */
+
+#panel-3 .zone-a {
+  align-items: center;
+  justify-content: space-between;
+}
+
+#panel-3 .product-name-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h1);
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  line-height: var(--lh-heading);
+  text-rendering: geometricPrecision;
+}
+
+#panel-3 .zone-a-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+#panel-3 .zone-a-logo img {
+  width: var(--logo-width-sm);
+  height: auto;
+}
+
+/* ============================================================
+   ZONE B — HERO PRODUCT IMAGE
+   Product photograph centered, ~70% zone width.
+   mix-blend-mode: multiply removes white background from photo.
+   Concentric rings at 5% opacity behind product.
+   ============================================================ */
+
+#panel-3 .zone-b {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#panel-3 .product-bg-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: var(--z-texture);
+  opacity: 0.05;
+}
+
+#panel-3 .product-hero-frame {
+  width: 70%;
+  max-height: 2600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: var(--z-photo);
+  isolation: isolate;
+}
+
+#panel-3 .product-hero-frame img {
+  width: 100%;
+  height: auto;
+  max-height: 2400px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 24px 72px rgba(178, 103, 62, 0.22));
+}
+
+/* Spool placeholder until AI image is delivered */
+#panel-3 .spool-placeholder {
+  width: 1600px;
+  height: 1600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 35% 35%,
+    #FBDABC 0%,
+    #F5B880 25%,
+    #CE7340 55%,
+    #8B4A28 100%
+  );
+  border: 24px solid #B2673E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Inner hub of spool */
+#panel-3 .spool-placeholder::before {
+  content: '';
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 40% 35%, #F5B880, #8B4A28);
+  border: 12px solid #CE7340;
+}
+
+/* Spool label */
+#panel-3 .spool-placeholder::after {
+  content: 'Enamelled Wire';
+  position: absolute;
+  bottom: 200px;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 54px;
+  color: #FAF8F5;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   ZONE C — INFORMATION
+   Headline with ≥ symbol (HTML entity &#8805;).
+   Spec badge row below headline.
+   ============================================================ */
+
+#panel-3 .zone-c {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 80px;
+  gap: var(--gap-md);
+}
+
+#panel-3 .zone-c-headline {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 120px;
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: var(--lh-heading);
+  text-rendering: geometricPrecision;
+}
+
+#panel-3 .zone-c .spec-badge-row {
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+#panel-3 .zone-c .subhead {
+  font-size: var(--fs-body-lg);
+  margin-top: var(--gap-xs);
+}
+
+/* ============================================================
+   ZONE D — DETAIL
+   4 body bullets, left-aligned.
+   ============================================================ */
+
+#panel-3 .zone-d {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 60px;
+  gap: var(--gap-sm);
+}
+
+#panel-3 .zone-d .contact-row {
+  width: 100%;
+  margin-top: var(--gap-sm);
+}
+
+/* ============================================================
+   ZONE E — FURNITURE RESERVE
+   ============================================================ */
+
+#panel-3 .zone-e {
+  background: linear-gradient(
+    to bottom,
+    var(--bg-white) 0%,
+    var(--bg-cream) 50%,
+    var(--copper-100) 100%
+  );
+  opacity: 0.6;
+}

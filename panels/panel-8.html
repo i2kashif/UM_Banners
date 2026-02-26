@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=3012, initial-scale=1.0">
+  <title>Banner 8 — Contact &amp; CTA | Universal Metals Pakistan Limited</title>
+
+  <!-- All fonts are local .woff2 — no CDN dependency for Puppeteer -->
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/panels/panel-8.css">
+</head>
+<body>
+
+<main id="panel-8" class="panel" style="--panel-index: 7;">
+
+  <!-- =========================================================
+       TOP ACCENT BAR — Full-width copper gradient strip
+       ========================================================= -->
+  <div class="accent-bar accent-bar--top" role="presentation" aria-hidden="true"></div>
+
+  <!-- =========================================================
+       FLOW SVG LAYER — Panel 8 slice (FINAL panel)
+       Panel 8: x offset = 7 × 3012 = 21084
+       Wire descends warmly into the CTA closing.
+       ========================================================= -->
+  <div class="flow-svg-layer" aria-hidden="true">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="21084 0 3012 7441"
+      preserveAspectRatio="xMinYMid meet"
+      width="3012"
+      height="7441"
+    >
+      <defs>
+        <linearGradient id="p8-wire-grad" x1="21084" y1="0" x2="24096" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0%"   stop-color="#8B4A28" stop-opacity="0.6"/>
+          <stop offset="50%"  stop-color="#CE7340" stop-opacity="0.65"/>
+          <stop offset="100%" stop-color="#F5B880" stop-opacity="0.45"/>
+        </linearGradient>
+        <filter id="p8-glow">
+          <feGaussianBlur stdDeviation="12" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+      </defs>
+      <!-- Panel 8 — final wire arc, descends and curves into bottom warmth -->
+      <path
+        d="M 21084,3270
+           C 21600,3200  22200,3400  22800,3900
+           C 23400,4300  23800,4700  24096,5200"
+        fill="none"
+        stroke="url(#p8-wire-grad)"
+        stroke-width="32"
+        stroke-linecap="round"
+        filter="url(#p8-glow)"
+      />
+      <!-- Secondary parallel strand -->
+      <path
+        d="M 21084,3330
+           C 21600,3260  22200,3460  22800,3960
+           C 23400,4360  23800,4760  24096,5260"
+        fill="none"
+        stroke="#F5B880"
+        stroke-width="10"
+        stroke-linecap="round"
+        stroke-opacity="0.30"
+      />
+    </svg>
+  </div>
+
+  <!-- =========================================================
+       ZONE A — BRAND HEADER / CLOSING (90px – 783px)
+       Full UMPL logo lockup + stand number / visit CTA.
+       Mirrors Panel 1 symmetry — closing the brand story arc.
+       ========================================================= -->
+  <header class="zone-a" role="banner" aria-label="Universal Metals Pakistan Limited — closing brand">
+
+    <!-- Logo lockup left -->
+    <div class="logo-lockup-closing" style="position: relative; z-index: 6;">
+      <figure style="margin: 0;">
+        <img
+          src="../assets/images/branding/Logo.png"
+          alt="Universal Metals Pakistan Limited"
+          class="logo-image"
+          width="240"
+          height="auto"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        >
+        <!-- CSS fallback logo -->
+        <div style="
+          display: none;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+        ">
+          <div style="
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8B4A28 0%, #F5B880 50%, #CE7340 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          ">
+            <span style="
+              font-family: 'Barlow Condensed', Arial, sans-serif;
+              font-weight: 800;
+              font-size: 96px;
+              color: #FFFFFF;
+              letter-spacing: 0.02em;
+            ">UM</span>
+          </div>
+        </div>
+      </figure>
+      <p class="company-name-closing">Universal Metals</p>
+      <p class="company-sub-closing">Pakistan Limited &nbsp;·&nbsp; Est. 1996</p>
+    </div>
+
+    <!-- Stand number + visit label — right -->
+    <div class="zone-a-cta-label">
+      <span class="visit-label">Visit us at CWIEME Berlin 2026</span>
+      <span class="stand-number">[STAND XX&#8209;XXX]</span>
+      <span class="visit-label" style="margin-top: 8px;">19 &ndash; 21 May 2026 &nbsp;&middot;&nbsp; Messe Berlin</span>
+    </div>
+
+  </header>
+
+  <!-- =========================================================
+       ZONE B — QR CODE + CONTACT (783px – 3644px)
+       LEFT: Large QR code placeholder (500×500px, BLACK on WHITE)
+       RIGHT: Contact details + GSP+ info card
+       ========================================================= -->
+  <section class="zone-b" aria-label="QR code and contact details">
+
+    <!-- QR column — left -->
+    <div class="qr-col">
+      <span class="qr-hero-label">Scan to connect</span>
+
+      <!-- Large QR code placeholder — black on white for scan reliability -->
+      <div class="qr-large" role="img" aria-label="QR code placeholder — scan to visit universalmetals.com.pk or email info@universalmetals.com.pk">
+        <!-- Corner finder squares -->
+        <svg width="500" height="500" viewBox="0 0 500 500" aria-hidden="true"
+             style="position: absolute; inset: 0;">
+          <!-- Top-left finder -->
+          <rect x="28" y="28" width="88" height="88" rx="6" fill="none" stroke="#1A1208" stroke-width="10"/>
+          <rect x="46" y="46" width="52" height="52" rx="3" fill="#1A1208"/>
+          <!-- Top-right finder -->
+          <rect x="384" y="28" width="88" height="88" rx="6" fill="none" stroke="#1A1208" stroke-width="10"/>
+          <rect x="402" y="46" width="52" height="52" rx="3" fill="#1A1208"/>
+          <!-- Bottom-left finder -->
+          <rect x="28" y="384" width="88" height="88" rx="6" fill="none" stroke="#1A1208" stroke-width="10"/>
+          <rect x="46" y="402" width="52" height="52" rx="3" fill="#1A1208"/>
+          <!-- QR data module grid pattern (simplified) -->
+          <g fill="#1A1208" opacity="0.85">
+            <!-- Row 1 modules -->
+            <rect x="144" y="40" width="20" height="20" rx="2"/>
+            <rect x="172" y="40" width="20" height="20" rx="2"/>
+            <rect x="228" y="40" width="20" height="20" rx="2"/>
+            <rect x="284" y="40" width="20" height="20" rx="2"/>
+            <rect x="312" y="40" width="20" height="20" rx="2"/>
+            <rect x="340" y="40" width="20" height="20" rx="2"/>
+            <!-- Row 2 modules -->
+            <rect x="144" y="68" width="20" height="20" rx="2"/>
+            <rect x="200" y="68" width="20" height="20" rx="2"/>
+            <rect x="256" y="68" width="20" height="20" rx="2"/>
+            <rect x="340" y="68" width="20" height="20" rx="2"/>
+            <!-- Row 3 modules -->
+            <rect x="172" y="96" width="20" height="20" rx="2"/>
+            <rect x="228" y="96" width="20" height="20" rx="2"/>
+            <rect x="256" y="96" width="20" height="20" rx="2"/>
+            <rect x="312" y="96" width="20" height="20" rx="2"/>
+            <!-- Alignment pattern (centre) -->
+            <rect x="222" y="222" width="56" height="56" rx="4" fill="none" stroke="#1A1208" stroke-width="8"/>
+            <rect x="238" y="238" width="24" height="24" rx="2" fill="#1A1208"/>
+            <!-- Data rows — lower section -->
+            <rect x="40" y="144" width="20" height="20" rx="2"/>
+            <rect x="68" y="144" width="20" height="20" rx="2"/>
+            <rect x="40" y="172" width="20" height="20" rx="2"/>
+            <rect x="96" y="172" width="20" height="20" rx="2"/>
+            <rect x="40" y="200" width="20" height="20" rx="2"/>
+            <rect x="68" y="200" width="20" height="20" rx="2"/>
+            <rect x="96" y="228" width="20" height="20" rx="2"/>
+            <rect x="40" y="256" width="20" height="20" rx="2"/>
+            <rect x="68" y="256" width="20" height="20" rx="2"/>
+            <rect x="40" y="312" width="20" height="20" rx="2"/>
+            <rect x="96" y="340" width="20" height="20" rx="2"/>
+            <!-- Right side data -->
+            <rect x="380" y="144" width="20" height="20" rx="2"/>
+            <rect x="436" y="144" width="20" height="20" rx="2"/>
+            <rect x="408" y="172" width="20" height="20" rx="2"/>
+            <rect x="436" y="172" width="20" height="20" rx="2"/>
+            <rect x="380" y="200" width="20" height="20" rx="2"/>
+            <rect x="436" y="228" width="20" height="20" rx="2"/>
+            <rect x="380" y="256" width="20" height="20" rx="2"/>
+            <rect x="408" y="284" width="20" height="20" rx="2"/>
+            <!-- Centre scatter modules -->
+            <rect x="144" y="144" width="20" height="20" rx="2"/>
+            <rect x="172" y="172" width="20" height="20" rx="2"/>
+            <rect x="312" y="144" width="20" height="20" rx="2"/>
+            <rect x="340" y="172" width="20" height="20" rx="2"/>
+            <rect x="144" y="312" width="20" height="20" rx="2"/>
+            <rect x="172" y="340" width="20" height="20" rx="2"/>
+            <!-- Bottom rows (above bottom-left finder) -->
+            <rect x="172" y="380" width="20" height="20" rx="2"/>
+            <rect x="200" y="408" width="20" height="20" rx="2"/>
+            <rect x="228" y="380" width="20" height="20" rx="2"/>
+            <rect x="256" y="408" width="20" height="20" rx="2"/>
+            <rect x="312" y="380" width="20" height="20" rx="2"/>
+            <rect x="340" y="408" width="20" height="20" rx="2"/>
+            <rect x="368" y="380" width="20" height="20" rx="2"/>
+            <rect x="408" y="408" width="20" height="20" rx="2"/>
+            <rect x="436" y="380" width="20" height="20" rx="2"/>
+          </g>
+        </svg>
+      </div>
+
+      <p class="qr-caption-hero">
+        Scan to visit our website<br>
+        or find us on LinkedIn
+      </p>
+    </div>
+
+    <!-- Contact column — right -->
+    <div class="contact-col" role="group" aria-label="Contact information">
+
+      <h2 class="contact-heading">Let's Talk.</h2>
+
+      <div class="contact-detail-row">
+
+        <div class="contact-item">
+          <span class="contact-item-icon" aria-hidden="true">@</span>
+          <a href="mailto:info@universalmetals.com.pk" class="contact-item-text contact-item-text--url">
+            info@universalmetals.com.pk
+          </a>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-item-icon" aria-hidden="true">W</span>
+          <a href="https://www.universalmetals.com.pk" class="contact-item-text contact-item-text--url"
+             target="_blank" rel="noopener">
+            universalmetals.com.pk
+          </a>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-item-icon" aria-hidden="true">T</span>
+          <span class="contact-item-text">
+            +92 343 086 7251
+          </span>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-item-icon" aria-hidden="true">&#9679;</span>
+          <span class="contact-item-text">
+            Stand [XX&#8209;XXX] &nbsp;&middot;&nbsp; India Pavilion<br>
+            CWIEME Berlin 2026 &nbsp;&middot;&nbsp; Messe Berlin
+          </span>
+        </div>
+
+      </div>
+
+      <!-- GSP+ information card -->
+      <div class="gsp-info-card" role="note" aria-label="Pakistan GSP+ zero duty information">
+        <span class="gsp-badge">Pakistan GSP+</span>
+        <p class="gsp-text">
+          <strong>0% EU import duty</strong> on eligible wire and rod exports from Pakistan under
+          the EU Generalised Scheme of Preferences (GSP+). Your landed cost advantage starts
+          at the purchase order — no tariff, no duty deferral, no compromise on quality.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+       ZONE C — KEY STATS + HEADLINE (3644px – 5150px)
+       0% duty stat + 94% CO₂ reduction stat side by side.
+       Main closing headline.
+       ========================================================= -->
+  <section class="zone-c" aria-labelledby="p8-zone-c-headline">
+
+    <h1 id="p8-zone-c-headline" class="zone-c-headline">
+      0% EU Import Duty. 94% Less CO&#8322;. Let's Talk.
+    </h1>
+
+    <p class="subhead">
+      Pakistan GSP+ status &mdash; zero EU tariff on eligible wire exports
+    </p>
+
+    <!-- Two key stats side by side -->
+    <div class="key-stats-row" role="list" aria-label="Key commercial advantages">
+
+      <div class="key-stat-block" role="listitem">
+        <span class="key-stat-number">0%</span>
+        <span class="key-stat-label">EU Import Duty</span>
+        <p class="key-stat-detail">
+          Pakistan GSP+ status. Zero EU tariff on enamelled wire, paper covered strip,
+          and copper rod exports. ITC HS 7408, 8544, 8501 covered categories.
+        </p>
+      </div>
+
+      <div class="key-stat-block" role="listitem">
+        <span class="key-stat-number">94%</span>
+        <span class="key-stat-label">Less CO&#8322;</span>
+        <p class="key-stat-detail">
+          FRHC copper rod from recycled scrap. Qualified recycled-content certification.
+          94% CO&#8322; reduction versus primary smelted copper production.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+       ZONE D — MEETING CTA + CLOSING (5150px – 6054px)
+       Meeting request CTA box + body bullets + contact row
+       ========================================================= -->
+  <section class="zone-d" aria-label="Call to action and meeting request">
+
+    <!-- Meeting CTA box -->
+    <div class="meeting-cta-box" role="note" aria-label="Book a meeting at the stand">
+      <div>
+        <p class="meeting-cta-text">Book a Stand Meeting</p>
+        <p class="meeting-cta-detail">
+          19 &ndash; 21 May 2026 &nbsp;&middot;&nbsp; Messe Berlin &nbsp;&middot;&nbsp; Stand [XX&#8209;XXX]
+        </p>
+      </div>
+      <div>
+        <p class="meeting-cta-detail" style="text-align: right; color: rgba(255,255,255,0.85);">
+          Email us to schedule:<br>
+          <strong style="color: #FFFFFF;">info@universalmetals.com.pk</strong>
+        </p>
+      </div>
+    </div>
+
+    <ul class="body-list" aria-label="Commercial advantages summary">
+      <li>FRHC recycled copper: 94% CO&#8322; reduction vs virgin production</li>
+      <li>Samples available &mdash; test spools across all gauges</li>
+      <li>Schedule a factory visit: Lahore, Pakistan</li>
+      <li>Stand [STAND NUMBER] &nbsp;&middot;&nbsp; universalmetals.com.pk</li>
+    </ul>
+
+    <div class="contact-row" style="margin-top: var(--gap-sm);">
+      <a href="mailto:info@universalmetals.com.pk" class="contact-url">
+        info@universalmetals.com.pk
+      </a>
+      <p class="contact-tagline">Our Wire. Your Light.</p>
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+       ZONE E — FURNITURE RESERVE (6054px – 7411px)
+       Warmest zone E — copper gradient fade. No critical content.
+       ========================================================= -->
+  <aside class="zone-e" aria-hidden="true">
+    <!-- Sustainability image — decorative backdrop for zone E -->
+    <img
+      src="../assets/images/products/sustainability.jpeg"
+      alt=""
+      role="presentation"
+      aria-hidden="true"
+      style="
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        opacity: 0.25;
+        mix-blend-mode: multiply;
+        display: block;
+      "
+      onerror="this.style.display='none';"
+    >
+  </aside>
+
+  <!-- =========================================================
+       BOTTOM ACCENT BAR
+       ========================================================= -->
+  <div class="accent-bar accent-bar--bottom" role="presentation" aria-hidden="true"></div>
+
+</main>
+
+</body>
+</html>

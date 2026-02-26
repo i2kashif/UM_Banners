@@ -1,0 +1,190 @@
+<!--
+  flow-elements.svg
+  Universal Metals Pakistan Limited — CWIEME Berlin 2026
+
+  Cross-panel copper wire flow element.
+  Full panoramic coordinate space: 24,096 × 7,441 CSS px
+  (8 panels × 3,012px wide × 7,441px tall)
+
+  Each panel references this SVG via CSS background-image or
+  inline <use> with a viewBox window offset by (panel-index × 3012).
+
+  The flowing wire path begins off the left edge of Panel 1,
+  undulates organically across all 8 panels, and exits off
+  the right edge of Panel 8. It lives behind product photography
+  (z-index 3) but above the panel background (z-index 1).
+
+  Path uses copper gradient from dark anchor (#8B4A28) through
+  brand copper (#F5B880) to deep accent (#B2673E).
+
+  Stroke-width: 32px (at CSS scale) for visibility at print distance.
+  Use gradient bands (width 200px+) to absorb physical seam variance.
+-->
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 24096 7441"
+  preserveAspectRatio="xMidYMid meet"
+  width="24096"
+  height="7441"
+  aria-hidden="true"
+  role="presentation"
+>
+  <defs>
+
+    <!-- Main copper wire gradient (horizontal, panoramic) -->
+    <linearGradient id="wire-gradient"
+      gradientUnits="userSpaceOnUse"
+      x1="0" y1="0" x2="24096" y2="0">
+      <stop offset="0%"   stop-color="#8B4A28" stop-opacity="0.6"/>
+      <stop offset="12%"  stop-color="#CE7340" stop-opacity="0.8"/>
+      <stop offset="25%"  stop-color="#F5B880" stop-opacity="0.9"/>
+      <stop offset="37%"  stop-color="#E8A065" stop-opacity="0.85"/>
+      <stop offset="50%"  stop-color="#F5B880" stop-opacity="0.9"/>
+      <stop offset="62%"  stop-color="#CE7340" stop-opacity="0.8"/>
+      <stop offset="75%"  stop-color="#F5B880" stop-opacity="0.85"/>
+      <stop offset="87%"  stop-color="#B2673E" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#8B4A28" stop-opacity="0.5"/>
+    </linearGradient>
+
+    <!-- Secondary wire gradient (slightly offset hue) -->
+    <linearGradient id="wire-gradient-2" x1="0" y1="0" x2="24096" y2="0"
+      gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#B2673E" stop-opacity="0.3"/>
+      <stop offset="30%"  stop-color="#F5B880" stop-opacity="0.5"/>
+      <stop offset="60%"  stop-color="#CE7340" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#8B4A28" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <!-- Glow filter for wire (subtle copper luminance) -->
+    <filter id="wire-glow" x="-20%" y="-100%" width="140%" height="300%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Soft blur for background wire suggestion -->
+    <filter id="wire-blur-soft" x="-10%" y="-200%" width="120%" height="500%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+
+  </defs>
+
+  <!--
+    PRIMARY COPPER WIRE PATH
+    Organic S-curve flowing left-to-right across all 8 panels.
+    Physical entry at ~y=5400 (lower third of Panel 1),
+    loops through middle-zone content areas,
+    rises through Panels 3-5 (hero banners, passes behind products),
+    descends back through Panels 6-8.
+
+    y positions (CSS px):
+      Panels 1-2 (Left Wall): enters at y=5400, rises to y=4200
+      Panels 3-6 (Centre Wall): undulates between y=3800–5200
+      Panels 7-8 (Right Wall): descends back to y=5200
+  -->
+
+  <!-- Background glow suggestion (very soft, behind main wire) -->
+  <path
+    d="M -200,5400
+       C 800,5200  2000,4800  3012,4400
+       C 4200,4000  5400,3800  6024,3900
+       C 7000,4000  8200,5000  9036,5100
+       C 10100,5200 11200,4600 12048,4400
+       C 13000,4200 14200,3900 15060,4000
+       C 16000,4100 17200,4800 18072,5000
+       C 19000,5100 20300,4700 21084,4500
+       C 22000,4300 23200,4100 24296,3900"
+    fill="none"
+    stroke="url(#wire-gradient-2)"
+    stroke-width="120"
+    stroke-linecap="round"
+    filter="url(#wire-blur-soft)"
+  />
+
+  <!-- Main copper wire — primary path -->
+  <path
+    id="main-wire"
+    d="M -200,5420
+       C 600,5300   1400,5100  2200,4700
+       C 2800,4400  3012,4350  3400,4300
+       C 4200,4100  5000,3850  5400,3820
+       C 5700,3800  6024,3850  6400,3920
+       C 7200,4080  8000,4900  8600,5050
+       C 8900,5120  9036,5130  9400,5100
+       C 10200,5000 11000,4500 11600,4380
+       C 12048,4320 12400,4280 13000,4200
+       C 13800,4100 14400,3920 15060,3980
+       C 15600,4020 16400,4500 17000,4800
+       C 17600,5050 18072,5080 18500,5020
+       C 19400,4880 20200,4600 21084,4520
+       C 22000,4440 23000,4200 24296,4000"
+    fill="none"
+    stroke="url(#wire-gradient)"
+    stroke-width="32"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    filter="url(#wire-glow)"
+  />
+
+  <!-- Secondary wire — parallel strand (thinner, offset) -->
+  <path
+    d="M -200,5480
+       C 600,5360   1400,5160  2200,4760
+       C 2800,4460  3012,4410  3400,4360
+       C 4200,4160  5000,3910  5400,3880
+       C 5700,3860  6024,3910  6400,3980
+       C 7200,4140  8000,4960  8600,5110
+       C 8900,5180  9036,5190  9400,5160
+       C 10200,5060 11000,4560 11600,4440
+       C 12048,4380 12400,4340 13000,4260
+       C 13800,4160 14400,3980 15060,4040
+       C 15600,4080 16400,4560 17000,4860
+       C 17600,5110 18072,5140 18500,5080
+       C 19400,4940 20200,4660 21084,4580
+       C 22000,4500 23000,4260 24296,4060"
+    fill="none"
+    stroke="#F5B880"
+    stroke-width="12"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-opacity="0.4"
+  />
+
+  <!--
+    PANEL BOUNDARY GRADIENT BANDS
+    200px-wide semi-transparent copper gradient bands at each panel
+    seam position. These absorb the 1–3mm physical installation
+    variance that would otherwise show as a hard alignment gap.
+    Positioned at x = 3012, 6024, 9036, 12048, 15060, 18072, 21084
+  -->
+
+  <!-- Seam band at Panel 1/2 boundary (x=3012) -->
+  <rect x="2912" y="0" width="200" height="7441"
+    fill="url(#wire-gradient-2)" opacity="0.06"/>
+
+  <!-- Seam band at Panel 2/3 boundary (x=6024) -->
+  <rect x="5924" y="0" width="200" height="7441"
+    fill="url(#wire-gradient-2)" opacity="0.06"/>
+
+  <!-- Seam band at Panel 3/4 boundary (x=9036) -->
+  <rect x="8936" y="0" width="200" height="7441"
+    fill="url(#wire-gradient-2)" opacity="0.06"/>
+
+  <!-- Seam band at Panel 4/5 boundary (x=12048) -->
+  <rect x="11948" y="0" width="200" height="7441"
+    fill="url(#wire-gradient-2)" opacity="0.06"/>
+
+  <!-- Seam band at Panel 5/6 boundary (x=15060) -->
+  <rect x="14960" y="0" width="200" height="7441"
+    fill="url(#wire-gradient-2)" opacity="0.06"/>
+
+  <!-- Seam band at Panel 6/7 boundary (x=18072) -->
+  <rect x="17972" y="0" width="200" height="7441"
+    fill="url(#wire-gradient-2)" opacity="0.06"/>
+
+  <!-- Seam band at Panel 7/8 boundary (x=21084) -->
+  <rect x="20984" y="0" width="200" height="7441"
+    fill="url(#wire-gradient-2)" opacity="0.06"/>
+
+</svg>

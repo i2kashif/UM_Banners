@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=3012, initial-scale=1.0">
+  <title>Banner 3 — Copper Enamelled Wire | Universal Metals Pakistan Limited</title>
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/panels/panel-3.css">
+</head>
+<body>
+
+<main id="panel-3" class="panel panel--white" style="--panel-index: 2;">
+
+  <!-- =========================================================
+       TOP ACCENT BAR
+       ========================================================= -->
+  <div class="accent-bar accent-bar--top" role="presentation" aria-hidden="true"></div>
+
+  <!-- =========================================================
+       LEFT EDGE ACCENT STRIPE
+       Marks the start of the centre wall product zone.
+       ========================================================= -->
+  <div class="edge-stripe edge-stripe--left" role="presentation" aria-hidden="true"></div>
+
+  <!-- =========================================================
+       FLOW SVG LAYER
+       Panel 3 slice: x offset = 2 × 3012 = 6024
+       ========================================================= -->
+  <div class="flow-svg-layer" aria-hidden="true">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="6024 0 3012 7441"
+      preserveAspectRatio="xMinYMid meet"
+      width="3012"
+      height="7441"
+    >
+      <defs>
+        <linearGradient id="p3-wire-grad" x1="6024" y1="0" x2="9036" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0%"   stop-color="#CE7340" stop-opacity="0.8"/>
+          <stop offset="50%"  stop-color="#F5B880" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="#E8A065" stop-opacity="0.75"/>
+        </linearGradient>
+        <filter id="p3-glow">
+          <feGaussianBlur stdDeviation="10" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+      </defs>
+      <path
+        d="M 6024,3850
+           C 6400,3920  7200,4080  8000,4900
+           C 8600,5050  8900,5120  9036,5130"
+        fill="none"
+        stroke="url(#p3-wire-grad)"
+        stroke-width="32"
+        stroke-linecap="round"
+        filter="url(#p3-glow)"
+      />
+      <path
+        d="M 6024,3910
+           C 6400,3980  7200,4140  8000,4960
+           C 8600,5110  8900,5180  9036,5190"
+        fill="none"
+        stroke="#F5B880"
+        stroke-width="10"
+        stroke-linecap="round"
+        stroke-opacity="0.35"
+      />
+    </svg>
+  </div>
+
+  <!-- =========================================================
+       ZONE A — PRODUCT NAME (90px – 783px)
+       "COPPER ENAMELLED WIRE" + small logo top-right
+       ========================================================= -->
+  <header class="zone-a" role="banner" aria-label="Product category and company logo">
+
+    <h2 class="product-name-display">Copper Enamelled Wire</h2>
+
+    <div class="zone-a-logo">
+      <img
+        src="../assets/images/branding/Logo.png"
+        alt="Universal Metals Pakistan Limited"
+        class="logo-image"
+        width="72"
+        height="auto"
+        onerror="this.style.display='none';"
+      >
+      <span style="
+        font-family: 'Barlow Condensed', Arial, sans-serif;
+        font-weight: 600;
+        font-size: 28px;
+        color: #B2673E;
+        letter-spacing: 0.10em;
+        text-transform: uppercase;
+      ">UMPL</span>
+    </div>
+
+  </header>
+
+  <!-- =========================================================
+       ZONE B — HERO PRODUCT IMAGE (783px – 3644px)
+       Spool photograph (placeholder until AI image delivered).
+       Concentric rings at 5% opacity behind spool.
+       ========================================================= -->
+  <section class="zone-b" aria-label="Copper enamelled wire product image">
+
+    <!-- Decorative rings behind product -->
+    <svg class="product-bg-rings" width="2000" height="2000" viewBox="0 0 2000 2000"
+         aria-hidden="true" role="presentation">
+      <circle cx="1000" cy="1000" r="950" fill="none" stroke="#F5B880" stroke-width="3"/>
+      <circle cx="1000" cy="1000" r="780" fill="none" stroke="#F5B880" stroke-width="3"/>
+      <circle cx="1000" cy="1000" r="610" fill="none" stroke="#CE7340" stroke-width="3"/>
+      <circle cx="1000" cy="1000" r="440" fill="none" stroke="#CE7340" stroke-width="2"/>
+      <circle cx="1000" cy="1000" r="270" fill="none" stroke="#B2673E" stroke-width="2"/>
+    </svg>
+
+    <!-- Product hero wrapper -->
+    <figure class="product-hero-frame" style="margin: 0; width: 100%; max-height: 2861px;">
+      <img
+        src="../assets/images/products/copper-enamelled-wire-ai.png"
+        alt="Copper Enamelled Wire — OFC 99.99% base copper, enamelled spool"
+        class="product-image"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+      >
+      <!-- CSS spool placeholder fallback — visible if image fails to load -->
+      <div class="spool-placeholder" aria-label="Copper enamelled wire spool placeholder" style="display:none;"></div>
+    </figure>
+
+  </section>
+
+  <!-- =========================================================
+       ZONE C — INFORMATION (3644px – 5150px)
+       CRITICAL: Use &#8805; HTML entity for ≥ (QR Checklist K21)
+       Headline + spec badges + subhead
+       ========================================================= -->
+  <section class="zone-c" aria-labelledby="p3-zone-c-headline">
+
+    <!-- HERO HEADLINE — ≥ rendered as HTML entity for glyph safety -->
+    <h1 id="p3-zone-c-headline" class="zone-c-headline">
+      &#8805;101% IACS. Triple-Certified. Up to 220&#176;C.
+    </h1>
+
+    <!-- Subhead (Poppins SemiBold) -->
+    <p class="subhead">
+      Copper enamelled wire &nbsp;&middot;&nbsp; 0.05&ndash;4.00 mm &nbsp;&middot;&nbsp; Grades 1, 2 &amp; 3
+    </p>
+
+    <!-- Spec badge row -->
+    <div class="spec-badge-row" role="list" aria-label="Technical specifications">
+
+      <span class="spec-badge" role="listitem">
+        Thermal Class 155 / 180 / 200 / 220&#176;C
+      </span>
+
+      <span class="spec-badge" role="listitem">
+        0.05 &ndash; 4.00 mm
+      </span>
+
+      <span class="spec-badge" role="listitem">
+        IEC 60317
+      </span>
+
+      <span class="spec-badge" role="listitem">
+        NEMA MW 1000
+      </span>
+
+      <span class="spec-badge" role="listitem">
+        JIS C 3202
+      </span>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+       ZONE D — DETAIL (5150px – 6054px)
+       4 body bullets, contact row
+       ========================================================= -->
+  <section class="zone-d" aria-label="Technical details and contact">
+
+    <ul class="body-list" aria-label="Product technical details">
+      <li>OFC 99.99% base copper &nbsp;&middot;&nbsp; Oxygen-free, precision-drawn</li>
+      <li>Thermal Class 155 / 180 / 200 / 220&#176;C</li>
+      <li>IEC 60317 &nbsp;+&nbsp; NEMA MW 1000 &nbsp;+&nbsp; JIS C 3202</li>
+      <li>In-house breakdown voltage &amp; pinhole testing</li>
+    </ul>
+
+    <div class="contact-row" style="margin-top: var(--gap-sm);">
+      <a href="https://www.universalmetals.com.pk" class="contact-url" target="_blank" rel="noopener">
+        universalmetals.com.pk
+      </a>
+      <div class="qr-block" aria-label="QR code for Wire Data Sheet">
+        <div class="qr-placeholder">
+          <span class="qr-label">Scan for<br>Wire Data Sheet</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+       ZONE E — FURNITURE RESERVE
+       ========================================================= -->
+  <aside class="zone-e" aria-hidden="true">
+    <div class="zone-e-fill"></div>
+  </aside>
+
+  <!-- =========================================================
+       BOTTOM ACCENT BAR
+       ========================================================= -->
+  <div class="accent-bar accent-bar--bottom" role="presentation" aria-hidden="true"></div>
+
+</main>
+
+</body>
+</html>

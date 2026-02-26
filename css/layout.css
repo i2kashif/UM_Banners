@@ -1,0 +1,347 @@
+/*
+ * layout.css
+ * Universal Metals Pakistan Limited — CWIEME Berlin 2026
+ * Panel container, zone grid, bleed/safe-zone structure, utility classes.
+ *
+ * Panel dimensions: 3,012 × 7,441 CSS px
+ * Outputs at DSF 2: 6,024 × 14,882 px → 1,020 × 2,520mm at 150 DPI
+ */
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: var(--panel-width);
+  height: var(--panel-height);
+  overflow: hidden;
+  background: var(--bg-white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   PANEL CONTAINER
+   The root element for each banner. Exactly matches Puppeteer
+   viewport: 3,012 × 7,441 CSS px. All content positioned within.
+   ============================================================ */
+
+.panel {
+  position: relative;
+  width: var(--panel-width);
+  height: var(--panel-height);
+  overflow: hidden;
+  background: var(--bg-white);
+  isolation: isolate;
+}
+
+.panel--cream {
+  background: var(--bg-cream);
+}
+
+.panel--white {
+  background: var(--bg-white);
+}
+
+.panel--white-to-cream {
+  background: var(--gradient-bg-white-to-cream);
+}
+
+/* ============================================================
+   BLEED ZONE
+   30px from each edge — extends to physical media edge.
+   No critical content in this area.
+   ============================================================ */
+
+.bleed-area {
+  position: absolute;
+  inset: 0;
+  /* The bleed is the panel canvas itself — content must be
+     inset by var(--content-inset) = 90px from all edges */
+  pointer-events: none;
+  z-index: var(--z-bg);
+}
+
+/* ============================================================
+   SAFE ZONE WRAPPER
+   All critical content lives inside this wrapper.
+   Inset: 90px from canvas edge (30px bleed + 60px safe zone).
+   ============================================================ */
+
+.safe-zone {
+  position: absolute;
+  inset: var(--content-inset);
+  /* computed: top 90px, right 90px, bottom 90px, left 90px */
+  width: var(--content-width);
+  height: var(--content-height);
+  overflow: visible;
+  z-index: var(--z-content);
+}
+
+/* ============================================================
+   ZONE CONTAINERS
+   Absolute positioned regions within the panel canvas.
+   Heights match Creative Director zone boundaries.
+   ============================================================ */
+
+/* Zone A: Brand Header | 90px–783px from canvas top */
+.zone-a {
+  position: absolute;
+  top: var(--zone-a-start);
+  left: var(--content-inset);
+  right: var(--content-inset);
+  height: var(--zone-a-height);
+  z-index: var(--z-content);
+  display: flex;
+  align-items: center;
+}
+
+/* Zone B: Hero / Visual | 783px–3644px from canvas top */
+.zone-b {
+  position: absolute;
+  top: var(--zone-b-start);
+  left: var(--content-inset);
+  right: var(--content-inset);
+  height: var(--zone-b-height);
+  z-index: var(--z-content);
+}
+
+/* Zone C: Information | 3644px–5150px from canvas top */
+.zone-c {
+  position: absolute;
+  top: var(--zone-c-start);
+  left: var(--content-inset);
+  right: var(--content-inset);
+  height: var(--zone-c-height);
+  z-index: var(--z-content);
+}
+
+/* Zone D: Detail | 5150px–6054px from canvas top */
+.zone-d {
+  position: absolute;
+  top: var(--zone-d-start);
+  left: var(--content-inset);
+  right: var(--content-inset);
+  height: var(--zone-d-height);
+  z-index: var(--z-content);
+}
+
+/* Zone E: Furniture Reserve | 6054px–7411px */
+.zone-e {
+  position: absolute;
+  top: var(--zone-e-start);
+  left: 0;
+  right: 0;
+  height: var(--zone-e-height);
+  z-index: var(--z-bg);
+  /* No critical content — decorative only */
+}
+
+/* ============================================================
+   ACCENT BARS
+   Copper gradient strips at top and bottom edges.
+   Extend into bleed zone (full canvas width).
+   ============================================================ */
+
+.accent-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: var(--accent-bar-thickness);
+  background: var(--gradient-copper-accent-bar);
+  z-index: var(--z-accent);
+}
+
+.accent-bar--top {
+  top: 0;
+}
+
+.accent-bar--bottom {
+  bottom: 0;
+}
+
+/* ============================================================
+   EDGE ACCENT STRIPES
+   Vertical copper stripes on left/right panel edges.
+   Used on Banner 3 (left) and Banner 6 (right) to mark
+   the start and end of the centre wall product zone.
+   ============================================================ */
+
+.edge-stripe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--accent-stripe-w);
+  background: var(--copper-500);
+  z-index: var(--z-accent);
+}
+
+.edge-stripe--left {
+  left: 0;
+}
+
+.edge-stripe--right {
+  right: 0;
+}
+
+/* ============================================================
+   PANORAMIC BACKGROUND LAYER
+   Full-width background that spans all 8 panels.
+   Each panel shows its correct slice via background-position.
+   --panel-index (0–7) must be set on each panel element.
+   ============================================================ */
+
+.panel-bg {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-bg);
+}
+
+/* Noise texture overlay — prevents gradient banding in print */
+/* Applied as a pseudo-element over all large gradient areas */
+.panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-texture);
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* ============================================================
+   CROSS-PANEL SVG FLOW LAYER
+   The SVG copper wire element that flows across all 8 panels.
+   Lives at z-index 3, behind product photos and text.
+   ============================================================ */
+
+.flow-svg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-flow);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.flow-svg-layer svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================================
+   COPPER RULE / DIVIDER
+   Thin horizontal copper line used as section separator.
+   ============================================================ */
+
+.copper-rule {
+  display: block;
+  width: 100%;
+  height: var(--copper-rule-h);
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--copper-300) 15%,
+    var(--copper-500) 50%,
+    var(--copper-300) 85%,
+    transparent 100%
+  );
+  border: none;
+  margin: var(--gap-sm) 0;
+  flex-shrink: 0;
+}
+
+.copper-rule--full {
+  background: var(--copper-300);
+}
+
+/* ============================================================
+   CONTENT ALIGNMENT UTILITIES
+   ============================================================ */
+
+.text-left   { text-align: left; }
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-start {
+  display: flex;
+  align-items: flex-start;
+}
+
+.align-center { align-items: center; }
+.align-start  { align-items: flex-start; }
+.align-end    { align-items: flex-end; }
+
+/* ============================================================
+   SPACING UTILITIES
+   ============================================================ */
+
+.mt-xs  { margin-top: var(--gap-xs); }
+.mt-sm  { margin-top: var(--gap-sm); }
+.mt-md  { margin-top: var(--gap-md); }
+.mt-lg  { margin-top: var(--gap-lg); }
+
+.mb-xs  { margin-bottom: var(--gap-xs); }
+.mb-sm  { margin-bottom: var(--gap-sm); }
+.mb-md  { margin-bottom: var(--gap-md); }
+
+.pt-xs  { padding-top: var(--gap-xs); }
+.pt-sm  { padding-top: var(--gap-sm); }
+.pt-md  { padding-top: var(--gap-md); }
+
+.pb-xs  { padding-bottom: var(--gap-xs); }
+.pb-sm  { padding-bottom: var(--gap-sm); }
+
+/* ============================================================
+   PRINT SAFETY OVERRIDES
+   Applied when rendering via Puppeteer for print output.
+   box-shadow: none, no opacity < 0.8 for critical content.
+   ============================================================ */
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .panel::before {
+    display: none; /* remove noise in print if causing issues */
+  }
+}

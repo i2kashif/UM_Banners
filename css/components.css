@@ -1,0 +1,782 @@
+/*
+ * components.css
+ * Universal Metals Pakistan Limited — CWIEME Berlin 2026
+ * Reusable component classes used across all 8 banner panels.
+ *
+ * Components:
+ *   - Logo block
+ *   - Stat block
+ *   - Spec badge (pill shape)
+ *   - Premium badge (TUK, CCR callouts)
+ *   - Certification badge row
+ *   - Product hero frame
+ *   - Process flow diagram
+ *   - Section label
+ *   - Tagline
+ *   - Contact / foot row
+ *   - QR code placeholder
+ *   - Decorative concentric rings
+ */
+
+/* ============================================================
+   LOGO BLOCK
+   UMPL logo displayed in Zone A of each panel.
+   Hero variant: larger logo for Panel 1 (Company Hero).
+   Mark variant: smaller logo for all other panels.
+   ============================================================ */
+
+.logo-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-xs);
+}
+
+.logo-block--left {
+  align-items: flex-start;
+}
+
+.logo-block--right {
+  align-items: flex-end;
+}
+
+.logo-block img {
+  display: block;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.logo-block--hero img {
+  width: var(--logo-width-hero);
+  height: auto;
+}
+
+.logo-block--sm img {
+  width: var(--logo-width-sm);
+  height: auto;
+}
+
+.logo-wordmark {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 54px;
+  letter-spacing: var(--ls-wide);
+  color: var(--text-copper-headline);
+  text-transform: uppercase;
+  text-rendering: geometricPrecision;
+  line-height: 1;
+}
+
+.logo-wordmark--sm {
+  font-size: 36px;
+  letter-spacing: 0.06em;
+}
+
+/* ============================================================
+   HEADLINE TYPOGRAPHY
+   All Barlow Condensed, uppercase, letter-spacing 0.04em.
+   CRITICAL: Only use --text-copper-headline (#B2673E)
+   at 75mm+ physical size (≥ 222px CSS px at this scale).
+   ============================================================ */
+
+/* Hero headline — Panels 1, 8 */
+.headline-hero {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-hero);
+  color: var(--text-copper-headline);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  line-height: var(--lh-hero);
+  text-rendering: geometricPrecision;
+}
+
+/* Product name headline — Panels 3, 4, 5, 6 */
+.headline-product {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h1);
+  color: var(--text-copper-headline);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  line-height: var(--lh-heading);
+  text-rendering: geometricPrecision;
+}
+
+/* Product name — long names (Panel 4 "PAPER COVERED COPPER STRIP") */
+.headline-product--sm {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h1-sm);
+  color: var(--text-copper-headline);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  line-height: var(--lh-heading);
+  text-rendering: geometricPrecision;
+}
+
+/* Zone B / Zone C headlines — spec banners */
+.headline-zone {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-h2);
+  color: var(--text-copper-headline);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: var(--lh-heading);
+  text-rendering: geometricPrecision;
+}
+
+/* Section title — Barlow Condensed Medium */
+.headline-section {
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-h3);
+  color: var(--text-copper-stat);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  line-height: var(--lh-heading);
+  text-rendering: geometricPrecision;
+}
+
+/* ============================================================
+   TAGLINE
+   "Our Wire. Your Light." — Barlow Condensed Medium,
+   --copper-500, generous letter spacing.
+   ============================================================ */
+
+.tagline {
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-tagline);
+  color: var(--text-copper-stat);
+  letter-spacing: var(--ls-wider);
+  line-height: 1.1;
+  text-rendering: geometricPrecision;
+}
+
+.tagline--watermark {
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-tagline);
+  color: var(--copper-300);
+  letter-spacing: var(--ls-wider);
+  opacity: var(--opacity-decorative);
+  text-rendering: geometricPrecision;
+}
+
+/* ============================================================
+   STAT BLOCK
+   Large number + label, displayed in a grid.
+   Used in Zone C for landmark statistics.
+   ============================================================ */
+
+.stat-grid {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 120px;
+  width: 100%;
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.stat-block--left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-stat-main);
+  color: var(--text-copper-stat);
+  letter-spacing: var(--ls-tight);
+  line-height: 0.9;
+  text-rendering: geometricPrecision;
+  display: block;
+}
+
+.stat-number--hero {
+  font-size: var(--fs-stat-hero);
+  letter-spacing: -0.03em;
+}
+
+.stat-label {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-lg);
+  color: var(--text-secondary);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  line-height: var(--lh-label);
+  display: block;
+}
+
+/* ============================================================
+   SUBHEADING (Poppins SemiBold)
+   Zone C subheads. Always #1A1208 for print safety.
+   ============================================================ */
+
+.subhead {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-lg);
+  color: var(--text-primary);
+  line-height: var(--lh-body);
+  text-rendering: optimizeLegibility;
+}
+
+/* ============================================================
+   BODY TEXT & BULLETS
+   Poppins Regular (400), 42px, #1A1208.
+   QR checklist C5l: minimum weight 500 (Medium). However,
+   the Design Brief explicitly specifies 400 for body bullets.
+   We apply 500 as the actual minimum per QR override.
+   ============================================================ */
+
+.body-text {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);    /* 500 — QR override, safer for print */
+  font-size: var(--fs-body);
+  color: var(--text-primary);
+  line-height: var(--lh-body);
+  text-rendering: optimizeLegibility;
+}
+
+.body-text--secondary {
+  color: var(--text-secondary);
+}
+
+.body-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+}
+
+.body-list li {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body);
+  color: var(--text-primary);
+  line-height: var(--lh-body);
+  text-rendering: optimizeLegibility;
+  padding-left: 54px;
+  position: relative;
+}
+
+.body-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 24px;
+  height: 6px;
+  background: var(--copper-500);
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.fine-print {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body-sm);
+  color: var(--text-muted);
+  line-height: 1.4;
+  text-rendering: optimizeLegibility;
+}
+
+/* ============================================================
+   SPEC BADGE
+   Pill-shaped specification callout.
+   Fill: #FDE8D0 (copper-100) | Border: #CE7340 3px | Radius: 24px
+   Text: 42px Poppins SemiBold #1A1208
+   ============================================================ */
+
+.spec-badge-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--gap-sm);
+  align-items: center;
+}
+
+.spec-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 48px;
+  background: var(--bg-copper-lightest);
+  border: 3px solid var(--copper-500);
+  border-radius: var(--spec-badge-radius);
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body);
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  text-rendering: optimizeLegibility;
+}
+
+/* Premium badge — TUK Paper, CCR Technology */
+.spec-badge--premium {
+  padding: 24px 60px;
+  background: var(--bg-copper-lightest);
+  border: 3px solid var(--dark-rust);
+  border-radius: var(--spec-badge-radius);
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-badge-lg);
+  color: var(--dark-rust);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   CERTIFICATION BADGE ROW
+   Horizontal row of certification icons/text.
+   Since vector SVGs are not yet available, using CSS-styled
+   text badges. These are replaced with SVG icons at production.
+   ============================================================ */
+
+.cert-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--gap-sm);
+  align-items: center;
+}
+
+.cert-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  background: var(--bg-white);
+  border: 4px solid var(--copper-500);
+  border-radius: 50%;
+  font-family: var(--font-body);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-body-sm);
+  color: var(--text-copper-bold);
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-rendering: optimizeLegibility;
+}
+
+.cert-badge--iso {
+  background: var(--bg-copper-lightest);
+  border-color: var(--copper-700);
+  color: var(--copper-700);
+}
+
+.cert-badge-text {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body);
+  color: var(--text-copper-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   PRODUCT HERO FRAME
+   Container for product photography.
+   mix-blend-mode: multiply removes white background from photos.
+   ============================================================ */
+
+.product-hero-frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.product-hero-frame img {
+  display: block;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 24px 72px rgba(178, 103, 62, 0.22));
+}
+
+/* Placeholder for product image (used until AI-generated images arrive) */
+.product-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(
+    135deg,
+    var(--copper-100) 0%,
+    var(--copper-200) 30%,
+    var(--copper-300) 55%,
+    var(--copper-400) 80%,
+    var(--copper-500) 100%
+  );
+  border-radius: var(--card-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-placeholder::after {
+  content: attr(data-product);
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+  right: 48px;
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body);
+  color: var(--copper-700);
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Spool-shaped placeholder for enamelled wire */
+.product-placeholder--spool {
+  border-radius: 50%;
+  border: 20px solid var(--copper-400);
+  background: linear-gradient(
+    135deg,
+    var(--copper-200) 0%,
+    var(--copper-400) 40%,
+    var(--copper-300) 70%,
+    var(--copper-500) 100%
+  );
+}
+
+/* Strip cross-section placeholder */
+.product-placeholder--strip {
+  border-radius: 8px;
+  border-left: 24px solid var(--copper-600);
+  background: linear-gradient(
+    to right,
+    var(--copper-100) 0%,
+    var(--copper-200) 20%,
+    var(--copper-300) 50%,
+    var(--copper-200) 80%,
+    var(--copper-100) 100%
+  );
+}
+
+/* ============================================================
+   PROCESS FLOW DIAGRAM (Banner 2)
+   Four stages connected by a vertical copper gradient line.
+   Stages: RAW COPPER > COPPER ROD > ENAMELLED WIRE > FINISHED PRODUCT
+   ============================================================ */
+
+.process-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  position: relative;
+  padding-left: 90px;
+}
+
+.process-flow::before {
+  content: '';
+  position: absolute;
+  left: calc(90px + 90px - 4px); /* center of circle */
+  top: 90px;
+  bottom: 90px;
+  width: 8px;
+  background: linear-gradient(
+    to bottom,
+    var(--copper-700) 0%,
+    var(--copper-500) 33%,
+    var(--copper-400) 66%,
+    var(--copper-300) 100%
+  );
+  z-index: 0;
+  border-radius: 4px;
+}
+
+.process-stage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+  z-index: 1;
+  padding: 36px 0;
+}
+
+.process-circle {
+  flex-shrink: 0;
+  width: var(--process-circle-d);
+  height: var(--process-circle-d);
+  border-radius: 50%;
+  background: var(--bg-copper-lightest);
+  border: 6px solid var(--copper-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.process-circle-label {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: 32px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-rendering: optimizeLegibility;
+}
+
+.process-stage-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.process-stage-name {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h3);
+  color: var(--text-copper-headline);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  text-rendering: geometricPrecision;
+}
+
+.process-stage-detail {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body);
+  color: var(--text-primary);
+  line-height: var(--lh-body);
+}
+
+/* ============================================================
+   SECTION LABEL
+   Small uppercase category label above headlines.
+   ============================================================ */
+
+.section-label {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-sm);
+  color: var(--text-copper-stat);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-widest);
+  line-height: 1;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--copper-300);
+  display: inline-block;
+}
+
+/* ============================================================
+   CONTACT / FOOT ROW
+   Bottom-of-zone contact details and website URL.
+   ============================================================ */
+
+.contact-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-md);
+  width: 100%;
+  padding-top: var(--gap-sm);
+  border-top: 4px solid var(--copper-300);
+}
+
+.contact-url {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body);
+  color: var(--text-copper-bold);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+}
+
+.contact-tagline {
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  font-size: 60px;
+  color: var(--text-copper-stat);
+  letter-spacing: var(--ls-wider);
+  text-rendering: geometricPrecision;
+}
+
+/* ============================================================
+   QR CODE PLACEHOLDER
+   Used in Banners 2, 3, 4, 5, 8. Black on white for max
+   contrast. Minimum 25mm × 25mm (74px CSS px).
+   ============================================================ */
+
+.qr-placeholder {
+  width: 220px;
+  height: 220px;
+  background: var(--bg-white);
+  border: 4px solid var(--text-primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fake QR grid pattern */
+.qr-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 24px;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      var(--text-primary) 0px,
+      var(--text-primary) 14px,
+      transparent 14px,
+      transparent 28px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--text-primary) 0px,
+      var(--text-primary) 14px,
+      transparent 14px,
+      transparent 28px
+    );
+  background-blend-mode: multiply;
+  opacity: 0.3;
+}
+
+.qr-label {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-label);
+  color: var(--text-primary);
+  text-align: center;
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.qr-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.qr-caption {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body-sm);
+  color: var(--text-secondary);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   DECORATIVE CONCENTRIC RINGS
+   SVG-style background element for Banner 1 Zone A.
+   Pure decoration — opacity 8%, never over text.
+   ============================================================ */
+
+.concentric-rings {
+  position: absolute;
+  pointer-events: none;
+  z-index: var(--z-texture);
+  opacity: var(--opacity-decorative);
+}
+
+/* ============================================================
+   ZONE E DECORATIVE FILL
+   Furniture reserve — copper gradient fade, no text content.
+   ============================================================ */
+
+.zone-e-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--bg-white) 0%,
+    var(--bg-cream) 50%,
+    var(--copper-100) 100%
+  );
+  opacity: 0.6;
+}
+
+.zone-e-fill--cream {
+  background: linear-gradient(
+    to bottom,
+    var(--bg-cream) 0%,
+    var(--copper-100) 60%,
+    var(--copper-200) 100%
+  );
+  opacity: 0.4;
+}
+
+/* ============================================================
+   PRODUCT IMAGE
+   Real photography integration. mix-blend-mode: multiply
+   removes white backgrounds seamlessly on cream/white panels.
+   ============================================================ */
+
+.product-image {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 72px rgba(178, 103, 62, 0.20));
+  display: block;
+}
+
+/* Hero product image within product-hero-frame */
+.product-hero-frame .product-image {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Product card image area (used in Panel 6 insulation grid) */
+.product-card-image {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--copper-100) 0%, var(--bg-cream) 100%);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.product-card-image .product-image {
+  max-width: 85%;
+  max-height: 85%;
+  filter: drop-shadow(0 8px 24px rgba(178, 103, 62, 0.18));
+}
+
+/* Logo image — used wherever Logo.png is displayed */
+.logo-image {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}

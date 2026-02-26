@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=3012, initial-scale=1.0">
+  <title>Banner 6 — Insulation Materials | Universal Metals Pakistan Limited</title>
+
+  <!-- All fonts are local .woff2 — no CDN dependency for Puppeteer -->
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/panels/panel-6.css">
+</head>
+<body>
+
+<main id="panel-6" class="panel panel--cream" style="--panel-index: 5;">
+
+  <!-- =========================================================
+       TOP ACCENT BAR — Full-width copper gradient strip
+       ========================================================= -->
+  <div class="accent-bar accent-bar--top" role="presentation" aria-hidden="true"></div>
+
+  <!-- =========================================================
+       RIGHT EDGE ACCENT STRIPE
+       Marks the END of the centre wall product zone.
+       ========================================================= -->
+  <div class="edge-stripe edge-stripe--right" role="presentation" aria-hidden="true"></div>
+
+  <!-- =========================================================
+       FLOW SVG LAYER — Panel 6 slice
+       Panel 6: x offset = 5 × 3012 = 15060
+       ========================================================= -->
+  <div class="flow-svg-layer" aria-hidden="true">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="15060 0 3012 7441"
+      preserveAspectRatio="xMinYMid meet"
+      width="3012"
+      height="7441"
+    >
+      <defs>
+        <linearGradient id="p6-wire-grad" x1="15060" y1="0" x2="18072" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0%"   stop-color="#B2673E" stop-opacity="0.7"/>
+          <stop offset="50%"  stop-color="#CE7340" stop-opacity="0.8"/>
+          <stop offset="100%" stop-color="#E8A065" stop-opacity="0.5"/>
+        </linearGradient>
+        <filter id="p6-glow">
+          <feGaussianBlur stdDeviation="10" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+      </defs>
+      <!-- Panel 6 slice — wire descends toward floor zone -->
+      <path
+        d="M 15060,3430
+           C 15600,3380  16400,3600  17200,4000
+           C 17800,4300  18000,4500  18072,4560"
+        fill="none"
+        stroke="url(#p6-wire-grad)"
+        stroke-width="32"
+        stroke-linecap="round"
+        filter="url(#p6-glow)"
+      />
+      <!-- Secondary parallel strand -->
+      <path
+        d="M 15060,3490
+           C 15600,3440  16400,3660  17200,4060
+           C 17800,4360  18000,4560  18072,4620"
+        fill="none"
+        stroke="#F5B880"
+        stroke-width="10"
+        stroke-linecap="round"
+        stroke-opacity="0.35"
+      />
+    </svg>
+  </div>
+
+  <!-- =========================================================
+       ZONE A — PRODUCT NAME (90px – 783px)
+       "INSULATION MATERIALS" + UMPL logo mark top-right
+       ========================================================= -->
+  <header class="zone-a" role="banner" aria-label="Product category and company logo">
+
+    <h2 class="product-name-display">Insulation Materials</h2>
+
+    <div class="zone-a-logo">
+      <img
+        src="../assets/images/branding/Logo.png"
+        alt="Universal Metals Pakistan Limited"
+        class="logo-image"
+        width="72"
+        height="auto"
+        onerror="this.style.display='none';"
+      >
+      <span style="
+        font-family: 'Barlow Condensed', Arial, sans-serif;
+        font-weight: 600;
+        font-size: 28px;
+        color: #B2673E;
+        letter-spacing: 0.10em;
+        text-transform: uppercase;
+      ">UMPL</span>
+    </div>
+
+  </header>
+
+  <!-- =========================================================
+       ZONE B — PRODUCT RANGE DISPLAY (783px – 3644px)
+       2×3 grid: NMN / DMD / Film Composite | AMA / PET Film / Range Summary
+       NMN card features DuPont™ Nomex® 410 callout.
+       ========================================================= -->
+  <section class="zone-b" aria-label="Insulation product range">
+
+    <!-- Section label -->
+    <span class="zone-b-label" role="presentation">Full product range</span>
+
+    <!-- 2×3 product card grid -->
+    <div class="product-grid" role="list" aria-label="Insulation material product cards">
+
+      <!-- NMN — Nomex/Mylar/Nomex composite, Class H -->
+      <article class="product-card product-card--nmn" role="listitem" aria-label="NMN Nomex-Mylar-Nomex insulation">
+        <div class="product-card-image">
+          <img
+            src="../assets/images/products/nmn-nomex.jpeg"
+            alt="NMN Nomex-Mylar-Nomex insulation material"
+            class="product-image"
+            onerror="this.parentElement.style.display='none';"
+          >
+        </div>
+        <h3 class="product-card-name">NMN</h3>
+        <span class="product-card-grade">Class H</span>
+        <p class="product-card-desc">
+          Nomex&#8203;&#8209;Mylar&#8203;&#8209;Nomex flexible laminate.<br>
+          Thermal Class H (180&#176;C). Excellent dielectric strength.<br>
+          Slot &amp; phase insulation for transformers &amp; motors.
+        </p>
+        <span class="dupont-callout">DuPont&#8482; Nomex&#174; 410</span>
+      </article>
+
+      <!-- DMD — Dacron/Mylar/Dacron, Class F & B -->
+      <article class="product-card" role="listitem" aria-label="DMD Dacron-Mylar-Dacron insulation">
+        <div class="product-card-image">
+          <img
+            src="../assets/images/products/dmd-insulation.jpg"
+            alt="DMD Dacron-Mylar-Dacron insulation material"
+            class="product-image"
+            onerror="this.parentElement.style.display='none';"
+          >
+        </div>
+        <h3 class="product-card-name">DMD</h3>
+        <span class="product-card-grade">Class F/B</span>
+        <p class="product-card-desc">
+          Polyester fibre&#8209;Mylar&#8209;Polyester fibre laminate.<br>
+          Thermal Class F (155&#176;C) and Class B (137&#176;C).<br>
+          High tensile strength. Cost-effective alternative.
+        </p>
+      </article>
+
+      <!-- Film Composite — polyester film laminates -->
+      <article class="product-card" role="listitem" aria-label="Film composite insulation">
+        <div class="product-card-image">
+          <img
+            src="../assets/images/products/film-composite.jpeg"
+            alt="Film Composite polyester insulation material"
+            class="product-image"
+            onerror="this.parentElement.style.display='none';"
+          >
+        </div>
+        <h3 class="product-card-name">Film Composite</h3>
+        <span class="product-card-grade">Class F</span>
+        <p class="product-card-desc">
+          Polyester film composite laminates for slot liners,<br>
+          end turns, and phase barriers.<br>
+          Customisable thickness: 0.13–0.50mm.
+        </p>
+      </article>
+
+      <!-- AMA — Aramid/Mylar/Aramid -->
+      <article class="product-card" role="listitem" aria-label="AMA Aramid-Mylar-Aramid insulation">
+        <div class="product-card-image">
+          <img
+            src="../assets/images/products/ama.jpeg"
+            alt="AMA Aramid-Mylar-Aramid insulation material"
+            class="product-image"
+            onerror="this.parentElement.style.display='none';"
+          >
+        </div>
+        <h3 class="product-card-name">AMA</h3>
+        <span class="product-card-grade">Class H</span>
+        <p class="product-card-desc">
+          Aramid fibre&#8209;Mylar&#8209;Aramid fibre flexible laminate.<br>
+          Thermal Class H (180&#176;C). Superior arc resistance.<br>
+          High-voltage transformer slot insulation.
+        </p>
+      </article>
+
+      <!-- PET Film — bare polyester film -->
+      <article class="product-card" role="listitem" aria-label="PET polyester film insulation">
+        <div class="product-card-image">
+          <img
+            src="../assets/images/products/pet-film.jpeg"
+            alt="PET polyester film insulation material"
+            class="product-image"
+            onerror="this.parentElement.style.display='none';"
+          >
+        </div>
+        <h3 class="product-card-name">PET Film</h3>
+        <span class="product-card-grade">Class E</span>
+        <p class="product-card-desc">
+          Biaxially-oriented PET polyester film.<br>
+          Thermal Class E (120&#176;C). Ultra-smooth surface.<br>
+          IEC 60626. Capacitor and motor insulation.
+        </p>
+      </article>
+
+      <!-- Summary card — one-stop-shop message -->
+      <article class="product-card" role="listitem" aria-label="Complete insulation range summary" style="
+        background: linear-gradient(135deg, var(--bg-copper-lightest) 0%, var(--bg-cream) 100%);
+        border-color: var(--copper-500);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      ">
+        <h3 class="product-card-name" style="text-align: center;">5 Materials</h3>
+        <span class="product-card-grade" style="align-self: center;">1 Source</span>
+        <p class="product-card-desc" style="text-align: center;">
+          All insulation grades stocked in Lahore.<br>
+          One PO, one supplier, full traceability.<br>
+          Certified Class B through Class H.
+        </p>
+      </article>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+       ZONE C — INFORMATION (3644px – 5150px)
+       Main headline + one-stop-shop subhead + spec badge row
+       ========================================================= -->
+  <section class="zone-c" aria-labelledby="p6-zone-c-headline">
+
+    <h1 id="p6-zone-c-headline" class="zone-c-headline">
+      Wire. Strip. Insulation. One Qualified Supplier.
+    </h1>
+
+    <p class="subhead">
+      NMN Nomex &nbsp;&middot;&nbsp; DMD &nbsp;&middot;&nbsp; Film Composite &nbsp;&middot;&nbsp; AMA &nbsp;&middot;&nbsp; PET Film
+    </p>
+
+    <!-- Spec badge row — certifications and grades -->
+    <div class="spec-badge-row" role="list" aria-label="Thermal class certifications">
+
+      <span class="spec-badge" role="listitem">Thermal Class B &nbsp;137&#176;C</span>
+      <span class="spec-badge" role="listitem">Thermal Class F &nbsp;155&#176;C</span>
+      <span class="spec-badge" role="listitem">Thermal Class H &nbsp;180&#176;C</span>
+      <span class="spec-badge" role="listitem">IEC 60626</span>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+       ZONE D — DETAIL (5150px – 6054px)
+       DuPont Nomex 410 authentication panel + body bullets + contact row
+       ========================================================= -->
+  <section class="zone-d" aria-label="Supplier details and contact">
+
+    <!-- DuPont Nomex authentication callout -->
+    <div class="nomex-auth-box" role="note" aria-label="DuPont Nomex 410 authentication">
+      <span class="nomex-auth-icon" aria-hidden="true">N</span>
+      <p class="nomex-auth-text">
+        <strong>Authentic DuPont&#8482; Nomex&#174; 410</strong> &mdash; UMPL sources genuine Nomex 410 paper from DuPont.
+        Every NMN batch is traceable to DuPont certificates of conformance.
+        No substitutes, no blends. The same Nomex 410 used in ABB and Siemens transformer builds.
+      </p>
+    </div>
+
+    <ul class="body-list" aria-label="One-stop-shop capability">
+      <li>Wire &nbsp;+&nbsp; strip &nbsp;+&nbsp; insulation from a single ISO 9001 certified facility</li>
+      <li>Custom thicknesses and widths available: 0.13mm to 5.0mm</li>
+      <li>IEC 60626 &nbsp;&middot;&nbsp; IEC 60317 compatible insulation stack-ups</li>
+      <li>Consolidated shipping &mdash; one PO, one delivery, full CoC documentation</li>
+    </ul>
+
+    <div class="contact-row" style="margin-top: var(--gap-sm);">
+      <a href="https://www.universalmetals.com.pk" class="contact-url" target="_blank" rel="noopener">
+        universalmetals.com.pk
+      </a>
+      <div class="qr-block" aria-label="QR code for Insulation Materials catalogue">
+        <div class="qr-placeholder">
+          <span class="qr-label">Scan for<br>Insulation Catalogue</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+       ZONE E — FURNITURE RESERVE (6054px – 7411px)
+       Decorative only — no critical content.
+       ========================================================= -->
+  <aside class="zone-e" aria-hidden="true">
+    <div class="zone-e-fill zone-e-fill--cream"></div>
+  </aside>
+
+  <!-- =========================================================
+       BOTTOM ACCENT BAR
+       ========================================================= -->
+  <div class="accent-bar accent-bar--bottom" role="presentation" aria-hidden="true"></div>
+
+</main>
+
+</body>
+</html>

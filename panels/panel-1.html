@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=3012, initial-scale=1.0">
+  <title>Banner 1 — Company Hero | Universal Metals Pakistan Limited</title>
+
+  <!-- All fonts are local .woff2 — no CDN dependency for Puppeteer -->
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/panels/panel-1.css">
+</head>
+<body>
+
+<main id="panel-1" class="panel panel--white-to-cream" style="--panel-index: 0;">
+
+  <!-- =========================================================
+       TOP ACCENT BAR — Full-width copper gradient strip
+       Extends into bleed (positioned at canvas top = 0px)
+       ========================================================= -->
+  <div class="accent-bar accent-bar--top" role="presentation" aria-hidden="true"></div>
+
+  <!-- =========================================================
+       FLOW SVG LAYER — Cross-panel copper wire (z-index 3)
+       Passes behind product zones and text content.
+       ========================================================= -->
+  <div class="flow-svg-layer" aria-hidden="true">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 3012 7441"
+      preserveAspectRatio="xMinYMid meet"
+      width="3012"
+      height="7441"
+    >
+      <defs>
+        <linearGradient id="p1-wire-grad" x1="0" y1="0" x2="3012" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0%"   stop-color="#8B4A28" stop-opacity="0.5"/>
+          <stop offset="50%"  stop-color="#CE7340" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="#F5B880" stop-opacity="0.8"/>
+        </linearGradient>
+        <filter id="p1-glow">
+          <feGaussianBlur stdDeviation="10" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+      </defs>
+      <!-- Panel 1 slice of the cross-panel wire (viewBox 0 0 3012 7441) -->
+      <path
+        d="M -200,5420
+           C 600,5300   1400,5100  2200,4700
+           C 2800,4400  3012,4350  3200,4300"
+        fill="none"
+        stroke="url(#p1-wire-grad)"
+        stroke-width="32"
+        stroke-linecap="round"
+        filter="url(#p1-glow)"
+      />
+      <!-- Secondary parallel strand -->
+      <path
+        d="M -200,5480
+           C 600,5360   1400,5160  2200,4760
+           C 2800,4460  3012,4410  3200,4360"
+        fill="none"
+        stroke="#F5B880"
+        stroke-width="10"
+        stroke-linecap="round"
+        stroke-opacity="0.35"
+      />
+    </svg>
+  </div>
+
+  <!-- =========================================================
+       ZONE A — BRAND HEADER (90px – 783px from canvas top)
+       Full UMPL logo lockup centered.
+       Decorative concentric rings behind logo.
+       ========================================================= -->
+  <header class="zone-a" role="banner">
+
+    <!-- Decorative concentric rings behind logo -->
+    <svg class="zone-a-rings" width="1200" height="1200" viewBox="0 0 1200 1200"
+         aria-hidden="true" role="presentation">
+      <circle cx="600" cy="600" r="550" fill="none" stroke="#F5B880" stroke-width="2"/>
+      <circle cx="600" cy="600" r="450" fill="none" stroke="#F5B880" stroke-width="2"/>
+      <circle cx="600" cy="600" r="350" fill="none" stroke="#CE7340" stroke-width="2"/>
+      <circle cx="600" cy="600" r="250" fill="none" stroke="#CE7340" stroke-width="2"/>
+      <circle cx="600" cy="600" r="150" fill="none" stroke="#B2673E" stroke-width="2"/>
+      <circle cx="600" cy="600" r="600" fill="none" stroke="#F5B880" stroke-width="1" stroke-dasharray="12,8"/>
+    </svg>
+
+    <div class="logo-lockup" style="position: relative; z-index: 6;">
+      <!-- Logo image — using text lockup as placeholder until Logo.png resolution is verified -->
+      <figure style="margin: 0;">
+        <img
+          src="../assets/images/branding/Logo.png"
+          alt="Universal Metals Pakistan Limited"
+          class="logo-image"
+          width="240"
+          height="auto"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        >
+        <!-- CSS fallback logo if image fails to load -->
+        <div class="logo-fallback" style="
+          display: none;
+          flex-direction: row;
+          align-items: center;
+          gap: 16px;
+        ">
+          <div style="
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8B4A28 0%, #F5B880 50%, #CE7340 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          ">
+            <span style="
+              font-family: 'Barlow Condensed', Arial, sans-serif;
+              font-weight: 800;
+              font-size: 96px;
+              color: #FFFFFF;
+              letter-spacing: 0.02em;
+              text-rendering: geometricPrecision;
+            ">UM</span>
+          </div>
+        </div>
+      </figure>
+
+      <p class="company-name-display">Universal Metals</p>
+      <p class="company-sub-name">Pakistan Limited &nbsp;·&nbsp; Est. 1996</p>
+    </div>
+
+  </header>
+
+  <!-- =========================================================
+       ZONE B — HERO ZONE (783px – 3644px from canvas top)
+       Tagline → copper rule → three-phrase hero headline
+       ========================================================= -->
+  <section class="zone-b" aria-labelledby="p1-headline">
+
+    <!-- Three-phrase headline as graphic element -->
+    <h1 id="p1-headline" class="hero-headline">
+      <span class="phrase-1">30 Years.</span>
+      <span class="phrase-2">Rod to Wire.</span>
+      <span class="phrase-3">One Facility.</span>
+    </h1>
+
+    <!-- Thin copper rule separator -->
+    <hr class="copper-rule" style="width: 500px; margin-bottom: 80px;">
+
+    <!-- "Our Wire. Your Light." tagline — below headline -->
+    <p class="tagline-display">Our Wire. Your Light.</p>
+
+    <!-- Supporting claim below headline -->
+    <p class="pakistan-largest">Pakistan's largest copper rod manufacturer since 1996</p>
+
+  </section>
+
+  <!-- =========================================================
+       ZONE C — INFORMATION (3644px – 5150px from canvas top)
+       Stat blocks: 30+ Years | Est. 1996 | 28+ Products
+       Certification subhead.
+       Body bullets.
+       ========================================================= -->
+  <section class="zone-c" aria-label="Company statistics">
+
+    <!-- Three-column stat grid -->
+    <div class="stat-grid" role="list">
+
+      <div class="stat-block" role="listitem">
+        <span class="stat-number">30+</span>
+        <span class="stat-label">Years</span>
+      </div>
+
+      <div class="stat-block" role="listitem">
+        <span class="stat-number">1996</span>
+        <span class="stat-label">Est.</span>
+      </div>
+
+      <div class="stat-block" role="listitem">
+        <span class="stat-number">28+</span>
+        <span class="stat-label">Products</span>
+      </div>
+
+    </div>
+
+    <!-- Certification subhead -->
+    <p class="cert-subhead">
+      Certified IEC &nbsp;·&nbsp; NEMA &nbsp;·&nbsp; JIS &nbsp;·&nbsp; CE &nbsp;&mdash;&nbsp; Since 1996
+    </p>
+
+    <!-- Body bullets -->
+    <ul class="body-list" aria-label="Key capabilities">
+      <li>Pakistan's largest copper rod manufacturer</li>
+      <li>28+ products &nbsp;·&nbsp; 7 categories &nbsp;·&nbsp; In-house testing lab</li>
+      <li>European CCR technology</li>
+    </ul>
+
+  </section>
+
+  <!-- =========================================================
+       ZONE D — DETAIL (5150px – 6054px from canvas top)
+       Copper rule, CCR detail, contact footer
+       ========================================================= -->
+  <section class="zone-d" aria-label="Contact details">
+
+    <hr class="copper-rule" style="width: 100%;">
+
+    <p class="ccr-line">European CCR technology &nbsp;·&nbsp; Continuous cast &amp; roll process &nbsp;·&nbsp; Lahore, Pakistan</p>
+
+    <div class="contact-row">
+      <a href="https://www.universalmetals.com.pk" class="contact-url" target="_blank" rel="noopener">
+        universalmetals.com.pk
+      </a>
+      <p class="contact-tagline">Our Wire. Your Light.</p>
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+       ZONE E — FURNITURE RESERVE (6054px – 7411px)
+       Decorative only — no critical content.
+       ========================================================= -->
+  <aside class="zone-e" aria-hidden="true">
+    <p class="zone-e-watermark">Universal Metals</p>
+  </aside>
+
+  <!-- =========================================================
+       BOTTOM ACCENT BAR — Copper gradient strip
+       ========================================================= -->
+  <div class="accent-bar accent-bar--bottom" role="presentation" aria-hidden="true"></div>
+
+</main>
+
+</body>
+</html>
