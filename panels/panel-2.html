@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=3012">
-  <title>Banner 2 — Our Journey | Universal Metals Pakistan Limited</title>
+  <title>Banner 2 — Our Journey (Right) | Universal Metals Pakistan Limited</title>
 
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/layout.css">
@@ -44,9 +44,15 @@
 
   <!-- =========================================================
        ZONE A — BRAND HEADER (90px – 783px)
-       Small logo mark + company label
+       Left: "JOURNEY" (large, left-aligned).
+       Right: company logo.
+       Together with Panel 1's "OUR", reads "OUR JOURNEY"
+       across the physical panel join.
        ========================================================= -->
   <header class="zone-a" role="banner">
+
+    <p class="p2-journey">JOURNEY</p>
+
     <div class="logo-lockup" style="position: relative; z-index: 6;">
       <figure style="margin: 0;">
         <img
@@ -57,61 +63,75 @@
           height="auto"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
         >
-        <div class="logo-fallback" style="
-          display: none;
-          flex-direction: column;
-          align-items: center;
-          gap: 16px;
-        ">
+        <div class="logo-fallback" style="display: none; flex-direction: column; align-items: center;">
           <div style="
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #8B4A28 0%, #F5B880 50%, #CE7340 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 600px; height: 200px;
+            display: flex; align-items: center; justify-content: center;
           ">
             <span style="
               font-family: 'Barlow Condensed', Arial, sans-serif;
-              font-weight: 800;
-              font-size: 160px;
-              color: #FFFFFF;
-              letter-spacing: 0.02em;
-              text-rendering: geometricPrecision;
+              font-weight: 800; font-size: 120px; color: #8B4A28;
             ">UM</span>
           </div>
         </div>
       </figure>
     </div>
+
   </header>
 
   <!-- =========================================================
-       ZONE B + C MERGED — SERPENTINE ROADMAP (783px – 5150px)
-       Winding copper path with 8 milestone cards.
-       4 rows × 2 cards, alternating left→right / right→left.
+       ZONE B — CROSS-PANEL ROADMAP (right half)
+       4 rows × 1 centered card (1600px wide).
+
+       Milestone assignment (chronological path):
+         Row 1: 2000 — path enters from LEFT (from Panel 1's 1994),
+                       then U-turns at P2 RIGHT edge, flows to row 2
+         Row 2: 2006 — path exits LEFT back to Panel 1 (→ 2013)
+         Row 3: 2020 — path enters from LEFT (from Panel 1's 2016),
+                       then U-turns at P2 RIGHT edge, flows to row 4
+         Row 4: 2023 — path exits LEFT back to Panel 1 (→ 2025)
+
+       Full cross-panel sequence:
+         1994(P1) → 2000(P2) → U-turn P2 right →
+         2006(P2) → 2013(P1) → U-turn P1 left →
+         2016(P1) → 2020(P2) → U-turn P2 right →
+         2023(P2) → 2025(P1)
+
+       SVG viewBox "0 0 3012 5400" — full panel width.
+       SVG is left:-90px to escape zone-b inset.
+       Card center x = 1506 (panel midpoint).
+       Row mid y values: 675, 2025, 3375, 4725.
        ========================================================= -->
-  <section class="zone-b" aria-labelledby="p2-headline">
+  <section class="zone-b" aria-labelledby="p2-section-label">
+    <p id="p2-section-label" class="sr-only">Company milestones — right panel</p>
 
-    <!-- Roadmap headline -->
-    <div class="rm-header">
-      <p class="rm-eyebrow">Est. 1994 · Lahore, Pakistan</p>
-      <h1 id="p2-headline" class="rm-headline">Our Journey</h1>
-      <div class="rm-headline-rule" aria-hidden="true"></div>
-    </div>
+    <div class="roadmap" role="list" aria-label="Company milestones roadmap — right panel">
 
-    <!-- Roadmap container -->
-    <div class="roadmap" role="list" aria-label="Company milestones roadmap">
+      <!-- ─── SVG PATH (Panel 2 segments) ───
+           Two connected subpaths, each with a right-side U-turn:
 
-      <!-- ─── SVG WINDING COPPER PATH ─── -->
-      <svg class="rm-path-svg" viewBox="0 0 2832 5400" preserveAspectRatio="xMidYMid meet" overflow="visible" xmlns="http://www.w3.org/2000/svg">
+           Subpath 1 — Rows 1–2:
+             M 0,675  L 1506,675
+             C 3212,675  3212,2025 1506,2025
+             L 0,2025
+
+           Subpath 2 — Rows 3–4:
+             M 0,3375 L 1506,3375
+             C 3212,3375 3212,4725 1506,4725
+             L 0,4725
+      -->
+      <svg class="rm-path-svg"
+           viewBox="0 0 3012 5400"
+           preserveAspectRatio="xMidYMid meet"
+           overflow="visible"
+           xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="rm-grad" x1="0" y1="0" x2="0" y2="5400" gradientUnits="userSpaceOnUse">
+          <linearGradient id="rm-grad-p2" x1="0" y1="0" x2="0" y2="5400" gradientUnits="userSpaceOnUse">
             <stop offset="0%"   stop-color="#8B4A28" stop-opacity="0.5"/>
             <stop offset="50%"  stop-color="#CE7340" stop-opacity="0.8"/>
             <stop offset="100%" stop-color="#F5B880" stop-opacity="0.5"/>
           </linearGradient>
-          <filter id="rm-glow" x="-10%" y="-10%" width="120%" height="120%">
+          <filter id="rm-glow-p2" x="-10%" y="-10%" width="120%" height="120%">
             <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
             <feMerge>
               <feMergeNode in="blur"/>
@@ -120,33 +140,21 @@
           </filter>
         </defs>
 
-        <!-- Primary copper path — serpentine connecting card edges at mid-height -->
+        <!-- Primary copper path — 2 subpaths with right-side U-turns -->
         <path
-          d="M 110,219
-             L 2722,219
-             C 2842,219 2842,1569 2722,1569
-             L 110,1569
-             C -10,1569 -10,2919 110,2919
-             L 2722,2919
-             C 2842,2919 2842,4269 2722,4269
-             L 110,4269"
+          d="M 0,675  L 1506,675  C 3212,675  3212,2025 1506,2025 L 0,2025
+             M 0,3375 L 1506,3375 C 3212,3375 3212,4725 1506,4725 L 0,4725"
           fill="none"
-          stroke="url(#rm-grad)"
+          stroke="url(#rm-grad-p2)"
           stroke-width="14"
           stroke-linecap="round"
-          filter="url(#rm-glow)"
+          filter="url(#rm-glow-p2)"
         />
 
-        <!-- Secondary thinner path — parallel offset for depth -->
+        <!-- Secondary depth path -->
         <path
-          d="M 110,234
-             L 2722,234
-             C 2857,234 2857,1584 2722,1584
-             L 110,1584
-             C -25,1584 -25,2934 110,2934
-             L 2722,2934
-             C 2857,2934 2857,4284 2722,4284
-             L 110,4284"
+          d="M 0,690  L 1506,690  C 3237,690  3237,2040 1506,2040 L 0,2040
+             M 0,3390 L 1506,3390 C 3237,3390 3237,4740 1506,4740 L 0,4740"
           fill="none"
           stroke="#F5B880"
           stroke-width="5"
@@ -155,23 +163,10 @@
         />
       </svg>
 
-      <!-- ─── ROW 1: left → right (1994, 2000) ─── -->
-      <div class="rm-row">
-
-        <article class="rm-card rm-card--major rm-card--left" role="listitem" aria-label="1994: Company founded">
-          <div class="rm-ghost">1994</div>
-          <div class="rm-img">
-            <div class="rm-fr"></div>
-            <div class="rm-ph">
-              <div class="rm-phi"></div>
-              <span class="rm-phl">Unit 1 Photo</span>
-            </div>
-          </div>
-          <p class="rm-text">Founded Universal Metals in Lahore. Began production of enamelled copper wire at Unit 1.</p>
-        </article>
-
-        <article class="rm-card rm-card--right" role="listitem" aria-label="2000: Power cables expansion">
-          <div class="rm-ghost">2000</div>
+      <!-- ─── ROW 1 — 2000 (path enters left, U-turns right) ─── -->
+      <div class="rm-row" role="listitem">
+        <article class="rm-card" aria-label="2000: Power cables expansion">
+          <div class="rm-ghost" aria-hidden="true">2000</div>
           <div class="rm-img">
             <div class="rm-fr"></div>
             <div class="rm-ph">
@@ -181,14 +176,12 @@
           </div>
           <p class="rm-text">Established Unit 2 for overhead conductor manufacturing, entering the power transmission sector.</p>
         </article>
-
       </div>
 
-      <!-- ─── ROW 2: right → left (2006, 2013) ─── -->
-      <div class="rm-row rm-row--reverse">
-
-        <article class="rm-card rm-card--major rm-card--right" role="listitem" aria-label="2006: Copper CCR line installed">
-          <div class="rm-ghost">2006</div>
+      <!-- ─── ROW 2 — 2006 (major · after U-turn, exits left) ─── -->
+      <div class="rm-row" role="listitem">
+        <article class="rm-card rm-card--major" aria-label="2006: Copper CCR line installed">
+          <div class="rm-ghost" aria-hidden="true">2006</div>
           <div class="rm-img">
             <div class="rm-fr"></div>
             <div class="rm-ph">
@@ -198,38 +191,12 @@
           </div>
           <p class="rm-text">Installed Copper CCR line at Unit 3, bringing rod production in-house for the first time.</p>
         </article>
-
-        <article class="rm-card rm-card--left" role="listitem" aria-label="2013: Enamelling and strip capacity">
-          <div class="rm-ghost">2013</div>
-          <div class="rm-img">
-            <div class="rm-fr"></div>
-            <div class="rm-ph">
-              <div class="rm-phi"></div>
-              <span class="rm-phl">Factory Photo</span>
-            </div>
-          </div>
-          <p class="rm-text">Added new enamelling capacity and launched paper covered copper strip production at Unit 3.</p>
-        </article>
-
       </div>
 
-      <!-- ─── ROW 3: left → right (2016, 2020) ─── -->
-      <div class="rm-row">
-
-        <article class="rm-card rm-card--major rm-card--left" role="listitem" aria-label="2016: Aluminium CCR line">
-          <div class="rm-ghost">2016</div>
-          <div class="rm-img">
-            <div class="rm-fr"></div>
-            <div class="rm-ph">
-              <div class="rm-phi"></div>
-              <span class="rm-phl">Al CCR Photo</span>
-            </div>
-          </div>
-          <p class="rm-text">Installed Aluminium CCR line at Unit 1, extending in-house rod production to aluminium grade.</p>
-        </article>
-
-        <article class="rm-card rm-card--right" role="listitem" aria-label="2020: Second aluminium CCR line">
-          <div class="rm-ghost">2020</div>
+      <!-- ─── ROW 3 — 2020 (path enters left, U-turns right) ─── -->
+      <div class="rm-row" role="listitem">
+        <article class="rm-card" aria-label="2020: Second aluminium CCR line">
+          <div class="rm-ghost" aria-hidden="true">2020</div>
           <div class="rm-img">
             <div class="rm-fr"></div>
             <div class="rm-ph">
@@ -239,14 +206,12 @@
           </div>
           <p class="rm-text">Commissioned aluminium enamelling machines and second European-technology Aluminium CCR line at Unit 3.</p>
         </article>
-
       </div>
 
-      <!-- ─── ROW 4: right → left (2023, 2025) ─── -->
-      <div class="rm-row rm-row--reverse">
-
-        <article class="rm-card rm-card--right" role="listitem" aria-label="2023: New generation enamelling">
-          <div class="rm-ghost">2023</div>
+      <!-- ─── ROW 4 — 2023 (after U-turn, exits left to P1's 2025) ─── -->
+      <div class="rm-row" role="listitem">
+        <article class="rm-card" aria-label="2023: New generation enamelling">
+          <div class="rm-ghost" aria-hidden="true">2023</div>
           <div class="rm-img">
             <div class="rm-fr"></div>
             <div class="rm-ph">
@@ -256,36 +221,20 @@
           </div>
           <p class="rm-text">Installed new-generation enamelling machines and submersible winding wire production line.</p>
         </article>
-
-        <article class="rm-card rm-card--major rm-card--left" role="listitem" aria-label="2025: Unit 4 completed">
-          <div class="rm-ghost">2025</div>
-          <div class="rm-img">
-            <div class="rm-fr"></div>
-            <div class="rm-ph">
-              <div class="rm-phi"></div>
-              <span class="rm-phl">Unit 4 Photo</span>
-            </div>
-          </div>
-          <p class="rm-text">Completed Unit 4 — new cable factory. Launched insulation materials production. Four manufacturing units operational.</p>
-        </article>
-
       </div>
 
     </div><!-- /.roadmap -->
-
   </section>
 
   <!-- =========================================================
-       ZONE D — CLOSING + CONTACT (5150px – 6054px)
+       ZONE D — CONTACT
        ========================================================= -->
   <section class="zone-d" aria-label="Contact">
-
     <div class="contact-row">
       <a href="https://www.universalmetals.com.pk" class="contact-url" target="_blank" rel="noopener">
         universalmetals.com.pk
       </a>
     </div>
-
   </section>
 
   <!-- =========================================================

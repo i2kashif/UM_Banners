@@ -2,82 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=3012, initial-scale=1.0">
-  <title>Banner 7 — Quality &amp; Certifications | Universal Metals Pakistan Limited</title>
+  <meta name="viewport" content="width=3012">
+  <title>Banner 7 — Why Us | Universal Metals Pakistan Limited</title>
 
   <!-- All fonts are local .woff2 — no CDN dependency for Puppeteer -->
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/panels/panel-7.css">
+
+  <style>
+    /* Browser preview: allow scrolling and fit-to-screen */
+    html, body {
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+    }
+  </style>
+  <script>
+    /* Auto-scale panel to fit browser viewport width.
+       At Puppeteer's 3012px viewport this is a no-op (zoom=1). */
+    function fitPanel() {
+      document.documentElement.style.zoom = window.innerWidth / 3012;
+    }
+    window.addEventListener('DOMContentLoaded', fitPanel);
+    window.addEventListener('resize', fitPanel);
+  </script>
 </head>
 <body>
 
 <main id="panel-7" class="panel panel--white" style="--panel-index: 6;">
 
   <!-- =========================================================
-       TOP ACCENT BAR — Full-width copper gradient strip
+       TOP ACCENT BAR
        ========================================================= -->
   <div class="accent-bar accent-bar--top" role="presentation" aria-hidden="true"></div>
 
   <!-- =========================================================
-       FLOW SVG LAYER — Panel 7 slice
-       Panel 7: x offset = 6 × 3012 = 18072
+       LEFT EDGE ACCENT STRIPE
+       Marks the START of the right wall.
        ========================================================= -->
-  <div class="flow-svg-layer" aria-hidden="true">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="18072 0 3012 7441"
-      preserveAspectRatio="xMinYMid meet"
-      width="3012"
-      height="7441"
-    >
-      <defs>
-        <linearGradient id="p7-wire-grad" x1="18072" y1="0" x2="21084" y2="0" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stop-color="#E8A065" stop-opacity="0.45"/>
-          <stop offset="50%"  stop-color="#B2673E" stop-opacity="0.55"/>
-          <stop offset="100%" stop-color="#8B4A28" stop-opacity="0.6"/>
-        </linearGradient>
-        <filter id="p7-glow" x="-20%" y="-150%" width="140%" height="400%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
-          <feMerge>
-            <feMergeNode in="blur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      <!-- Panel 7 slice — wire rises toward top right -->
-      <path
-        d="M 18072,4560
-           C 18600,4400 19200,4000 19800,3700
-           C 20400,3450 20800,3320 21084,3270"
-        fill="none"
-        stroke="url(#p7-wire-grad)"
-        stroke-width="32"
-        stroke-linecap="round"
-        filter="url(#p7-glow)"
-      />
-      <!-- Secondary parallel strand (60px y-offset below primary) -->
-      <path
-        d="M 18072,4620
-           C 18600,4460 19200,4060 19800,3760
-           C 20400,3510 20800,3380 21084,3330"
-        fill="none"
-        stroke="#F5B880"
-        stroke-width="10"
-        stroke-linecap="round"
-        stroke-opacity="0.30"
-      />
-    </svg>
-  </div>
+  <div class="edge-stripe edge-stripe--left" role="presentation" aria-hidden="true"></div>
 
   <!-- =========================================================
-       ZONE A — CATEGORY HEADER (90px – 783px)
-       "QUALITY & CERTIFICATIONS" left-aligned, UMPL logo top-right
+       FLOW SVG LAYER (globally disabled in layout.css)
        ========================================================= -->
-  <header class="zone-a" role="banner" aria-label="Quality and certifications category">
+  <div class="flow-svg-layer" aria-hidden="true"></div>
 
-    <h2 class="product-name-display">Certified Quality</h2>
+  <!-- =========================================================
+       ZONE A — HEADER
+       Small logo top-right only.
+       ========================================================= -->
+  <header class="zone-a" role="banner" aria-label="Company logo">
 
     <div class="zone-a-logo">
       <img
@@ -88,307 +64,66 @@
         height="auto"
         onerror="this.style.display='none';"
       >
-      <span style="
-        font-family: 'Barlow Condensed', Arial, sans-serif;
-        font-weight: 600;
-        font-size: 28px;
-        color: #B2673E;
-        letter-spacing: 0.10em;
-        text-transform: uppercase;
-      ">UMPL</span>
     </div>
 
   </header>
 
   <!-- =========================================================
-       ZONE B — CERTIFICATION BADGES (783px – 3644px)
-       Four large ISO + CE badges in a 2×2 grid.
-       Each badge is a prominent SVG circle — authoritative, commanding.
+       ZONE B — CREDENTIAL STATEMENTS 1–3
+       Top half: market claim + CCR + sustainability
        ========================================================= -->
-  <section class="zone-b" aria-label="Quality certification badges">
+  <section class="zone-b p7-stack" aria-label="Company credentials">
 
-    <div class="cert-badge-grid" role="list" aria-label="ISO and CE certification marks">
+    <!-- #1 — Market leadership -->
+    <div class="p7-statement p7-statement--tier1" aria-label="Pakistan's largest copper rod producer">
+      <span class="p7-line">Pakistan's Largest</span>
+      <span class="p7-line">Copper Rod Producer</span>
+    </div>
 
-      <!-- ISO 9001 — Quality Management -->
-      <div class="cert-badge-lg" role="listitem">
-        <svg class="cert-badge-svg" width="580" height="580" viewBox="0 0 580 580"
-             xmlns:xlink="http://www.w3.org/1999/xlink"
-             aria-label="ISO 9001 Quality Management System certification badge"
-             role="img">
-          <defs>
-            <!-- Top arc bows upward through (290,100) — text reads on the outer upper rim -->
-            <path id="iso9001-top-arc" d="M 100,290 A 190,190 0 0 1 480,290"/>
-            <!-- Bottom arc bows downward through (290,450) — text reads along lower rim -->
-            <path id="iso9001-bot-arc" d="M 130,290 A 160,160 0 0 0 450,290"/>
-          </defs>
-          <!-- Outer fill + rings -->
-          <circle cx="290" cy="290" r="280" fill="#FDE8D0" stroke="none"/>
-          <circle cx="290" cy="290" r="280" fill="none" stroke="#8B4A28" stroke-width="8"/>
-          <circle cx="290" cy="290" r="260" fill="none" stroke="#CE7340" stroke-width="3"/>
-          <circle cx="290" cy="290" r="240" fill="#FAF8F5" stroke="#B2673E" stroke-width="6"/>
-          <!-- "ISO 9001 : 2015" on top arc -->
-          <text font-family="'Barlow Condensed', Arial, sans-serif" font-weight="700"
-                font-size="52" fill="#8B4A28" letter-spacing="0.08em" text-anchor="middle">
-            <textPath xlink:href="#iso9001-top-arc" href="#iso9001-top-arc" startOffset="50%">ISO 9001 : 2015</textPath>
-          </text>
-          <!-- Large centred number -->
-          <text x="290" y="275" text-anchor="middle"
-                font-family="'Barlow Condensed', Arial, sans-serif"
-                font-weight="800" font-size="110" fill="#B2673E"
-                letter-spacing="-0.02em">9001</text>
-          <!-- Descriptors -->
-          <text x="290" y="355" text-anchor="middle"
-                font-family="'Poppins', Arial, sans-serif"
-                font-weight="600" font-size="36" fill="#1A1208"
-                letter-spacing="0.06em">QUALITY</text>
-          <text x="290" y="400" text-anchor="middle"
-                font-family="'Poppins', Arial, sans-serif"
-                font-weight="500" font-size="30" fill="#4A3728"
-                letter-spacing="0.04em">MANAGEMENT</text>
-          <!-- "CERTIFIED" on bottom arc -->
-          <text font-family="'Poppins', Arial, sans-serif" font-weight="600"
-                font-size="34" fill="#CE7340" letter-spacing="0.10em" text-anchor="middle">
-            <textPath xlink:href="#iso9001-bot-arc" href="#iso9001-bot-arc" startOffset="50%">CERTIFIED</textPath>
-          </text>
-        </svg>
-        <span class="cert-badge-label">ISO 9001:2015<br>Quality Management</span>
-      </div>
+    <!-- #2 — CCR line -->
+    <div class="p7-statement p7-statement--tier2" aria-label="In-house CCR line">
+      <span class="p7-line">In-House CCR Line</span>
+    </div>
 
-      <!-- ISO 14001 — Environmental Management -->
-      <div class="cert-badge-lg" role="listitem">
-        <svg class="cert-badge-svg" width="580" height="580" viewBox="0 0 580 580"
-             xmlns:xlink="http://www.w3.org/1999/xlink"
-             aria-label="ISO 14001 Environmental Management System certification badge"
-             role="img">
-          <defs>
-            <path id="iso14001-top-arc" d="M 100,290 A 190,190 0 0 1 480,290"/>
-            <path id="iso14001-bot-arc" d="M 130,290 A 160,160 0 0 0 450,290"/>
-          </defs>
-          <circle cx="290" cy="290" r="280" fill="#FDE8D0" stroke="none"/>
-          <circle cx="290" cy="290" r="280" fill="none" stroke="#8B4A28" stroke-width="8"/>
-          <circle cx="290" cy="290" r="260" fill="none" stroke="#CE7340" stroke-width="3"/>
-          <circle cx="290" cy="290" r="240" fill="#FAF8F5" stroke="#B2673E" stroke-width="6"/>
-          <!-- "ISO 14001 : 2015" on top arc (slightly smaller font for longer text) -->
-          <text font-family="'Barlow Condensed', Arial, sans-serif" font-weight="700"
-                font-size="46" fill="#8B4A28" letter-spacing="0.05em" text-anchor="middle">
-            <textPath xlink:href="#iso14001-top-arc" href="#iso14001-top-arc" startOffset="50%">ISO 14001 : 2015</textPath>
-          </text>
-          <!-- Large centred number -->
-          <text x="290" y="275" text-anchor="middle"
-                font-family="'Barlow Condensed', Arial, sans-serif"
-                font-weight="800" font-size="100" fill="#B2673E"
-                letter-spacing="-0.02em">14001</text>
-          <!-- Descriptors -->
-          <text x="290" y="352" text-anchor="middle"
-                font-family="'Poppins', Arial, sans-serif"
-                font-weight="600" font-size="34" fill="#1A1208"
-                letter-spacing="0.05em">ENVIRONMENTAL</text>
-          <text x="290" y="398" text-anchor="middle"
-                font-family="'Poppins', Arial, sans-serif"
-                font-weight="500" font-size="30" fill="#4A3728"
-                letter-spacing="0.04em">MANAGEMENT</text>
-          <!-- "CERTIFIED" on bottom arc -->
-          <text font-family="'Poppins', Arial, sans-serif" font-weight="600"
-                font-size="34" fill="#CE7340" letter-spacing="0.10em" text-anchor="middle">
-            <textPath xlink:href="#iso14001-bot-arc" href="#iso14001-bot-arc" startOffset="50%">CERTIFIED</textPath>
-          </text>
-        </svg>
-        <span class="cert-badge-label">ISO 14001:2015<br>Environmental Management</span>
-      </div>
-
-      <!-- ISO 45001 — Occupational Health & Safety -->
-      <div class="cert-badge-lg" role="listitem">
-        <svg class="cert-badge-svg" width="580" height="580" viewBox="0 0 580 580"
-             xmlns:xlink="http://www.w3.org/1999/xlink"
-             aria-label="ISO 45001 Occupational Health and Safety Management certification badge"
-             role="img">
-          <defs>
-            <path id="iso45001-top-arc" d="M 100,290 A 190,190 0 0 1 480,290"/>
-            <path id="iso45001-bot-arc" d="M 130,290 A 160,160 0 0 0 450,290"/>
-          </defs>
-          <circle cx="290" cy="290" r="280" fill="#FDE8D0" stroke="none"/>
-          <circle cx="290" cy="290" r="280" fill="none" stroke="#8B4A28" stroke-width="8"/>
-          <circle cx="290" cy="290" r="260" fill="none" stroke="#CE7340" stroke-width="3"/>
-          <circle cx="290" cy="290" r="240" fill="#FAF8F5" stroke="#B2673E" stroke-width="6"/>
-          <!-- "ISO 45001 : 2018" on top arc -->
-          <text font-family="'Barlow Condensed', Arial, sans-serif" font-weight="700"
-                font-size="46" fill="#8B4A28" letter-spacing="0.05em" text-anchor="middle">
-            <textPath xlink:href="#iso45001-top-arc" href="#iso45001-top-arc" startOffset="50%">ISO 45001 : 2018</textPath>
-          </text>
-          <!-- Large centred number -->
-          <text x="290" y="275" text-anchor="middle"
-                font-family="'Barlow Condensed', Arial, sans-serif"
-                font-weight="800" font-size="100" fill="#B2673E"
-                letter-spacing="-0.02em">45001</text>
-          <!-- Descriptors -->
-          <text x="290" y="352" text-anchor="middle"
-                font-family="'Poppins', Arial, sans-serif"
-                font-weight="600" font-size="30" fill="#1A1208"
-                letter-spacing="0.04em">OCCUPATIONAL</text>
-          <text x="290" y="396" text-anchor="middle"
-                font-family="'Poppins', Arial, sans-serif"
-                font-weight="500" font-size="28" fill="#4A3728"
-                letter-spacing="0.04em">HEALTH &amp; SAFETY</text>
-          <!-- "CERTIFIED" on bottom arc -->
-          <text font-family="'Poppins', Arial, sans-serif" font-weight="600"
-                font-size="34" fill="#CE7340" letter-spacing="0.10em" text-anchor="middle">
-            <textPath xlink:href="#iso45001-bot-arc" href="#iso45001-bot-arc" startOffset="50%">CERTIFIED</textPath>
-          </text>
-        </svg>
-        <span class="cert-badge-label">ISO 45001:2018<br>OH&amp;S Management</span>
-      </div>
-
-      <!-- CE Marking — EU Product Conformity -->
-      <div class="cert-badge-lg" role="listitem">
-        <svg class="cert-badge-svg" width="580" height="580" viewBox="0 0 580 580"
-             xmlns:xlink="http://www.w3.org/1999/xlink"
-             aria-label="CE marking EU product conformity badge"
-             role="img">
-          <defs>
-            <!-- Top label arc: bows upward for readable "CE MARKING" text -->
-            <path id="ce-top-arc" d="M 100,290 A 190,190 0 0 1 480,290"/>
-          </defs>
-          <circle cx="290" cy="290" r="280" fill="#FDE8D0" stroke="none"/>
-          <circle cx="290" cy="290" r="280" fill="none" stroke="#8B4A28" stroke-width="8"/>
-          <circle cx="290" cy="290" r="260" fill="none" stroke="#CE7340" stroke-width="3"/>
-          <circle cx="290" cy="290" r="240" fill="#FAF8F5" stroke="#B2673E" stroke-width="6"/>
-          <!--
-            CE logotype — standard geometric proportions per EU Commission guide.
-            The C arc subtends 300° of a circle (60° gap on the right opening).
-            Letter height: y=186 (cap) to y=394 (base) = 208px, centred at y=290.
-            C center at (180,290), radius=120.
-            Gap: ±30° from 3-o'clock position.
-              Arc start: (180+120·sin30°, 290−120·cos30°) = (240, 186)
-              Arc end:   (180+120·sin30°, 290+120·cos30°) = (240, 394)
-            E: spine at x=252 (12px gap from C endpoint x=240), bars to x=360 (top/bottom),
-               x=333 (middle, ~75% width per CE standard).
-          -->
-          <!-- C arc: 300° counterclockwise from (240,186) to (240,394) -->
-          <path d="M 240,186 A 120,120 0 1 0 240,394"
-                fill="none" stroke="#B2673E" stroke-width="46" stroke-linecap="butt"/>
-          <!-- E top bar (full width) -->
-          <line x1="252" y1="186" x2="360" y2="186" stroke="#B2673E" stroke-width="46" stroke-linecap="round"/>
-          <!-- E middle bar (~75% of top/bottom width per CE spec) -->
-          <line x1="252" y1="290" x2="333" y2="290" stroke="#B2673E" stroke-width="46" stroke-linecap="round"/>
-          <!-- E bottom bar (full width) -->
-          <line x1="252" y1="394" x2="360" y2="394" stroke="#B2673E" stroke-width="46" stroke-linecap="round"/>
-          <!-- "CE MARKING" on top arc -->
-          <text font-family="'Barlow Condensed', Arial, sans-serif" font-weight="700"
-                font-size="44" fill="#8B4A28" letter-spacing="0.06em" text-anchor="middle">
-            <textPath xlink:href="#ce-top-arc" href="#ce-top-arc" startOffset="50%">CE MARKING</textPath>
-          </text>
-          <!-- Bottom label -->
-          <text x="290" y="488" text-anchor="middle"
-                font-family="'Poppins', Arial, sans-serif"
-                font-weight="600" font-size="34" fill="#CE7340"
-                letter-spacing="0.08em">EU CONFORMITY</text>
-          <text x="290" y="530" text-anchor="middle"
-                font-family="'Poppins', Arial, sans-serif"
-                font-weight="500" font-size="28" fill="#4A3728"
-                letter-spacing="0.04em">ELIGIBLE EXPORTS</text>
-        </svg>
-        <span class="cert-badge-label">CE Marking<br>EU Conformity</span>
-      </div>
-
+    <!-- #3 — Sustainability -->
+    <div class="p7-statement p7-statement--tier2" aria-label="Sustainably produced from recycled copper">
+      <span class="p7-line">Sustainably Produced</span>
+      <span class="p7-line">From Recycled Copper</span>
     </div>
 
   </section>
 
   <!-- =========================================================
-       ZONE C — IN-HOUSE LABORATORY (3644px – 5150px)
-       Headline + testing methodology cards
+       ZONE C — CREDENTIAL STATEMENTS 4–5
+       Bottom half: trade advantage + certifications
+       Separated by copper gradient divider (matches panels 3–6).
        ========================================================= -->
-  <section class="zone-c" aria-labelledby="p7-zone-c-headline">
+  <section class="zone-c p7-stack" aria-label="Trade advantages and certifications">
 
-    <h1 id="p7-zone-c-headline" class="zone-c-headline">
-      Certified for Europe. Tested In-House. Every Batch.
-    </h1>
+    <!-- #4 — Zero EU duty -->
+    <div class="p7-statement p7-statement--tier2" aria-label="Zero EU import duty">
+      <span class="p7-line">Zero EU Import Duty</span>
+    </div>
 
-    <p class="subhead">
-      ISO 9001 &nbsp;&middot;&nbsp; ISO 14001 &nbsp;&middot;&nbsp; ISO 45001 &nbsp;&middot;&nbsp; CE Marking
-    </p>
-
-    <!-- Testing methodology cards — 2-column grid -->
-    <div class="test-method-grid" role="list" aria-label="In-house testing capabilities">
-
-      <article class="test-method-card" role="listitem">
-        <h3 class="test-method-name">Electrical Testing</h3>
-        <p class="test-method-desc">
-          Breakdown voltage, insulation resistance, tan delta (&delta;).
-          Tested per IEC 60317, NEMA MW 1000, JIS C 3202.
-          Every production batch sampled and recorded.
-        </p>
-      </article>
-
-      <article class="test-method-card" role="listitem">
-        <h3 class="test-method-name">Chemical Analysis</h3>
-        <p class="test-method-desc">
-          OFC purity verification via wet chemistry and spectrometric analysis.
-          Oxygen content &lt;5 ppm for OFC grade. Certificate of conformance issued per coil.
-        </p>
-      </article>
-
-      <article class="test-method-card" role="listitem">
-        <h3 class="test-method-name">Mechanical Testing</h3>
-        <p class="test-method-desc">
-          Tensile strength, elongation at break, flex-fatigue testing.
-          IEC 60228 Class 1 and Class 2 conductor verification.
-          Pin-hole and holiday testing per IEC 60317.
-        </p>
-      </article>
-
-      <article class="test-method-card" role="listitem">
-        <h3 class="test-method-name">Dimensional Control</h3>
-        <p class="test-method-desc">
-          Laser micrometer diameter measurement to &#177;1&micro;m tolerance.
-          Ovality, concentricity, and surface finish checked per production run.
-          Full traceability to raw material batch.
-        </p>
-      </article>
-
+    <!-- #5 — Certifications row -->
+    <div class="p7-statement p7-statement--tier3" aria-label="GSP+ certified, ISO certified, CE mark">
+      <span class="p7-line">GSP+ Certified &nbsp;&middot;&nbsp; ISO Certified &nbsp;&middot;&nbsp; CE Mark</span>
     </div>
 
   </section>
 
   <!-- =========================================================
-       ZONE D — DETAIL (5150px – 6054px)
-       EU-ready supply banner + body bullets + contact row
+       ZONE D — FOOTER
        ========================================================= -->
-  <section class="zone-d" aria-label="EU supply readiness and contact">
-
-    <!-- EU-ready supply highlight banner -->
-    <div class="eu-ready-banner" role="note" aria-label="EU-ready supply status">
-      <span class="eu-ready-label">EU&#8209;Ready Supply</span>
-      <p class="eu-ready-detail">
-        Pakistan GSP+ status — 0% EU import duty on eligible wire exports.
-        REACH compliance documentation available. RoHS-ready material certifications.
-        Full documentation pack: CoC, test reports, material data sheets on request.
-      </p>
-    </div>
-
-    <ul class="body-list" aria-label="Quality and certification details">
-      <li>CE Marking &mdash; EU market access for buildings &amp; civil engineering</li>
-      <li>In-house lab: breakdown voltage &nbsp;&middot;&nbsp; conductivity &nbsp;&middot;&nbsp; spectrometer analysis</li>
-      <li>IEC 60317 test reports available on request</li>
-      <li>30 years of continuous production &mdash; same standards, consistently</li>
-    </ul>
+  <section class="zone-d" aria-label="Contact">
 
     <div class="contact-row">
       <a href="https://www.universalmetals.com.pk" class="contact-url" target="_blank" rel="noopener">
         universalmetals.com.pk
       </a>
-      <p class="contact-tagline">Our Wire. Your Light.</p>
     </div>
 
   </section>
-
-  <!-- =========================================================
-       ZONE E — FURNITURE RESERVE (6054px – 7411px)
-       Decorative only — no critical content.
-       ========================================================= -->
-  <aside class="zone-e" aria-hidden="true">
-    <div class="zone-e-fill"></div>
-  </aside>
 
   <!-- =========================================================
        BOTTOM ACCENT BAR

@@ -2,82 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=3012, initial-scale=1.0">
-  <title>Banner 1 — Company Hero | Universal Metals Pakistan Limited</title>
+  <meta name="viewport" content="width=3012">
+  <title>Banner 1 — Our Journey (Left) | Universal Metals Pakistan Limited</title>
 
-  <!-- All fonts are local .woff2 — no CDN dependency for Puppeteer -->
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/panels/panel-1.css">
+
+  <style>
+    /* Browser preview: allow scrolling and fit-to-screen */
+    html, body {
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+    }
+  </style>
+  <script>
+    /* Auto-scale panel to fit browser viewport width.
+       At Puppeteer's 3012px viewport this is a no-op (zoom=1). */
+    function fitPanel() {
+      document.documentElement.style.zoom = window.innerWidth / 3012;
+    }
+    window.addEventListener('DOMContentLoaded', fitPanel);
+    window.addEventListener('resize', fitPanel);
+  </script>
 </head>
 <body>
 
-<main id="panel-1" class="panel panel--white-to-cream" style="--panel-index: 0;">
+<main id="panel-1" class="panel panel--cream" style="--panel-index: 0;">
 
   <!-- =========================================================
-       TOP ACCENT BAR — Full-width copper gradient strip
-       Extends into bleed (positioned at canvas top = 0px)
+       TOP ACCENT BAR
        ========================================================= -->
   <div class="accent-bar accent-bar--top" role="presentation" aria-hidden="true"></div>
 
   <!-- =========================================================
-       FLOW SVG LAYER — Cross-panel copper wire (z-index 3)
-       Passes behind product zones and text content.
+       FLOW SVG LAYER (globally disabled in layout.css)
        ========================================================= -->
-  <div class="flow-svg-layer" aria-hidden="true">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 3012 7441"
-      preserveAspectRatio="xMinYMid meet"
-      width="3012"
-      height="7441"
-    >
-      <defs>
-        <linearGradient id="p1-wire-grad" x1="0" y1="0" x2="3012" y2="0" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stop-color="#8B4A28" stop-opacity="0.5"/>
-          <stop offset="50%"  stop-color="#CE7340" stop-opacity="0.7"/>
-          <stop offset="100%" stop-color="#F5B880" stop-opacity="0.8"/>
-        </linearGradient>
-        <filter id="p1-glow" x="-20%" y="-150%" width="140%" height="400%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
-          <feMerge>
-            <feMergeNode in="blur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      <!-- Panel 1 slice of the cross-panel wire (viewBox 0 0 3012 7441) -->
-      <path
-        d="M -200,5420
-           C 400,5300 1200,5000 1800,4700
-           C 2400,4500 2800,4380 3212,4350"
-        fill="none"
-        stroke="url(#p1-wire-grad)"
-        stroke-width="32"
-        stroke-linecap="round"
-        filter="url(#p1-glow)"
-      />
-      <!-- Secondary parallel strand (60px y-offset below primary) -->
-      <path
-        d="M -200,5480
-           C 400,5360 1200,5060 1800,4760
-           C 2400,4560 2800,4440 3212,4410"
-        fill="none"
-        stroke="#F5B880"
-        stroke-width="10"
-        stroke-linecap="round"
-        stroke-opacity="0.35"
-      />
-    </svg>
-  </div>
+  <div class="flow-svg-layer" aria-hidden="true"></div>
 
   <!-- =========================================================
-       ZONE A — BRAND HEADER (90px – 783px from canvas top)
-       Full UMPL logo lockup centered.
-       Decorative concentric rings behind logo.
+       ZONE A — BRAND HEADER (90px – 783px)
+       Left column: eyebrow + "OUR" (right-aligned).
+       Right: company logo.
+       "OUR" at the right edge + Panel 2's "JOURNEY" at left edge
+       reads as "OUR JOURNEY" across the physical panel join.
        ========================================================= -->
   <header class="zone-a" role="banner">
+
+    <div class="p1-heading-col">
+      <p class="rm-eyebrow">Est. 1994 · Lahore, Pakistan</p>
+      <p class="p1-our">OUR</p>
+    </div>
 
     <div class="logo-lockup" style="position: relative; z-index: 6;">
       <figure style="margin: 0;">
@@ -87,31 +64,16 @@
           class="logo-image"
           width="600"
           height="auto"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          onerror="this.style.display:'none'; this.nextElementSibling.style.display='flex';"
         >
-        <!-- CSS fallback logo if image fails to load -->
-        <div class="logo-fallback" style="
-          display: none;
-          flex-direction: column;
-          align-items: center;
-          gap: 16px;
-        ">
+        <div class="logo-fallback" style="display: none; flex-direction: column; align-items: center;">
           <div style="
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #8B4A28 0%, #F5B880 50%, #CE7340 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 600px; height: 200px;
+            display: flex; align-items: center; justify-content: center;
           ">
             <span style="
               font-family: 'Barlow Condensed', Arial, sans-serif;
-              font-weight: 800;
-              font-size: 160px;
-              color: #FFFFFF;
-              letter-spacing: 0.02em;
-              text-rendering: geometricPrecision;
+              font-weight: 800; font-size: 120px; color: #8B4A28;
             ">UM</span>
           </div>
         </div>
@@ -121,100 +83,155 @@
   </header>
 
   <!-- =========================================================
-       ZONE B — HERO ZONE (783px – 3644px from canvas top)
-       Tagline → copper rule → three-phrase hero headline
+       ZONE B — CROSS-PANEL ROADMAP (left half)
+       4 rows × 1 centered card (1600px wide).
+
+       Milestone assignment (chronological path):
+         Row 1: 1994 — path starts here, exits RIGHT to Panel 2
+         Row 2: 2013 — path enters from RIGHT (came via P2), then
+                       U-turns at P1 LEFT edge, flows to row 3
+         Row 3: 2016 — path exits RIGHT to Panel 2
+         Row 4: 2025 — path enters from RIGHT, terminates here
+
+       Full cross-panel sequence:
+         1994(P1) → 2000(P2) → U-turn P2 right →
+         2006(P2) → 2013(P1) → U-turn P1 left →
+         2016(P1) → 2020(P2) → U-turn P2 right →
+         2023(P2) → 2025(P1)
+
+       SVG viewBox "0 0 3012 5400" — full panel width.
+       SVG is left:-90px to escape zone-b inset and reach the
+       physical panel edges (path exits/enters at x=0 and x=3012).
+       Card center x = 1506 (panel midpoint).
+       Row mid y values: 675, 2025, 3375, 4725.
        ========================================================= -->
-  <section class="zone-b" aria-labelledby="p1-headline">
+  <section class="zone-b" aria-labelledby="p1-section-label">
+    <p id="p1-section-label" class="sr-only">Company milestones — left panel</p>
 
-    <!-- Three-phrase headline as graphic element -->
-    <h1 id="p1-headline" class="hero-headline">
-      <span class="phrase-1">30 Years.</span>
-      <span class="phrase-2">Rod to Wire.</span>
-      <span class="phrase-3">One Facility.</span>
-    </h1>
+    <div class="roadmap" role="list" aria-label="Company milestones roadmap — left panel">
 
-    <!-- Thin copper rule separator -->
-    <hr class="copper-rule" style="width: 500px; margin-bottom: 80px;">
+      <!-- ─── SVG PATH (Panel 1 segments) ───
+           Three disconnected subpaths (M restarts the pen):
+           1) Row 1 exit:   M 1506,675  L 3012,675
+           2) Rows 2–3:     M 3012,2025 L 1506,2025
+                            C -200,2025 -200,3375 1506,3375 L 3012,3375
+           3) Row 4 entry:  M 3012,4725 L 1506,4725
+      -->
+      <svg class="rm-path-svg"
+           viewBox="0 0 3012 5400"
+           preserveAspectRatio="xMidYMid meet"
+           overflow="visible"
+           xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="rm-grad-p1" x1="0" y1="0" x2="0" y2="5400" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#8B4A28" stop-opacity="0.5"/>
+            <stop offset="50%"  stop-color="#CE7340" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#F5B880" stop-opacity="0.5"/>
+          </linearGradient>
+          <filter id="rm-glow-p1" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
 
-    <!-- "Our Wire. Your Light." tagline — below headline -->
-    <p class="tagline-display">Our Wire. Your Light.</p>
+        <!-- Primary copper path -->
+        <path
+          d="M 1506,675  L 3012,675
+             M 3012,2025 L 1506,2025 C -200,2025 -200,3375 1506,3375 L 3012,3375
+             M 3012,4725 L 1506,4725"
+          fill="none"
+          stroke="url(#rm-grad-p1)"
+          stroke-width="14"
+          stroke-linecap="round"
+          filter="url(#rm-glow-p1)"
+        />
 
-    <!-- Supporting claim below headline -->
-    <p class="pakistan-largest">Pakistan's largest copper rod manufacturer since 1996</p>
+        <!-- Secondary depth path -->
+        <path
+          d="M 1506,690  L 3012,690
+             M 3012,2040 L 1506,2040 C -225,2040 -225,3390 1506,3390 L 3012,3390
+             M 3012,4740 L 1506,4740"
+          fill="none"
+          stroke="#F5B880"
+          stroke-width="5"
+          stroke-linecap="round"
+          stroke-opacity="0.3"
+        />
+      </svg>
 
+      <!-- ─── ROW 1 — 1994 (major · path starts, exits right) ─── -->
+      <div class="rm-row" role="listitem">
+        <article class="rm-card rm-card--major" aria-label="1994: Company founded">
+          <div class="rm-ghost" aria-hidden="true">1994</div>
+          <div class="rm-img">
+            <div class="rm-fr"></div>
+            <div class="rm-ph">
+              <div class="rm-phi"></div>
+              <span class="rm-phl">Unit 1 Photo</span>
+            </div>
+          </div>
+          <p class="rm-text">Founded Universal Metals in Lahore. Began production of enamelled copper wire at Unit 1.</p>
+        </article>
+      </div>
+
+      <!-- ─── ROW 2 — 2013 (path enters from right, U-turns left) ─── -->
+      <div class="rm-row" role="listitem">
+        <article class="rm-card" aria-label="2013: Enamelling and strip capacity">
+          <div class="rm-ghost" aria-hidden="true">2013</div>
+          <div class="rm-img">
+            <div class="rm-fr"></div>
+            <div class="rm-ph">
+              <div class="rm-phi"></div>
+              <span class="rm-phl">Factory Photo</span>
+            </div>
+          </div>
+          <p class="rm-text">Added new enamelling capacity and launched paper covered copper strip production at Unit 3.</p>
+        </article>
+      </div>
+
+      <!-- ─── ROW 3 — 2016 (major · after U-turn, exits right) ─── -->
+      <div class="rm-row" role="listitem">
+        <article class="rm-card rm-card--major" aria-label="2016: Aluminium CCR line">
+          <div class="rm-ghost" aria-hidden="true">2016</div>
+          <div class="rm-img">
+            <div class="rm-fr"></div>
+            <div class="rm-ph">
+              <div class="rm-phi"></div>
+              <span class="rm-phl">Al CCR Photo</span>
+            </div>
+          </div>
+          <p class="rm-text">Installed Aluminium CCR line at Unit 1, extending in-house rod production to aluminium grade.</p>
+        </article>
+      </div>
+
+      <!-- ─── ROW 4 — 2025 (major · path enters from right, terminal) ─── -->
+      <div class="rm-row" role="listitem">
+        <article class="rm-card rm-card--major" aria-label="2025: Unit 4 completed">
+          <div class="rm-ghost" aria-hidden="true">2025</div>
+          <div class="rm-img">
+            <div class="rm-fr"></div>
+            <div class="rm-ph">
+              <div class="rm-phi"></div>
+              <span class="rm-phl">Unit 4 Photo</span>
+            </div>
+          </div>
+          <p class="rm-text">Completed Unit 4 — new cable factory. Launched insulation materials production. Four manufacturing units operational.</p>
+        </article>
+      </div>
+
+    </div><!-- /.roadmap -->
   </section>
 
   <!-- =========================================================
-       ZONE C — INFORMATION (3644px – 5150px from canvas top)
-       Stat blocks: 30+ Years | Est. 1996 | 28+ Products
-       Certification subhead.
-       Body bullets.
+       ZONE D — intentionally empty on Panel 1.
+       Contact URL lives on Panel 2.
        ========================================================= -->
-  <section class="zone-c" aria-label="Company statistics">
-
-    <!-- Three-column stat grid -->
-    <div class="stat-grid" role="list">
-
-      <div class="stat-block" role="listitem">
-        <span class="stat-number">30+</span>
-        <span class="stat-label">Years</span>
-      </div>
-
-      <div class="stat-block" role="listitem">
-        <span class="stat-number">1996</span>
-        <span class="stat-label">Est.</span>
-      </div>
-
-      <div class="stat-block" role="listitem">
-        <span class="stat-number">28+</span>
-        <span class="stat-label">Products</span>
-      </div>
-
-    </div>
-
-    <!-- Certification subhead -->
-    <p class="cert-subhead">
-      Certified IEC &nbsp;·&nbsp; NEMA &nbsp;·&nbsp; JIS &nbsp;·&nbsp; CE &nbsp;&mdash;&nbsp; Since 1996
-    </p>
-
-    <!-- Body bullets -->
-    <ul class="body-list" aria-label="Key capabilities">
-      <li>Pakistan's largest copper rod manufacturer</li>
-      <li>28+ products &nbsp;·&nbsp; 7 categories &nbsp;·&nbsp; In-house testing lab</li>
-      <li>European CCR technology</li>
-    </ul>
-
-  </section>
 
   <!-- =========================================================
-       ZONE D — DETAIL (5150px – 6054px from canvas top)
-       Copper rule, CCR detail, contact footer
-       ========================================================= -->
-  <section class="zone-d" aria-label="Contact details">
-
-    <hr class="copper-rule" style="width: 100%;">
-
-    <p class="ccr-line">European CCR technology &nbsp;·&nbsp; Continuous cast &amp; roll process &nbsp;·&nbsp; Lahore, Pakistan</p>
-
-    <div class="contact-row">
-      <a href="https://www.universalmetals.com.pk" class="contact-url" target="_blank" rel="noopener">
-        universalmetals.com.pk
-      </a>
-      <p class="contact-tagline">Our Wire. Your Light.</p>
-    </div>
-
-  </section>
-
-  <!-- =========================================================
-       ZONE E — FURNITURE RESERVE (6054px – 7411px)
-       Decorative only — no critical content.
-       ========================================================= -->
-  <aside class="zone-e" aria-hidden="true">
-    <p class="zone-e-watermark">Universal Metals</p>
-  </aside>
-
-  <!-- =========================================================
-       BOTTOM ACCENT BAR — Copper gradient strip
+       BOTTOM ACCENT BAR
        ========================================================= -->
   <div class="accent-bar accent-bar--bottom" role="presentation" aria-hidden="true"></div>
 

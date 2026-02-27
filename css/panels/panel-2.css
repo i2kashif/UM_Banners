@@ -1,24 +1,31 @@
 /*
  * panel-2.css
- * Banner 2: Our Journey — Serpentine Roadmap Timeline
- * "Our Journey" — 8 milestones in a winding copper roadmap
+ * Banner 2: Our Journey — Right Panel (diptych right half)
+ * Canvas: 3,012 × 7,441 CSS px
  *
- * Background: #FAF8F5 (cream) full panel
- * Wall: Left Wall — viewed at 5–10m distance
+ * Background: #FAF8F5 (cream)
+ * Wall: Left Wall — physical slot 2 of 2
  *
- * Key visual: SVG copper winding path with 8 milestone cards
- * arranged in a serpentine pattern (left→right→left→right).
- * 4 rows × 2 cards. Major milestones (1994, 2006, 2016, 2025)
- * have larger year text, deeper copper frames, and badge labels.
+ * 4 rows × 1 centered card (1600px wide).
+ * Cards (this panel): 2000, 2006, 2020, 2023.
  *
- * Zone B + C merged into one roadmap area.
- * Zone C stats removed — panel is purely about the journey.
+ * Cross-panel copper path:
+ *   Rows 1–2: enters LEFT (from P1's 1994) → 2000 →
+ *             U-turn at RIGHT edge → 2006 → exits LEFT
+ *   Rows 3–4: enters LEFT (from P1's 2016) → 2020 →
+ *             U-turn at RIGHT edge → 2023 → exits LEFT
+ *
+ * SVG is positioned left:-90px / width:3012px so the path
+ * enters/exits at the physical panel edge, aligning with
+ * Panel 1 when placed side-by-side at the expo.
+ *
+ * Zone A: "JOURNEY" left-aligned + logo.
+ * Zone D: website URL.
  */
 
 
 /* ============================================================
    PANEL 2 BACKGROUND
-   Solid cream throughout.
    ============================================================ */
 
 #panel-2 {
@@ -27,13 +34,30 @@
 
 
 /* ============================================================
-   ZONE A — BRAND HEADER
-   Large centered logo lockup (same as Panel 1).
+   ZONE A — "JOURNEY" + LOGO
+   Left: large "JOURNEY" heading (left-aligned).
+   Right: company logo.
+   "JOURNEY" continues from Panel 1's "OUR" across the join.
    ============================================================ */
 
 #panel-2 .zone-a {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 90px;
+}
+
+#panel-2 .p2-journey {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h1);
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  line-height: var(--lh-heading);
+  text-align: left;
+  text-rendering: geometricPrecision;
 }
 
 #panel-2 .zone-a .logo-image {
@@ -43,13 +67,12 @@
 
 
 /* ============================================================
-   ZONE B — SERPENTINE ROADMAP (B + C merged)
-   Extended height spans both Zone B and Zone C areas.
-   Contains headline block + winding copper path + milestone cards.
+   ZONE B — ROADMAP SECTION
+   60px top padding + 5400px roadmap.
    ============================================================ */
 
 #panel-2 .zone-b {
-  height: 5940px;
+  height: 5560px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,60 +83,7 @@
 
 
 /* ============================================================
-   ROADMAP HEADER
-   Eyebrow + headline + decorative copper rule.
-   ============================================================ */
-
-#panel-2 .rm-header {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  margin-bottom: 80px;
-}
-
-#panel-2 .rm-eyebrow {
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-body-sm);
-  color: var(--text-copper-stat);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-widest);
-  text-align: center;
-}
-
-#panel-2 .rm-headline {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-h1);
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-wide);
-  text-align: center;
-  line-height: var(--lh-heading);
-  text-rendering: geometricPrecision;
-}
-
-#panel-2 .rm-headline-rule {
-  width: 480px;
-  height: 4px;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    var(--copper-300) 20%,
-    var(--copper-500) 50%,
-    var(--copper-300) 80%,
-    transparent 100%
-  );
-  border-radius: 2px;
-}
-
-
-/* ============================================================
    ROADMAP CONTAINER
-   Relative container for the SVG path and milestone rows.
-   Fixed height ensures SVG viewBox aligns with card positions.
    ============================================================ */
 
 #panel-2 .roadmap {
@@ -125,98 +95,78 @@
 
 
 /* ============================================================
-   SVG WINDING PATH
-   Absolute-positioned SVG covering the entire roadmap container.
-   Copper gradient serpentine connecting all 8 milestones.
+   SVG CROSS-PANEL PATH
+   left:-90px escapes zone-b inset so SVG spans full 3012px.
    ============================================================ */
 
 #panel-2 .rm-path-svg {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: -90px;
+  width: 3012px;
   height: 100%;
   z-index: 1;
   pointer-events: none;
+  overflow: visible;
 }
 
 
 /* ============================================================
    ROADMAP ROWS
-   4 rows of 2 milestone cards each.
-   Odd rows: left → right (normal flex).
-   Even rows: right → left (flex row-reverse).
-   Fixed 980px height ensures alignment with SVG coordinates.
    ============================================================ */
 
 #panel-2 .rm-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   height: 1350px;
-  padding: 0 110px;
   position: relative;
   z-index: 3;
   overflow: visible;
 }
 
-#panel-2 .rm-row--reverse {
-  flex-direction: row-reverse;
-}
-
 
 /* ============================================================
    MILESTONE CARD
-   Year + image placeholder + description + optional badge.
-   700px wide — two per row with generous space for the path.
    ============================================================ */
 
 #panel-2 .rm-card {
-  width: 700px;
+  width: 1600px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
   z-index: 5;
   position: relative;
   overflow: visible;
+  padding-top: 60px;
 }
 
 
 /* ============================================================
-   GHOST YEAR WATERMARK (.rm-ghost)
-   Large semi-transparent year on opposite side of card.
-   Provides temporal anchoring without competing with content.
+   GHOST YEAR WATERMARK
    ============================================================ */
 
 #panel-2 .rm-ghost {
   position: absolute;
-  top: 12px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: var(--font-display);
   font-weight: var(--fw-extrabold);
-  font-size: 180px;
+  font-size: 300px;
   color: var(--copper-500);
-  opacity: 0.10;
+  opacity: 0.08;
   line-height: 1;
   z-index: 0;
   pointer-events: none;
+  white-space: nowrap;
 }
-
-#panel-2 .rm-card--left .rm-ghost {
-  left: calc(100% + 40px);
-}
-
-#panel-2 .rm-card--right .rm-ghost {
-  right: calc(100% + 40px);
-}
-
 
 
 /* ============================================================
-   IMAGE CONTAINER
-   Multi-layered copper frame with corner tick marks.
-   Overflow visible for accent frame depth effect.
+   IMAGE CONTAINER — 16:10 ratio
    ============================================================ */
 
 #panel-2 .rm-img {
@@ -231,8 +181,7 @@
 
 
 /* ============================================================
-   MAIN COPPER FRAME (.rm-fr)
-   Primary border around image area.
+   COPPER FRAME
    ============================================================ */
 
 #panel-2 .rm-fr {
@@ -245,15 +194,12 @@
 #panel-2 .rm-card--major .rm-fr {
   border-width: 10px;
   border-color: var(--copper-500);
-  box-shadow: 0 15px 80px rgba(139, 74, 40, 0.18);
+  box-shadow: 0 20px 100px rgba(139, 74, 40, 0.20);
 }
 
 
-
 /* ============================================================
-   PLACEHOLDER BACKGROUND (.rm-ph)
-   Diagonal gradient + hatch pattern overlay.
-   Shown until real photographs are placed.
+   PLACEHOLDER BACKGROUND
    ============================================================ */
 
 #panel-2 .rm-ph {
@@ -266,11 +212,10 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  gap: 20px;
+  gap: 24px;
   z-index: 0;
 }
 
-/* Diagonal hatch pattern overlay */
 #panel-2 .rm-ph::before {
   content: '';
   position: absolute;
@@ -287,15 +232,14 @@
 
 
 /* ============================================================
-   PLACEHOLDER CAMERA ICON (.rm-phi)
-   Minimalist bordered rectangle with centered circle lens.
+   PLACEHOLDER CAMERA ICON
    ============================================================ */
 
 #panel-2 .rm-phi {
-  width: 120px;
-  height: 90px;
+  width: 140px;
+  height: 105px;
   border: 8px solid var(--copper-300);
-  border-radius: 10px;
+  border-radius: 12px;
   position: relative;
   opacity: 0.3;
 }
@@ -306,16 +250,15 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 45px;
-  height: 45px;
+  width: 52px;
+  height: 52px;
   border: 8px solid var(--copper-300);
   border-radius: 50%;
 }
 
 
 /* ============================================================
-   PLACEHOLDER LABEL (.rm-phl)
-   Uppercase copper text below camera icon.
+   PLACEHOLDER LABEL
    ============================================================ */
 
 #panel-2 .rm-phl {
@@ -341,13 +284,14 @@
   line-height: var(--lh-body);
   text-align: center;
   text-rendering: optimizeLegibility;
-  max-width: 650px;
+  max-width: 1400px;
+  position: relative;
+  z-index: 2;
 }
 
 
-
 /* ============================================================
-   ZONE D — CLOSING STATEMENT + CONTACT
+   ZONE D — CONTACT
    ============================================================ */
 
 #panel-2 .zone-d {
@@ -365,4 +309,21 @@
   justify-content: flex-start;
   border-top-color: var(--copper-300);
   width: 100%;
+}
+
+
+/* ============================================================
+   SCREEN-READER ONLY
+   ============================================================ */
+
+#panel-2 .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

@@ -1,222 +1,334 @@
 /*
  * panel-1.css
- * Banner 1: Company Hero — Left Wall, Position 1
- * "30 Years. Rod to Wire. One Facility."
+ * Banner 1: Our Journey — Left Panel (diptych left half)
+ * Canvas: 3,012 × 7,441 CSS px
  *
- * Background: #FFFFFF top 70%, gradient fade to #FAF8F5 bottom 30%
- * Wall: Left Wall — viewed at 5–10m distance
- * Side wall headline size: 425px minimum (144mm at 0.332mm/px)
- * Headline here is 195px — acceptable because it supplements
- * the hero stat "30+" at 180px. The three-phrase headline reads
- * as a graphic element, not a sentence, at exhibition distance.
+ * Background: #FAF8F5 (cream)
+ * Wall: Left Wall — physical slot 1 of 2
+ *
+ * 4 rows × 1 centered card (1600px wide).
+ * Cards (this panel): 1994, 2013, 2016, 2025.
+ *
+ * Cross-panel copper path:
+ *   Row 1  : 1994 exits RIGHT → Panel 2
+ *   Row 2–3: enters RIGHT → 2013 → U-turn at LEFT edge → 2016 → exits RIGHT
+ *   Row 4  : enters RIGHT → 2025 (terminal)
+ *
+ * SVG is positioned left:-90px / width:3012px so the path
+ * exits/enters at the physical panel edge, aligning with
+ * Panel 2 when placed side-by-side at the expo.
+ *
+ * Zone A: "OUR" right-aligned + eyebrow + logo.
+ * Zone D: empty (contact on Panel 2).
  */
+
 
 /* ============================================================
    PANEL 1 BACKGROUND
-   White to cream gradient — builds visual warmth toward bottom.
-   Noise texture inherited from panel::before in layout.css.
    ============================================================ */
 
 #panel-1 {
-  background: linear-gradient(
-    to bottom,
-    #FFFFFF 0%,
-    #FFFFFF 65%,
-    #FAF8F5 100%
-  );
+  background: var(--bg-cream);
 }
 
+
 /* ============================================================
-   ZONE A — BRAND HEADER
-   Full UMPL logo centered in Zone A.
-   Decorative concentric copper rings behind logo at 8% opacity.
+   ZONE A — "OUR" + LOGO
+   Left column: eyebrow + large "OUR" heading (right-aligned).
+   Right: company logo.
+   "OUR" sits flush against the right edge; Panel 2's "JOURNEY"
+   sits flush against its left edge — together: "OUR JOURNEY".
    ============================================================ */
 
 #panel-1 .zone-a {
-  justify-content: center;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  position: relative;
+  justify-content: space-between;
+  padding: 0 90px;
 }
 
-#panel-1 .logo-lockup {
+#panel-1 .p1-heading-col {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  position: relative;
-  z-index: var(--z-content);
+  align-items: flex-end;
+  gap: 16px;
 }
 
-#panel-1 .logo-lockup img {
+#panel-1 .rm-eyebrow {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-sm);
+  color: var(--text-copper-stat);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-widest);
+  text-align: right;
+}
+
+#panel-1 .p1-our {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h1);
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  line-height: var(--lh-heading);
+  text-align: right;
+  text-rendering: geometricPrecision;
+}
+
+#panel-1 .zone-a .logo-image {
   width: 600px;
   height: auto;
 }
 
+
 /* ============================================================
-   ZONE B — HERO ZONE
-   Tagline "Our Wire. Your Light." centered.
-   Thin copper rule separator.
-   Hero headline in three punched phrases.
+   ZONE B — ROADMAP SECTION
+   60px top padding + 5400px roadmap = 5460px used.
+   No rm-header block — headline is in zone-a.
    ============================================================ */
 
 #panel-1 .zone-b {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 96px;
-  padding-bottom: 96px;
-  gap: 0;
-}
-
-#panel-1 .tagline-display {
-  font-family: var(--font-display);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-tagline);
-  color: var(--text-copper-stat);
-  letter-spacing: var(--ls-wider);
-  text-align: center;
-  text-rendering: geometricPrecision;
-  line-height: 1.1;
-  margin-top: 60px;
-  margin-bottom: 0;
-}
-
-#panel-1 .zone-b .copper-rule {
-  width: 600px;
-  margin-top: 80px;
-  margin-bottom: 80px;
-}
-
-#panel-1 .hero-headline {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-hero);
-  color: var(--text-copper-headline);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-wide);
-  text-align: center;
-  line-height: var(--lh-heading);
-  text-rendering: geometricPrecision;
-}
-
-#panel-1 .hero-headline span {
-  display: block;
-}
-
-#panel-1 .hero-headline .phrase-1 { color: var(--text-copper-headline); }
-#panel-1 .hero-headline .phrase-2 { color: var(--text-copper-bold); }
-#panel-1 .hero-headline .phrase-3 { color: var(--text-copper-headline); }
-
-#panel-1 .pakistan-largest {
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-body-lg);
-  color: var(--text-secondary);
-  text-align: center;
-  letter-spacing: 0.04em;
-  margin-top: 60px;
-}
-
-/* ============================================================
-   ZONE C — INFORMATION
-   Three stat blocks centered: 30+ / 1996 / 28+
-   Subhead below stat blocks.
-   Body bullets below subhead.
-   ============================================================ */
-
-#panel-1 .zone-c {
+  height: 5560px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 96px;
-  gap: var(--gap-md);
+  padding-top: 60px;
+  overflow: visible;
 }
 
-#panel-1 .zone-c .stat-grid {
-  justify-content: center;
-  gap: 160px;
-}
-
-#panel-1 .zone-c .stat-number {
-  color: var(--text-copper-stat);
-}
-
-#panel-1 .zone-c .stat-label {
-  color: var(--text-secondary);
-  font-size: var(--fs-body);
-  letter-spacing: 0.06em;
-}
-
-#panel-1 .zone-c .cert-subhead {
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-body-lg);
-  color: var(--text-primary);
-  text-align: center;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
-}
-
-#panel-1 .zone-c .body-list {
-  max-width: 1800px;
-  margin: 0 auto;
-}
 
 /* ============================================================
-   ZONE D — DETAIL
-   Thin copper rule.
-   CCR technology line.
-   URL and tagline footer.
+   ROADMAP CONTAINER
+   Full content width. 4 rows × 1350px = 5400px.
    ============================================================ */
 
-#panel-1 .zone-d {
+#panel-1 .roadmap {
+  position: relative;
+  width: 100%;
+  height: 5400px;
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   SVG CROSS-PANEL PATH
+   left:-90px escapes zone-b inset so SVG spans the full
+   3012px panel canvas. width:3012px overrides inherited width.
+   The path can then reach x=0 and x=3012 — the physical edges.
+   ============================================================ */
+
+#panel-1 .rm-path-svg {
+  position: absolute;
+  top: 0;
+  left: -90px;
+  width: 3012px;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+
+
+/* ============================================================
+   ROADMAP ROWS
+   4 rows × 1350px. One centered card per row.
+   ============================================================ */
+
+#panel-1 .rm-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 1350px;
+  position: relative;
+  z-index: 3;
+  overflow: visible;
+}
+
+
+/* ============================================================
+   MILESTONE CARD
+   1600px wide, centered in 2832px content (616px each side).
+   16:10 aspect ratio → 1600 × 1000px photo area.
+   padding-top gives vertical breathing room before the image.
+   ============================================================ */
+
+#panel-1 .rm-card {
+  width: 1600px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  gap: 24px;
+  z-index: 5;
+  position: relative;
+  overflow: visible;
   padding-top: 60px;
-  padding-bottom: 40px;
 }
 
-#panel-1 .zone-d .ccr-line {
-  font-family: var(--font-body);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-body);
-  color: var(--text-secondary);
-  text-align: center;
-  letter-spacing: 0.02em;
-}
-
-#panel-1 .zone-d .contact-row {
-  justify-content: center;
-  gap: 120px;
-  border-top-color: var(--copper-300);
-  margin-top: auto;
-}
 
 /* ============================================================
-   ZONE E — FURNITURE RESERVE
-   Decorative watermark tagline only. No critical content.
+   GHOST YEAR WATERMARK
+   Large semi-transparent year centered behind card.
+   300px font fits a 4-digit year behind the 1600px card.
    ============================================================ */
 
-#panel-1 .zone-e {
+#panel-1 .rm-ghost {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-weight: var(--fw-extrabold);
+  font-size: 300px;
+  color: var(--copper-500);
+  opacity: 0.08;
+  line-height: 1;
+  z-index: 0;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   IMAGE CONTAINER — 16:10 ratio
+   ============================================================ */
+
+#panel-1 .rm-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
-#panel-1 .zone-e-watermark {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: 280px;
-  color: var(--copper-200);
+
+/* ============================================================
+   COPPER FRAME
+   ============================================================ */
+
+#panel-1 .rm-fr {
+  position: absolute;
+  inset: 0;
+  border: 8px solid var(--copper-300);
+  z-index: 2;
+}
+
+#panel-1 .rm-card--major .rm-fr {
+  border-width: 10px;
+  border-color: var(--copper-500);
+  box-shadow: 0 20px 100px rgba(139, 74, 40, 0.20);
+}
+
+
+/* ============================================================
+   PLACEHOLDER BACKGROUND
+   ============================================================ */
+
+#panel-1 .rm-ph {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #F5EDE6 0%, #EDE1D6 40%, #E8D8CC 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  gap: 24px;
+  z-index: 0;
+}
+
+#panel-1 .rm-ph::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--copper-500) 0px,
+    var(--copper-500) 3px,
+    transparent 3px,
+    transparent 50px
+  );
+}
+
+
+/* ============================================================
+   PLACEHOLDER CAMERA ICON
+   ============================================================ */
+
+#panel-1 .rm-phi {
+  width: 140px;
+  height: 105px;
+  border: 8px solid var(--copper-300);
+  border-radius: 12px;
+  position: relative;
+  opacity: 0.3;
+}
+
+#panel-1 .rm-phi::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border: 8px solid var(--copper-300);
+  border-radius: 50%;
+}
+
+
+/* ============================================================
+   PLACEHOLDER LABEL
+   ============================================================ */
+
+#panel-1 .rm-phl {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-sm);
+  letter-spacing: 0.10em;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  opacity: 0.06;
+  color: var(--copper-300);
+  opacity: 0.6;
+}
+
+
+/* ============================================================
+   DESCRIPTION TEXT
+   ============================================================ */
+
+#panel-1 .rm-text {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body);
+  color: var(--text-primary);
+  line-height: var(--lh-body);
+  text-align: center;
+  text-rendering: optimizeLegibility;
+  max-width: 1400px;
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ============================================================
+   SCREEN-READER ONLY
+   ============================================================ */
+
+#panel-1 .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  text-rendering: geometricPrecision;
-  transform: rotate(-8deg);
-  pointer-events: none;
+  border: 0;
 }

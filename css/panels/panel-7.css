@@ -1,284 +1,190 @@
 /*
- * panel-7.css
- * Banner 7: Quality & Certifications — Right Wall, Position 1 of 2
- * "Certified for Europe. Tested In-House. Every Batch."
+ * panel-7.css — REDESIGNED (v2)
+ * Banner 7: Why Us — Bold Statement Stack | Universal Metals Pakistan Limited — CWIEME Berlin 2026
  *
- * Background: #FFFFFF (white) — clean, authoritative, trust-building
- * Zone A: Product category "QUALITY & CERTIFICATIONS" + UMPL logo mark
- * Zone B: Large ISO + CE certification badges (prominent, authoritative)
- * Zone C: In-house laboratory headline + testing methodology description
- * Zone D: "EU-ready supply" messaging + body bullets + contact row
+ * Design concept: "Glance-readable credentials" — no body copy, no specs.
+ *   Each line is one fact, readable at trade show distance in 1–2 seconds.
+ *   Barlow Condensed Bold, copper on white, full-width centred.
  *
- * This panel BUILDS TRUST. Certification badges must be large and commanding.
- * ISO 9001 / ISO 14001 / ISO 45001 / CE Marking prominently displayed.
+ * Structure:
+ *   Zone A  — Logo top-right only                              (90px – 783px)
+ *   Zone B  — 3 credential statements: market claim, CCR, sustainability (783px – 3644px)
+ *   Zone C  — 2 credential statements: EU duty, certifications (3750px – 6650px)
+ *   Zone D  — Footer URL (pinned to panel bottom)
+ *
+ * Left edge stripe: marks start of the right wall.
+ * Background: #FFFFFF
  */
 
+
 /* ============================================================
-   PANEL 7 BACKGROUND
-   Pure white — maximum contrast for certification badges.
+   PANEL BACKGROUND
    ============================================================ */
 
 #panel-7 {
   background: var(--bg-white);
 }
 
+
 /* ============================================================
-   ZONE A — CATEGORY HEADER
-   "QUALITY & CERTIFICATIONS" left-aligned, logo top-right.
+   LEFT EDGE ACCENT STRIPE
+   Marks the START of the right wall.
+   ============================================================ */
+
+#panel-7 .edge-stripe--left {
+  width: 18px;
+  background: var(--copper-500);
+}
+
+
+/* ============================================================
+   ZONE A — HEADER
+   Logo only, kept top-right.
    ============================================================ */
 
 #panel-7 .zone-a {
+  display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-#panel-7 .product-name-display {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-h1-sm);
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-wide);
-  line-height: var(--lh-heading);
-  text-rendering: geometricPrecision;
+  justify-content: flex-end;
 }
 
 #panel-7 .zone-a-logo {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 16px;
+  align-items: center;
   flex-shrink: 0;
 }
 
-#panel-7 .zone-a-logo img {
+#panel-7 .zone-a-logo .logo-image {
   width: var(--logo-width-sm);
   height: auto;
 }
 
+
 /* ============================================================
-   ZONE B — CERTIFICATION BADGES
-   Four large certification badges arranged 2×2.
-   ISO 9001 / ISO 14001 in top row.
-   ISO 45001 / CE Marking in bottom row.
-   Each badge is a prominent SVG-backed circle.
+   CREDENTIAL STACK ZONES
+   Both zone-b and zone-c share this column layout.
+   Statements distribute evenly within each zone.
    ============================================================ */
+
+#panel-7 .p7-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
 
 #panel-7 .zone-b {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--gap-lg);
-  padding-top: 80px;
-  padding-bottom: 80px;
-  position: relative;
+  padding: 100px var(--content-inset);
 }
 
-/* Background subtle radial glow */
-#panel-7 .zone-b::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 2400px;
-  height: 2400px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(245, 184, 128, 0.07) 0%,
-    transparent 70%
-  );
-  pointer-events: none;
-  z-index: 0;
+/* Zone C — matches panels 3–6 copper gradient divider pattern */
+#panel-7 .zone-c {
+  top: 3750px;
+  height: 2900px;
+  padding: 120px var(--content-inset) 100px;
+
+  /* Copper gradient separator at top */
+  border-top: 4px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-white), var(--bg-white)),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      var(--copper-300) 15%,
+      var(--copper-500) 50%,
+      var(--copper-300) 85%,
+      transparent 100%
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
 }
 
-/* Badge grid: 2 rows × 2 columns */
-#panel-7 .cert-badge-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 120px;
-  position: relative;
-  z-index: 1;
-}
-
-/* Individual large cert badge container */
-#panel-7 .cert-badge-lg {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 36px;
-}
-
-/* The badge SVG circle — large, authoritative */
-#panel-7 .cert-badge-svg {
-  flex-shrink: 0;
-}
-
-/* Cert badge label below SVG */
-#panel-7 .cert-badge-label {
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-body-lg);
-  color: var(--text-secondary);
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: var(--ls-widest);
-  line-height: 1.3;
-}
 
 /* ============================================================
-   ZONE C — IN-HOUSE LABORATORY
-   Main headline + testing methodology
+   CREDENTIAL STATEMENT BLOCKS
+   Each block is one scannable fact.
    ============================================================ */
 
-#panel-7 .zone-c {
+#panel-7 .p7-statement {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding-top: 80px;
-  gap: var(--gap-md);
+  align-items: center;
+  gap: 0;
+  text-align: center;
 }
 
-#panel-7 .zone-c-headline {
+#panel-7 .p7-line {
+  display: block;
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
-  font-size: var(--fs-h2);
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  line-height: var(--lh-heading);
-  text-rendering: geometricPrecision;
-}
-
-#panel-7 .zone-c .subhead {
-  font-size: var(--fs-body-lg);
-  margin-top: var(--gap-xs);
-}
-
-/* Testing methodology cards — two-column */
-#panel-7 .test-method-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--gap-sm);
-  width: 100%;
-}
-
-#panel-7 .test-method-card {
-  background: var(--bg-cream);
-  border: 2px solid var(--copper-300);
-  border-radius: var(--card-radius);
-  padding: 36px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  position: relative;
-  overflow: hidden;
-}
-
-#panel-7 .test-method-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 6px;
-  bottom: 0;
-  background: var(--gradient-copper-accent-bar);
-}
-
-#panel-7 .test-method-name {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-h3);
   color: var(--text-copper-bold);
   text-transform: uppercase;
   letter-spacing: var(--ls-wide);
-  line-height: 1;
+  line-height: 1.02;
   text-rendering: geometricPrecision;
 }
 
-#panel-7 .test-method-desc {
-  font-family: var(--font-body);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-body-sm);
-  color: var(--text-primary);
-  line-height: 1.55;
+/* Copper underline accent after each statement (except tier 3) */
+#panel-7 .p7-statement--tier1::after,
+#panel-7 .p7-statement--tier2::after {
+  content: '';
+  display: block;
+  margin: 56px auto 0;
+  width: 240px;
+  height: 5px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--copper-300) 20%,
+    var(--copper-500) 50%,
+    var(--copper-300) 80%,
+    transparent 100%
+  );
+  border-radius: 3px;
 }
 
+
 /* ============================================================
-   ZONE D — DETAIL
-   EU-ready supply messaging + body bullets + contact row
+   FONT SIZE TIERS
+   ============================================================ */
+
+/* Tier 1 — market leadership headline, largest */
+#panel-7 .p7-statement--tier1 .p7-line {
+  font-size: 185px;
+}
+
+/* Tier 2 — key facts */
+#panel-7 .p7-statement--tier2 .p7-line {
+  font-size: 140px;
+}
+
+/* Tier 3 — certifications: smaller, lighter copper tone */
+#panel-7 .p7-statement--tier3 .p7-line {
+  font-size: 96px;
+  color: var(--copper-500);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+
+/* ============================================================
+   ZONE D — FOOTER
+   Pinned to panel bottom.
    ============================================================ */
 
 #panel-7 .zone-d {
+  top: auto;
+  bottom: var(--content-inset);
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-  padding-top: 60px;
+  justify-content: flex-end;
   padding-bottom: 40px;
 }
 
-/* EU-ready supply banner */
-#panel-7 .eu-ready-banner {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 36px;
-  padding: 20px 48px;
-  background: linear-gradient(
-    to right,
-    var(--copper-100) 0%,
-    var(--bg-cream) 100%
-  );
-  border-left: 8px solid var(--copper-600);
-  border-radius: 0 var(--card-radius) var(--card-radius) 0;
-}
-
-#panel-7 .eu-ready-label {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-h3);
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-wide);
-  text-rendering: geometricPrecision;
-  flex-shrink: 0;
-}
-
-#panel-7 .eu-ready-detail {
-  font-family: var(--font-body);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-body-sm);
-  color: var(--text-primary);
-  line-height: 1.55;
-}
-
-#panel-7 .zone-d .body-list {
-  margin-top: 12px;
-}
-
-#panel-7 .zone-d .body-list li {
-  font-size: 38px;
-}
-
 #panel-7 .zone-d .contact-row {
+  justify-content: flex-start;
+  border-top-color: var(--copper-300);
   width: 100%;
-  margin-top: auto;
-}
-
-/* ============================================================
-   ZONE E — FURNITURE RESERVE
-   ============================================================ */
-
-#panel-7 .zone-e {
-  background: linear-gradient(
-    to bottom,
-    var(--bg-white) 0%,
-    var(--bg-cream) 50%,
-    var(--copper-100) 100%
-  );
-  opacity: 0.6;
 }

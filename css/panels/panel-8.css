@@ -1,468 +1,204 @@
 /*
- * panel-8.css
- * Banner 8: Contact / CTA — Right Wall, Position 2 of 2 (FINAL panel)
- * "0% EU Import Duty. 94% Less CO₂. Let's Talk."
+ * panel-8.css — REDESIGNED (v2)
+ * Banner 8: Contact CTA — Right Wall, Position 2 of 2 (final panel)
  *
- * Background: Gradient #FFFFFF → #FDE8D0 (warmest panel — the most inviting)
- * Zone A: UMPL full logo centred — closing statement logo presence
- * Zone B: Large QR code + contact details (email + stand number)
- * Zone C: Main headline + GSP+ subhead + CO₂ stat
- * Zone D: GSP+ explanation + meeting CTA + body bullets
+ * Design concept: "Invitation close" — minimal, open, warm.
+ *   One big verb. One URL. One QR code. That's it.
+ *   No stand number (shown on shell scheme header above).
  *
- * This is the CLOSING banner — warm, inviting, action-oriented.
- * The gradient from white to copper-100 (#FDE8D0) makes it the warmest panel.
- * QR code must be BLACK on WHITE — maximum scan reliability.
+ * Structure:
+ *   Zone A  — Logo top-right only                (90px – 783px)
+ *   Zone B  — "TALK TO US" hero heading          (783px – 3644px)
+ *   Zone C  — URL + QR code (with copper divider)(3750px – 6650px)
+ *   Zone D  — Email footer (pinned to bottom)
+ *
+ * Right edge stripe: marks absolute end of the display wall.
+ * Background: #FFFFFF
  */
 
+
 /* ============================================================
-   PANEL 8 BACKGROUND
-   White to copper-100 gradient — warmest panel in the system.
+   PANEL BACKGROUND
    ============================================================ */
 
 #panel-8 {
-  background: linear-gradient(
-    to bottom,
-    #FFFFFF 0%,
-    #FFFFFF 40%,
-    #FAF8F5 60%,
-    #FDE8D0 100%
-  );
+  background: var(--bg-white);
 }
 
+
 /* ============================================================
-   ZONE A — BRAND HEADER (CLOSING)
-   Full UMPL logo lockup centred — matches Panel 1 symmetry.
-   "Let's Talk" section label to the right.
+   RIGHT EDGE ACCENT STRIPE
+   Marks the END of the display wall.
+   ============================================================ */
+
+#panel-8 .edge-stripe--right {
+  width: 18px;
+  background: var(--copper-500);
+}
+
+
+/* ============================================================
+   ZONE A — HEADER
+   Logo only, kept top-right.
    ============================================================ */
 
 #panel-8 .zone-a {
-  align-items: center;
-  justify-content: space-between;
-}
-
-#panel-8 .logo-lockup-closing {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-  position: relative;
-  z-index: var(--z-content);
+  align-items: center;
+  justify-content: flex-end;
 }
 
-#panel-8 .logo-lockup-closing img {
-  width: var(--logo-width-hero);
+#panel-8 .zone-a-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+#panel-8 .zone-a-logo .logo-image {
+  width: var(--logo-width-sm);
   height: auto;
 }
 
-#panel-8 .company-name-closing {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: 72px;
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  text-rendering: geometricPrecision;
-}
-
-#panel-8 .company-sub-closing {
-  font-family: var(--font-body);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-body-sm);
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-
-/* "VISIT US" section label on right */
-#panel-8 .zone-a-cta-label {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 16px;
-  flex-shrink: 0;
-}
-
-#panel-8 .visit-label {
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-body-sm);
-  color: var(--text-copper-stat);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-widest);
-  text-align: right;
-}
-
-#panel-8 .stand-number {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-h3);
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-wide);
-  text-align: right;
-  text-rendering: geometricPrecision;
-}
 
 /* ============================================================
-   ZONE B — QR CODE + CONTACT DETAILS (HERO ACTION ZONE)
-   Two-column: QR code left, contact block right.
-   QR code: BLACK on WHITE — critical scan requirement.
+   ZONE B — HERO CTA
+   "TALK TO US" — the biggest, boldest thing on the wall.
+   Readable from 5 metres away.
    ============================================================ */
 
-#panel-8 .zone-b {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--gap-lg);
-  padding-top: 80px;
-  padding-bottom: 80px;
-  position: relative;
-}
-
-/* QR code column — left */
-#panel-8 .qr-col {
+#panel-8 .p8-hero {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: var(--gap-sm);
-  flex-shrink: 0;
-}
-
-#panel-8 .qr-hero-label {
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-body-sm);
-  color: var(--text-copper-stat);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-widest);
-  padding-bottom: 12px;
-  border-bottom: 3px solid var(--copper-300);
-  display: inline-block;
-}
-
-/* Large QR placeholder — 500×500px for prominent scan target */
-#panel-8 .qr-large {
-  width: 500px;
-  height: 500px;
-  background: #FFFFFF;
-  border: 6px solid #1A1208;
-  border-radius: 16px;
-  display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  position: relative;
-  overflow: hidden;
+  padding: 80px var(--content-inset);
 }
 
-/* QR grid pattern */
-#panel-8 .qr-large::before {
-  content: '';
-  position: absolute;
-  inset: 48px;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      #1A1208 0px,
-      #1A1208 20px,
-      transparent 20px,
-      transparent 40px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      #1A1208 0px,
-      #1A1208 20px,
-      transparent 20px,
-      transparent 40px
-    );
-  background-blend-mode: multiply;
-  opacity: 0.3;
-}
-
-/* Corner finder patterns */
-#panel-8 .qr-large::after {
-  content: '';
-  position: absolute;
-  top: 36px;
-  left: 36px;
-  width: 90px;
-  height: 90px;
-  border: 10px solid #1A1208;
-  border-radius: 6px;
-  box-shadow:
-    410px 0 0 0 #1A1208,
-    0 410px 0 0 #1A1208;
-}
-
-/* QR caption under QR code */
-#panel-8 .qr-caption-hero {
-  font-family: var(--font-body);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-body-sm);
-  color: var(--text-secondary);
-  text-align: left;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
-  max-width: 500px;
-}
-
-/* Contact details column — right */
-#panel-8 .contact-col {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--gap-md);
-  flex: 1;
-}
-
-#panel-8 .contact-heading {
+#panel-8 .p8-cta-heading {
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
-  font-size: 140px;
+  font-size: 320px;
   color: var(--text-copper-bold);
   text-transform: uppercase;
   letter-spacing: var(--ls-wide);
-  line-height: var(--lh-heading);
+  line-height: 1.0;
   text-rendering: geometricPrecision;
+  text-align: center;
+  margin: 0;
 }
 
-#panel-8 .contact-detail-row {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-sm);
-  width: 100%;
-}
-
-#panel-8 .contact-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 32px;
-}
-
-#panel-8 .contact-item-icon {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-h3);
-  color: var(--text-copper-stat);
-  width: 80px;
-  flex-shrink: 0;
-  text-rendering: geometricPrecision;
-}
-
-#panel-8 .contact-item-text {
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-body-lg);
-  color: var(--text-primary);
-  letter-spacing: 0.02em;
-  line-height: 1.4;
-}
-
-#panel-8 .contact-item-text--url {
-  color: var(--text-copper-bold);
-  text-decoration: none;
-}
-
-/* GSP+ info card within contact column */
-#panel-8 .gsp-info-card {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 36px 42px;
-  background: linear-gradient(
-    135deg,
-    var(--bg-copper-lightest) 0%,
-    var(--bg-cream) 100%
-  );
-  border: 3px solid var(--copper-400);
-  border-radius: var(--card-radius);
-  position: relative;
-  overflow: hidden;
-}
-
-#panel-8 .gsp-info-card::before {
+/* Copper underline beneath the CTA heading */
+#panel-8 .p8-cta-heading::after {
   content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  display: block;
+  margin: 80px auto 0;
+  width: 400px;
   height: 6px;
-  background: var(--gradient-copper-accent-bar);
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--copper-300) 20%,
+    var(--copper-500) 50%,
+    var(--copper-300) 80%,
+    transparent 100%
+  );
+  border-radius: 3px;
 }
 
-#panel-8 .gsp-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 28px;
-  background: var(--copper-600);
-  border-radius: 8px;
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-body-sm);
-  color: #FFFFFF;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  align-self: flex-start;
-}
-
-#panel-8 .gsp-text {
-  font-family: var(--font-body);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-body-sm);
-  color: var(--text-primary);
-  line-height: 1.55;
-}
 
 /* ============================================================
-   ZONE C — KEY STATS + MAIN HEADLINE
-   CO₂ stat hero + GSP+ headline
+   ZONE C — URL + QR CODE
+   Copper gradient divider at top (matches panels 3–7 pattern).
    ============================================================ */
 
-#panel-8 .zone-c {
+#panel-8 .p8-contact-zone {
+  top: 3750px;
+  height: 2900px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding-top: 80px;
-  gap: var(--gap-md);
+  align-items: center;
+  justify-content: center;
+  gap: 120px;
+  padding: 120px var(--content-inset) 80px;
+
+  /* Copper gradient separator at top */
+  border-top: 4px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-white), var(--bg-white)),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      var(--copper-300) 15%,
+      var(--copper-500) 50%,
+      var(--copper-300) 85%,
+      transparent 100%
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
 }
 
-#panel-8 .zone-c-headline {
+/* Website URL — large, readable from 3 metres */
+#panel-8 .p8-url {
+  display: block;
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
-  font-size: var(--fs-h2);
+  font-size: 120px;
   color: var(--text-copper-bold);
   text-transform: uppercase;
-  letter-spacing: 0.02em;
-  line-height: var(--lh-heading);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
   text-rendering: geometricPrecision;
 }
 
-#panel-8 .zone-c .subhead {
-  font-size: var(--fs-body-lg);
-  margin-top: var(--gap-xs);
-}
-
-/* Stat row: 0% duty + 94% CO₂ side by side */
-#panel-8 .key-stats-row {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 120px;
-  width: 100%;
-}
-
-#panel-8 .key-stat-block {
+/* QR code wrapper — centres the SVG + caption */
+#panel-8 .p8-qr-wrap {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
+  align-items: center;
+  gap: 48px;
 }
 
-#panel-8 .key-stat-number {
-  font-family: var(--font-display);
-  font-weight: var(--fw-extrabold);
-  font-size: var(--fs-stat-main);
-  color: var(--text-copper-stat);
-  letter-spacing: var(--ls-tight);
-  line-height: 0.9;
-  text-rendering: geometricPrecision;
+/* QR code SVG — white background for scan reliability */
+#panel-8 .p8-qr-svg {
+  display: block;
+  border: 12px solid #1A1208;
+  border-radius: 16px;
+  background: #FFFFFF;
+  filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.10));
 }
 
-#panel-8 .key-stat-label {
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-body-lg);
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-widest);
-  line-height: var(--lh-label);
-}
-
-#panel-8 .key-stat-detail {
+/* Caption beneath QR code */
+#panel-8 .p8-qr-caption {
   font-family: var(--font-body);
   font-weight: var(--fw-medium);
-  font-size: var(--fs-body-sm);
-  color: var(--text-primary);
-  line-height: 1.55;
-  max-width: 900px;
+  font-size: 52px;
+  color: var(--text-secondary);
+  text-align: center;
+  letter-spacing: 0.04em;
+  margin: 0;
 }
 
+
 /* ============================================================
-   ZONE D — DETAIL / CTA CLOSE
-   GSP+ explanation + meeting CTA + body bullets
+   ZONE D — EMAIL FOOTER
+   Pinned to panel bottom.
    ============================================================ */
 
 #panel-8 .zone-d {
+  top: auto;
+  bottom: var(--content-inset);
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-  padding-top: 60px;
+  justify-content: flex-end;
   padding-bottom: 40px;
 }
 
-/* Meeting CTA box */
-#panel-8 .meeting-cta-box {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--gap-md);
-  padding: 28px 60px;
-  background: linear-gradient(
-    to right,
-    var(--copper-600) 0%,
-    var(--copper-500) 100%
-  );
-  border-radius: var(--card-radius);
-}
-
-#panel-8 .meeting-cta-text {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-h3);
-  color: #FFFFFF;
-  text-transform: uppercase;
-  letter-spacing: var(--ls-wide);
-  line-height: var(--lh-heading);
-  text-rendering: geometricPrecision;
-}
-
-#panel-8 .meeting-cta-detail {
-  font-family: var(--font-body);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-body-sm);
-  color: rgba(255, 255, 255, 0.90);
-  line-height: 1.5;
-  max-width: 900px;
-}
-
 #panel-8 .zone-d .contact-row {
+  justify-content: flex-start;
+  border-top-color: var(--copper-300);
   width: 100%;
-  margin-top: auto;
-}
-
-/* ============================================================
-   ZONE E — FURNITURE RESERVE
-   Warmest zone E in the system — copper fade.
-   ============================================================ */
-
-#panel-8 .zone-e {
-  overflow: hidden;
-}
-
-#panel-8 .zone-e .zone-e-fill {
-  background: linear-gradient(
-    to bottom,
-    var(--copper-100) 0%,
-    var(--copper-200) 60%,
-    var(--copper-300) 100%
-  );
-  opacity: 0.45;
 }
