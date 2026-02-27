@@ -1,33 +1,35 @@
 /*
- * panel-3.css
- * Banner 3: Copper Enamelled Wire — Centre Wall, Position 1 of 4
- * "≥101% IACS. Triple-Certified. Up to 220°C."
+ * panel-3.css — REDESIGNED (v2)
+ * Banner 3: Enamelled Wire | Universal Metals Pakistan Limited — CWIEME Berlin 2026
  *
- * This is the HERO product banner — maximum visual impact.
- * Background: #FFFFFF (white)
- * Left edge accent stripe: 18px copper stripe marks start of centre wall.
- * Zone A: Product name "COPPER ENAMELLED WIRE" in large Barlow Condensed.
- * Zone B: Hero product photograph (placeholder spool).
- * Zone C: Headline with ≥ entity + spec badges.
- * Zone D: Body bullets.
+ * Design concept: "Product as Art Object"
+ *   Each product gets its own half of the panel, presented like a gallery piece.
+ *   Generous negative space. Large, prominent product photography. No specs — the
+ *   material speaks for itself. Copper halo rings add depth behind each product.
  *
- * CRITICAL QR NOTE: Use &#8805; HTML entity for ≥ symbol.
+ * Structure:
+ *   Zone A  — "Enamelled Wire" category title + small logo (90px – 783px)
+ *   Zone B  — Copper EW: photo LEFT · name RIGHT          (783px – 3644px)
+ *   Zone C  — Aluminium EW: name LEFT · photo RIGHT       (3750px – 6650px)
+ *   Zone D  — Footer URL, pinned to panel bottom
+ *
+ * Background: #FFFFFF
+ * Images: true RGBA transparent PNG — no blend mode needed.
+ * Depth: filter: drop-shadow() creates floating appearance on transparent PNGs.
  */
 
+
 /* ============================================================
-   PANEL 3 BACKGROUND
-   Pure white — hero product always on white for maximum contrast.
+   PANEL BACKGROUND
    ============================================================ */
 
 #panel-3 {
   background: var(--bg-white);
 }
 
+
 /* ============================================================
    LEFT EDGE ACCENT STRIPE
-   18px vertical copper stripe on left edge only.
-   Marks the start of the centre wall product zone.
-   Implemented via pseudo-element to avoid extra DOM.
    ============================================================ */
 
 #panel-3 .edge-stripe--left {
@@ -35,19 +37,18 @@
   background: var(--copper-500);
 }
 
+
 /* ============================================================
-   ZONE A — PRODUCT NAME
-   "COPPER ENAMELLED WIRE" in large Barlow Condensed Bold.
-   Left-aligned with safe zone inset.
-   UMPL logo mark small top-right.
+   ZONE A — CATEGORY HEADER
    ============================================================ */
 
 #panel-3 .zone-a {
+  display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
-#panel-3 .product-name-display {
+#panel-3 .p3-category-title {
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
   font-size: var(--fs-h1);
@@ -60,170 +61,175 @@
 
 #panel-3 .zone-a-logo {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 16px;
+  align-items: center;
   flex-shrink: 0;
 }
 
-#panel-3 .zone-a-logo img {
+#panel-3 .zone-a-logo .logo-image {
   width: var(--logo-width-sm);
   height: auto;
 }
 
+
 /* ============================================================
-   ZONE B — HERO PRODUCT IMAGE
-   Product photograph centered, ~70% zone width.
-   Images use transparent PNG — background shows through naturally.
-   Concentric rings at 5% opacity behind product.
+   ZONE B — COPPER ENAMELLED WIRE
+   783px – 3644px | height 2861px
+   Photo LEFT · product name RIGHT
    ============================================================ */
 
 #panel-3 .zone-b {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  overflow: visible;
 }
 
-#panel-3 .product-bg-rings {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: var(--z-texture);
-  opacity: 0.05;
-}
-
-#panel-3 .product-hero-frame {
-  width: 70%;
-  max-height: 2600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: var(--z-photo);
-  isolation: isolate;
-}
-
-#panel-3 .product-hero-frame img {
-  width: 100%;
-  height: auto;
-  max-height: 2400px;
-  object-fit: contain;
-  filter: drop-shadow(0 24px 72px rgba(178, 103, 62, 0.22));
-}
-
-/* Spool placeholder until AI image is delivered */
-#panel-3 .spool-placeholder {
-  width: 1600px;
-  height: 1600px;
-  border-radius: 50%;
-  background: radial-gradient(
-    ellipse at 35% 35%,
-    #FBDABC 0%,
-    #F5B880 25%,
-    #CE7340 55%,
-    #8B4A28 100%
-  );
-  border: 24px solid #B2673E;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Inner hub of spool */
-#panel-3 .spool-placeholder::before {
-  content: '';
-  position: absolute;
-  width: 480px;
-  height: 480px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at 40% 35%, #F5B880, #8B4A28);
-  border: 12px solid #CE7340;
-}
-
-/* Spool label */
-#panel-3 .spool-placeholder::after {
-  content: 'Enamelled Wire';
-  position: absolute;
-  bottom: 200px;
-  font-family: 'Poppins', Arial, sans-serif;
-  font-weight: 600;
-  font-size: 54px;
-  color: #FAF8F5;
-  text-align: center;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
 
 /* ============================================================
-   ZONE C — INFORMATION
-   Headline with ≥ symbol (HTML entity &#8805;).
-   Spec badge row below headline.
+   ZONE C — ALUMINIUM ENAMELLED WIRE
+   Overrides default zone-c: starts 106px below zone-b.
+   Product name LEFT · photo RIGHT
    ============================================================ */
 
 #panel-3 .zone-c {
+  top: 3750px;
+  height: 2900px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding-top: 80px;
-  gap: var(--gap-md);
+  flex-direction: row;
+  align-items: stretch;
+  overflow: visible;
+
+  /* Copper gradient separator at top */
+  border-top: 4px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-white), var(--bg-white)),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      var(--copper-300) 15%,
+      var(--copper-500) 50%,
+      var(--copper-300) 85%,
+      transparent 100%
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  padding-top: 120px;
 }
 
-#panel-3 .zone-c-headline {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: 120px;
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  line-height: var(--lh-heading);
-  text-rendering: geometricPrecision;
-}
-
-#panel-3 .zone-c .spec-badge-row {
-  flex-wrap: wrap;
-  gap: 40px;
-}
-
-#panel-3 .zone-c .subhead {
-  font-size: var(--fs-body-lg);
-  margin-top: var(--gap-xs);
-}
 
 /* ============================================================
-   ZONE D — DETAIL
-   4 body bullets, left-aligned.
+   PRODUCT COLUMNS
+   Photo column: flex 1.2 — slightly dominant
+   Text column:  flex 1
+   ============================================================ */
+
+#panel-3 .p3-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  min-width: 0;   /* override default 'auto' — prevents content from overriding flex ratios */
+}
+
+#panel-3 .p3-col--photo {
+  flex: 1.2;
+  position: relative;      /* establishes context for the halo ring */
+  overflow: hidden;        /* contain image within column */
+  padding: 120px 80px;
+}
+
+#panel-3 .p3-col--text {
+  flex: 1;
+  flex-direction: column;
+  padding: 0 80px 0 40px;
+}
+
+/* Mirror text padding for zone-c (text is on the LEFT, pad left more) */
+#panel-3 .zone-c .p3-col--text {
+  padding: 0 40px 0 80px;
+}
+
+
+
+
+/* ============================================================
+   PRODUCT PHOTOS
+   width: 100% fills the column (scales up from natural 466px to ~1400px).
+   height: auto preserves aspect ratio.
+   mix-blend-mode: multiply removes white image backgrounds on white panel
+     (white × white = white = invisible; coloured pixels preserved).
+   filter: drop-shadow() must be placed on a wrapper, not the blended img,
+     so we apply a subtle box-shadow on the column instead.
+   z-index: 1 sits above the halo ring.
+   ============================================================ */
+
+#panel-3 .p3-product-photo {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  mix-blend-mode: multiply;  /* removes white image background on white panel */
+}
+
+
+/* ============================================================
+   PRODUCT NAME HEADINGS
+   Barlow Condensed Bold — fills the text column.
+   Three-line stack: "[Material] / Enamelled / Wire"
+   ============================================================ */
+
+#panel-3 .p3-product-name {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 185px;   /* sized so "ENAMELLED" / "ALUMINIUM" (9 chars) have comfortable margins */
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  line-height: 1.06;
+  text-rendering: geometricPrecision;
+  text-align: center;
+}
+
+/* Thin copper underline accent beneath each word */
+#panel-3 .p3-product-name::after {
+  content: '';
+  display: block;
+  margin: 80px auto 0;
+  width: 320px;
+  height: 6px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--copper-300) 20%,
+    var(--copper-500) 50%,
+    var(--copper-300) 80%,
+    transparent 100%
+  );
+  border-radius: 3px;
+}
+
+
+/* ============================================================
+   ZONE D — FOOTER
+   Pinned to panel bottom.
    ============================================================ */
 
 #panel-3 .zone-d {
+  top: auto;
+  bottom: var(--content-inset);
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-  padding-top: 60px;
+  justify-content: flex-end;
   padding-bottom: 40px;
 }
 
 #panel-3 .zone-d .contact-row {
+  justify-content: flex-start;
+  border-top-color: var(--copper-300);
   width: 100%;
-  margin-top: auto;
-}
-
-/* ============================================================
-   ZONE E — FURNITURE RESERVE
-   ============================================================ */
-
-#panel-3 .zone-e {
-  background: linear-gradient(
-    to bottom,
-    var(--bg-white) 0%,
-    var(--bg-cream) 50%,
-    var(--copper-100) 100%
-  );
-  opacity: 0.6;
 }

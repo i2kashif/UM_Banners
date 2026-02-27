@@ -2,85 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=3012, initial-scale=1.0">
+  <meta name="viewport" content="width=3012">
   <title>Banner 5 — Copper &amp; Aluminium Rod | Universal Metals Pakistan Limited</title>
 
-  <!-- All fonts are local .woff2 — no CDN dependency for Puppeteer -->
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/panels/panel-5.css">
+
+  <style>
+    /* Browser preview: allow scrolling and fit-to-screen */
+    html, body {
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+    }
+  </style>
+  <script>
+    /* Auto-scale panel to fit browser viewport width.
+       At Puppeteer's 3012px viewport this is a no-op (zoom=1). */
+    function fitPanel() {
+      document.documentElement.style.zoom = window.innerWidth / 3012;
+    }
+    window.addEventListener('DOMContentLoaded', fitPanel);
+    window.addEventListener('resize', fitPanel);
+  </script>
 </head>
 <body>
 
 <main id="panel-5" class="panel panel--white" style="--panel-index: 4;">
 
   <!-- =========================================================
-       TOP ACCENT BAR — Full-width copper gradient strip
+       TOP ACCENT BAR
        ========================================================= -->
   <div class="accent-bar accent-bar--top" role="presentation" aria-hidden="true"></div>
 
   <!-- =========================================================
-       FLOW SVG LAYER — Panel 5 slice
-       Panel 5: x offset = 4 × 3012 = 12048
-       Entry y ~4280 (Panel 4 exit), exit y ~3820 (Panel 6 entry)
+       FLOW SVG LAYER (globally disabled in layout.css)
        ========================================================= -->
-  <div class="flow-svg-layer" aria-hidden="true">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="12048 0 3012 7441"
-      preserveAspectRatio="xMinYMid meet"
-      width="3012"
-      height="7441"
-    >
-      <defs>
-        <linearGradient id="p5-wire-grad" x1="12048" y1="0" x2="15060" y2="0" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stop-color="#E8A065" stop-opacity="0.75"/>
-          <stop offset="50%"  stop-color="#CE7340" stop-opacity="0.8"/>
-          <stop offset="100%" stop-color="#B2673E" stop-opacity="0.7"/>
-        </linearGradient>
-        <filter id="p5-glow" x="-20%" y="-150%" width="140%" height="400%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
-          <feMerge>
-            <feMergeNode in="blur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      <!-- Primary wire — smooth cubic Bézier only, gently rises left→right -->
-      <path
-        d="M 12048,4280
-           C 12348,4210 12748,4110 13200,3990
-           C 13650,3870 14200,3840 14600,3830
-           C 14820,3825 14980,3822 15060,3820"
-        fill="none"
-        stroke="url(#p5-wire-grad)"
-        stroke-width="32"
-        stroke-linecap="round"
-        filter="url(#p5-glow)"
-      />
-      <!-- Secondary parallel strand — 60px offset below primary -->
-      <path
-        d="M 12048,4340
-           C 12348,4270 12748,4170 13200,4050
-           C 13650,3930 14200,3900 14600,3890
-           C 14820,3885 14980,3882 15060,3880"
-        fill="none"
-        stroke="#F5B880"
-        stroke-width="10"
-        stroke-linecap="round"
-        stroke-opacity="0.35"
-      />
-    </svg>
-  </div>
+  <div class="flow-svg-layer" aria-hidden="true"></div>
 
   <!-- =========================================================
-       ZONE A — PRODUCT NAME (90px – 783px)
-       "COPPER & ALUMINIUM ROD" + UMPL logo mark top-right
+       ZONE A — HEADER
+       "PRODUCTS" (left-aligned) + small logo top-right
+       Together with Panel 4 "OUR", reads "OUR PRODUCTS"
+       centred across the 4-panel centre wall.
        ========================================================= -->
-  <header class="zone-a" role="banner" aria-label="Product category and company logo">
+  <header class="zone-a" role="banner" aria-label="Section heading and company logo">
 
-    <h2 class="product-name-display">Copper &amp; Aluminium Rod</h2>
+    <h2 class="p5-section-heading">PRODUCTS</h2>
 
     <div class="zone-a-logo">
       <img
@@ -91,233 +61,72 @@
         height="auto"
         onerror="this.style.display='none';"
       >
-      <span style="
-        font-family: 'Barlow Condensed', Arial, sans-serif;
-        font-weight: 600;
-        font-size: 28px;
-        color: #B2673E;
-        letter-spacing: 0.10em;
-        text-transform: uppercase;
-      ">UMPL</span>
     </div>
 
   </header>
 
   <!-- =========================================================
-       ZONE B — HERO VISUAL (783px – 3644px)
-       Dual product display: copper rod (left) + aluminium rod (right)
-       Stats for each product below respective images
+       ZONE B — COPPER ROD
+       Photo left · Large product name right (centred)
        ========================================================= -->
-  <section class="zone-b" aria-label="Copper and aluminium rod products and key specifications">
+  <section class="zone-b p5-product-zone" aria-labelledby="p5-copper-rod-heading">
 
-    <!-- Decorative background rings — centred in zone -->
-    <svg class="product-bg-rings" width="2400" height="2400" viewBox="0 0 2400 2400"
-         aria-hidden="true" role="presentation">
-      <circle cx="1200" cy="1200" r="1150" fill="none" stroke="#F5B880" stroke-width="3"/>
-      <circle cx="1200" cy="1200" r="940"  fill="none" stroke="#F5B880" stroke-width="3"/>
-      <circle cx="1200" cy="1200" r="730"  fill="none" stroke="#CE7340" stroke-width="3"/>
-      <circle cx="1200" cy="1200" r="520"  fill="none" stroke="#CE7340" stroke-width="2"/>
-      <circle cx="1200" cy="1200" r="310"  fill="none" stroke="#B2673E" stroke-width="2"/>
-    </svg>
+    <!-- Left: Product photo (transparent PNG — no background) -->
+    <div class="p5-col p5-col--photo">
+      <img
+        src="../assets/images/products/ccr-copper-rod-ai-transparent.png"
+        alt="CCR Copper Rod coil"
+        class="p5-product-photo"
+        onerror="this.style.opacity='0.15';"
+      >
+    </div>
 
-    <!-- Dual product columns wrapper -->
-    <div class="zone-b-dual-col">
-
-      <!-- LEFT COLUMN — Copper Rod -->
-      <div class="zone-b-product-col" aria-label="Copper rod">
-
-        <!-- Product label above image -->
-        <span class="zone-b-product-label zone-b-product-label--copper">Copper Rod</span>
-
-        <!-- Copper rod image -->
-        <figure class="product-hero-frame product-hero-frame--half" style="margin: 0;" aria-label="Copper rod coil">
-          <img
-            src="../assets/images/products/ccr-copper-rod-ai-transparent.png"
-            alt="CCR Copper Rod — OFC 99.99% purity, European CCR continuous cast and roll process"
-            class="product-image"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          >
-          <!-- CSS coil placeholder — visible if no image -->
-          <div class="rod-placeholder" aria-hidden="true" style="display: none;"></div>
-        </figure>
-
-        <!-- Copper stats -->
-        <div class="zone-b-product-stats" role="group" aria-label="Copper rod specifications">
-          <div class="zone-b-stat-item">
-            <span class="zone-b-stat-number">99.99%</span>
-            <span class="zone-b-stat-label">OFC Purity</span>
-          </div>
-          <div class="zone-b-stat-divider" aria-hidden="true"></div>
-          <div class="zone-b-stat-item">
-            <span class="zone-b-stat-number" style="font-size: var(--fs-stat-sub);">&#8805;101%</span>
-            <span class="zone-b-stat-label">IACS Conductivity</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- CENTRE DIVIDER -->
-      <div class="zone-b-centre-divider" aria-hidden="true">
-        <div class="zone-b-divider-line"></div>
-        <span class="ccr-tech-badge">European CCR Technology</span>
-        <div class="zone-b-divider-line"></div>
-      </div>
-
-      <!-- RIGHT COLUMN — Aluminium Rod -->
-      <div class="zone-b-product-col" aria-label="Aluminium rod">
-
-        <!-- Product label above image -->
-        <span class="zone-b-product-label zone-b-product-label--aluminium">Aluminium Rod</span>
-
-        <!-- Aluminium rod image -->
-        <figure class="product-hero-frame product-hero-frame--half" style="margin: 0;" aria-label="Aluminium rod coil">
-          <img
-            src="../assets/images/products/aluminium-rod-ai-transparent.png"
-            alt="EC Grade Aluminium Rod — EC 1350 alloy, 9.5mm and 12mm, European CCR second line"
-            class="product-image product-image--aluminium"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          >
-          <!-- CSS aluminium coil placeholder — visible if no image -->
-          <div class="rod-placeholder rod-placeholder--aluminium" aria-hidden="true" style="display: none;"></div>
-        </figure>
-
-        <!-- Aluminium stats -->
-        <div class="zone-b-product-stats" role="group" aria-label="Aluminium rod specifications">
-          <div class="zone-b-stat-item">
-            <span class="zone-b-stat-number zone-b-stat-number--al">EC Grade</span>
-            <span class="zone-b-stat-label">Alloy EC 1350</span>
-          </div>
-          <div class="zone-b-stat-divider" aria-hidden="true"></div>
-          <div class="zone-b-stat-item">
-            <span class="zone-b-stat-number zone-b-stat-number--al" style="font-size: var(--fs-stat-sub);">9.5 &amp; 12mm</span>
-            <span class="zone-b-stat-label">Rod Diameter</span>
-          </div>
-          <div class="zone-b-stat-divider" aria-hidden="true"></div>
-          <div class="zone-b-stat-item">
-            <span class="zone-b-stat-number zone-b-stat-number--al" style="font-size: var(--fs-stat-sub);">&#8805;61%</span>
-            <span class="zone-b-stat-label">IACS Conductivity</span>
-          </div>
-        </div>
-
-      </div>
-
+    <!-- Right: Product name, centred vertically and horizontally -->
+    <div class="p5-col p5-col--text">
+      <h1 id="p5-copper-rod-heading" class="p5-product-name">
+        Copper<br>Rod
+      </h1>
     </div>
 
   </section>
 
   <!-- =========================================================
-       ZONE C — INFORMATION (3644px – 5150px)
-       Headline + subhead + four rod grade specification cards
-       CRITICAL: &#8805; entity for ≥ symbol
+       ZONE C — ALUMINIUM ROD
+       Large product name left (centred) · Photo right
        ========================================================= -->
-  <section class="zone-c" aria-labelledby="p5-zone-c-headline">
+  <section class="zone-c p5-product-zone p5-product-zone--alt" aria-labelledby="p5-al-rod-heading">
 
-    <!-- Main headline -->
-    <h1 id="p5-zone-c-headline" class="zone-c-headline">
-      Copper &amp; Aluminium. European CCR. Made Here.
-    </h1>
+    <!-- Left: Product name, centred vertically and horizontally -->
+    <div class="p5-col p5-col--text">
+      <h2 id="p5-al-rod-heading" class="p5-product-name">
+        Aluminium<br>Rod
+      </h2>
+    </div>
 
-    <!-- Subhead -->
-    <p class="subhead">
-      Copper rod: OFC &nbsp;&middot;&nbsp; ETP &nbsp;&middot;&nbsp; FRHC &nbsp;|&nbsp; Aluminium rod: EC Grade &mdash; all in-house CCR
-    </p>
-
-    <!-- Four rod grade cards: OFC / ETP / FRHC / EC Grade -->
-    <div class="rod-grades-grid" role="list" aria-label="Rod grade specifications">
-
-      <!-- OFC — premium grade -->
-      <article class="rod-grade-card rod-grade-card--ofc" role="listitem">
-        <h3 class="rod-grade-name">OFC</h3>
-        <span class="rod-grade-purity">99.99%</span>
-        <p class="rod-grade-iacs">&#8805;101% IACS conductivity</p>
-        <p class="rod-grade-desc">
-          Oxygen-Free Copper. Zero oxygen inclusions. Highest conductivity and ductility.
-          Precision wound coils 2.5&ndash;12mm. Preferred for fine enamelled wire downstream.
-        </p>
-      </article>
-
-      <!-- ETP — standard grade -->
-      <article class="rod-grade-card" role="listitem">
-        <h3 class="rod-grade-name">ETP</h3>
-        <span class="rod-grade-purity">99.97%</span>
-        <p class="rod-grade-iacs">&#8805;101% IACS conductivity</p>
-        <p class="rod-grade-desc">
-          Electrolytic Tough Pitch Copper. Standard commercial grade. IEC 60028 compliant.
-          Available 6&ndash;25mm rod. Broad application in power cables and winding wire.
-        </p>
-      </article>
-
-      <!-- FRHC — fire-refined / recycled grade -->
-      <article class="rod-grade-card" role="listitem">
-        <h3 class="rod-grade-name">FRHC</h3>
-        <span class="rod-grade-purity">99.90%</span>
-        <p class="rod-grade-iacs">&#8805;101% IACS conductivity</p>
-        <p class="rod-grade-desc">
-          Fire-Refined High Conductivity. Produced from recycled copper scrap.
-          Same electrical performance, reduced carbon footprint. Qualifies for
-          recycled-content certifications.
-        </p>
-      </article>
-
-      <!-- EC Grade — aluminium rod -->
-      <article class="rod-grade-card rod-grade-card--ec" role="listitem">
-        <h3 class="rod-grade-name rod-grade-name--al">EC Grade</h3>
-        <span class="rod-grade-purity rod-grade-purity--al">99.70%</span>
-        <p class="rod-grade-iacs rod-grade-iacs--al">&#8805;61% IACS conductivity</p>
-        <p class="rod-grade-desc">
-          Electrical Conductor Grade Aluminium. EC 1350 alloy, 9.5mm and 12mm rod.
-          For overhead conductors, transformer windings, and winding wire.
-        </p>
-      </article>
-
+    <!-- Right: Product photo (JPEG — mix-blend-mode removes white background) -->
+    <div class="p5-col p5-col--photo">
+      <img
+        src="../assets/images/products/aluminium-rod-ai-transparent.png"
+        alt="EC Grade Aluminium Rod coil"
+        class="p5-product-photo"
+        onerror="this.style.opacity='0.15';"
+      >
     </div>
 
   </section>
 
   <!-- =========================================================
-       ZONE D — DETAIL (5150px – 6054px)
-       European CCR context + FRHC sustainability note
-       Body bullets + contact row
+       ZONE D — FOOTER (pinned to panel bottom)
        ========================================================= -->
-  <section class="zone-d" aria-label="Technical details and contact">
+  <section class="zone-d" aria-label="Contact">
 
-    <!-- FRHC sustainability callout -->
-    <div class="frhc-note" role="note" aria-label="FRHC sustainability note">
-      <svg width="54" height="54" viewBox="0 0 54 54" aria-hidden="true" fill="none">
-        <circle cx="27" cy="27" r="25" stroke="#B2673E" stroke-width="3"/>
-        <path d="M 14 32 Q 27 10 40 32 Q 27 20 14 32 Z" fill="#CE7340" opacity="0.7"/>
-        <path d="M 20 36 C 27 26 34 36 27 40 C 20 44 16 38 20 36 Z" fill="#8B4A28" opacity="0.6"/>
-      </svg>
-      <span>FRHC grade qualifies for recycled-content certification &mdash; 94% less CO&#8322; versus primary copper production</span>
-    </div>
-
-    <ul class="body-list" aria-label="Key product details">
-      <li>European CCR line &mdash; continuous cast &amp; roll process</li>
-      <li>OFC Grade: 99.99% purity &mdash; &#8804;10 ppm oxygen</li>
-      <li>FRHC Grade: 100% recycled copper &mdash; 94% CO&#8322; reduction</li>
-      <li class="body-list-item--al">Aluminium rod: EC grade, 9.5 mm &amp; 12 mm &mdash; second CCR line installed 2021</li>
-    </ul>
-
-    <div class="contact-row" style="margin-top: var(--gap-sm);">
+    <div class="contact-row">
       <a href="https://www.universalmetals.com.pk" class="contact-url" target="_blank" rel="noopener">
         universalmetals.com.pk
       </a>
-      <div class="qr-block" aria-label="QR code for Rod Specification Sheet">
-        <div class="qr-placeholder">
-          <span class="qr-label">Scan for<br>Rod Data Sheet</span>
-        </div>
-      </div>
     </div>
 
   </section>
-
-  <!-- =========================================================
-       ZONE E — FURNITURE RESERVE (6054px – 7411px)
-       Decorative only — no critical content.
-       ========================================================= -->
-  <aside class="zone-e" aria-hidden="true">
-    <div class="zone-e-fill"></div>
-  </aside>
 
   <!-- =========================================================
        BOTTOM ACCENT BAR

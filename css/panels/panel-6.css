@@ -1,32 +1,35 @@
 /*
- * panel-6.css
- * Banner 6: Insulation Materials — Centre Wall, Position 4 of 4 (last centre)
- * "Wire. Strip. Insulation. One Qualified Supplier."
+ * panel-6.css — REDESIGNED (v2)
+ * Banner 6: Winding Wire & Insulation | Universal Metals Pakistan Limited — CWIEME Berlin 2026
  *
- * Background: #FAF8F5 (cream) — alternating panel rhythm
- * Right edge accent stripe: marks end of centre wall product zone
- * Zone A: Product name "INSULATION MATERIALS" + UMPL logo mark
- * Zone B: Hero composite image (AI-generated, all 5 materials) + product tags
- * Zone C: Main headline + subhead + 5-column product specification grid
- * Zone D: DuPont Nomex authentication callout + body bullets + contact row
- * Zone E: Cream decorative fade
+ * Design concept: "Product as Art Object" — matches Panel 3 design language.
+ *   Each product gets its own half of the panel, presented like a gallery piece.
+ *   Generous negative space. Large, prominent product photography. No specs.
  *
- * HERO IMAGE PATH: ../assets/images/products/insulation-composite-ai-transparent.png
- * CRITICAL: NMN callout uses authentic "DuPont™ Nomex® 410" phrasing
+ * Structure:
+ *   Zone A  — Small logo top-right only (no category heading)     (90px – 783px)
+ *   Zone B  — Submersible Winding Wire: photo LEFT · name RIGHT   (783px – 3644px)
+ *   Zone C  — Insulation Materials: name LEFT · photo RIGHT       (3750px – 6650px)
+ *   Zone D  — Footer URL, pinned to panel bottom
+ *
+ * Background: #FFFFFF
+ * Images: JPEG + mix-blend-mode: multiply for submersible wire;
+ *         transparent PNG for insulation.
  */
 
+
 /* ============================================================
-   PANEL 6 BACKGROUND
-   Warm cream — signals visual completion of centre wall.
+   PANEL BACKGROUND
    ============================================================ */
 
 #panel-6 {
-  background: var(--bg-cream);
+  background: var(--bg-white);
 }
+
 
 /* ============================================================
    RIGHT EDGE ACCENT STRIPE
-   Marks the END of the centre wall product zone.
+   Marks the end of the centre wall product zone.
    ============================================================ */
 
 #panel-6 .edge-stripe--right {
@@ -34,394 +37,179 @@
   background: var(--copper-500);
 }
 
+
 /* ============================================================
-   ZONE A — PRODUCT NAME
-   "INSULATION MATERIALS" in Barlow Condensed Bold.
+   ZONE A — HEADER
+   Logo only, kept top-right.
    ============================================================ */
 
 #panel-6 .zone-a {
+  display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-#panel-6 .product-name-display {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-h1-sm);
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-wide);
-  line-height: var(--lh-heading);
-  text-rendering: geometricPrecision;
+  justify-content: flex-end;
 }
 
 #panel-6 .zone-a-logo {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 16px;
+  align-items: center;
   flex-shrink: 0;
 }
 
-#panel-6 .zone-a-logo img {
+#panel-6 .zone-a-logo .logo-image {
   width: var(--logo-width-sm);
   height: auto;
 }
 
+
 /* ============================================================
-   ZONE B — HERO COMPOSITE IMAGE
-   Full-zone hero: AI composite showing all 5 insulation
-   materials together in a single artful arrangement.
+   ZONE B — SUBMERSIBLE COPPER WINDING WIRE
+   783px – 3644px | height 2861px
+   Photo LEFT · product name RIGHT
    ============================================================ */
 
 #panel-6 .zone-b {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 60px;
-  padding-bottom: 60px;
-  gap: 72px;
-  position: relative;
+  flex-direction: row;
+  align-items: stretch;
   overflow: visible;
 }
 
-/* ----------------------------------------------------------
-   Decorative concentric rings — subtle depth behind image.
-   Pure decoration, opacity well below print-safety threshold.
-   ---------------------------------------------------------- */
-
-#panel-6 .p6-hero-rings {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-#panel-6 .p6-ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 3px solid var(--copper-300);
-  transform: translate(-50%, -50%);
-  top: 0;
-  left: 0;
-  opacity: 0.08;
-}
-
-#panel-6 .p6-ring--1 {
-  width: 2800px;
-  height: 2800px;
-}
-
-#panel-6 .p6-ring--2 {
-  width: 2300px;
-  height: 2300px;
-  border-color: var(--copper-400);
-  opacity: 0.07;
-}
-
-#panel-6 .p6-ring--3 {
-  width: 1800px;
-  height: 1800px;
-  border-color: var(--copper-500);
-  opacity: 0.06;
-}
-
-/* ----------------------------------------------------------
-   Hero image frame — centred container for the composite PNG
-   ---------------------------------------------------------- */
-
-#panel-6 .p6-hero-frame {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 2600px;
-}
-
-/* The composite AI image — all 5 insulation materials */
-#panel-6 .p6-hero-image {
-  display: block;
-  max-width: 2600px;
-  max-height: 2200px;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 24px 72px rgba(178, 103, 62, 0.20));
-  position: relative;
-  z-index: 1;
-}
-
-/* ----------------------------------------------------------
-   CSS gradient fallback — shown when image fails to load.
-   Mimics the aesthetic of product-placeholder from components.css
-   with "5 Materials · 1 Source" label centred.
-   ---------------------------------------------------------- */
-
-#panel-6 .p6-hero-fallback {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 36px;
-  width: 2400px;
-  height: 1800px;
-  max-width: 100%;
-  background: linear-gradient(
-    135deg,
-    var(--copper-100) 0%,
-    var(--copper-200) 25%,
-    var(--copper-300) 50%,
-    var(--copper-400) 75%,
-    var(--copper-500) 100%
-  );
-  border-radius: var(--card-radius);
-  border: 3px solid var(--copper-400);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Subtle noise texture overlay on fallback */
-#panel-6 .p6-hero-fallback::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  background-size: 200px 200px;
-  pointer-events: none;
-}
-
-#panel-6 .p6-fallback-label {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: 130px;
-  color: var(--copper-700);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-  text-align: center;
-  text-rendering: geometricPrecision;
-  line-height: 1.1;
-  position: relative;
-  z-index: 1;
-}
-
-#panel-6 .p6-fallback-sub {
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-body-lg);
-  color: var(--copper-700);
-  letter-spacing: 0.04em;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-/* ----------------------------------------------------------
-   Product tag row — horizontal pill badges below hero image
-   One per material: NMN · DMD · Film Composite · AMA · PET Film
-   Plus the DuPont premium badge anchored at the end
-   ---------------------------------------------------------- */
-
-#panel-6 .p6-product-tags {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 24px;
-  position: relative;
-  z-index: 2;
-  width: 100%;
-}
-
-/* Individual product name pill */
-#panel-6 .p6-product-tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 36px;
-  background: var(--copper-100);
-  border: 2px solid var(--copper-300);
-  border-radius: 20px;
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: 28px;
-  color: var(--text-primary);
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  text-rendering: optimizeLegibility;
-}
-
-/* DuPont Nomex premium badge — white on copper-700 */
-#panel-6 .p6-dupont-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 42px;
-  background: var(--copper-700);
-  border: 2px solid var(--copper-700);
-  border-radius: 20px;
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: 28px;
-  color: #FFFFFF;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-  text-rendering: optimizeLegibility;
-}
 
 /* ============================================================
-   ZONE C — INFORMATION
-   Main one-stop-shop headline + subhead + 5-column spec grid
+   ZONE C — INSULATION MATERIALS
+   Overrides default zone-c: starts 106px below zone-b.
+   Product name LEFT · photo RIGHT
    ============================================================ */
 
 #panel-6 .zone-c {
+  top: 3750px;
+  height: 2900px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding-top: 80px;
-  gap: var(--gap-md);
+  flex-direction: row;
+  align-items: stretch;
+  overflow: visible;
+
+  /* Copper gradient separator at top */
+  border-top: 4px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-white), var(--bg-white)),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      var(--copper-300) 15%,
+      var(--copper-500) 50%,
+      var(--copper-300) 85%,
+      transparent 100%
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  padding-top: 120px;
 }
 
-#panel-6 .zone-c-headline {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-h2);
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  line-height: var(--lh-heading);
-  text-rendering: geometricPrecision;
-}
 
-#panel-6 .zone-c .subhead {
-  font-size: var(--fs-body-lg);
-  margin-top: var(--gap-xs);
-}
+/* ============================================================
+   PRODUCT COLUMNS
+   Photo column: flex 1.2 — slightly dominant
+   Text column:  flex 1
+   ============================================================ */
 
-/* ----------------------------------------------------------
-   5-column product specification grid
-   Each card: compact, copper-100 bg, copper-300 border
-   Product name (bold) + thermal spec (regular)
-   ---------------------------------------------------------- */
-
-#panel-6 .p6-spec-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 36px;
-  width: 100%;
-}
-
-#panel-6 .p6-spec-card {
+#panel-6 .p6-col {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 36px 30px;
-  background: var(--copper-100);
-  border: 2px solid var(--copper-300);
-  border-radius: var(--card-radius);
-  position: relative;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  min-width: 0;   /* prevents content from overriding flex ratios */
+}
+
+#panel-6 .p6-col--photo {
+  flex: 1.2;
   overflow: hidden;
+  padding: 120px 80px;
 }
 
-/* Top accent bar on each spec card */
-#panel-6 .p6-spec-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background: var(--gradient-copper-accent-bar);
+#panel-6 .p6-col--text {
+  flex: 1;
+  flex-direction: column;
+  padding: 0 80px 0 40px;
 }
 
-#panel-6 .p6-spec-name {
+/* Mirror text padding for zone-c (text is on the LEFT) */
+#panel-6 .zone-c .p6-col--text {
+  padding: 0 40px 0 80px;
+}
+
+
+/* ============================================================
+   PRODUCT PHOTOS
+   mix-blend-mode: multiply removes white image backgrounds.
+   ============================================================ */
+
+#panel-6 .p6-product-photo {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  mix-blend-mode: multiply;
+}
+
+
+/* ============================================================
+   PRODUCT NAME HEADINGS
+   Barlow Condensed Bold — fills the text column.
+   ============================================================ */
+
+#panel-6 .p6-product-name {
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
-  font-size: 52px;
+  font-size: 185px;
   color: var(--text-copper-bold);
   text-transform: uppercase;
   letter-spacing: var(--ls-wide);
-  line-height: 1;
+  line-height: 1.06;
   text-rendering: geometricPrecision;
+  text-align: center;
 }
 
-#panel-6 .p6-spec-value {
-  font-family: var(--font-body);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-body-sm);
-  color: var(--text-primary);
-  line-height: var(--lh-body);
-  text-rendering: optimizeLegibility;
+/* Thin copper underline accent */
+#panel-6 .p6-product-name::after {
+  content: '';
+  display: block;
+  margin: 80px auto 0;
+  width: 320px;
+  height: 6px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--copper-300) 20%,
+    var(--copper-500) 50%,
+    var(--copper-300) 80%,
+    transparent 100%
+  );
+  border-radius: 3px;
 }
+
 
 /* ============================================================
-   ZONE D — DETAIL
-   DuPont authentication callout + body bullets + contact row
+   ZONE D — FOOTER
+   Pinned to panel bottom.
    ============================================================ */
 
 #panel-6 .zone-d {
+  top: auto;
+  bottom: var(--content-inset);
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
-  padding-top: 60px;
-  gap: var(--gap-sm);
-}
-
-/* DuPont Nomex authentication callout — key brand differentiator */
-#panel-6 .nomex-auth-box {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 36px;
-  padding: 24px 42px;
-  background: linear-gradient(to right, var(--copper-100), var(--bg-cream));
-  border-left: 8px solid var(--copper-600);
-  border-radius: 0 var(--card-radius) var(--card-radius) 0;
-  width: 100%;
-}
-
-#panel-6 .nomex-auth-icon {
-  font-family: var(--font-display);
-  font-weight: var(--fw-extrabold);
-  font-size: 90px;
-  color: var(--text-copper-headline);
-  text-rendering: geometricPrecision;
-  flex-shrink: 0;
-}
-
-#panel-6 .nomex-auth-text {
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-body-sm);
-  color: var(--text-primary);
-  line-height: 1.55;
+  justify-content: flex-end;
+  padding-bottom: 40px;
 }
 
 #panel-6 .zone-d .contact-row {
+  justify-content: flex-start;
+  border-top-color: var(--copper-300);
   width: 100%;
-  margin-top: var(--gap-xs);
-}
-
-/* ============================================================
-   ZONE E — FURNITURE RESERVE
-   Cream-based decorative fade. No critical content.
-   ============================================================ */
-
-#panel-6 .zone-e {
-  background: linear-gradient(
-    to bottom,
-    var(--bg-cream) 0%,
-    var(--copper-100) 60%,
-    var(--copper-200) 100%
-  );
-  opacity: 0.4;
 }

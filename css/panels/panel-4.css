@@ -1,230 +1,218 @@
 /*
- * panel-4.css
- * Banner 4: Paper Covered Strip — Centre Wall, Position 2 of 4
- * "PCCS & PCAS — OFC Copper, TUK Paper, IEC 60076"
+ * panel-4.css — REDESIGNED (v2)
+ * Banner 4: Paper Covered Strip | Universal Metals Pakistan Limited — CWIEME Berlin 2026
  *
- * Background: #FAF8F5 (cream)
- * Zone A: Product name "PAPER COVERED COPPER STRIP" + small logo
- * Zone B: Hero product photograph (PCCS coil, cross-section)
- * Zone C: Headline + "TUK Paper" premium badge + subhead
- * Zone D: Body bullets + application context
+ * Design concept: "Product as Art Object" — matches Panel 3 design language.
+ *   Each product gets its own half of the panel, presented like a gallery piece.
+ *   Generous negative space. Large, prominent product photography. No specs.
  *
- * PCCS = Paper Covered Copper Strip
- * PCAS = Paper Covered Aluminium Strip
- * TUK = Thermally Upgraded Kraft paper
+ * Structure:
+ *   Zone A  — "OUR" section heading (right-aligned) + small logo     (90px – 783px)
+ *   Zone B  — Paper Covered Copper Strip: photo LEFT · name RIGHT     (783px – 3644px)
+ *   Zone C  — Paper Covered Aluminium Strip: name LEFT · photo RIGHT  (3750px – 6650px)
+ *   Zone D  — Footer URL, pinned to panel bottom
+ *
+ * Background: #FFFFFF
+ * Images: transparent PNG — mix-blend-mode: multiply as fallback.
  */
 
+
 /* ============================================================
-   PANEL 4 BACKGROUND
-   Solid cream — alternating with white across centre wall.
+   PANEL BACKGROUND
    ============================================================ */
 
 #panel-4 {
-  background: var(--bg-cream);
+  background: var(--bg-white);
 }
 
+
 /* ============================================================
-   ZONE A — PRODUCT NAME
-   Slightly smaller font (170px) to fit the longer name.
-   Logo mark top-left.
+   ZONE A — HEADER
+   "OUR" right-aligned — together with Panel 5 "PRODUCTS" reads
+   "OUR PRODUCTS" centred across the 4-panel centre wall.
    ============================================================ */
 
 #panel-4 .zone-a {
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-#panel-4 .product-name-display {
+#panel-4 .p4-section-heading {
+  flex: 1;
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
-  font-size: var(--fs-h1-sm);
+  font-size: var(--fs-h1);
   color: var(--text-copper-bold);
   text-transform: uppercase;
   letter-spacing: var(--ls-wide);
   line-height: var(--lh-heading);
   text-rendering: geometricPrecision;
+  text-align: right;
 }
 
 #panel-4 .zone-a-logo {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
+  align-items: center;
   flex-shrink: 0;
+  margin-left: 40px;
 }
 
-#panel-4 .zone-a-logo img {
+#panel-4 .zone-a-logo .logo-image {
   width: var(--logo-width-sm);
   height: auto;
 }
 
+
 /* ============================================================
-   ZONE B — HERO PRODUCT IMAGE
-   PCCS coil showing layered paper insulation texture.
-   Cross-section view preferred.
-   Photo: ~60% zone width, centered.
+   ZONE B — PAPER COVERED COPPER STRIP
+   783px – 3644px | height 2861px
+   Photo LEFT · product name RIGHT
    ============================================================ */
 
 #panel-4 .zone-b {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  overflow: visible;
 }
 
-#panel-4 .product-hero-frame {
-  width: 60%;
-  max-height: 2500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: var(--z-photo);
-  isolation: isolate;
-}
-
-#panel-4 .product-hero-frame img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 24px 72px rgba(178, 103, 62, 0.22));
-}
-
-/* PCCS coil placeholder */
-#panel-4 .strip-placeholder {
-  width: 1600px;
-  height: 1100px;
-  background: linear-gradient(
-    to right,
-    var(--copper-100) 0%,
-    var(--copper-300) 20%,
-    var(--copper-400) 40%,
-    var(--copper-300) 55%,
-    var(--copper-100) 60%,
-    /* Paper layers */
-    #D4BC8A 65%,
-    #C4A870 70%,
-    #D4BC8A 75%,
-    var(--copper-300) 80%,
-    var(--copper-400) 90%,
-    var(--copper-300) 100%
-  );
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Cross-section marker lines */
-#panel-4 .strip-placeholder::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 60%;
-  width: 6px;
-  background: var(--copper-700);
-  opacity: 0.6;
-}
-
-#panel-4 .strip-placeholder-label {
-  font-family: 'Poppins', Arial, sans-serif;
-  font-weight: 600;
-  font-size: 48px;
-  color: var(--copper-700);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-  padding: 24px;
-  background: rgba(250, 248, 245, 0.7);
-  border-radius: 12px;
-}
 
 /* ============================================================
-   ZONE C — INFORMATION
-   Headline: PCCS & PCAS — OFC Copper, TUK Paper, IEC 60076
-   TUK Paper premium badge.
-   Subhead.
+   ZONE C — PAPER COVERED ALUMINIUM STRIP
+   Overrides default zone-c: starts 106px below zone-b.
+   Product name LEFT · photo RIGHT
    ============================================================ */
 
 #panel-4 .zone-c {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding-top: 80px;
-  gap: var(--gap-md);
-}
-
-#panel-4 .zone-c-headline {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-h2);
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  line-height: var(--lh-heading);
-  text-rendering: geometricPrecision;
-}
-
-#panel-4 .tuk-badge-row {
+  top: 3750px;
+  height: 2900px;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  gap: 48px;
-  flex-wrap: wrap;
+  align-items: stretch;
+  overflow: visible;
+
+  /* Copper gradient separator at top */
+  border-top: 4px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-white), var(--bg-white)),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      var(--copper-300) 15%,
+      var(--copper-500) 50%,
+      var(--copper-300) 85%,
+      transparent 100%
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  padding-top: 120px;
 }
 
-#panel-4 .zone-c .subhead {
-  font-size: var(--fs-body-lg);
-  line-height: 1.6;
-}
 
 /* ============================================================
-   ZONE D — DETAIL
-   Body bullets + application context note.
+   PRODUCT COLUMNS
+   Photo column: flex 1.2 — slightly dominant
+   Text column:  flex 1
+   ============================================================ */
+
+#panel-4 .p4-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  min-width: 0;   /* prevents content from overriding flex ratios */
+}
+
+#panel-4 .p4-col--photo {
+  flex: 1.2;
+  overflow: hidden;
+  padding: 120px 80px;
+}
+
+#panel-4 .p4-col--text {
+  flex: 1;
+  flex-direction: column;
+  padding: 0 80px 0 40px;
+}
+
+/* Mirror text padding for zone-c (text is on the LEFT) */
+#panel-4 .zone-c .p4-col--text {
+  padding: 0 40px 0 80px;
+}
+
+
+/* ============================================================
+   PRODUCT PHOTOS
+   mix-blend-mode: multiply removes white image backgrounds.
+   ============================================================ */
+
+#panel-4 .p4-product-photo {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  mix-blend-mode: multiply;
+}
+
+
+/* ============================================================
+   PRODUCT NAME HEADINGS
+   Barlow Condensed Bold — fills the text column.
+   ============================================================ */
+
+#panel-4 .p4-product-name {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 185px;
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  line-height: 1.06;
+  text-rendering: geometricPrecision;
+  text-align: center;
+}
+
+/* Thin copper underline accent */
+#panel-4 .p4-product-name::after {
+  content: '';
+  display: block;
+  margin: 80px auto 0;
+  width: 320px;
+  height: 6px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--copper-300) 20%,
+    var(--copper-500) 50%,
+    var(--copper-300) 80%,
+    transparent 100%
+  );
+  border-radius: 3px;
+}
+
+
+/* ============================================================
+   ZONE D — FOOTER
+   Pinned to panel bottom.
    ============================================================ */
 
 #panel-4 .zone-d {
+  top: auto;
+  bottom: var(--content-inset);
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-  padding-top: 60px;
+  justify-content: flex-end;
   padding-bottom: 40px;
 }
 
-#panel-4 .application-note {
-  font-family: var(--font-body);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-body);
-  color: var(--text-secondary);
-  font-style: normal;
-  letter-spacing: 0.01em;
-  border-left: 6px solid var(--copper-300);
-  padding-left: 36px;
-  margin-top: var(--gap-xs);
-}
-
 #panel-4 .zone-d .contact-row {
+  justify-content: flex-start;
+  border-top-color: var(--copper-300);
   width: 100%;
-  margin-top: auto;
-}
-
-/* ============================================================
-   ZONE E — FURNITURE RESERVE
-   ============================================================ */
-
-#panel-4 .zone-e {
-  background: linear-gradient(
-    to bottom,
-    var(--bg-cream) 0%,
-    var(--copper-100) 60%,
-    var(--copper-200) 100%
-  );
-  opacity: 0.4;
 }

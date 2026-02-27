@@ -2,13 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=3012, initial-scale=1.0">
-  <title>Banner 3 — Copper Enamelled Wire | Universal Metals Pakistan Limited</title>
+  <meta name="viewport" content="width=3012">
+  <title>Banner 3 — Enamelled Wire | Universal Metals Pakistan Limited</title>
 
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/panels/panel-3.css">
+
+  <style>
+    /* Browser preview: allow scrolling and fit-to-screen */
+    html, body {
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+    }
+  </style>
+  <script>
+    /* Auto-scale panel to fit browser viewport width.
+       At Puppeteer's 3012px viewport this is a no-op (zoom=1). */
+    function fitPanel() {
+      document.documentElement.style.zoom = window.innerWidth / 3012;
+    }
+    window.addEventListener('DOMContentLoaded', fitPanel);
+    window.addEventListener('resize', fitPanel);
+  </script>
 </head>
 <body>
 
@@ -21,67 +39,19 @@
 
   <!-- =========================================================
        LEFT EDGE ACCENT STRIPE
-       Marks the start of the centre wall product zone.
        ========================================================= -->
   <div class="edge-stripe edge-stripe--left" role="presentation" aria-hidden="true"></div>
 
   <!-- =========================================================
-       FLOW SVG LAYER
-       Panel 3 slice: x offset = 2 × 3012 = 6024
+       FLOW SVG LAYER (globally disabled in layout.css)
        ========================================================= -->
-  <div class="flow-svg-layer" aria-hidden="true">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="6024 0 3012 7441"
-      preserveAspectRatio="xMinYMid meet"
-      width="3012"
-      height="7441"
-    >
-      <defs>
-        <linearGradient id="p3-wire-grad" x1="6024" y1="0" x2="9036" y2="0" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stop-color="#CE7340" stop-opacity="0.8"/>
-          <stop offset="50%"  stop-color="#F5B880" stop-opacity="0.7"/>
-          <stop offset="100%" stop-color="#E8A065" stop-opacity="0.75"/>
-        </linearGradient>
-        <filter id="p3-glow" x="-20%" y="-150%" width="140%" height="400%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
-          <feMerge>
-            <feMergeNode in="blur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      <path
-        d="M 6024,3850
-           C 6500,3950 7000,4200 7500,4600
-           C 8000,4850 8500,5050 9036,5130"
-        fill="none"
-        stroke="url(#p3-wire-grad)"
-        stroke-width="32"
-        stroke-linecap="round"
-        filter="url(#p3-glow)"
-      />
-      <!-- Secondary parallel strand (60px y-offset below primary) -->
-      <path
-        d="M 6024,3910
-           C 6500,4010 7000,4260 7500,4660
-           C 8000,4910 8500,5110 9036,5190"
-        fill="none"
-        stroke="#F5B880"
-        stroke-width="10"
-        stroke-linecap="round"
-        stroke-opacity="0.35"
-      />
-    </svg>
-  </div>
+  <div class="flow-svg-layer" aria-hidden="true"></div>
 
   <!-- =========================================================
-       ZONE A — PRODUCT NAME (90px – 783px)
-       "COPPER ENAMELLED WIRE" + small logo top-right
+       ZONE A — HEADER
+       "ENAMELLED WIRE" category title + small logo top-right
        ========================================================= -->
-  <header class="zone-a" role="banner" aria-label="Product category and company logo">
-
-    <h2 class="product-name-display">Copper Enamelled Wire</h2>
+  <header class="zone-a" role="banner" aria-label="Company logo">
 
     <div class="zone-a-logo">
       <img
@@ -92,125 +62,72 @@
         height="auto"
         onerror="this.style.display='none';"
       >
-      <span style="
-        font-family: 'Barlow Condensed', Arial, sans-serif;
-        font-weight: 600;
-        font-size: 28px;
-        color: #B2673E;
-        letter-spacing: 0.10em;
-        text-transform: uppercase;
-      ">UMPL</span>
     </div>
 
   </header>
 
   <!-- =========================================================
-       ZONE B — HERO PRODUCT IMAGE (783px – 3644px)
-       Spool photograph (placeholder until AI image delivered).
-       Concentric rings at 5% opacity behind spool.
+       ZONE B — COPPER ENAMELLED WIRE
+       Photo left · Large product name right (centered)
        ========================================================= -->
-  <section class="zone-b" aria-label="Copper enamelled wire product image">
+  <section class="zone-b p3-product-zone" aria-labelledby="p3-copper-heading">
 
-    <!-- Decorative rings behind product -->
-    <svg class="product-bg-rings" width="2000" height="2000" viewBox="0 0 2000 2000"
-         aria-hidden="true" role="presentation">
-      <circle cx="1000" cy="1000" r="950" fill="none" stroke="#F5B880" stroke-width="3"/>
-      <circle cx="1000" cy="1000" r="780" fill="none" stroke="#F5B880" stroke-width="3"/>
-      <circle cx="1000" cy="1000" r="610" fill="none" stroke="#CE7340" stroke-width="3"/>
-      <circle cx="1000" cy="1000" r="440" fill="none" stroke="#CE7340" stroke-width="2"/>
-      <circle cx="1000" cy="1000" r="270" fill="none" stroke="#B2673E" stroke-width="2"/>
-    </svg>
-
-    <!-- Product hero wrapper -->
-    <figure class="product-hero-frame" style="margin: 0;">
+    <!-- Left: Product photo (transparent PNG — no background) -->
+    <div class="p3-col p3-col--photo">
       <img
-        src="../assets/images/products/copper-enamelled-wire-ai-transparent.png"
-        alt="Copper Enamelled Wire — OFC 99.99% base copper, enamelled spool"
-        class="product-image"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        src="../assets/images/products/copper-enamelled-wire-new.png"
+        alt="Copper Enamelled Wire spool"
+        class="p3-product-photo"
+        onerror="this.style.opacity='0.15';"
       >
-      <!-- CSS spool placeholder fallback — visible if image fails to load -->
-      <div class="spool-placeholder" aria-label="Copper enamelled wire spool placeholder" style="display:none;"></div>
-    </figure>
+    </div>
 
-  </section>
-
-  <!-- =========================================================
-       ZONE C — INFORMATION (3644px – 5150px)
-       CRITICAL: Use &#8805; HTML entity for ≥ (QR Checklist K21)
-       Headline + spec badges + subhead
-       ========================================================= -->
-  <section class="zone-c" aria-labelledby="p3-zone-c-headline">
-
-    <!-- HERO HEADLINE — ≥ rendered as HTML entity for glyph safety -->
-    <h1 id="p3-zone-c-headline" class="zone-c-headline">
-      &#8805;101% IACS. Triple-Certified. Up to 220&#176;C.
-    </h1>
-
-    <!-- Subhead (Poppins SemiBold) -->
-    <p class="subhead">
-      Copper enamelled wire &nbsp;&middot;&nbsp; 0.05&ndash;4.00 mm &nbsp;&middot;&nbsp; Grades 1, 2 &amp; 3
-    </p>
-
-    <!-- Spec badge row -->
-    <div class="spec-badge-row" role="list" aria-label="Technical specifications">
-
-      <span class="spec-badge" role="listitem">
-        Thermal Class 155 / 180 / 200 / 220&#176;C
-      </span>
-
-      <span class="spec-badge" role="listitem">
-        0.05 &ndash; 4.00 mm
-      </span>
-
-      <span class="spec-badge" role="listitem">
-        IEC 60317
-      </span>
-
-      <span class="spec-badge" role="listitem">
-        NEMA MW 1000
-      </span>
-
-      <span class="spec-badge" role="listitem">
-        JIS C 3202
-      </span>
-
+    <!-- Right: Product name, centered vertically and horizontally -->
+    <div class="p3-col p3-col--text">
+      <h1 id="p3-copper-heading" class="p3-product-name">
+        Copper<br>Enamelled<br>Wire
+      </h1>
     </div>
 
   </section>
 
   <!-- =========================================================
-       ZONE D — DETAIL (5150px – 6054px)
-       4 body bullets, contact row
+       ZONE C — ALUMINIUM ENAMELLED WIRE
+       Large product name left (centered) · Photo right
        ========================================================= -->
-  <section class="zone-d" aria-label="Technical details and contact">
+  <section class="zone-c p3-product-zone p3-product-zone--alt" aria-labelledby="p3-al-heading">
 
-    <ul class="body-list" aria-label="Product technical details">
-      <li>OFC 99.99% base copper &nbsp;&middot;&nbsp; Oxygen-free, precision-drawn</li>
-      <li>Thermal Class 155 / 180 / 200 / 220&#176;C</li>
-      <li>IEC 60317 &nbsp;+&nbsp; NEMA MW 1000 &nbsp;+&nbsp; JIS C 3202</li>
-      <li>In-house breakdown voltage &amp; pinhole testing</li>
-    </ul>
+    <!-- Left: Product name, centered vertically and horizontally -->
+    <div class="p3-col p3-col--text">
+      <h2 id="p3-al-heading" class="p3-product-name">
+        Aluminium<br>Enamelled<br>Wire
+      </h2>
+    </div>
+
+    <!-- Right: Product photo (transparent PNG — no background) -->
+    <div class="p3-col p3-col--photo">
+      <img
+        src="../assets/images/products/aluminium-enamelled-wire-new.png"
+        alt="Aluminium Enamelled Wire coil"
+        class="p3-product-photo"
+        onerror="this.style.opacity='0.15';"
+      >
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+       ZONE D — FOOTER (pinned to panel bottom)
+       ========================================================= -->
+  <section class="zone-d" aria-label="Contact">
 
     <div class="contact-row">
       <a href="https://www.universalmetals.com.pk" class="contact-url" target="_blank" rel="noopener">
         universalmetals.com.pk
       </a>
-      <div class="qr-block" aria-label="QR code for Wire Data Sheet">
-        <div class="qr-placeholder">
-          <span class="qr-label">Scan for<br>Wire Data Sheet</span>
-        </div>
-      </div>
     </div>
 
   </section>
-
-  <!-- =========================================================
-       ZONE E — FURNITURE RESERVE
-       ========================================================= -->
-  <aside class="zone-e" aria-hidden="true">
-    <div class="zone-e-fill"></div>
-  </aside>
 
   <!-- =========================================================
        BOTTOM ACCENT BAR

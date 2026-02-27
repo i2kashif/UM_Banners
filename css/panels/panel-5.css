@@ -1,41 +1,45 @@
 /*
- * panel-5.css
- * Banner 5: Copper / Aluminium Rod (CCR) — Centre Wall, Position 3 of 4
- * "Copper & Aluminium. European CCR. Made Here."
+ * panel-5.css — REDESIGNED (v2)
+ * Banner 5: Copper & Aluminium Rod | Universal Metals Pakistan Limited — CWIEME Berlin 2026
  *
- * Background: #FFFFFF (white) — clean industrial product presentation
- * Wall: Centre Wall — maximum visitor traffic
- * Zone A: Product name "COPPER & ALUMINIUM ROD" + UMPL logo mark
- * Zone B: Dual product display — copper rod (left) + aluminium rod (right)
- *         with per-product stat blocks
- * Zone C: Headline + 4-column rod grade specs (OFC, ETP, FRHC, EC Grade)
- * Zone D: European CCR detail + FRHC sustainability note + contact
+ * Design concept: "Product as Art Object" — matches Panel 3 design language.
+ *   Each product gets its own half of the panel, presented like a gallery piece.
+ *   Generous negative space. Large, prominent product photography. No specs.
  *
- * CRITICAL: &#8805; HTML entity for ≥ symbol (never literal ≥)
- * CRITICAL: Never use #F5B880 as text colour
+ * Structure:
+ *   Zone A  — "PRODUCTS" section heading (left-aligned) + small logo  (90px – 783px)
+ *   Zone B  — Copper Rod: photo LEFT · name RIGHT                      (783px – 3644px)
+ *   Zone C  — Aluminium Rod: name LEFT · photo RIGHT                   (3750px – 6650px)
+ *   Zone D  — Footer URL, pinned to panel bottom
+ *
+ * Background: #FFFFFF
+ * Images: transparent PNG for copper rod; JPEG + mix-blend-mode for aluminium rod.
  */
 
+
 /* ============================================================
-   PANEL 5 BACKGROUND
-   Pure white — clean industrial product presentation.
+   PANEL BACKGROUND
    ============================================================ */
 
 #panel-5 {
   background: var(--bg-white);
 }
 
+
 /* ============================================================
-   ZONE A — PRODUCT NAME
-   "COPPER & ALUMINIUM ROD" in Barlow Condensed Bold.
-   Left-aligned. UMPL logo mark top-right.
+   ZONE A — HEADER
+   "PRODUCTS" left-aligned — together with Panel 4 "OUR" reads
+   "OUR PRODUCTS" centred across the 4-panel centre wall.
    ============================================================ */
 
 #panel-5 .zone-a {
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-#panel-5 .product-name-display {
+#panel-5 .p5-section-heading {
+  flex: 1;
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
   font-size: var(--fs-h1);
@@ -44,517 +48,171 @@
   letter-spacing: var(--ls-wide);
   line-height: var(--lh-heading);
   text-rendering: geometricPrecision;
+  text-align: left;
 }
 
 #panel-5 .zone-a-logo {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 16px;
+  align-items: center;
   flex-shrink: 0;
+  margin-left: 40px;
 }
 
-#panel-5 .zone-a-logo img {
+#panel-5 .zone-a-logo .logo-image {
   width: var(--logo-width-sm);
   height: auto;
 }
 
+
 /* ============================================================
-   ZONE B — HERO VISUAL (DUAL PRODUCT)
-   Two-column layout: copper rod left, aluminium rod right.
-   Centre divider carries the "European CCR Technology" badge.
+   ZONE B — COPPER ROD
+   783px – 3644px | height 2861px
+   Photo LEFT · product name RIGHT
    ============================================================ */
 
 #panel-5 .zone-b {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: stretch;
-  justify-content: center;
-  padding-top: 48px;
-  padding-bottom: 48px;
-  position: relative;
+  overflow: visible;
 }
 
-/* Background ring decoration centred behind both products */
-#panel-5 .product-bg-rings {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: var(--z-texture);
-  opacity: 0.04;
-}
-
-/* ── Dual column container ── */
-#panel-5 .zone-b-dual-col {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: var(--z-photo);
-}
-
-/* ── Individual product column ── */
-#panel-5 .zone-b-product-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: var(--gap-sm);
-  flex: 1;
-  min-width: 0;
-}
-
-/* Product label above image */
-#panel-5 .zone-b-product-label {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-h3);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-wide);
-  line-height: 1;
-  text-rendering: geometricPrecision;
-  padding-bottom: 16px;
-  border-bottom: 6px solid currentColor;
-  width: 100%;
-  text-align: center;
-}
-
-#panel-5 .zone-b-product-label--copper {
-  color: var(--text-copper-bold);
-  border-color: var(--copper-500);
-}
-
-#panel-5 .zone-b-product-label--aluminium {
-  color: #5A6E82;
-  border-color: #7A8FA6;
-}
-
-/* Product hero frame — half-width variant */
-#panel-5 .product-hero-frame--half {
-  width: 90%;
-  max-width: 1250px;
-  max-height: 1800px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  isolation: isolate;
-  flex-shrink: 0;
-}
-
-#panel-5 .product-hero-frame--half img {
-  width: 100%;
-  height: auto;
-  max-height: 1700px;
-  object-fit: contain;
-  filter: drop-shadow(0 24px 72px rgba(178, 103, 62, 0.22));
-}
-
-/* Aluminium image gets a cooler drop shadow */
-#panel-5 .product-image--aluminium {
-  filter: drop-shadow(0 24px 72px rgba(120, 140, 160, 0.25)) !important;
-}
-
-/* ── Per-product stats strip ── */
-#panel-5 .zone-b-product-stats {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: var(--gap-sm);
-  width: 100%;
-  flex-wrap: nowrap;
-}
-
-#panel-5 .zone-b-stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  flex: 1;
-  min-width: 0;
-}
-
-#panel-5 .zone-b-stat-number {
-  font-family: var(--font-display);
-  font-weight: var(--fw-extrabold);
-  font-size: var(--fs-stat-hero);
-  color: var(--text-copper-stat);
-  letter-spacing: -0.03em;
-  line-height: 0.9;
-  text-rendering: geometricPrecision;
-  text-align: center;
-  display: block;
-}
-
-/* Aluminium stat numbers — silver-blue palette */
-#panel-5 .zone-b-stat-number--al {
-  color: #5A6E82;
-}
-
-#panel-5 .zone-b-stat-label {
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-body-lg);
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-widest);
-  text-align: center;
-  line-height: var(--lh-label);
-  display: block;
-}
-
-#panel-5 .zone-b-stat-divider {
-  width: 4px;
-  height: 200px;
-  background: linear-gradient(to bottom, transparent, var(--copper-300), transparent);
-  border-radius: 2px;
-  flex-shrink: 0;
-  align-self: center;
-}
-
-/* ── Centre divider between copper and aluminium columns ── */
-#panel-5 .zone-b-centre-divider {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--gap-md);
-  flex-shrink: 0;
-  width: 280px;
-  padding: 0 12px;
-  align-self: stretch;
-}
-
-#panel-5 .zone-b-divider-line {
-  flex: 1;
-  width: 4px;
-  background: linear-gradient(to bottom, transparent, var(--copper-400), transparent);
-  border-radius: 2px;
-  min-height: 200px;
-}
-
-#panel-5 .ccr-tech-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px 48px;
-  background: var(--bg-copper-lightest);
-  border: 3px solid var(--dark-rust);
-  border-radius: var(--spec-badge-radius);
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-badge-lg);
-  color: var(--dark-rust);
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  text-align: center;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
-}
 
 /* ============================================================
-   COPPER ROD COIL CSS PLACEHOLDER
-   Visible when ccr-copper-rod-ai-transparent.png fails to load.
-   ============================================================ */
-
-#panel-5 .rod-placeholder {
-  width: 1200px;
-  height: 1200px;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    #8B4A28 0deg 30deg,
-    #CE7340 30deg 60deg,
-    #F5B880 60deg 90deg,
-    #E8A065 90deg 120deg,
-    #CE7340 120deg 150deg,
-    #B2673E 150deg 180deg,
-    #8B4A28 180deg 210deg,
-    #CE7340 210deg 240deg,
-    #F5B880 240deg 270deg,
-    #E8A065 270deg 300deg,
-    #CE7340 300deg 330deg,
-    #8B4A28 330deg 360deg
-  );
-  border: 24px solid #B2673E;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* Inner hub — copper */
-#panel-5 .rod-placeholder::before {
-  content: '';
-  position: absolute;
-  width: 440px;
-  height: 440px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at 40% 35%, #FAF8F5, #CE7340 80%, #8B4A28);
-  border: 14px solid #CE7340;
-  z-index: 2;
-}
-
-/* Label on copper coil */
-#panel-5 .rod-placeholder::after {
-  content: 'CCR Rod';
-  position: absolute;
-  bottom: 190px;
-  font-family: 'Poppins', Arial, sans-serif;
-  font-weight: 600;
-  font-size: 48px;
-  color: #FAF8F5;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  z-index: 3;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}
-
-/* ============================================================
-   ALUMINIUM ROD COIL CSS PLACEHOLDER
-   Silver/aluminium palette. Visible when aluminium image fails.
-   ============================================================ */
-
-#panel-5 .rod-placeholder--aluminium {
-  background: conic-gradient(
-    from 0deg,
-    #A8A8A8 0deg 30deg,
-    #D8D8D8 30deg 60deg,
-    #E8E8E8 60deg 90deg,
-    #C0C0C0 90deg 120deg,
-    #D8D8D8 120deg 150deg,
-    #B0B0B0 150deg 180deg,
-    #A8A8A8 180deg 210deg,
-    #D0D0D0 210deg 240deg,
-    #E8E8E8 240deg 270deg,
-    #C0C0C0 270deg 300deg,
-    #D8D8D8 300deg 330deg,
-    #A8A8A8 330deg 360deg
-  );
-  border: 24px solid #9AA8B4;
-}
-
-/* Inner hub — aluminium silver */
-#panel-5 .rod-placeholder--aluminium::before {
-  background: radial-gradient(ellipse at 40% 35%, #F5F5F5, #C8C8C8 70%, #909090);
-  border: 14px solid #B0B8C0;
-}
-
-/* Label on aluminium coil */
-#panel-5 .rod-placeholder--aluminium::after {
-  content: 'Al Rod';
-  color: #3A3A3A;
-  text-shadow: 0 2px 8px rgba(255,255,255,0.4);
-}
-
-/* ============================================================
-   ZONE C — INFORMATION
-   Main headline + rod grade specifications block
-   Four grades: OFC 99.99% / ETP / FRHC / EC Grade (aluminium)
+   ZONE C — ALUMINIUM ROD
+   Overrides default zone-c: starts 106px below zone-b.
+   Product name LEFT · photo RIGHT
    ============================================================ */
 
 #panel-5 .zone-c {
+  top: 3750px;
+  height: 2900px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding-top: 80px;
-  gap: var(--gap-md);
+  flex-direction: row;
+  align-items: stretch;
+  overflow: visible;
+
+  /* Copper gradient separator at top */
+  border-top: 4px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-white), var(--bg-white)),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      var(--copper-300) 15%,
+      var(--copper-500) 50%,
+      var(--copper-300) 85%,
+      transparent 100%
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  padding-top: 120px;
 }
 
-#panel-5 .zone-c-headline {
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-h2);
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  line-height: var(--lh-heading);
-  text-rendering: geometricPrecision;
-}
 
-#panel-5 .zone-c .subhead {
-  font-size: var(--fs-body-lg);
-  margin-top: var(--gap-xs);
-}
+/* ============================================================
+   PRODUCT COLUMNS
+   Photo column: flex 1.2 — slightly dominant
+   Text column:  flex 1
+   ============================================================ */
 
-/* Rod grades grid — four columns */
-#panel-5 .rod-grades-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--gap-sm);
-  width: 100%;
-}
-
-#panel-5 .rod-grade-card {
-  background: var(--bg-cream);
-  border: 3px solid var(--copper-300);
-  border-radius: var(--card-radius);
-  padding: 40px 28px;
+#panel-5 .p5-col {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  position: relative;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  min-width: 0;   /* prevents content from overriding flex ratios */
+}
+
+#panel-5 .p5-col--photo {
+  flex: 1.2;
   overflow: hidden;
+  padding: 120px 80px;
 }
 
-/* Highlight border for OFC — premium copper grade */
-#panel-5 .rod-grade-card--ofc {
-  border-color: var(--copper-600);
-  background: var(--bg-copper-light);
+#panel-5 .p5-col--text {
+  flex: 1;
+  flex-direction: column;
+  padding: 0 80px 0 40px;
 }
 
-/* EC Grade card — aluminium, blue-silver accent */
-#panel-5 .rod-grade-card--ec {
-  border-color: #7A8FA6;
-  background: #F0F4F8;
+/* Mirror text padding for zone-c (text is on the LEFT) */
+#panel-5 .zone-c .p5-col--text {
+  padding: 0 40px 0 80px;
 }
 
-/* Top accent bar on all copper cards */
-#panel-5 .rod-grade-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: var(--gradient-copper-accent-bar);
+
+/* ============================================================
+   PRODUCT PHOTOS
+   mix-blend-mode: multiply removes white image backgrounds.
+   ============================================================ */
+
+#panel-5 .p5-product-photo {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  mix-blend-mode: multiply;
 }
 
-/* EC Grade card gets a silver-blue top bar instead */
-#panel-5 .rod-grade-card--ec::before {
-  background: linear-gradient(
-    to right,
-    #6A7E92 0%,
-    #A8BDD0 25%,
-    #D0DDE8 50%,
-    #A8BDD0 75%,
-    #6A7E92 100%
-  );
-}
 
-#panel-5 .rod-grade-name {
+/* ============================================================
+   PRODUCT NAME HEADINGS
+   Barlow Condensed Bold — fills the text column.
+   ============================================================ */
+
+#panel-5 .p5-product-name {
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
-  font-size: var(--fs-h3);
+  font-size: 185px;
   color: var(--text-copper-bold);
   text-transform: uppercase;
   letter-spacing: var(--ls-wide);
-  line-height: 1;
+  line-height: 1.06;
   text-rendering: geometricPrecision;
+  text-align: center;
 }
 
-/* EC Grade name in blue-grey */
-#panel-5 .rod-grade-name--al {
-  color: #3A5068;
+/* Thin copper underline accent */
+#panel-5 .p5-product-name::after {
+  content: '';
+  display: block;
+  margin: 80px auto 0;
+  width: 320px;
+  height: 6px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--copper-300) 20%,
+    var(--copper-500) 50%,
+    var(--copper-300) 80%,
+    transparent 100%
+  );
+  border-radius: 3px;
 }
 
-#panel-5 .rod-grade-purity {
-  font-family: var(--font-display);
-  font-weight: var(--fw-extrabold);
-  font-size: var(--fs-stat-sub);
-  color: var(--text-copper-stat);
-  letter-spacing: var(--ls-tight);
-  line-height: 1;
-  text-rendering: geometricPrecision;
-}
-
-/* EC Grade purity in aluminium blue-grey */
-#panel-5 .rod-grade-purity--al {
-  color: #5A6E82;
-}
-
-#panel-5 .rod-grade-iacs {
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-body);
-  color: var(--text-primary);
-  letter-spacing: 0.02em;
-  line-height: var(--lh-body);
-}
-
-/* EC Grade IACS in aluminium blue-grey */
-#panel-5 .rod-grade-iacs--al {
-  color: #3A5068;
-}
-
-#panel-5 .rod-grade-desc {
-  font-family: var(--font-body);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-body-sm);
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
 
 /* ============================================================
-   ZONE D — DETAIL
-   European CCR technology note + FRHC sustainability note
-   Body bullets + contact row
+   ZONE D — FOOTER
+   Pinned to panel bottom.
    ============================================================ */
 
 #panel-5 .zone-d {
+  top: auto;
+  bottom: var(--content-inset);
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
-  padding-top: 60px;
-  gap: var(--gap-sm);
-}
-
-#panel-5 .zone-d .body-list {
-  margin-bottom: var(--gap-xs);
+  justify-content: flex-end;
+  padding-bottom: 40px;
 }
 
 #panel-5 .zone-d .contact-row {
+  justify-content: flex-start;
+  border-top-color: var(--copper-300);
   width: 100%;
-  margin-top: var(--gap-xs);
-}
-
-/* FRHC sustainability highlight */
-#panel-5 .frhc-note {
-  display: inline-flex;
-  align-items: center;
-  gap: 20px;
-  padding: 18px 36px;
-  background: linear-gradient(to right, var(--copper-100), var(--bg-cream));
-  border-left: 6px solid var(--copper-600);
-  border-radius: 0 var(--card-radius) var(--card-radius) 0;
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-body-sm);
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-/* Aluminium bullet — blue-silver left marker */
-#panel-5 .body-list-item--al {
-  color: var(--text-primary);
-}
-
-#panel-5 .body-list-item--al::before {
-  background: #7A8FA6;
-}
-
-/* ============================================================
-   ZONE E — FURNITURE RESERVE
-   ============================================================ */
-
-#panel-5 .zone-e {
-  background: linear-gradient(
-    to bottom,
-    var(--bg-white) 0%,
-    var(--bg-cream) 50%,
-    var(--copper-100) 100%
-  );
-  opacity: 0.6;
 }

@@ -2,21 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=3012, initial-scale=1.0">
-  <title>Banner 6 — Insulation Materials | Universal Metals Pakistan Limited</title>
+  <meta name="viewport" content="width=3012">
+  <title>Banner 6 — Winding Wire &amp; Insulation | Universal Metals Pakistan Limited</title>
 
-  <!-- All fonts are local .woff2 — no CDN dependency for Puppeteer -->
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/panels/panel-6.css">
+
+  <style>
+    /* Browser preview: allow scrolling and fit-to-screen */
+    html, body {
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+    }
+  </style>
+  <script>
+    /* Auto-scale panel to fit browser viewport width.
+       At Puppeteer's 3012px viewport this is a no-op (zoom=1). */
+    function fitPanel() {
+      document.documentElement.style.zoom = window.innerWidth / 3012;
+    }
+    window.addEventListener('DOMContentLoaded', fitPanel);
+    window.addEventListener('resize', fitPanel);
+  </script>
 </head>
 <body>
 
-<main id="panel-6" class="panel panel--cream" style="--panel-index: 5;">
+<main id="panel-6" class="panel panel--white" style="--panel-index: 5;">
 
   <!-- =========================================================
-       TOP ACCENT BAR — Full-width copper gradient strip
+       TOP ACCENT BAR
        ========================================================= -->
   <div class="accent-bar accent-bar--top" role="presentation" aria-hidden="true"></div>
 
@@ -27,67 +44,15 @@
   <div class="edge-stripe edge-stripe--right" role="presentation" aria-hidden="true"></div>
 
   <!-- =========================================================
-       FLOW SVG LAYER — Panel 6 slice
-       Panel 6: x offset = 5 × 3012 = 15060
-       Entry y ~3820 (matching Panel 5 exit)
-       Exit  y ~4560 (to Panel 7 entry)
+       FLOW SVG LAYER (globally disabled in layout.css)
        ========================================================= -->
-  <div class="flow-svg-layer" aria-hidden="true">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="15060 0 3012 7441"
-      preserveAspectRatio="xMinYMid meet"
-      width="3012"
-      height="7441"
-    >
-      <defs>
-        <linearGradient id="p6-wire-grad" x1="15060" y1="0" x2="18072" y2="0" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stop-color="#B2673E" stop-opacity="0.70"/>
-          <stop offset="50%"  stop-color="#CE7340" stop-opacity="0.80"/>
-          <stop offset="100%" stop-color="#E8A065" stop-opacity="0.50"/>
-        </linearGradient>
-        <filter id="p6-glow" x="-20%" y="-150%" width="140%" height="400%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
-          <feMerge>
-            <feMergeNode in="blur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-
-      <!-- Primary wire strand — 32px stroke, copper gradient -->
-      <path
-        d="M 15060,3820
-           C 15560,3820 16300,4060 17100,4300
-           C 17650,4480 17900,4540 18072,4560"
-        fill="none"
-        stroke="url(#p6-wire-grad)"
-        stroke-width="32"
-        stroke-linecap="round"
-        filter="url(#p6-glow)"
-      />
-
-      <!-- Secondary parallel strand — 10px, #F5B880, 0.35 opacity, 60px below primary -->
-      <path
-        d="M 15060,3880
-           C 15560,3880 16300,4120 17100,4360
-           C 17650,4540 17900,4600 18072,4620"
-        fill="none"
-        stroke="#F5B880"
-        stroke-width="10"
-        stroke-linecap="round"
-        stroke-opacity="0.35"
-      />
-    </svg>
-  </div>
+  <div class="flow-svg-layer" aria-hidden="true"></div>
 
   <!-- =========================================================
-       ZONE A — PRODUCT NAME (90px – 783px)
-       "INSULATION MATERIALS" + UMPL logo mark top-right
+       ZONE A — HEADER
+       Small logo top-right only (no category title)
        ========================================================= -->
-  <header class="zone-a" role="banner" aria-label="Product category and company logo">
-
-    <h2 class="product-name-display">Insulation Materials</h2>
+  <header class="zone-a" role="banner" aria-label="Company logo">
 
     <div class="zone-a-logo">
       <img
@@ -98,160 +63,72 @@
         height="auto"
         onerror="this.style.display='none';"
       >
-      <span style="
-        font-family: 'Barlow Condensed', Arial, sans-serif;
-        font-weight: 600;
-        font-size: 28px;
-        color: #B2673E;
-        letter-spacing: 0.10em;
-        text-transform: uppercase;
-      ">UMPL</span>
     </div>
 
   </header>
 
   <!-- =========================================================
-       ZONE B — HERO COMPOSITE IMAGE (783px – 3644px)
-       Single AI-generated composite showing all 5 insulation
-       materials. Overlaid product name tags + DuPont callout.
+       ZONE B — SUBMERSIBLE COPPER WINDING WIRE
+       Photo left · Large product name right (centred)
        ========================================================= -->
-  <section class="zone-b" aria-label="Insulation product range composite">
+  <section class="zone-b p6-product-zone" aria-labelledby="p6-sub-heading">
 
-    <!-- Decorative background rings — subtle depth behind image -->
-    <div class="p6-hero-rings" aria-hidden="true">
-      <div class="p6-ring p6-ring--1"></div>
-      <div class="p6-ring p6-ring--2"></div>
-      <div class="p6-ring p6-ring--3"></div>
-    </div>
-
-    <!-- Hero composite image frame -->
-    <div class="p6-hero-frame" role="img" aria-label="All five insulation materials: NMN, DMD, Film Composite, AMA, PET Film">
-
+    <!-- Left: Product photo (JPEG — mix-blend-mode removes white background) -->
+    <div class="p6-col p6-col--photo">
       <img
-        src="../assets/images/products/insulation-composite-ai-transparent.png"
-        alt="All five UMPL insulation materials artfully arranged — NMN Nomex, DMD, Film Composite, AMA, PET Film"
-        class="p6-hero-image"
-        onerror="
-          this.style.display='none';
-          this.parentElement.querySelector('.p6-hero-fallback').style.display='flex';
-        "
+        src="../assets/images/products/submersible-winding-wire-transparent.png"
+        alt="Submersible Copper Winding Wire spool"
+        class="p6-product-photo"
+        onerror="this.style.opacity='0.15';"
       >
-
-      <!-- CSS gradient fallback shown when image fails to load -->
-      <div class="p6-hero-fallback" style="display:none;" aria-hidden="true">
-        <span class="p6-fallback-label">5 Materials · 1 Source</span>
-        <span class="p6-fallback-sub">NMN · DMD · Film Composite · AMA · PET Film</span>
-      </div>
-
     </div>
 
-    <!-- Product name tag row — below the hero image -->
-    <div class="p6-product-tags" role="list" aria-label="Insulation material product names">
-
-      <span class="p6-product-tag" role="listitem">NMN</span>
-      <span class="p6-product-tag" role="listitem">DMD</span>
-      <span class="p6-product-tag" role="listitem">Film Composite</span>
-      <span class="p6-product-tag" role="listitem">AMA</span>
-      <span class="p6-product-tag" role="listitem">PET Film</span>
-
-      <!-- DuPont Nomex premium badge — anchored inside the tag row alongside NMN -->
-      <span class="p6-dupont-badge" role="note" aria-label="Authentic DuPont Nomex 410 source">
-        DuPont&#8482; Nomex&#174; 410
-      </span>
-
+    <!-- Right: Product name, centred vertically and horizontally -->
+    <div class="p6-col p6-col--text">
+      <h1 id="p6-sub-heading" class="p6-product-name">
+        Submersible<br>Winding<br>Wire
+      </h1>
     </div>
 
   </section>
 
   <!-- =========================================================
-       ZONE C — INFORMATION (3644px – 5150px)
-       Headline + subhead + 5-column product specification grid
+       ZONE C — INSULATION MATERIALS
+       Large product name left (centred) · Photo right
        ========================================================= -->
-  <section class="zone-c" aria-labelledby="p6-zone-c-headline">
+  <section class="zone-c p6-product-zone p6-product-zone--alt" aria-labelledby="p6-ins-heading">
 
-    <h1 id="p6-zone-c-headline" class="zone-c-headline">
-      Wire. Strip. Insulation. One Qualified Supplier.
-    </h1>
+    <!-- Left: Product name, centred vertically and horizontally -->
+    <div class="p6-col p6-col--text">
+      <h2 id="p6-ins-heading" class="p6-product-name">
+        Insulation<br>Materials
+      </h2>
+    </div>
 
-    <p class="subhead">
-      NMN Nomex &nbsp;&middot;&nbsp; DMD &nbsp;&middot;&nbsp; Film Composite &nbsp;&middot;&nbsp; AMA &nbsp;&middot;&nbsp; PET Film
-    </p>
-
-    <!-- 5-column product specification grid -->
-    <div class="p6-spec-grid" role="list" aria-label="Insulation material specifications">
-
-      <div class="p6-spec-card" role="listitem" aria-label="NMN specification">
-        <span class="p6-spec-name">NMN</span>
-        <span class="p6-spec-value">Class H &nbsp;&middot;&nbsp; 180&#176;C</span>
-      </div>
-
-      <div class="p6-spec-card" role="listitem" aria-label="DMD specification">
-        <span class="p6-spec-name">DMD</span>
-        <span class="p6-spec-value">Class F/B &nbsp;&middot;&nbsp; 155&#176;C</span>
-      </div>
-
-      <div class="p6-spec-card" role="listitem" aria-label="Film Composite specification">
-        <span class="p6-spec-name">Film Composite</span>
-        <span class="p6-spec-value">Class F &nbsp;&middot;&nbsp; &#8805;8 kV/mm</span>
-      </div>
-
-      <div class="p6-spec-card" role="listitem" aria-label="AMA specification">
-        <span class="p6-spec-name">AMA</span>
-        <span class="p6-spec-value">Class H &nbsp;&middot;&nbsp; 180&#176;C</span>
-      </div>
-
-      <div class="p6-spec-card" role="listitem" aria-label="PET Film specification">
-        <span class="p6-spec-name">PET Film</span>
-        <span class="p6-spec-value">Class E &nbsp;&middot;&nbsp; 120&#176;C</span>
-      </div>
-
+    <!-- Right: Product photo (transparent PNG — no background) -->
+    <div class="p6-col p6-col--photo">
+      <img
+        src="../assets/images/products/film-composite-transparent.png"
+        alt="Film Composite insulation material"
+        class="p6-product-photo"
+        onerror="this.style.opacity='0.15';"
+      >
     </div>
 
   </section>
 
   <!-- =========================================================
-       ZONE D — DETAIL (5150px – 6054px)
-       DuPont Nomex authentication callout + body bullets + contact row
+       ZONE D — FOOTER (pinned to panel bottom)
        ========================================================= -->
-  <section class="zone-d" aria-label="Supplier details and contact">
+  <section class="zone-d" aria-label="Contact">
 
-    <!-- DuPont Nomex authentication callout — key differentiator -->
-    <div class="nomex-auth-box" role="note" aria-label="DuPont Nomex 410 authentication">
-      <span class="nomex-auth-icon" aria-hidden="true">N</span>
-      <p class="nomex-auth-text">
-        <strong>Authentic DuPont&#8482; Nomex&#174; 410</strong> &mdash; UMPL sources genuine Nomex 410 paper from DuPont.
-        Every NMN batch is traceable to DuPont certificates of conformance.
-        No substitutes, no blends. The same Nomex 410 used in ABB and Siemens transformer builds.
-      </p>
-    </div>
-
-    <ul class="body-list" aria-label="One-stop-shop capability">
-      <li>Wire &nbsp;+&nbsp; strip &nbsp;+&nbsp; insulation from a single ISO 9001 certified facility</li>
-      <li>Custom thicknesses and widths available: 0.13mm to 5.0mm</li>
-      <li>IEC 60626 &nbsp;&middot;&nbsp; IEC 60317 compatible insulation stack-ups</li>
-      <li>Consolidated shipping &mdash; one PO, one delivery, full CoC documentation</li>
-    </ul>
-
-    <div class="contact-row" style="margin-top: var(--gap-sm);">
+    <div class="contact-row">
       <a href="https://www.universalmetals.com.pk" class="contact-url" target="_blank" rel="noopener">
         universalmetals.com.pk
       </a>
-      <div class="qr-block" aria-label="QR code for Insulation Materials catalogue">
-        <div class="qr-placeholder">
-          <span class="qr-label">Scan for<br>Insulation Catalogue</span>
-        </div>
-      </div>
     </div>
 
   </section>
-
-  <!-- =========================================================
-       ZONE E — FURNITURE RESERVE (6054px – 7411px)
-       Decorative only — no critical content.
-       ========================================================= -->
-  <aside class="zone-e" aria-hidden="true">
-    <div class="zone-e-fill zone-e-fill--cream"></div>
-  </aside>
 
   <!-- =========================================================
        BOTTOM ACCENT BAR

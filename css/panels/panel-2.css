@@ -1,14 +1,18 @@
 /*
  * panel-2.css
- * Banner 2: Company History Timeline — Left Wall, Position 2
- * "30 Years of Growth. From Rod to Wire."
+ * Banner 2: Our Journey — Serpentine Roadmap Timeline
+ * "Our Journey" — 8 milestones in a winding copper roadmap
  *
  * Background: #FAF8F5 (cream) full panel
  * Wall: Left Wall — viewed at 5–10m distance
  *
- * Key visual: Central vertical timeline bar with 8 alternating entries.
- * Timeline spans Zone B (783px–3644px). Each entry alternates left/right.
- * Major milestones (1994, 2006, 2016, 2025) use larger nodes + badge labels.
+ * Key visual: SVG copper winding path with 8 milestone cards
+ * arranged in a serpentine pattern (left→right→left→right).
+ * 4 rows × 2 cards. Major milestones (1994, 2006, 2016, 2025)
+ * have larger year text, deeper copper frames, and badge labels.
+ *
+ * Zone B + C merged into one roadmap area.
+ * Zone C stats removed — panel is purely about the journey.
  */
 
 
@@ -24,67 +28,52 @@
 
 /* ============================================================
    ZONE A — BRAND HEADER
-   Small logo mark + company label, top-left.
+   Large centered logo lockup (same as Panel 1).
    ============================================================ */
 
 #panel-2 .zone-a {
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 
-#panel-2 .zone-a .logo-block--sm img {
-  width: var(--logo-width-sm);
+#panel-2 .zone-a .logo-image {
+  width: 600px;
   height: auto;
 }
 
-#panel-2 .zone-a-logo-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 36px;
-  width: 100%;
-}
-
-#panel-2 .zone-a-company-label {
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-body-sm);
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.10em;
-}
-
 
 /* ============================================================
-   ZONE B — HERO / TIMELINE ZONE
-   Full vertical timeline. Zone spans 2861px (783–3644).
-   Layout: headline block at top, timeline fills remaining space.
+   ZONE B — SERPENTINE ROADMAP (B + C merged)
+   Extended height spans both Zone B and Zone C areas.
+   Contains headline block + winding copper path + milestone cards.
    ============================================================ */
 
 #panel-2 .zone-b {
+  height: 5940px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
-  padding-top: 64px;
+  padding-top: 60px;
+  overflow: visible;
 }
 
 
 /* ============================================================
-   TIMELINE HEADLINE BLOCK
-   Sits at the top of Zone B above the timeline proper.
+   ROADMAP HEADER
+   Eyebrow + headline + decorative copper rule.
    ============================================================ */
 
-#panel-2 .timeline-headline-block {
+#panel-2 .rm-header {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  margin-bottom: 96px;
+  margin-bottom: 80px;
 }
 
-#panel-2 .timeline-eyebrow {
+#panel-2 .rm-eyebrow {
   font-family: var(--font-body);
   font-weight: var(--fw-semibold);
   font-size: var(--fs-body-sm);
@@ -94,33 +83,19 @@
   text-align: center;
 }
 
-#panel-2 .timeline-headline {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-  text-align: center;
+#panel-2 .rm-headline {
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
   font-size: var(--fs-h1);
-  line-height: var(--lh-heading);
-  letter-spacing: var(--ls-wide);
+  color: var(--text-copper-bold);
   text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  text-align: center;
+  line-height: var(--lh-heading);
   text-rendering: geometricPrecision;
 }
 
-#panel-2 .timeline-headline--light {
-  color: var(--text-copper-bold);
-  display: block;
-}
-
-#panel-2 .timeline-headline--accent {
-  color: var(--text-copper-headline);
-  display: block;
-}
-
-/* Copper rule below headline — decorative divider */
-#panel-2 .timeline-headline-rule {
+#panel-2 .rm-headline-rule {
   width: 480px;
   height: 4px;
   background: linear-gradient(
@@ -136,380 +111,239 @@
 
 
 /* ============================================================
-   TIMELINE WRAPPER
-   Full-width relative container. Central bar sits inside here.
-   Height is determined by the stacked entry elements.
+   ROADMAP CONTAINER
+   Relative container for the SVG path and milestone rows.
+   Fixed height ensures SVG viewBox aligns with card positions.
    ============================================================ */
 
-#panel-2 .timeline {
+#panel-2 .roadmap {
   position: relative;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  padding-bottom: 48px;
-}
-
-
-/* ============================================================
-   CENTRAL VERTICAL BAR (TBAR)
-   2.5px wide copper gradient bar — runs full height of timeline.
-   Centered horizontally at 50% of content width.
-   ============================================================ */
-
-#panel-2 .tbar {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 0;
-  bottom: 0;
-  width: 5px;
-  border-radius: 3px;
-  background: linear-gradient(
-    to bottom,
-    var(--copper-700)  0%,
-    var(--copper-500) 25%,
-    var(--copper-300) 50%,
-    var(--copper-500) 75%,
-    var(--copper-700) 100%
-  );
-  z-index: 1;
-}
-
-/* Cap dots at top and bottom of the bar */
-#panel-2 .tcap {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--copper-500);
-  z-index: 2;
-}
-
-#panel-2 .tcap--top {
-  top: -9px;
-}
-
-#panel-2 .tcap--bot {
-  bottom: -9px;
-}
-
-
-/* ============================================================
-   TIMELINE ENTRY (TE)
-   Each .te contains: node (on bar), arm (connector), content (card).
-   Left entries: content on the left, right entries: content on right.
-   Minimum height ensures even vertical spacing between entries.
-   ============================================================ */
-
-#panel-2 .te {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-  z-index: 3;
-  min-height: 280px;
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
-
-/* LEFT entry — content on left side */
-#panel-2 .te--left {
-  flex-direction: row;
-  /* Reserve right half for empty space, left half for content */
-  padding-right: calc(50% + 60px);
-  padding-left: 0;
-}
-
-/* RIGHT entry — content on right side */
-#panel-2 .te--right {
-  flex-direction: row-reverse;
-  /* Reserve left half for empty space, right half for content */
-  padding-left: calc(50% + 60px);
-  padding-right: 0;
-}
-
-
-/* ============================================================
-   NODE — circular marker on the center bar
-   ============================================================ */
-
-#panel-2 .te-node {
-  position: absolute;
-  left: 50%;
-  top: 44px;
-  transform: translateX(-50%);
-  z-index: 6;
-}
-
-/* Standard node ring */
-#panel-2 .te-node-ring {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--bg-cream);
-  border: 4px solid var(--copper-500);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* White halo to separate from bar */
-  box-shadow: 0 0 0 5px var(--bg-cream);
-}
-
-/* Major event node ring — larger, deeper copper border */
-#panel-2 .te-node-ring--major {
-  width: 52px;
-  height: 52px;
-  border: 5px solid var(--copper-700);
-  box-shadow: 0 0 0 7px var(--bg-cream);
-}
-
-/* Inner dot */
-#panel-2 .te-node-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--copper-500);
+  height: 5400px;
   flex-shrink: 0;
 }
 
-#panel-2 .te--major .te-node-ring--major .te-node-dot {
-  width: 18px;
-  height: 18px;
-  background: var(--copper-700);
-}
-
-/* Adjust node top offset for major (larger node needs recentering) */
-#panel-2 .te--major .te-node {
-  top: 36px;
-}
-
 
 /* ============================================================
-   CONNECTOR ARM
-   Thin horizontal line from node to content card.
-   Left arms grow from node leftward; right arms grow rightward.
+   SVG WINDING PATH
+   Absolute-positioned SVG covering the entire roadmap container.
+   Copper gradient serpentine connecting all 8 milestones.
    ============================================================ */
 
-#panel-2 .te-arm {
+#panel-2 .rm-path-svg {
   position: absolute;
-  top: 57px;
-  height: 3px;
-  z-index: 4;
-  border-radius: 2px;
-}
-
-#panel-2 .te-arm--left {
-  /* Spans from content edge to node center */
-  right: calc(50% + 2px);
-  width: 52px;
-  background: linear-gradient(
-    to right,
-    var(--copper-100),
-    var(--copper-300)
-  );
-}
-
-#panel-2 .te-arm--right {
-  left: calc(50% + 2px);
-  width: 52px;
-  background: linear-gradient(
-    to right,
-    var(--copper-300),
-    var(--copper-100)
-  );
-}
-
-/* Shift arm top for major entries (taller node) */
-#panel-2 .te--major .te-arm {
-  top: 63px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
 }
 
 
 /* ============================================================
-   CONTENT CARD
-   Text content: year prominently + description below.
+   ROADMAP ROWS
+   4 rows of 2 milestone cards each.
+   Odd rows: left → right (normal flex).
+   Even rows: right → left (flex row-reverse).
+   Fixed 980px height ensures alignment with SVG coordinates.
    ============================================================ */
 
-#panel-2 .te-content {
-  flex: 1;
+#panel-2 .rm-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 1350px;
+  padding: 0 110px;
+  position: relative;
+  z-index: 3;
+  overflow: visible;
+}
+
+#panel-2 .rm-row--reverse {
+  flex-direction: row-reverse;
+}
+
+
+/* ============================================================
+   MILESTONE CARD
+   Year + image placeholder + description + optional badge.
+   700px wide — two per row with generous space for the path.
+   ============================================================ */
+
+#panel-2 .rm-card {
+  width: 700px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  align-items: center;
+  gap: 16px;
+  z-index: 5;
   position: relative;
+  overflow: visible;
 }
 
-#panel-2 .te-content--left {
-  text-align: right;
-  align-items: flex-end;
-  padding-right: 0;
-}
 
-#panel-2 .te-content--right {
-  text-align: left;
-  align-items: flex-start;
-  padding-left: 0;
-}
+/* ============================================================
+   GHOST YEAR WATERMARK (.rm-ghost)
+   Large semi-transparent year on opposite side of card.
+   Provides temporal anchoring without competing with content.
+   ============================================================ */
 
-/* Year — prominent display number */
-#panel-2 .te-year {
+#panel-2 .rm-ghost {
+  position: absolute;
+  top: 12px;
   font-family: var(--font-display);
   font-weight: var(--fw-extrabold);
-  font-size: var(--fs-stat-sub);   /* 120px — prominent but not stat-hero */
-  color: var(--text-copper-headline);
-  letter-spacing: var(--ls-tight);
+  font-size: 180px;
+  color: var(--copper-500);
+  opacity: 0.10;
   line-height: 1;
-  text-rendering: geometricPrecision;
-  display: block;
+  z-index: 0;
+  pointer-events: none;
 }
 
-/* Major entry years — slightly larger */
-#panel-2 .te--major .te-year {
-  font-size: 148px;
-  color: var(--text-copper-bold);
+#panel-2 .rm-card--left .rm-ghost {
+  left: calc(100% + 40px);
 }
 
-/* Description text */
-#panel-2 .te-text {
+#panel-2 .rm-card--right .rm-ghost {
+  right: calc(100% + 40px);
+}
+
+
+
+/* ============================================================
+   IMAGE CONTAINER
+   Multi-layered copper frame with corner tick marks.
+   Overflow visible for accent frame depth effect.
+   ============================================================ */
+
+#panel-2 .rm-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+
+/* ============================================================
+   MAIN COPPER FRAME (.rm-fr)
+   Primary border around image area.
+   ============================================================ */
+
+#panel-2 .rm-fr {
+  position: absolute;
+  inset: 0;
+  border: 8px solid var(--copper-300);
+  z-index: 2;
+}
+
+#panel-2 .rm-card--major .rm-fr {
+  border-width: 10px;
+  border-color: var(--copper-500);
+  box-shadow: 0 15px 80px rgba(139, 74, 40, 0.18);
+}
+
+
+
+/* ============================================================
+   PLACEHOLDER BACKGROUND (.rm-ph)
+   Diagonal gradient + hatch pattern overlay.
+   Shown until real photographs are placed.
+   ============================================================ */
+
+#panel-2 .rm-ph {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #F5EDE6 0%, #EDE1D6 40%, #E8D8CC 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  gap: 20px;
+  z-index: 0;
+}
+
+/* Diagonal hatch pattern overlay */
+#panel-2 .rm-ph::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--copper-500) 0px,
+    var(--copper-500) 3px,
+    transparent 3px,
+    transparent 50px
+  );
+}
+
+
+/* ============================================================
+   PLACEHOLDER CAMERA ICON (.rm-phi)
+   Minimalist bordered rectangle with centered circle lens.
+   ============================================================ */
+
+#panel-2 .rm-phi {
+  width: 120px;
+  height: 90px;
+  border: 8px solid var(--copper-300);
+  border-radius: 10px;
+  position: relative;
+  opacity: 0.3;
+}
+
+#panel-2 .rm-phi::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 45px;
+  height: 45px;
+  border: 8px solid var(--copper-300);
+  border-radius: 50%;
+}
+
+
+/* ============================================================
+   PLACEHOLDER LABEL (.rm-phl)
+   Uppercase copper text below camera icon.
+   ============================================================ */
+
+#panel-2 .rm-phl {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-body-sm);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--copper-300);
+  opacity: 0.6;
+}
+
+
+/* ============================================================
+   DESCRIPTION TEXT
+   ============================================================ */
+
+#panel-2 .rm-text {
   font-family: var(--font-body);
   font-weight: var(--fw-medium);
   font-size: var(--fs-body);
   color: var(--text-primary);
   line-height: var(--lh-body);
-  text-rendering: optimizeLegibility;
-  max-width: 1200px;
-}
-
-/* Badge label for major milestones */
-#panel-2 .te-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 36px;
-  border-radius: var(--spec-badge-radius);
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-body-sm);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  text-rendering: optimizeLegibility;
-}
-
-#panel-2 .te-badge--major {
-  background: var(--bg-copper-lightest);
-  border: 3px solid var(--copper-500);
-  color: var(--text-copper-bold);
-}
-
-
-/* ============================================================
-   ZONE C — SUMMARY STATS
-   Three landmark stats in a flex row with dividers.
-   ============================================================ */
-
-#panel-2 .zone-c {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 80px;
-  gap: 80px;
-}
-
-/* Decorative rule with diamond center — matches History.html divider style */
-#panel-2 .timeline-rule-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 24px;
-  width: 100%;
-}
-
-#panel-2 .timeline-rule-line {
-  flex: 1;
-  height: 3px;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    var(--copper-300) 40%,
-    var(--copper-500) 100%
-  );
-  border-radius: 2px;
-}
-
-#panel-2 .timeline-rule-line:last-child {
-  background: linear-gradient(
-    to left,
-    transparent 0%,
-    var(--copper-300) 40%,
-    var(--copper-500) 100%
-  );
-}
-
-#panel-2 .timeline-rule-diamond {
-  width: 20px;
-  height: 20px;
-  background: var(--copper-500);
-  transform: rotate(45deg);
-  flex-shrink: 0;
-  border-radius: 2px;
-}
-
-#panel-2 .zone-c-subhead {
-  font-size: var(--fs-body-lg);
-  line-height: 1.5;
   text-align: center;
-  max-width: 2200px;
+  text-rendering: optimizeLegibility;
+  max-width: 650px;
 }
 
-/* Stats row — centered with vertical dividers between blocks */
-#panel-2 .zone-c-stats {
-  width: 100%;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 0;
-}
-
-/* Stat number superscript (the + sign) */
-#panel-2 .stat-number-sup {
-  font-size: 0.55em;
-  vertical-align: super;
-  font-weight: var(--fw-extrabold);
-  line-height: 1;
-  color: var(--copper-500);
-}
-
-/* Vertical dividers between stat blocks */
-#panel-2 .stat-divider {
-  width: 4px;
-  height: 200px;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    var(--copper-300) 30%,
-    var(--copper-500) 50%,
-    var(--copper-300) 70%,
-    transparent 100%
-  );
-  align-self: center;
-  flex-shrink: 0;
-  border-radius: 2px;
-  margin: 0 120px;
-}
-
-/* Stat blocks inside zone-c-stats need even spacing */
-#panel-2 .zone-c-stats .stat-block {
-  flex: 1;
-}
-
-/* Stat label line-height adjustment for two-line labels */
-#panel-2 .zone-c-stats .stat-label {
-  line-height: 1.3;
-  text-align: center;
-}
 
 
 /* ============================================================
@@ -517,44 +351,18 @@
    ============================================================ */
 
 #panel-2 .zone-d {
+  top: auto;
+  bottom: var(--content-inset);
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  padding-top: 60px;
-  gap: var(--gap-sm);
-}
-
-#panel-2 .closing-statement {
-  font-family: var(--font-display);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-h3);
-  color: var(--text-copper-stat);
-  letter-spacing: 0.02em;
-  line-height: var(--lh-heading);
-  text-rendering: geometricPrecision;
+  justify-content: flex-end;
+  padding-bottom: 40px;
 }
 
 #panel-2 .zone-d .contact-row {
   justify-content: flex-start;
-  gap: 120px;
   border-top-color: var(--copper-300);
   width: 100%;
-  margin-top: var(--gap-sm);
-}
-
-
-/* ============================================================
-   ZONE E — FURNITURE RESERVE
-   Subtle warm gradient fade toward bottom edge.
-   ============================================================ */
-
-#panel-2 .zone-e {
-  background: linear-gradient(
-    to bottom,
-    var(--bg-cream) 0%,
-    var(--copper-100) 60%,
-    var(--copper-200) 100%
-  );
-  opacity: 0.5;
 }

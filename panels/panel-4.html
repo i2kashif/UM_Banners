@@ -2,17 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=3012, initial-scale=1.0">
+  <meta name="viewport" content="width=3012">
   <title>Banner 4 — Paper Covered Strip | Universal Metals Pakistan Limited</title>
 
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/panels/panel-4.css">
+
+  <style>
+    /* Browser preview: allow scrolling and fit-to-screen */
+    html, body {
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+    }
+  </style>
+  <script>
+    /* Auto-scale panel to fit browser viewport width.
+       At Puppeteer's 3012px viewport this is a no-op (zoom=1). */
+    function fitPanel() {
+      document.documentElement.style.zoom = window.innerWidth / 3012;
+    }
+    window.addEventListener('DOMContentLoaded', fitPanel);
+    window.addEventListener('resize', fitPanel);
+  </script>
 </head>
 <body>
 
-<main id="panel-4" class="panel panel--cream" style="--panel-index: 3;">
+<main id="panel-4" class="panel panel--white" style="--panel-index: 3;">
 
   <!-- =========================================================
        TOP ACCENT BAR
@@ -20,61 +38,19 @@
   <div class="accent-bar accent-bar--top" role="presentation" aria-hidden="true"></div>
 
   <!-- =========================================================
-       FLOW SVG LAYER
-       Panel 4 slice: x offset = 3 × 3012 = 9036
+       FLOW SVG LAYER (globally disabled in layout.css)
        ========================================================= -->
-  <div class="flow-svg-layer" aria-hidden="true">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="9036 0 3012 7441"
-      preserveAspectRatio="xMinYMid meet"
-      width="3012"
-      height="7441"
-    >
-      <defs>
-        <linearGradient id="p4-wire-grad" x1="9036" y1="0" x2="12048" y2="0" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stop-color="#E8A065" stop-opacity="0.75"/>
-          <stop offset="50%"  stop-color="#F5B880" stop-opacity="0.7"/>
-          <stop offset="100%" stop-color="#CE7340" stop-opacity="0.75"/>
-        </linearGradient>
-        <filter id="p4-glow" x="-20%" y="-150%" width="140%" height="400%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
-          <feMerge>
-            <feMergeNode in="blur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      <!-- Panel 4 slice: x=9036–12048, wire descends then rises into centre -->
-      <path
-        d="M 9036,5130
-           C 9500,5050 10000,4800 10500,4600
-           C 11000,4400 11500,4320 12048,4280"
-        fill="none"
-        stroke="url(#p4-wire-grad)"
-        stroke-width="32"
-        stroke-linecap="round"
-        filter="url(#p4-glow)"
-      />
-      <!-- Secondary parallel strand (60px y-offset below primary) -->
-      <path
-        d="M 9036,5190
-           C 9500,5110 10000,4860 10500,4660
-           C 11000,4460 11500,4380 12048,4340"
-        fill="none"
-        stroke="#F5B880"
-        stroke-width="10"
-        stroke-linecap="round"
-        stroke-opacity="0.35"
-      />
-    </svg>
-  </div>
+  <div class="flow-svg-layer" aria-hidden="true"></div>
 
   <!-- =========================================================
-       ZONE A — PRODUCT NAME (90px – 783px)
-       "PAPER COVERED COPPER STRIP" + logo mark top-left
+       ZONE A — HEADER
+       "OUR" (right-aligned) + small logo top-right
+       Together with Panel 5 "PRODUCTS", reads "OUR PRODUCTS"
+       centred across the 4-panel centre wall.
        ========================================================= -->
-  <header class="zone-a" role="banner" aria-label="Product category and company logo">
+  <header class="zone-a" role="banner" aria-label="Section heading and company logo">
+
+    <h2 class="p4-section-heading">OUR</h2>
 
     <div class="zone-a-logo">
       <img
@@ -85,118 +61,72 @@
         height="auto"
         onerror="this.style.display='none';"
       >
-      <span style="
-        font-family: 'Barlow Condensed', Arial, sans-serif;
-        font-weight: 600;
-        font-size: 28px;
-        color: #B2673E;
-        letter-spacing: 0.10em;
-        text-transform: uppercase;
-      ">UMPL</span>
     </div>
-
-    <h2 class="product-name-display" style="text-align: right;">Paper Covered<br>Copper Strip</h2>
 
   </header>
 
   <!-- =========================================================
-       ZONE B — HERO PRODUCT IMAGE (783px – 3644px)
-       PCCS coil with visible paper wrapping layers.
-       Cross-section view showing copper + TUK paper.
+       ZONE B — PAPER COVERED COPPER STRIP
+       Photo left · Large product name right (centred)
        ========================================================= -->
-  <section class="zone-b" aria-label="Paper covered copper strip product image">
+  <section class="zone-b p4-product-zone" aria-labelledby="p4-pccs-heading">
 
-    <figure class="product-hero-frame" style="margin: 0;">
+    <!-- Left: Product photo (transparent PNG — no background) -->
+    <div class="p4-col p4-col--photo">
       <img
         src="../assets/images/products/paper-covered-strip-ai-transparent.png"
-        alt="Paper Covered Copper Strip — PCCS &amp; PCAS, TUK paper insulation"
-        class="product-image"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        alt="Paper Covered Copper Strip coil"
+        class="p4-product-photo"
+        onerror="this.style.opacity='0.15';"
       >
-      <!-- CSS strip placeholder fallback — visible if image fails to load -->
-      <div class="strip-placeholder" aria-label="Paper covered copper strip coil placeholder" style="display:none;">
-        <p class="strip-placeholder-label">PCCS &amp; PCAS<br>Paper Covered Strip</p>
-      </div>
-    </figure>
-
-  </section>
-
-  <!-- =========================================================
-       ZONE C — INFORMATION (3644px – 5150px)
-       Headline + TUK premium badge + subhead
-       ========================================================= -->
-  <section class="zone-c" aria-labelledby="p4-zone-c-headline">
-
-    <!-- Main headline — PCCS specialist terminology -->
-    <h1 id="p4-zone-c-headline" class="zone-c-headline">
-      PCCS &amp; PCAS &mdash;<br>
-      OFC Copper, TUK Paper, IEC 60076
-    </h1>
-
-    <!-- TUK Paper premium badge + standard badges -->
-    <div class="tuk-badge-row" role="list" aria-label="Material and standards badges">
-
-      <span class="spec-badge spec-badge--premium" role="listitem">
-        TUK Paper
-      </span>
-
-      <span class="spec-badge" role="listitem">
-        OFC &gt;99.80% IACS
-      </span>
-
-      <span class="spec-badge" role="listitem">
-        IEC 60076
-      </span>
-
-      <span class="spec-badge" role="listitem">
-        ASTM B152
-      </span>
-
     </div>
 
-    <!-- Subhead -->
-    <p class="subhead">
-      Single-strip and 3-strip configurations &nbsp;&middot;&nbsp; Thickness 0.8&ndash;7.0 mm
-    </p>
+    <!-- Right: Product name, centred vertically and horizontally -->
+    <div class="p4-col p4-col--text">
+      <h1 id="p4-pccs-heading" class="p4-product-name">
+        Paper<br>Covered<br>Copper<br>Strip
+      </h1>
+    </div>
 
   </section>
 
   <!-- =========================================================
-       ZONE D — DETAIL (5150px – 6054px)
-       4 body bullets + application context note
+       ZONE C — PAPER COVERED ALUMINIUM STRIP
+       Large product name left (centred) · Photo right
        ========================================================= -->
-  <section class="zone-d" aria-label="Product details and application">
+  <section class="zone-c p4-product-zone p4-product-zone--alt" aria-labelledby="p4-pcas-heading">
 
-    <ul class="body-list" aria-label="Product specifications">
-      <li>OFC copper base &nbsp;&middot;&nbsp; &gt;99.80% IACS conductivity</li>
-      <li>Thermally upgraded kraft (TUK) paper insulation</li>
-      <li>Copper &amp; aluminium strip &nbsp;&middot;&nbsp; One supplier</li>
-      <li>IEC 60076 &nbsp;&middot;&nbsp; ASTM B152 &nbsp;&middot;&nbsp; DIN &nbsp;&middot;&nbsp; IS standards</li>
-    </ul>
+    <!-- Left: Product name, centred vertically and horizontally -->
+    <div class="p4-col p4-col--text">
+      <h2 id="p4-pcas-heading" class="p4-product-name">
+        Paper<br>Covered<br>Aluminium<br>Strip
+      </h2>
+    </div>
 
-    <p class="application-note">
-      For distribution and power transformer windings
-    </p>
+    <!-- Right: Product photo (transparent PNG — no background) -->
+    <div class="p4-col p4-col--photo">
+      <img
+        src="../assets/images/products/paper-covered-strip-ai-transparent.png"
+        alt="Paper Covered Aluminium Strip coil"
+        class="p4-product-photo"
+        onerror="this.style.opacity='0.15';"
+      >
+    </div>
+
+  </section>
+
+  <!-- =========================================================
+       ZONE D — FOOTER (pinned to panel bottom)
+       ========================================================= -->
+  <section class="zone-d" aria-label="Contact">
 
     <div class="contact-row">
       <a href="https://www.universalmetals.com.pk" class="contact-url" target="_blank" rel="noopener">
         universalmetals.com.pk
       </a>
-      <div class="qr-block" aria-label="QR code for Strip Catalogue">
-        <div class="qr-placeholder">
-          <span class="qr-label">Scan for<br>Strip Catalogue</span>
-        </div>
-      </div>
     </div>
 
   </section>
-
-  <!-- =========================================================
-       ZONE E — FURNITURE RESERVE
-       ========================================================= -->
-  <aside class="zone-e" aria-hidden="true">
-    <div class="zone-e-fill zone-e-fill--cream"></div>
-  </aside>
 
   <!-- =========================================================
        BOTTOM ACCENT BAR
