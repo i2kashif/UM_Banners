@@ -1,22 +1,17 @@
 /*
- * panel-7.css — v5
- * Banner 7: Why Us — 5-Point Credentials | Universal Metals Pakistan Limited — CWIEME Berlin 2026
+ * panel-7.css — v6
+ * Banner 7: Why Us — Certification Plaque Cards | Universal Metals Pakistan Limited — CWIEME Berlin 2026
  *
- * Design concept: "Five Facts. Full Stop."
- *   One unified white panel. No background splits.
- *   Each of the 5 points is one scannable fact, readable at 5 metres.
- *   Copper gradient border-top on zone C is the only visual separator.
+ * Design concept: "Certification Plaques"
+ *   Five credential points displayed as bordered plaque cards.
+ *   Layout: 2-column grid — 2 + 2 + 1 full-width.
+ *   Each card: copper top stripe, ghost number watermark bleeding
+ *   from bottom-right, bold credential text centered within.
  *
- * Points:
- *   1. GSP+ Certified / Zero EU Import Duty (+ cert sub-line)
- *   2. Pakistan's Largest / Copper Rod, Enamelled Wire & / Paper Covered Strip Producer
- *   3. 2 × Properzi CCR Lines / Copper & Aluminium
- *   4. Sustainably Produced / From Recycled Copper + stat row
- *   5. 5 NewTech Enamelling Lines / Copper & Aluminium
+ * Zone A  — "WHY UNIVERSAL METALS" heading     (90px – 783px)
+ * p7-grid — 5 credential plaque cards          (783px – 6650px)
  *
- * Zone A  — Empty header                         (90px – 783px)
- * Zone B  — Points 1, 2, 3                       (783px – 3644px)
- * Zone C  — Points 4, 5 (override 3750px)        (3750px – 6650px)
+ * Left edge stripe: marks left wall boundary.
  */
 
 
@@ -40,7 +35,7 @@
 
 
 /* ============================================================
-   ZONE A — HEADER
+   ZONE A — HEADING
    ============================================================ */
 
 #panel-7 .zone-a {
@@ -62,32 +57,94 @@
 
 
 /* ============================================================
-   ALL 5 POINTS — single flex container spanning full content area
-   (zone B start 783px → zone C end 6650px = 5867px total)
-   space-evenly distributes all points uniformly — no cross-zone gap.
+   CREDENTIAL CARDS GRID
+   Spans from zone-b start (783px) to zone-c end (6650px).
+   2-column: cards 1–4 fill rows 1–2, card 5 spans full width.
    ============================================================ */
 
-#panel-7 .p7-points {
+#panel-7 .p7-grid {
   position: absolute;
   top: 783px;
   left: var(--content-inset);
   right: var(--content-inset);
   height: 5867px;
   z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  padding: 60px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  padding: 64px 0;
+  align-content: stretch;
 }
 
 
 /* ============================================================
-   STATEMENT BLOCKS
-   Each block = one credential point.
+   INDIVIDUAL PLAQUE CARD
    ============================================================ */
 
-#panel-7 .p7-statement {
+#panel-7 .p7-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-white);
+  border: 1.5px solid rgba(139, 74, 40, 0.15);
+  box-shadow:
+    0 4px 24px rgba(139, 74, 40, 0.06),
+    0 12px 80px rgba(139, 74, 40, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 80px;
+}
+
+/* Copper gradient stripe pinned to top of each card */
+#panel-7 .p7-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(
+    to right,
+    var(--copper-300) 0%,
+    var(--copper-500) 30%,
+    var(--copper-700) 50%,
+    var(--copper-500) 70%,
+    var(--copper-300) 100%
+  );
+}
+
+
+
+/* ============================================================
+   GHOST NUMBER WATERMARK
+   Large numeral bleeding from bottom-right corner.
+   Clipped by card overflow:hidden for the plaque effect.
+   ============================================================ */
+
+#panel-7 .p7-card-ghost {
+  position: absolute;
+  bottom: 30px;
+  right: 60px;
+  font-family: var(--font-display);
+  font-weight: var(--fw-extrabold);
+  font-size: 300px;
+  line-height: 1;
+  color: var(--copper-500);
+  opacity: 0.10;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.02em;
+}
+
+
+/* ============================================================
+   CARD BODY — content wrapper inside each card
+   ============================================================ */
+
+#panel-7 .p7-card-body {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -95,12 +152,12 @@
   gap: 0;
 }
 
-/* Copper underline after each statement */
-#panel-7 .p7-statement::after {
+/* Copper underline beneath card body text */
+#panel-7 .p7-card-body::after {
   content: '';
   display: block;
-  margin: 52px auto 0;
-  width: 260px;
+  margin: 48px auto 0;
+  width: 200px;
   height: 5px;
   background: linear-gradient(
     to right,
@@ -113,8 +170,8 @@
   border-radius: 3px;
 }
 
-/* Sustainability point: stat row replaces the underline */
-#panel-7 .p7-statement--sustainability::after {
+/* Sustainability card: stat row replaces the underline */
+#panel-7 .p7-card-body--sustainability::after {
   display: none;
 }
 
@@ -133,41 +190,54 @@
   line-height: 1.04;
 }
 
-/* Main line — the primary claim of each point */
+/* Main line — primary claim */
 #panel-7 .p7-line--main {
-  font-size: 155px;
+  font-size: 130px;
   color: var(--text-copper-bold);
 }
 
-/* Sub-line — supporting detail beneath the main claim */
+/* Sub-line — supporting detail */
 #panel-7 .p7-line--sub {
-  font-size: 110px;
+  font-size: 88px;
   color: var(--copper-500);
   margin-top: 8px;
 }
 
 
 /* ============================================================
-   CERTIFICATION SUB-LINE (Point 1 only)
-   ISO / CE compact text beneath Zero EU Import Duty.
+   CERTIFICATION ROW (Card 6)
    ============================================================ */
 
-#panel-7 .p7-certs {
-  font-family: var(--font-body);
-  font-weight: var(--fw-medium);
-  font-size: 46px;
-  color: var(--text-muted);
-  letter-spacing: 0.06em;
+#panel-7 .p7-cert-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+#panel-7 .p7-cert-item {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 100px;
+  color: var(--text-copper-bold);
   text-transform: uppercase;
-  text-align: center;
-  margin-top: 36px;
+  letter-spacing: var(--ls-wide);
+  line-height: 1;
+  text-rendering: geometricPrecision;
+}
+
+#panel-7 .p7-cert-sep {
+  font-family: var(--font-display);
+  font-size: 100px;
+  color: var(--copper-300);
   line-height: 1;
 }
 
 
 /* ============================================================
    SUSTAINABILITY STAT ROW (Point 4 only)
-   Three verifiable numbers from universalmetals.com.pk
    ============================================================ */
 
 #panel-7 .p7-stat-row {
@@ -181,7 +251,7 @@
 #panel-7 .p7-stat-item {
   font-family: var(--font-display);
   font-weight: var(--fw-semibold);
-  font-size: 72px;
+  font-size: 64px;
   color: var(--copper-500);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -191,7 +261,7 @@
 
 #panel-7 .p7-stat-sep {
   font-family: var(--font-display);
-  font-size: 72px;
+  font-size: 64px;
   color: var(--copper-300);
   line-height: 1;
 }

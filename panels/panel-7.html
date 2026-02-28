@@ -35,50 +35,81 @@
   </header>
 
   <!-- =========================================================
-       ALL 5 CREDENTIAL POINTS — single container for even spacing
+       CREDENTIAL PLAQUE CARDS
+       2-col grid: cards 1+2, 3+4, then card 5 full-width.
        ========================================================= -->
-  <section class="p7-points" aria-label="Company credentials">
+  <div class="p7-grid" role="region" aria-label="Company credentials">
 
-    <!-- #1 — GSP+ / Trade Access -->
-    <div class="p7-statement" aria-label="GSP+ certified, zero EU import duty">
-      <span class="p7-line p7-line--main">GSP+ Certified</span>
-      <span class="p7-line p7-line--sub">Zero EU Import Duty</span>
-      <p class="p7-certs">ISO 9001:2015 · ISO 14001:2015 · ISO 45001:2018 · CE Mark</p>
-    </div>
-
-    <!-- #2 — Pakistan's Largest Producer -->
-    <div class="p7-statement" aria-label="Pakistan's largest copper rod, enamelled wire and paper covered strip producer">
-      <span class="p7-line p7-line--main">Pakistan's Largest</span>
-      <span class="p7-line p7-line--sub">Copper Rod, Enamelled Wire &</span>
-      <span class="p7-line p7-line--sub">Paper Covered Strip Producer</span>
-    </div>
-
-    <!-- #3 — Properzi CCR Lines -->
-    <div class="p7-statement" aria-label="2 Properzi CCR lines, copper and aluminium">
-      <span class="p7-line p7-line--main">2 × Properzi CCR Lines</span>
-      <span class="p7-line p7-line--sub">Copper &amp; Aluminium</span>
-    </div>
-
-    <!-- #4 — Sustainability -->
-    <div class="p7-statement p7-statement--sustainability" aria-label="Sustainably produced from recycled copper">
-      <span class="p7-line p7-line--main">Sustainably Produced</span>
-      <span class="p7-line p7-line--sub">From Recycled Copper</span>
-      <div class="p7-stat-row" aria-label="Sustainability statistics">
-        <span class="p7-stat-item">85% Less CO₂</span>
-        <span class="p7-stat-sep" aria-hidden="true">·</span>
-        <span class="p7-stat-item">100% Recyclable</span>
-        <span class="p7-stat-sep" aria-hidden="true">·</span>
-        <span class="p7-stat-item">3.9t CO₂ Saved / Tonne</span>
+    <!-- Card 1 — GSP+ / Trade Access -->
+    <article class="p7-card" aria-label="GSP+ certified, zero EU import duty">
+      <span class="p7-card-ghost" aria-hidden="true">01</span>
+      <div class="p7-card-body">
+        <span class="p7-line p7-line--main">GSP+ Certified</span>
+        <span class="p7-line p7-line--sub">Zero EU Import Duty</span>
       </div>
-    </div>
+    </article>
 
-    <!-- #5 — NewTech Enamelling Lines -->
-    <div class="p7-statement" aria-label="5 NewTech enamelling lines, copper and aluminium">
-      <span class="p7-line p7-line--main">5 NewTech Enamelling Lines</span>
-      <span class="p7-line p7-line--sub">Copper &amp; Aluminium</span>
-    </div>
+    <!-- Card 2 — Pakistan's Largest Producer -->
+    <article class="p7-card" aria-label="Pakistan's largest copper rod, enamelled wire and paper covered strip producer">
+      <span class="p7-card-ghost" aria-hidden="true">02</span>
+      <div class="p7-card-body">
+        <span class="p7-line p7-line--main">Pakistan's Largest</span>
+        <span class="p7-line p7-line--sub">Copper Rod, Enamelled Wire &</span>
+        <span class="p7-line p7-line--sub">Paper Covered Strip Producer</span>
+      </div>
+    </article>
 
-  </section>
+    <!-- Card 3 — Properzi CCR Lines -->
+    <article class="p7-card" aria-label="2 Properzi CCR lines, copper and aluminium">
+      <span class="p7-card-ghost" aria-hidden="true">03</span>
+      <div class="p7-card-body">
+        <span class="p7-line p7-line--main">2 × Properzi CCR Lines</span>
+        <span class="p7-line p7-line--sub">Copper &amp; Aluminium</span>
+      </div>
+    </article>
+
+    <!-- Card 4 — Sustainability -->
+    <article class="p7-card" aria-label="Sustainably produced from recycled copper">
+      <span class="p7-card-ghost" aria-hidden="true">04</span>
+      <div class="p7-card-body p7-card-body--sustainability">
+        <span class="p7-line p7-line--main">Sustainably Produced</span>
+        <span class="p7-line p7-line--sub">From Recycled Copper</span>
+        <div class="p7-stat-row" aria-label="Sustainability statistics">
+          <span class="p7-stat-item">85% Less CO₂</span>
+          <span class="p7-stat-sep" aria-hidden="true">·</span>
+          <span class="p7-stat-item">100% Recyclable</span>
+          <span class="p7-stat-sep" aria-hidden="true">·</span>
+          <span class="p7-stat-item">3.9t CO₂ Saved / Tonne</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 5 — NewTech Enamelling Lines -->
+    <article class="p7-card" aria-label="5 NewTech enamelling lines, copper and aluminium">
+      <span class="p7-card-ghost" aria-hidden="true">05</span>
+      <div class="p7-card-body">
+        <span class="p7-line p7-line--main">5 NewTech Enamelling Lines</span>
+        <span class="p7-line p7-line--sub">Copper &amp; Aluminium</span>
+      </div>
+    </article>
+
+    <!-- Card 6 — Certifications -->
+    <article class="p7-card" aria-label="International certifications">
+      <span class="p7-card-ghost" aria-hidden="true">06</span>
+      <div class="p7-card-body p7-card-body--sustainability">
+        <div class="p7-cert-row">
+          <span class="p7-cert-item">ISO 9001:2015</span>
+          <span class="p7-cert-sep" aria-hidden="true">·</span>
+          <span class="p7-cert-item">ISO 14001:2015</span>
+          <span class="p7-cert-sep" aria-hidden="true">·</span>
+          <span class="p7-cert-item">ISO 45001:2018</span>
+          <span class="p7-cert-sep" aria-hidden="true">·</span>
+          <span class="p7-cert-item">CE Mark</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
 
   <div class="accent-bar accent-bar--bottom" role="presentation" aria-hidden="true"></div>
 
