@@ -5,26 +5,16 @@
   <meta name="viewport" content="width=3012">
   <title>Banner 7 — Why Us | Universal Metals Pakistan Limited</title>
 
-  <!-- All fonts are local .woff2 — no CDN dependency for Puppeteer -->
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/panels/panel-7.css">
 
   <style>
-    /* Browser preview: allow scrolling and fit-to-screen */
-    html, body {
-      overflow-x: hidden;
-      overflow-y: auto;
-      height: auto;
-    }
+    html, body { overflow-x: hidden; overflow-y: auto; height: auto; }
   </style>
   <script>
-    /* Auto-scale panel to fit browser viewport width.
-       At Puppeteer's 3012px viewport this is a no-op (zoom=1). */
-    function fitPanel() {
-      document.documentElement.style.zoom = window.innerWidth / 3012;
-    }
+    function fitPanel() { document.documentElement.style.zoom = window.innerWidth / 3012; }
     window.addEventListener('DOMContentLoaded', fitPanel);
     window.addEventListener('resize', fitPanel);
   </script>
@@ -33,80 +23,63 @@
 
 <main id="panel-7" class="panel panel--white" style="--panel-index: 6;">
 
-  <!-- =========================================================
-       TOP ACCENT BAR
-       ========================================================= -->
   <div class="accent-bar accent-bar--top" role="presentation" aria-hidden="true"></div>
-
-  <!-- =========================================================
-       LEFT EDGE ACCENT STRIPE
-       Marks the START of the right wall.
-       ========================================================= -->
   <div class="edge-stripe edge-stripe--left" role="presentation" aria-hidden="true"></div>
-
-  <!-- =========================================================
-       FLOW SVG LAYER (globally disabled in layout.css)
-       ========================================================= -->
   <div class="flow-svg-layer" aria-hidden="true"></div>
 
   <!-- =========================================================
-       ZONE A — HEADER
-       Small logo top-right only.
+       ZONE A — Header (empty)
        ========================================================= -->
-  <header class="zone-a" role="banner" aria-label="Company logo">
-
+  <header class="zone-a" role="banner" aria-label="Panel header">
+    <h2 class="p7-heading">Why Universal Metals</h2>
   </header>
 
   <!-- =========================================================
-       ZONE B — CREDENTIAL STATEMENTS 1–3
-       Top half: market claim + CCR + sustainability
+       ALL 5 CREDENTIAL POINTS — single container for even spacing
        ========================================================= -->
-  <section class="zone-b p7-stack" aria-label="Company credentials">
+  <section class="p7-points" aria-label="Company credentials">
 
-    <!-- #1 — Market leadership -->
-    <div class="p7-statement p7-statement--tier1" aria-label="Pakistan's largest copper rod producer">
-      <span class="p7-line">Pakistan's Largest</span>
-      <span class="p7-line">Copper Rod Producer</span>
+    <!-- #1 — GSP+ / Trade Access -->
+    <div class="p7-statement" aria-label="GSP+ certified, zero EU import duty">
+      <span class="p7-line p7-line--main">GSP+ Certified</span>
+      <span class="p7-line p7-line--sub">Zero EU Import Duty</span>
+      <p class="p7-certs">ISO 9001:2015 · ISO 14001:2015 · ISO 45001:2018 · CE Mark</p>
     </div>
 
-    <!-- #2 — CCR line -->
-    <div class="p7-statement p7-statement--tier2" aria-label="In-house CCR line">
-      <span class="p7-line">In-House CCR Line</span>
+    <!-- #2 — Pakistan's Largest Producer -->
+    <div class="p7-statement" aria-label="Pakistan's largest copper rod, enamelled wire and paper covered strip producer">
+      <span class="p7-line p7-line--main">Pakistan's Largest</span>
+      <span class="p7-line p7-line--sub">Copper Rod, Enamelled Wire &</span>
+      <span class="p7-line p7-line--sub">Paper Covered Strip Producer</span>
     </div>
 
-    <!-- #3 — Sustainability -->
-    <div class="p7-statement p7-statement--tier2" aria-label="Sustainably produced from recycled copper">
-      <span class="p7-line">Sustainably Produced</span>
-      <span class="p7-line">From Recycled Copper</span>
+    <!-- #3 — Properzi CCR Lines -->
+    <div class="p7-statement" aria-label="2 Properzi CCR lines, copper and aluminium">
+      <span class="p7-line p7-line--main">2 × Properzi CCR Lines</span>
+      <span class="p7-line p7-line--sub">Copper &amp; Aluminium</span>
+    </div>
+
+    <!-- #4 — Sustainability -->
+    <div class="p7-statement p7-statement--sustainability" aria-label="Sustainably produced from recycled copper">
+      <span class="p7-line p7-line--main">Sustainably Produced</span>
+      <span class="p7-line p7-line--sub">From Recycled Copper</span>
+      <div class="p7-stat-row" aria-label="Sustainability statistics">
+        <span class="p7-stat-item">85% Less CO₂</span>
+        <span class="p7-stat-sep" aria-hidden="true">·</span>
+        <span class="p7-stat-item">100% Recyclable</span>
+        <span class="p7-stat-sep" aria-hidden="true">·</span>
+        <span class="p7-stat-item">3.9t CO₂ Saved / Tonne</span>
+      </div>
+    </div>
+
+    <!-- #5 — NewTech Enamelling Lines -->
+    <div class="p7-statement" aria-label="5 NewTech enamelling lines, copper and aluminium">
+      <span class="p7-line p7-line--main">5 NewTech Enamelling Lines</span>
+      <span class="p7-line p7-line--sub">Copper &amp; Aluminium</span>
     </div>
 
   </section>
 
-  <!-- =========================================================
-       ZONE C — CREDENTIAL STATEMENTS 4–5
-       Bottom half: trade advantage + certifications
-       Separated by copper gradient divider (matches panels 3–6).
-       ========================================================= -->
-  <section class="zone-c p7-stack" aria-label="Trade advantages and certifications">
-
-    <!-- #4 — Zero EU duty -->
-    <div class="p7-statement p7-statement--tier2" aria-label="Zero EU import duty">
-      <span class="p7-line">Zero EU Import Duty</span>
-    </div>
-
-    <!-- #5 — Certifications row -->
-    <div class="p7-statement p7-statement--tier3" aria-label="GSP+ certified, ISO certified, CE mark">
-      <span class="p7-line">GSP+ Certified &nbsp;&middot;&nbsp; ISO Certified &nbsp;&middot;&nbsp; CE Mark</span>
-    </div>
-
-  </section>
-
-  <!-- =========================================================
-       ZONE D — FOOTER
-       ========================================================= -->
-  <!-- =========================================================
-       BOTTOM ACCENT BAR
-       ========================================================= -->
   <div class="accent-bar accent-bar--bottom" role="presentation" aria-hidden="true"></div>
 
 </main>

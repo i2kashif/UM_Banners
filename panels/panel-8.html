@@ -5,26 +5,16 @@
   <meta name="viewport" content="width=3012">
   <title>Banner 8 — Contact | Universal Metals Pakistan Limited</title>
 
-  <!-- All fonts are local .woff2 — no CDN dependency for Puppeteer -->
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/panels/panel-8.css">
 
   <style>
-    /* Browser preview: allow scrolling and fit-to-screen */
-    html, body {
-      overflow-x: hidden;
-      overflow-y: auto;
-      height: auto;
-    }
+    html, body { overflow-x: hidden; overflow-y: auto; height: auto; }
   </style>
   <script>
-    /* Auto-scale panel to fit browser viewport width.
-       At Puppeteer's 3012px viewport this is a no-op (zoom=1). */
-    function fitPanel() {
-      document.documentElement.style.zoom = window.innerWidth / 3012;
-    }
+    function fitPanel() { document.documentElement.style.zoom = window.innerWidth / 3012; }
     window.addEventListener('DOMContentLoaded', fitPanel);
     window.addEventListener('resize', fitPanel);
   </script>
@@ -33,48 +23,269 @@
 
 <main id="panel-8" class="panel panel--white" style="--panel-index: 7;">
 
-  <!-- =========================================================
-       TOP ACCENT BAR
-       ========================================================= -->
   <div class="accent-bar accent-bar--top" role="presentation" aria-hidden="true"></div>
-
-  <!-- =========================================================
-       RIGHT EDGE ACCENT STRIPE
-       Marks the absolute END of the display wall.
-       ========================================================= -->
   <div class="edge-stripe edge-stripe--right" role="presentation" aria-hidden="true"></div>
-
-  <!-- =========================================================
-       FLOW SVG LAYER (globally disabled in layout.css)
-       ========================================================= -->
   <div class="flow-svg-layer" aria-hidden="true"></div>
 
   <!-- =========================================================
-       ZONE A — HEADER
-       Small logo top-right only.
+       ZONE A — Header (empty)
        ========================================================= -->
-  <header class="zone-a" role="banner" aria-label="Company logo">
-
-  </header>
+  <header class="zone-a" role="banner" aria-label="Panel header"></header>
 
   <!-- =========================================================
-       ZONE B — HERO CTA
-       "TALK TO US" — massive, copper, centred.
-       Readable from 5 metres away.
+       ZONE B — Brand close + CTA
+       Logo as brand anchor, "Talk to Us" as the hero,
+       sub-line as the invitation.
        ========================================================= -->
   <section class="zone-b p8-hero" aria-label="Call to action">
 
+    <!-- Large logo: Panel 8 is the brand close of the entire wall -->
+    <div class="p8-logo-wrap">
+      <img
+        src="../assets/images/branding/Logo.png"
+        alt="Universal Metals Pakistan Limited"
+        class="p8-logo"
+        width="680"
+        height="auto"
+        onerror="this.style.display='none';"
+      >
+    </div>
+
+    <!-- Primary CTA -->
     <h1 class="p8-cta-heading">Talk to Us</h1>
+
+    <!-- Invitation sub-line -->
+    <p class="p8-sub">About Your Copper Supply Chain</p>
 
   </section>
 
   <!-- =========================================================
-       ZONE C — WEBSITE + QR CODE
-       URL large enough to read at distance.
-       QR code beneath — replace SVG below with a real QR before print.
+       ZONE C — Contact cards (two vCard QR codes)
+       Two contacts side by side. Each QR encodes a vCard —
+       scanning prompts the visitor's phone to save the contact.
+
+       ⚠ BEFORE PRINT: Replace both QR SVGs with real vCard QR codes.
+         Use any QR generator with the vCard format below:
+           BEGIN:VCARD
+           VERSION:3.0
+           FN:[Full Name]
+           ORG:Universal Metals Pakistan Limited
+           TITLE:[Job Title]
+           TEL;TYPE=WORK,VOICE:[+92 XX XXXXXXXXX]
+           EMAIL:[email@universalmetals.com.pk]
+           URL:https://universalmetals.com.pk
+           END:VCARD
        ========================================================= -->
   <section class="zone-c p8-contact-zone" aria-label="Contact details">
 
+    <!-- Section label -->
+    <p class="p8-scan-label">Scan to save our contact</p>
+
+    <!-- Two-card layout -->
+    <div class="p8-cards">
+
+      <!-- ─── Contact 1 ─── Replace QR with real vCard QR before print ─── -->
+      <article class="p8-card" aria-label="Contact person 1">
+
+        <div class="p8-qr-frame" role="img" aria-label="QR code — scan to save contact 1">
+          <!-- ⚠ PLACEHOLDER — replace with real vCard QR code SVG -->
+          <svg
+            class="p8-qr-svg"
+            width="560"
+            height="560"
+            viewBox="0 0 560 560"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <rect width="560" height="560" fill="#FFFFFF"/>
+            <!-- Top-left finder -->
+            <rect x="28"  y="28"  width="104" height="104" rx="7" fill="none" stroke="#1A1208" stroke-width="11"/>
+            <rect x="52"  y="52"  width="56"  height="56"  rx="4" fill="#1A1208"/>
+            <!-- Top-right finder -->
+            <rect x="428" y="28"  width="104" height="104" rx="7" fill="none" stroke="#1A1208" stroke-width="11"/>
+            <rect x="452" y="52"  width="56"  height="56"  rx="4" fill="#1A1208"/>
+            <!-- Bottom-left finder -->
+            <rect x="28"  y="428" width="104" height="104" rx="7" fill="none" stroke="#1A1208" stroke-width="11"/>
+            <rect x="52"  y="452" width="56"  height="56"  rx="4" fill="#1A1208"/>
+            <!-- Centre alignment -->
+            <rect x="252" y="252" width="56"  height="56"  rx="4" fill="none" stroke="#1A1208" stroke-width="7"/>
+            <rect x="266" y="266" width="28"  height="28"  rx="3" fill="#1A1208"/>
+            <!-- Data modules -->
+            <g fill="#1A1208" opacity="0.88">
+              <rect x="160" y="40"  width="22" height="22" rx="3"/>
+              <rect x="190" y="40"  width="22" height="22" rx="3"/>
+              <rect x="232" y="40"  width="22" height="22" rx="3"/>
+              <rect x="300" y="40"  width="22" height="22" rx="3"/>
+              <rect x="364" y="40"  width="22" height="22" rx="3"/>
+              <rect x="160" y="70"  width="22" height="22" rx="3"/>
+              <rect x="214" y="70"  width="22" height="22" rx="3"/>
+              <rect x="278" y="70"  width="22" height="22" rx="3"/>
+              <rect x="342" y="70"  width="22" height="22" rx="3"/>
+              <rect x="390" y="70"  width="22" height="22" rx="3"/>
+              <rect x="190" y="100" width="22" height="22" rx="3"/>
+              <rect x="232" y="100" width="22" height="22" rx="3"/>
+              <rect x="322" y="100" width="22" height="22" rx="3"/>
+              <rect x="364" y="100" width="22" height="22" rx="3"/>
+              <rect x="40"  y="160" width="22" height="22" rx="3"/>
+              <rect x="40"  y="192" width="22" height="22" rx="3"/>
+              <rect x="40"  y="236" width="22" height="22" rx="3"/>
+              <rect x="40"  y="280" width="22" height="22" rx="3"/>
+              <rect x="40"  y="324" width="22" height="22" rx="3"/>
+              <rect x="40"  y="366" width="22" height="22" rx="3"/>
+              <rect x="70"  y="160" width="22" height="22" rx="3"/>
+              <rect x="70"  y="214" width="22" height="22" rx="3"/>
+              <rect x="70"  y="302" width="22" height="22" rx="3"/>
+              <rect x="70"  y="366" width="22" height="22" rx="3"/>
+              <rect x="100" y="192" width="22" height="22" rx="3"/>
+              <rect x="100" y="258" width="22" height="22" rx="3"/>
+              <rect x="100" y="324" width="22" height="22" rx="3"/>
+              <rect x="452" y="160" width="22" height="22" rx="3"/>
+              <rect x="452" y="214" width="22" height="22" rx="3"/>
+              <rect x="452" y="280" width="22" height="22" rx="3"/>
+              <rect x="452" y="346" width="22" height="22" rx="3"/>
+              <rect x="482" y="192" width="22" height="22" rx="3"/>
+              <rect x="482" y="236" width="22" height="22" rx="3"/>
+              <rect x="482" y="302" width="22" height="22" rx="3"/>
+              <rect x="156" y="156" width="22" height="22" rx="3"/>
+              <rect x="190" y="190" width="22" height="22" rx="3"/>
+              <rect x="156" y="236" width="22" height="22" rx="3"/>
+              <rect x="200" y="280" width="22" height="22" rx="3"/>
+              <rect x="156" y="324" width="22" height="22" rx="3"/>
+              <rect x="190" y="368" width="22" height="22" rx="3"/>
+              <rect x="348" y="156" width="22" height="22" rx="3"/>
+              <rect x="392" y="200" width="22" height="22" rx="3"/>
+              <rect x="324" y="236" width="22" height="22" rx="3"/>
+              <rect x="370" y="280" width="22" height="22" rx="3"/>
+              <rect x="348" y="324" width="22" height="22" rx="3"/>
+              <rect x="392" y="368" width="22" height="22" rx="3"/>
+              <rect x="160" y="452" width="22" height="22" rx="3"/>
+              <rect x="212" y="452" width="22" height="22" rx="3"/>
+              <rect x="256" y="452" width="22" height="22" rx="3"/>
+              <rect x="322" y="452" width="22" height="22" rx="3"/>
+              <rect x="390" y="452" width="22" height="22" rx="3"/>
+              <rect x="438" y="452" width="22" height="22" rx="3"/>
+              <rect x="482" y="452" width="22" height="22" rx="3"/>
+              <rect x="160" y="482" width="22" height="22" rx="3"/>
+              <rect x="236" y="482" width="22" height="22" rx="3"/>
+              <rect x="280" y="482" width="22" height="22" rx="3"/>
+              <rect x="348" y="482" width="22" height="22" rx="3"/>
+              <rect x="414" y="482" width="22" height="22" rx="3"/>
+              <rect x="482" y="482" width="22" height="22" rx="3"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="p8-card-info">
+          <p class="p8-contact-name">Contact Name</p>
+          <p class="p8-contact-title">Chief Executive Officer</p>
+        </div>
+
+      </article>
+
+      <!-- Vertical separator -->
+      <div class="p8-card-sep" role="presentation" aria-hidden="true"></div>
+
+      <!-- ─── Contact 2 ─── Replace QR with real vCard QR before print ─── -->
+      <article class="p8-card" aria-label="Contact person 2">
+
+        <div class="p8-qr-frame" role="img" aria-label="QR code — scan to save contact 2">
+          <!-- ⚠ PLACEHOLDER — replace with real vCard QR code SVG -->
+          <svg
+            class="p8-qr-svg"
+            width="560"
+            height="560"
+            viewBox="0 0 560 560"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <rect width="560" height="560" fill="#FFFFFF"/>
+            <!-- Top-left finder -->
+            <rect x="28"  y="28"  width="104" height="104" rx="7" fill="none" stroke="#1A1208" stroke-width="11"/>
+            <rect x="52"  y="52"  width="56"  height="56"  rx="4" fill="#1A1208"/>
+            <!-- Top-right finder -->
+            <rect x="428" y="28"  width="104" height="104" rx="7" fill="none" stroke="#1A1208" stroke-width="11"/>
+            <rect x="452" y="52"  width="56"  height="56"  rx="4" fill="#1A1208"/>
+            <!-- Bottom-left finder -->
+            <rect x="28"  y="428" width="104" height="104" rx="7" fill="none" stroke="#1A1208" stroke-width="11"/>
+            <rect x="52"  y="452" width="56"  height="56"  rx="4" fill="#1A1208"/>
+            <!-- Centre alignment (slightly different pattern from card 1) -->
+            <rect x="246" y="246" width="68"  height="68"  rx="5" fill="none" stroke="#1A1208" stroke-width="8"/>
+            <rect x="264" y="264" width="32"  height="32"  rx="3" fill="#1A1208"/>
+            <!-- Data modules — different pattern from card 1 -->
+            <g fill="#1A1208" opacity="0.88">
+              <rect x="160" y="40"  width="22" height="22" rx="3"/>
+              <rect x="204" y="40"  width="22" height="22" rx="3"/>
+              <rect x="248" y="40"  width="22" height="22" rx="3"/>
+              <rect x="314" y="40"  width="22" height="22" rx="3"/>
+              <rect x="380" y="40"  width="22" height="22" rx="3"/>
+              <rect x="176" y="70"  width="22" height="22" rx="3"/>
+              <rect x="226" y="70"  width="22" height="22" rx="3"/>
+              <rect x="292" y="70"  width="22" height="22" rx="3"/>
+              <rect x="356" y="70"  width="22" height="22" rx="3"/>
+              <rect x="400" y="70"  width="22" height="22" rx="3"/>
+              <rect x="196" y="100" width="22" height="22" rx="3"/>
+              <rect x="240" y="100" width="22" height="22" rx="3"/>
+              <rect x="308" y="100" width="22" height="22" rx="3"/>
+              <rect x="374" y="100" width="22" height="22" rx="3"/>
+              <rect x="40"  y="160" width="22" height="22" rx="3"/>
+              <rect x="40"  y="202" width="22" height="22" rx="3"/>
+              <rect x="40"  y="244" width="22" height="22" rx="3"/>
+              <rect x="40"  y="286" width="22" height="22" rx="3"/>
+              <rect x="40"  y="330" width="22" height="22" rx="3"/>
+              <rect x="40"  y="374" width="22" height="22" rx="3"/>
+              <rect x="70"  y="174" width="22" height="22" rx="3"/>
+              <rect x="70"  y="220" width="22" height="22" rx="3"/>
+              <rect x="70"  y="308" width="22" height="22" rx="3"/>
+              <rect x="70"  y="374" width="22" height="22" rx="3"/>
+              <rect x="100" y="200" width="22" height="22" rx="3"/>
+              <rect x="100" y="268" width="22" height="22" rx="3"/>
+              <rect x="100" y="338" width="22" height="22" rx="3"/>
+              <rect x="452" y="160" width="22" height="22" rx="3"/>
+              <rect x="452" y="220" width="22" height="22" rx="3"/>
+              <rect x="452" y="290" width="22" height="22" rx="3"/>
+              <rect x="452" y="358" width="22" height="22" rx="3"/>
+              <rect x="482" y="186" width="22" height="22" rx="3"/>
+              <rect x="482" y="242" width="22" height="22" rx="3"/>
+              <rect x="482" y="314" width="22" height="22" rx="3"/>
+              <rect x="160" y="160" width="22" height="22" rx="3"/>
+              <rect x="196" y="196" width="22" height="22" rx="3"/>
+              <rect x="162" y="242" width="22" height="22" rx="3"/>
+              <rect x="206" y="286" width="22" height="22" rx="3"/>
+              <rect x="160" y="332" width="22" height="22" rx="3"/>
+              <rect x="196" y="376" width="22" height="22" rx="3"/>
+              <rect x="356" y="160" width="22" height="22" rx="3"/>
+              <rect x="398" y="206" width="22" height="22" rx="3"/>
+              <rect x="330" y="242" width="22" height="22" rx="3"/>
+              <rect x="376" y="288" width="22" height="22" rx="3"/>
+              <rect x="354" y="332" width="22" height="22" rx="3"/>
+              <rect x="398" y="376" width="22" height="22" rx="3"/>
+              <rect x="160" y="452" width="22" height="22" rx="3"/>
+              <rect x="218" y="452" width="22" height="22" rx="3"/>
+              <rect x="262" y="452" width="22" height="22" rx="3"/>
+              <rect x="330" y="452" width="22" height="22" rx="3"/>
+              <rect x="396" y="452" width="22" height="22" rx="3"/>
+              <rect x="444" y="452" width="22" height="22" rx="3"/>
+              <rect x="488" y="452" width="22" height="22" rx="3"/>
+              <rect x="166" y="482" width="22" height="22" rx="3"/>
+              <rect x="242" y="482" width="22" height="22" rx="3"/>
+              <rect x="286" y="482" width="22" height="22" rx="3"/>
+              <rect x="354" y="482" width="22" height="22" rx="3"/>
+              <rect x="420" y="482" width="22" height="22" rx="3"/>
+              <rect x="488" y="482" width="22" height="22" rx="3"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="p8-card-info">
+          <p class="p8-contact-name">Contact Name</p>
+          <p class="p8-contact-title">Sales Director</p>
+        </div>
+
+      </article>
+
+    </div><!-- /.p8-cards -->
+
+    <!-- Website URL beneath the cards -->
     <a
       href="https://www.universalmetals.com.pk"
       class="p8-url"
@@ -84,121 +295,8 @@
       universalmetals.com.pk
     </a>
 
-    <!-- QR code — replace this SVG with a real generated QR before final print export -->
-    <div class="p8-qr-wrap" role="img" aria-label="QR code — scan to visit universalmetals.com.pk">
-      <svg
-        class="p8-qr-svg"
-        width="600"
-        height="600"
-        viewBox="0 0 600 600"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <!-- White background -->
-        <rect width="600" height="600" fill="#FFFFFF"/>
-
-        <!-- ── Top-left finder pattern ── -->
-        <rect x="30"  y="30"  width="110" height="110" rx="8" fill="none" stroke="#1A1208" stroke-width="12"/>
-        <rect x="56"  y="56"  width="58"  height="58"  rx="4" fill="#1A1208"/>
-
-        <!-- ── Top-right finder pattern ── -->
-        <rect x="460" y="30"  width="110" height="110" rx="8" fill="none" stroke="#1A1208" stroke-width="12"/>
-        <rect x="486" y="56"  width="58"  height="58"  rx="4" fill="#1A1208"/>
-
-        <!-- ── Bottom-left finder pattern ── -->
-        <rect x="30"  y="460" width="110" height="110" rx="8" fill="none" stroke="#1A1208" stroke-width="12"/>
-        <rect x="56"  y="486" width="58"  height="58"  rx="4" fill="#1A1208"/>
-
-        <!-- ── Centre alignment pattern ── -->
-        <rect x="268" y="268" width="64"  height="64"  rx="5" fill="none" stroke="#1A1208" stroke-width="8"/>
-        <rect x="284" y="284" width="32"  height="32"  rx="3" fill="#1A1208"/>
-
-        <!-- ── Data modules (representational — replace with real QR before print) ── -->
-        <g fill="#1A1208" opacity="0.9">
-          <!-- Top strip between finders -->
-          <rect x="172" y="42"  width="24" height="24" rx="3"/>
-          <rect x="204" y="42"  width="24" height="24" rx="3"/>
-          <rect x="252" y="42"  width="24" height="24" rx="3"/>
-          <rect x="324" y="42"  width="24" height="24" rx="3"/>
-          <rect x="396" y="42"  width="24" height="24" rx="3"/>
-
-          <rect x="172" y="74"  width="24" height="24" rx="3"/>
-          <rect x="228" y="74"  width="24" height="24" rx="3"/>
-          <rect x="300" y="74"  width="24" height="24" rx="3"/>
-          <rect x="372" y="74"  width="24" height="24" rx="3"/>
-          <rect x="420" y="74"  width="24" height="24" rx="3"/>
-
-          <rect x="204" y="106" width="24" height="24" rx="3"/>
-          <rect x="252" y="106" width="24" height="24" rx="3"/>
-          <rect x="348" y="106" width="24" height="24" rx="3"/>
-          <rect x="396" y="106" width="24" height="24" rx="3"/>
-
-          <!-- Left strip (between top-left and bottom-left finders) -->
-          <rect x="42"  y="172" width="24" height="24" rx="3"/>
-          <rect x="42"  y="204" width="24" height="24" rx="3"/>
-          <rect x="42"  y="252" width="24" height="24" rx="3"/>
-          <rect x="42"  y="300" width="24" height="24" rx="3"/>
-          <rect x="42"  y="348" width="24" height="24" rx="3"/>
-          <rect x="42"  y="396" width="24" height="24" rx="3"/>
-          <rect x="74"  y="172" width="24" height="24" rx="3"/>
-          <rect x="74"  y="228" width="24" height="24" rx="3"/>
-          <rect x="74"  y="324" width="24" height="24" rx="3"/>
-          <rect x="74"  y="396" width="24" height="24" rx="3"/>
-          <rect x="106" y="204" width="24" height="24" rx="3"/>
-          <rect x="106" y="276" width="24" height="24" rx="3"/>
-          <rect x="106" y="348" width="24" height="24" rx="3"/>
-
-          <!-- Right strip -->
-          <rect x="486" y="172" width="24" height="24" rx="3"/>
-          <rect x="486" y="228" width="24" height="24" rx="3"/>
-          <rect x="486" y="300" width="24" height="24" rx="3"/>
-          <rect x="486" y="372" width="24" height="24" rx="3"/>
-          <rect x="514" y="204" width="24" height="24" rx="3"/>
-          <rect x="514" y="252" width="24" height="24" rx="3"/>
-          <rect x="514" y="324" width="24" height="24" rx="3"/>
-
-          <!-- Centre scatter -->
-          <rect x="168" y="168" width="24" height="24" rx="3"/>
-          <rect x="204" y="204" width="24" height="24" rx="3"/>
-          <rect x="168" y="252" width="24" height="24" rx="3"/>
-          <rect x="216" y="300" width="24" height="24" rx="3"/>
-          <rect x="168" y="348" width="24" height="24" rx="3"/>
-          <rect x="204" y="396" width="24" height="24" rx="3"/>
-          <rect x="372" y="168" width="24" height="24" rx="3"/>
-          <rect x="420" y="216" width="24" height="24" rx="3"/>
-          <rect x="348" y="252" width="24" height="24" rx="3"/>
-          <rect x="396" y="300" width="24" height="24" rx="3"/>
-          <rect x="372" y="348" width="24" height="24" rx="3"/>
-          <rect x="420" y="396" width="24" height="24" rx="3"/>
-
-          <!-- Bottom strip between bottom-left finder and right edge -->
-          <rect x="172" y="486" width="24" height="24" rx="3"/>
-          <rect x="228" y="486" width="24" height="24" rx="3"/>
-          <rect x="276" y="486" width="24" height="24" rx="3"/>
-          <rect x="348" y="486" width="24" height="24" rx="3"/>
-          <rect x="420" y="486" width="24" height="24" rx="3"/>
-          <rect x="468" y="486" width="24" height="24" rx="3"/>
-          <rect x="516" y="486" width="24" height="24" rx="3"/>
-
-          <rect x="172" y="516" width="24" height="24" rx="3"/>
-          <rect x="252" y="516" width="24" height="24" rx="3"/>
-          <rect x="300" y="516" width="24" height="24" rx="3"/>
-          <rect x="372" y="516" width="24" height="24" rx="3"/>
-          <rect x="444" y="516" width="24" height="24" rx="3"/>
-          <rect x="516" y="516" width="24" height="24" rx="3"/>
-        </g>
-      </svg>
-      <p class="p8-qr-caption">Scan to visit our website</p>
-    </div>
-
   </section>
 
-  <!-- =========================================================
-       ZONE D — EMAIL FOOTER
-       ========================================================= -->
-  <!-- =========================================================
-       BOTTOM ACCENT BAR
-       ========================================================= -->
   <div class="accent-bar accent-bar--bottom" role="presentation" aria-hidden="true"></div>
 
 </main>

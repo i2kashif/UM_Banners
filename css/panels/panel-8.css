@@ -1,24 +1,24 @@
 /*
- * panel-8.css — REDESIGNED (v2)
- * Banner 8: Contact CTA — Right Wall, Position 2 of 2 (final panel)
+ * panel-8.css — v3
+ * Banner 8: Contact CTA — Right Wall Final Panel | Universal Metals Pakistan Limited — CWIEME Berlin 2026
  *
- * Design concept: "Invitation close" — minimal, open, warm.
- *   One big verb. One URL. One QR code. That's it.
- *   No stand number (shown on shell scheme header above).
+ * Design concept: "The Warm Close"
+ *   This is the last thing visitors see. It should feel like an open door.
+ *   Zone B: Brand anchor (logo) + bold invitation ("Talk to Us") + sub-line.
+ *   Zone C: Two vCard QR contact cards side by side. URL beneath.
+ *   The panel is deliberately light and open — contrast to Panel 7's dark close.
  *
- * Structure:
- *   Zone A  — Logo top-right only                (90px – 783px)
- *   Zone B  — "TALK TO US" hero heading          (783px – 3644px)
- *   Zone C  — URL + QR code (with copper divider)(3750px – 6650px)
- *   Zone D  — Email footer (pinned to bottom)
+ * Zone A  — Empty header                                 (90px – 783px)
+ * Zone B  — Logo + CTA heading + sub-line               (783px – 3644px)
+ * Zone C  — Two vCard QR contact cards + URL            (3644px – 6650px)
  *
  * Right edge stripe: marks absolute end of the display wall.
- * Background: #FFFFFF
  */
 
 
 /* ============================================================
    PANEL BACKGROUND
+   Very slight warm tint — distinct from pure white of Zone B
    ============================================================ */
 
 #panel-8 {
@@ -28,18 +28,21 @@
 
 /* ============================================================
    RIGHT EDGE ACCENT STRIPE
-   Marks the END of the display wall.
    ============================================================ */
 
 #panel-8 .edge-stripe--right {
   width: 18px;
-  background: var(--copper-500);
+  background: linear-gradient(
+    to bottom,
+    var(--copper-300) 0%,
+    var(--copper-500) 40%,
+    var(--copper-700) 100%
+  );
 }
 
 
 /* ============================================================
-   ZONE A — HEADER
-   Logo only, kept top-right.
+   ZONE A — HEADER (empty)
    ============================================================ */
 
 #panel-8 .zone-a {
@@ -48,22 +51,9 @@
   justify-content: flex-end;
 }
 
-#panel-8 .zone-a-logo {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-#panel-8 .zone-a-logo .logo-image {
-  width: var(--logo-width-sm);
-  height: auto;
-}
-
 
 /* ============================================================
-   ZONE B — HERO CTA
-   "TALK TO US" — the biggest, boldest thing on the wall.
-   Readable from 5 metres away.
+   ZONE B — HERO: Logo + CTA + Sub-line
    ============================================================ */
 
 #panel-8 .p8-hero {
@@ -71,13 +61,28 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px var(--content-inset);
+  gap: 0;
+  padding: 100px var(--content-inset) 80px;
 }
 
+
+/* Logo — large brand anchor, Panel 8 is the brand close of the wall */
+#panel-8 .p8-logo-wrap {
+  margin-bottom: 120px;
+}
+
+#panel-8 .p8-logo {
+  display: block;
+  width: 680px;
+  height: auto;
+}
+
+
+/* Primary CTA heading */
 #panel-8 .p8-cta-heading {
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
-  font-size: 320px;
+  font-size: 300px;
   color: var(--text-copper-bold);
   text-transform: uppercase;
   letter-spacing: var(--ls-wide);
@@ -87,12 +92,12 @@
   margin: 0;
 }
 
-/* Copper underline beneath the CTA heading */
+/* Copper underline beneath heading */
 #panel-8 .p8-cta-heading::after {
   content: '';
   display: block;
-  margin: 80px auto 0;
-  width: 400px;
+  margin: 72px auto 0;
+  width: 380px;
   height: 6px;
   background: linear-gradient(
     to right,
@@ -106,9 +111,24 @@
 }
 
 
+/* Invitation sub-line */
+#panel-8 .p8-sub {
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  font-size: 90px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-align: center;
+  margin-top: 80px;
+}
+
+
 /* ============================================================
-   ZONE C — URL + QR CODE
-   Copper gradient divider at top (matches panels 3–7 pattern).
+   ZONE C — CONTACT CARDS
+   Warm cream background separates this zone from Zone B.
+   Two QR cards side by side. URL anchors the bottom.
    ============================================================ */
 
 #panel-8 .p8-contact-zone {
@@ -117,88 +137,131 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 120px;
-  padding: 120px var(--content-inset) 80px;
+  justify-content: space-evenly;
+  padding: 100px var(--content-inset) 80px;
 
-  /* Copper gradient separator at top */
-  border-top: 4px solid transparent;
-  background-image:
-    linear-gradient(var(--bg-white), var(--bg-white)),
-    linear-gradient(
-      to right,
-      transparent 0%,
-      var(--copper-300) 15%,
-      var(--copper-500) 50%,
-      var(--copper-300) 85%,
-      transparent 100%
-    );
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
+  background: var(--bg-white);
+
 }
 
-/* Website URL — large, readable from 3 metres */
-#panel-8 .p8-url {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: 120px;
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  line-height: 1;
-  text-decoration: none;
-  text-align: center;
-  text-rendering: geometricPrecision;
-}
 
-/* QR code wrapper — centres the SVG + caption */
-#panel-8 .p8-qr-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 48px;
-}
-
-/* QR code SVG — white background for scan reliability */
-#panel-8 .p8-qr-svg {
-  display: block;
-  border: 12px solid #1A1208;
-  border-radius: 16px;
-  background: #FFFFFF;
-  filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.10));
-}
-
-/* Caption beneath QR code */
-#panel-8 .p8-qr-caption {
+/* "Scan to save our contact" label above the cards */
+#panel-8 .p8-scan-label {
   font-family: var(--font-body);
-  font-weight: var(--fw-medium);
+  font-weight: var(--fw-semibold);
   font-size: 52px;
-  color: var(--text-secondary);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   text-align: center;
-  letter-spacing: 0.04em;
-  margin: 0;
 }
 
 
 /* ============================================================
-   ZONE D — EMAIL FOOTER
-   Pinned to panel bottom.
+   CONTACT CARD ROW
    ============================================================ */
 
-#panel-8 .zone-d {
-  top: auto;
-  bottom: var(--content-inset);
-  height: auto;
+#panel-8 .p8-cards {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
-  justify-content: flex-end;
-  padding-bottom: 40px;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
 }
 
-#panel-8 .zone-d .contact-row {
-  justify-content: flex-start;
-  border-top-color: var(--copper-300);
-  width: 100%;
+
+/* Individual contact card */
+#panel-8 .p8-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 72px;
+  flex: 1;
+  padding: 0 80px;
+}
+
+
+/* QR code frame */
+#panel-8 .p8-qr-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#panel-8 .p8-qr-svg {
+  display: block;
+  border: 10px solid #1A1208;
+  border-radius: 16px;
+  background: #FFFFFF;
+  box-shadow: 0 8px 40px rgba(139,74,40,0.12);
+}
+
+
+/* Contact name + title beneath QR */
+#panel-8 .p8-card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+#panel-8 .p8-contact-name {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 100px;
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.0;
+  text-rendering: geometricPrecision;
+}
+
+#panel-8 .p8-contact-title {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: 52px;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+
+/* Vertical separator between the two cards */
+#panel-8 .p8-card-sep {
+  width: 3px;
+  align-self: stretch;
+  margin: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--copper-200) 20%,
+    var(--copper-300) 50%,
+    var(--copper-200) 80%,
+    transparent 100%
+  );
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   WEBSITE URL
+   Anchors the bottom of Zone C.
+   ============================================================ */
+
+#panel-8 .p8-url {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: 96px;
+  color: var(--copper-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
+  text-rendering: geometricPrecision;
+  opacity: 0.85;
 }

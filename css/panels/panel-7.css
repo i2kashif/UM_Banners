@@ -1,19 +1,22 @@
 /*
- * panel-7.css — REDESIGNED (v2)
- * Banner 7: Why Us — Bold Statement Stack | Universal Metals Pakistan Limited — CWIEME Berlin 2026
+ * panel-7.css — v5
+ * Banner 7: Why Us — 5-Point Credentials | Universal Metals Pakistan Limited — CWIEME Berlin 2026
  *
- * Design concept: "Glance-readable credentials" — no body copy, no specs.
- *   Each line is one fact, readable at trade show distance in 1–2 seconds.
- *   Barlow Condensed Bold, copper on white, full-width centred.
+ * Design concept: "Five Facts. Full Stop."
+ *   One unified white panel. No background splits.
+ *   Each of the 5 points is one scannable fact, readable at 5 metres.
+ *   Copper gradient border-top on zone C is the only visual separator.
  *
- * Structure:
- *   Zone A  — Logo top-right only                              (90px – 783px)
- *   Zone B  — 3 credential statements: market claim, CCR, sustainability (783px – 3644px)
- *   Zone C  — 2 credential statements: EU duty, certifications (3750px – 6650px)
- *   Zone D  — Footer URL (pinned to panel bottom)
+ * Points:
+ *   1. GSP+ Certified / Zero EU Import Duty (+ cert sub-line)
+ *   2. Pakistan's Largest / Copper Rod, Enamelled Wire & / Paper Covered Strip Producer
+ *   3. 2 × Properzi CCR Lines / Copper & Aluminium
+ *   4. Sustainably Produced / From Recycled Copper + stat row
+ *   5. 5 NewTech Enamelling Lines / Copper & Aluminium
  *
- * Left edge stripe: marks start of the right wall.
- * Background: #FFFFFF
+ * Zone A  — Empty header                         (90px – 783px)
+ * Zone B  — Points 1, 2, 3                       (783px – 3644px)
+ * Zone C  — Points 4, 5 (override 3750px)        (3750px – 6650px)
  */
 
 
@@ -28,7 +31,6 @@
 
 /* ============================================================
    LEFT EDGE ACCENT STRIPE
-   Marks the START of the right wall.
    ============================================================ */
 
 #panel-7 .edge-stripe--left {
@@ -39,98 +41,66 @@
 
 /* ============================================================
    ZONE A — HEADER
-   Logo only, kept top-right.
    ============================================================ */
 
 #panel-7 .zone-a {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
-#panel-7 .zone-a-logo {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-#panel-7 .zone-a-logo .logo-image {
-  width: var(--logo-width-sm);
-  height: auto;
+#panel-7 .p7-heading {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h1);
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  line-height: var(--lh-heading);
+  text-rendering: geometricPrecision;
 }
 
 
 /* ============================================================
-   CREDENTIAL STACK ZONES
-   Both zone-b and zone-c share this column layout.
-   Statements distribute evenly within each zone.
+   ALL 5 POINTS — single flex container spanning full content area
+   (zone B start 783px → zone C end 6650px = 5867px total)
+   space-evenly distributes all points uniformly — no cross-zone gap.
    ============================================================ */
 
-#panel-7 .p7-stack {
+#panel-7 .p7-points {
+  position: absolute;
+  top: 783px;
+  left: var(--content-inset);
+  right: var(--content-inset);
+  height: 5867px;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-}
-
-#panel-7 .zone-b {
-  padding: 100px var(--content-inset);
-}
-
-/* Zone C — matches panels 3–6 copper gradient divider pattern */
-#panel-7 .zone-c {
-  top: 3750px;
-  height: 2900px;
-  padding: 120px var(--content-inset) 100px;
-
-  /* Copper gradient separator at top */
-  border-top: 4px solid transparent;
-  background-image:
-    linear-gradient(var(--bg-white), var(--bg-white)),
-    linear-gradient(
-      to right,
-      transparent 0%,
-      var(--copper-300) 15%,
-      var(--copper-500) 50%,
-      var(--copper-300) 85%,
-      transparent 100%
-    );
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
+  padding: 60px 0;
 }
 
 
 /* ============================================================
-   CREDENTIAL STATEMENT BLOCKS
-   Each block is one scannable fact.
+   STATEMENT BLOCKS
+   Each block = one credential point.
    ============================================================ */
 
 #panel-7 .p7-statement {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0;
   text-align: center;
+  gap: 0;
 }
 
-#panel-7 .p7-line {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-wide);
-  line-height: 1.02;
-  text-rendering: geometricPrecision;
-}
-
-/* Copper underline accent after each statement (except tier 3) */
-#panel-7 .p7-statement--tier1::after,
-#panel-7 .p7-statement--tier2::after {
+/* Copper underline after each statement */
+#panel-7 .p7-statement::after {
   content: '';
   display: block;
-  margin: 56px auto 0;
-  width: 240px;
+  margin: 52px auto 0;
+  width: 260px;
   height: 5px;
   background: linear-gradient(
     to right,
@@ -143,48 +113,85 @@
   border-radius: 3px;
 }
 
+/* Sustainability point: stat row replaces the underline */
+#panel-7 .p7-statement--sustainability::after {
+  display: none;
+}
+
 
 /* ============================================================
-   FONT SIZE TIERS
+   TYPE LINES
    ============================================================ */
 
-/* Tier 1 — market leadership headline, largest */
-#panel-7 .p7-statement--tier1 .p7-line {
-  font-size: 185px;
+#panel-7 .p7-line {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  text-rendering: geometricPrecision;
+  line-height: 1.04;
 }
 
-/* Tier 2 — key facts */
-#panel-7 .p7-statement--tier2 .p7-line {
-  font-size: 140px;
+/* Main line — the primary claim of each point */
+#panel-7 .p7-line--main {
+  font-size: 155px;
+  color: var(--text-copper-bold);
 }
 
-/* Tier 3 — certifications: smaller, lighter copper tone */
-#panel-7 .p7-statement--tier3 .p7-line {
-  font-size: 96px;
+/* Sub-line — supporting detail beneath the main claim */
+#panel-7 .p7-line--sub {
+  font-size: 110px;
   color: var(--copper-500);
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  margin-top: 8px;
 }
 
 
 /* ============================================================
-   ZONE D — FOOTER
-   Pinned to panel bottom.
+   CERTIFICATION SUB-LINE (Point 1 only)
+   ISO / CE compact text beneath Zero EU Import Duty.
    ============================================================ */
 
-#panel-7 .zone-d {
-  top: auto;
-  bottom: var(--content-inset);
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding-bottom: 40px;
+#panel-7 .p7-certs {
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: 46px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 36px;
+  line-height: 1;
 }
 
-#panel-7 .zone-d .contact-row {
-  justify-content: flex-start;
-  border-top-color: var(--copper-300);
-  width: 100%;
+
+/* ============================================================
+   SUSTAINABILITY STAT ROW (Point 4 only)
+   Three verifiable numbers from universalmetals.com.pk
+   ============================================================ */
+
+#panel-7 .p7-stat-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 36px;
+  margin-top: 52px;
+}
+
+#panel-7 .p7-stat-item {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: 72px;
+  color: var(--copper-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-rendering: geometricPrecision;
+}
+
+#panel-7 .p7-stat-sep {
+  font-family: var(--font-display);
+  font-size: 72px;
+  color: var(--copper-300);
+  line-height: 1;
 }
