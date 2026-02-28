@@ -54,8 +54,11 @@
       <span class="p7-card-ghost" aria-hidden="true">02</span>
       <div class="p7-card-body">
         <span class="p7-line p7-line--main">Pakistan's Largest</span>
-        <span class="p7-line p7-line--sub">Copper Rod, Enamelled Wire &</span>
-        <span class="p7-line p7-line--sub">Paper Covered Strip Producer</span>
+        <div class="p7-product-tags">
+          <span class="p7-product-tag">Copper Rod</span>
+          <span class="p7-product-tag">Enamelled Wire</span>
+          <span class="p7-product-tag">Paper Covered Strip</span>
+        </div>
       </div>
     </article>
 
@@ -72,14 +75,96 @@
     <article class="p7-card" aria-label="Sustainably produced from recycled copper">
       <span class="p7-card-ghost" aria-hidden="true">04</span>
       <div class="p7-card-body p7-card-body--sustainability">
+
         <span class="p7-line p7-line--main">Sustainably Produced</span>
         <span class="p7-line p7-line--sub">From Recycled Copper</span>
-        <div class="p7-stat-row" aria-label="Sustainability statistics">
-          <span class="p7-stat-item">85% Less CO₂</span>
-          <span class="p7-stat-sep" aria-hidden="true">·</span>
-          <span class="p7-stat-item">100% Recyclable</span>
-          <span class="p7-stat-sep" aria-hidden="true">·</span>
-          <span class="p7-stat-item">3.9t CO₂ Saved / Tonne</span>
+
+        <div class="p7-rings-row" aria-label="Sustainability statistics">
+
+          <!-- Ring 1 — 85% Less CO₂ -->
+          <div class="p7-ring-wrap">
+            <svg class="p7-ring-svg" width="540" height="540" viewBox="0 0 540 540" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="rg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#F5B880"/>
+                  <stop offset="100%" stop-color="#8B4A28"/>
+                </linearGradient>
+              </defs>
+              <!-- Track -->
+              <circle cx="270" cy="270" r="220" fill="none" stroke="#F5B880" stroke-width="14" opacity="0.25"/>
+              <!-- Arc: 85% fill, starts from 12 o'clock -->
+              <circle cx="270" cy="270" r="220" fill="none"
+                stroke="url(#rg1)" stroke-width="20" stroke-linecap="round"
+                stroke-dasharray="1382.30" stroke-dashoffset="207.35"
+                transform="rotate(-90 270 270)"/>
+              <!-- Number -->
+              <text x="270" y="262" text-anchor="middle"
+                font-family="'Barlow Condensed', sans-serif" font-weight="800" font-size="168"
+                fill="#8B4A28">85</text>
+              <!-- Unit -->
+              <text x="270" y="348" text-anchor="middle"
+                font-family="'Barlow Condensed', sans-serif" font-weight="700" font-size="62"
+                fill="#CE7340">%</text>
+            </svg>
+            <p class="p7-ring-label">Less CO₂</p>
+          </div>
+
+          <!-- Ring 2 — 100% Recyclable -->
+          <div class="p7-ring-wrap">
+            <svg class="p7-ring-svg" width="540" height="540" viewBox="0 0 540 540" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="rg2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#F5B880"/>
+                  <stop offset="100%" stop-color="#8B4A28"/>
+                </linearGradient>
+              </defs>
+              <!-- Track (hidden — 100% fills completely) -->
+              <circle cx="270" cy="270" r="220" fill="none" stroke="#F5B880" stroke-width="14" opacity="0.25"/>
+              <!-- Arc: 100% fill -->
+              <circle cx="270" cy="270" r="220" fill="none"
+                stroke="url(#rg2)" stroke-width="20" stroke-linecap="round"
+                stroke-dasharray="1382.30" stroke-dashoffset="0"
+                transform="rotate(-90 270 270)"/>
+              <!-- Number -->
+              <text x="270" y="268" text-anchor="middle"
+                font-family="'Barlow Condensed', sans-serif" font-weight="800" font-size="130"
+                fill="#8B4A28">100</text>
+              <!-- Unit -->
+              <text x="270" y="348" text-anchor="middle"
+                font-family="'Barlow Condensed', sans-serif" font-weight="700" font-size="62"
+                fill="#CE7340">%</text>
+            </svg>
+            <p class="p7-ring-label">Recyclable</p>
+          </div>
+
+          <!-- Ring 3 — 3.9t CO₂ Saved -->
+          <div class="p7-ring-wrap">
+            <svg class="p7-ring-svg" width="540" height="540" viewBox="0 0 540 540" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="rg3" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#F5B880"/>
+                  <stop offset="100%" stop-color="#8B4A28"/>
+                </linearGradient>
+              </defs>
+              <!-- Track -->
+              <circle cx="270" cy="270" r="220" fill="none" stroke="#F5B880" stroke-width="14" opacity="0.25"/>
+              <!-- Arc: ~78% fill (decorative for absolute value) -->
+              <circle cx="270" cy="270" r="220" fill="none"
+                stroke="url(#rg3)" stroke-width="20" stroke-linecap="round"
+                stroke-dasharray="1382.30" stroke-dashoffset="304.11"
+                transform="rotate(-90 270 270)"/>
+              <!-- Number -->
+              <text x="270" y="262" text-anchor="middle"
+                font-family="'Barlow Condensed', sans-serif" font-weight="800" font-size="168"
+                fill="#8B4A28">3.9</text>
+              <!-- Unit -->
+              <text x="270" y="348" text-anchor="middle"
+                font-family="'Barlow Condensed', sans-serif" font-weight="700" font-size="52"
+                fill="#CE7340">TONNES</text>
+            </svg>
+            <p class="p7-ring-label">CO₂ Saved / Tonne</p>
+          </div>
+
         </div>
       </div>
     </article>
@@ -97,14 +182,11 @@
     <article class="p7-card" aria-label="International certifications">
       <span class="p7-card-ghost" aria-hidden="true">06</span>
       <div class="p7-card-body p7-card-body--sustainability">
-        <div class="p7-cert-row">
-          <span class="p7-cert-item">ISO 9001:2015</span>
-          <span class="p7-cert-sep" aria-hidden="true">·</span>
-          <span class="p7-cert-item">ISO 14001:2015</span>
-          <span class="p7-cert-sep" aria-hidden="true">·</span>
-          <span class="p7-cert-item">ISO 45001:2018</span>
-          <span class="p7-cert-sep" aria-hidden="true">·</span>
-          <span class="p7-cert-item">CE Mark</span>
+        <div class="p7-cert-grid">
+          <span class="p7-cert-tile">ISO 9001:2015</span>
+          <span class="p7-cert-tile">ISO 14001:2015</span>
+          <span class="p7-cert-tile">ISO 45001:2018</span>
+          <span class="p7-cert-tile">CE Mark</span>
         </div>
       </div>
     </article>
