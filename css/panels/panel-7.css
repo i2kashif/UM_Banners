@@ -205,103 +205,87 @@
 
 
 /* ============================================================
-   PRODUCT TAGS (Card 2)
-   Three product categories as chip-style tags beneath the heading.
+   PRODUCT PILLARS (Card 1 — Pakistan's Largest)
+   Three product columns with icon + name, full card width.
    ============================================================ */
 
-#panel-7 .p7-product-tags {
+#panel-7 .p7-pillars {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
-  justify-content: center;
-  gap: 36px;
-  margin-top: 48px;
   width: 100%;
+  margin-top: 60px;
 }
 
-#panel-7 .p7-product-tag {
+#panel-7 .p7-pillar {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 80px 60px;
+  gap: 48px;
   position: relative;
-  font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  font-size: 76px;
-  color: var(--text-copper-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-wide);
-  line-height: 1.1;
-  text-align: center;
-  text-rendering: geometricPrecision;
-  padding: 48px 40px;
-  border: 1.5px solid rgba(139, 74, 40, 0.18);
-  box-shadow: 0 2px 20px rgba(139, 74, 40, 0.05);
+  border: 1px solid rgba(139, 74, 40, 0.12);
+  background: rgba(250, 248, 245, 0.6);
 }
 
-/* Copper top stripe on each tag — mirrors the main cards */
-#panel-7 .p7-product-tag::before {
+#panel-7 .p7-pillar + .p7-pillar {
+  border-left: none;
+}
+
+/* Copper top stripe on each pillar */
+#panel-7 .p7-pillar::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 6px;
   background: linear-gradient(
     to right,
     var(--copper-300) 0%,
-    var(--copper-500) 50%,
-    var(--copper-300) 100%
+    var(--copper-700) 100%
   );
 }
 
-
-/* ============================================================
-   CERT GRID (Card 6)
-   2×2 grid of certification tiles.
-   ============================================================ */
-
-#panel-7 .p7-cert-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  width: 100%;
-  margin-top: 0;
+#panel-7 .p7-pillar-icon {
+  display: block;
 }
 
-#panel-7 .p7-cert-tile {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#panel-7 .p7-pillar-name {
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
   font-size: 88px;
   color: var(--text-copper-bold);
   text-transform: uppercase;
   letter-spacing: var(--ls-wide);
-  line-height: 1;
+  line-height: 1.1;
   text-align: center;
   text-rendering: geometricPrecision;
-  padding: 52px 40px;
-  border: 1.5px solid rgba(139, 74, 40, 0.18);
-  box-shadow: 0 2px 20px rgba(139, 74, 40, 0.05);
 }
 
-/* Copper top stripe on each cert tile */
-#panel-7 .p7-cert-tile::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: linear-gradient(
-    to right,
-    var(--copper-300) 0%,
-    var(--copper-500) 50%,
-    var(--copper-300) 100%
-  );
+/* Hide underline on pillar card body — pillars have their own top stripes */
+#panel-7 .p7-card-body--pillars::after {
+  display: none;
+}
+
+
+/* ============================================================
+   CERTIFICATION SEALS (Card 3)
+   2×2 grid of circular cert stamp images.
+   ============================================================ */
+
+#panel-7 .p7-seals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  width: 100%;
+  max-width: 2100px;
+  margin: 60px auto 0;
+}
+
+#panel-7 .p7-seal-img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 

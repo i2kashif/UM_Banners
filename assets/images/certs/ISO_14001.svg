@@ -1,33 +1,59 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="ISO 14001 Environmental Management System certification badge">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="ISO 14001:2015 Environmental Management System">
   <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&amp;display=swap');</style>
     <linearGradient id="bg14001" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#FDE8D0"/>
       <stop offset="100%" stop-color="#FAF8F5"/>
     </linearGradient>
-    <!-- Top arc: bows upward for "ISO 14001 : 2015" text -->
-    <path id="arc14001-top" d="M 24,100 A 76,76 0 0 1 176,100"/>
-    <!-- Bottom arc: bows downward through (100,164) for "CERTIFIED" text -->
-    <path id="arc14001-bot" d="M 36,100 A 64,64 0 0 0 164,100"/>
+    <linearGradient id="ring14001" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5B880"/>
+      <stop offset="100%" stop-color="#8B4A28"/>
+    </linearGradient>
   </defs>
-  <!-- Background fill -->
-  <circle cx="100" cy="100" r="98" fill="url(#bg14001)"/>
-  <!-- Outer border ring -->
-  <circle cx="100" cy="100" r="98" fill="none" stroke="#8B4A28" stroke-width="3"/>
-  <!-- Inner accent ring -->
-  <circle cx="100" cy="100" r="86" fill="none" stroke="#CE7340" stroke-width="1.5"/>
-  <!-- Inner ring -->
-  <circle cx="100" cy="100" r="78" fill="none" stroke="#B2673E" stroke-width="2"/>
-  <!-- "ISO 14001 : 2015" on top arc -->
-  <text font-family="Arial, sans-serif" font-weight="700" font-size="13" fill="#8B4A28" letter-spacing="0.5" text-anchor="middle">
-    <textPath xlink:href="#arc14001-top" href="#arc14001-top" startOffset="50%">ISO 14001 : 2015</textPath>
-  </text>
-  <!-- Large standard number centred -->
-  <text x="100" y="96" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="28" fill="#B2673E" letter-spacing="-1">14001</text>
-  <!-- Descriptor lines -->
-  <text x="100" y="116" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="11" fill="#1A1208" letter-spacing="1.5">ENVIRONMENTAL</text>
-  <text x="100" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-weight="500" font-size="10" fill="#4A3728" letter-spacing="1">MANAGEMENT</text>
-  <!-- "CERTIFIED" on bottom arc -->
-  <text font-family="Arial, sans-serif" font-weight="600" font-size="11" fill="#CE7340" letter-spacing="2" text-anchor="middle">
-    <textPath xlink:href="#arc14001-bot" href="#arc14001-bot" startOffset="50%">CERTIFIED</textPath>
-  </text>
+
+  <!-- Background -->
+  <circle cx="100" cy="100" r="97" fill="url(#bg14001)"/>
+
+  <!-- Ring 1 — outer gradient, r=96 -->
+  <circle cx="100" cy="100" r="96" fill="none" stroke="url(#ring14001)" stroke-width="4"/>
+  <!-- Ring 2 — dashed accent, r=84 (12px gap from outer) -->
+  <circle cx="100" cy="100" r="84" fill="none" stroke="#CE7340" stroke-width="1" stroke-dasharray="3 5" opacity="0.5"/>
+  <!-- Ring 3 — inner solid, r=73 (11px gap from dashed) — ALL TEXT STAYS INSIDE THIS -->
+  <circle cx="100" cy="100" r="73" fill="none" stroke="#B2673E" stroke-width="1.5"/>
+
+  <!-- Standard body label — y=49, distance from centre=51, within r=73 -->
+  <text x="100" y="49" text-anchor="middle"
+        font-family="'Barlow Condensed', Arial, sans-serif"
+        font-weight="600" font-size="12" fill="#CE7340" letter-spacing="4">ISO</text>
+
+  <!-- Short rule below "ISO" -->
+  <line x1="84" y1="61" x2="116" y2="61" stroke="#CE7340" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- Standard number — y=102, font 35px, baseline well-centred -->
+  <text x="100" y="102" text-anchor="middle"
+        font-family="'Barlow Condensed', Arial, sans-serif"
+        font-weight="800" font-size="35" fill="#B2673E">14001</text>
+
+  <!-- Year — y=118 -->
+  <text x="100" y="118" text-anchor="middle"
+        font-family="'Barlow Condensed', Arial, sans-serif"
+        font-weight="600" font-size="14" fill="#8B4A28">: 2015</text>
+
+  <!-- Rule between number block and description -->
+  <line x1="62" y1="128" x2="138" y2="128" stroke="#CE7340" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Domain line 1 — y=140, distance=40, chord=122px -->
+  <text x="100" y="140" text-anchor="middle"
+        font-family="'Barlow Condensed', Arial, sans-serif"
+        font-weight="700" font-size="10" fill="#1A1208" letter-spacing="1">ENVIRONMENTAL</text>
+
+  <!-- Domain line 2 — y=151, distance=51, chord=104px -->
+  <text x="100" y="151" text-anchor="middle"
+        font-family="'Barlow Condensed', Arial, sans-serif"
+        font-weight="500" font-size="9.5" fill="#4A3728" letter-spacing="1">MANAGEMENT</text>
+
+  <!-- CERTIFIED — y=160, distance=60, chord=83px — text (~70px) fits with 6.5px margin each side -->
+  <text x="100" y="160" text-anchor="middle"
+        font-family="'Barlow Condensed', Arial, sans-serif"
+        font-weight="700" font-size="9.5" fill="#CE7340" letter-spacing="1.5">· CERTIFIED ·</text>
 </svg>

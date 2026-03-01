@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1500">
+  <title>Panel 7 — Card Design Options · Universal Metals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c100: #FDF3E7;
+      --c200: #FAE0C0;
+      --c300: #F5B880;
+      --c500: #CE7340;
+      --c700: #8B4A28;
+      --c900: #3D1F0D;
+      --cream: #FAF8F5;
+      --white: #FFFFFF;
+      --bg: #100C06;
+      --border: rgba(245,184,128,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow Condensed', sans-serif;
+      background: var(--bg);
+      color: var(--cream);
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    /* ── Page Header ─────────────────────────────────── */
+    .page-header {
+      background: linear-gradient(to bottom, #1E150A, var(--bg));
+      border-bottom: 1px solid var(--border);
+      padding: 52px 64px 40px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .page-title-group {}
+
+    .page-eyebrow {
+      font-family: 'Barlow', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--c500);
+      margin-bottom: 10px;
+    }
+
+    .page-title {
+      font-size: 52px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--c300);
+      line-height: 1;
+    }
+
+    .page-subtitle {
+      font-size: 20px;
+      font-weight: 400;
+      color: rgba(245,184,128,0.45);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    .page-nav {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c500);
+      text-decoration: none;
+      padding: 8px 18px;
+      border: 1px solid rgba(139,74,40,0.4);
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .nav-link:hover {
+      border-color: var(--c300);
+      color: var(--c300);
+    }
+
+    /* ── Page Content ────────────────────────────────── */
+    .page-content {
+      padding: 64px 64px 100px;
+      max-width: 1600px;
+    }
+
+    /* ── Section ─────────────────────────────────────── */
+    .section {
+      margin-bottom: 96px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-chip {
+      font-family: 'Barlow', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--c700);
+      background: rgba(139,74,40,0.2);
+      border: 1px solid rgba(139,74,40,0.35);
+      padding: 4px 10px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--c300);
+    }
+
+    /* ── Options Grid ─────────────────────────────────── */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+
+    .option-col {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .option-meta {}
+
+    .option-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .option-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(139,74,40,0.25);
+      border: 1.5px solid rgba(139,74,40,0.5);
+      color: var(--c300);
+      font-size: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .option-name {
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--cream);
+    }
+
+    .recommend-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(206,115,64,0.15);
+      border: 1px solid rgba(206,115,64,0.4);
+      border-radius: 2px;
+      padding: 3px 8px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--c300);
+      margin-left: 4px;
+    }
+
+    .recommend-pill::before { content: '★'; font-size: 9px; }
+
+    .option-desc {
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(245,184,128,0.5);
+    }
+
+    /* ── Card Preview Shell ───────────────────────────── */
+    .card-preview {
+      position: relative;
+      background: var(--white);
+      border: 1.5px solid rgba(139,74,40,0.2);
+      box-shadow: 0 8px 48px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3);
+      overflow: hidden;
+      padding: 40px 36px 44px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .card-preview::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 7px;
+      background: linear-gradient(to right,
+        var(--c300) 0%, var(--c700) 30%, var(--c900) 50%, var(--c700) 70%, var(--c300) 100%);
+    }
+
+    .card-ghost-num {
+      position: absolute;
+      bottom: 4px;
+      right: 12px;
+      font-weight: 800;
+      font-size: 130px;
+      line-height: 1;
+      color: var(--c500);
+      opacity: 0.07;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.02em;
+    }
+
+    .card-heading {
+      font-size: 46px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--c700);
+      text-align: center;
+      line-height: 1;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-subheading {
+      font-size: 28px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--c500);
+      text-align: center;
+      line-height: 1;
+      position: relative;
+      z-index: 2;
+      margin-top: -12px;
+    }
+
+    .card-rule {
+      width: 80px;
+      height: 3px;
+      border-radius: 2px;
+      background: linear-gradient(to right, transparent, var(--c500), transparent);
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-body {
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+
+    /* ═══════════════════════════════════════════════════
+       CARD 6 — OPTION A: CERTIFICATION SEALS
+       ═══════════════════════════════════════════════════ */
+    .seals-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .seal-svg { display: block; width: 100%; border-radius: 50%; }
+
+
+    /* ═══════════════════════════════════════════════════
+       CARD 6 — OPTION B: ENGRAVED PLATES
+       ═══════════════════════════════════════════════════ */
+    .plates-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .engraved-plate {
+      background: var(--c900);
+      border: 2px solid var(--c700);
+      padding: 22px 16px 18px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 5px;
+    }
+
+    .engraved-plate::after {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px solid rgba(245,184,128,0.12);
+      pointer-events: none;
+    }
+
+    .plate-corner {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--c700);
+      opacity: 0.7;
+    }
+    .plate-corner--tl { top: 5px; left: 5px; }
+    .plate-corner--tr { top: 5px; right: 5px; }
+    .plate-corner--bl { bottom: 5px; left: 5px; }
+    .plate-corner--br { bottom: 5px; right: 5px; }
+
+    .plate-standard {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      color: var(--c500);
+      text-transform: uppercase;
+    }
+
+    .plate-number {
+      font-size: 28px;
+      font-weight: 800;
+      color: #F5EDE6;
+      letter-spacing: 0.01em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .plate-desc {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: var(--c500);
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+
+    /* ═══════════════════════════════════════════════════
+       CARD 6 — OPTION C: RIBBON BANNERS
+       ═══════════════════════════════════════════════════ */
+    .ribbon-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .ribbon-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 22px;
+    }
+
+    .ribbon-banner:nth-child(1) { background: linear-gradient(100deg, #5E2E10, #8B4A28); }
+    .ribbon-banner:nth-child(2) { background: linear-gradient(100deg, #7A3E22, #B05830); }
+    .ribbon-banner:nth-child(3) { background: linear-gradient(100deg, #9E4E28, #CE7340); }
+    .ribbon-banner:nth-child(4) { background: linear-gradient(100deg, #CE7340, #E8924A); }
+
+    .ribbon-left { display: flex; flex-direction: column; gap: 2px; }
+
+    .ribbon-eyebrow {
+      font-family: 'Barlow', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .ribbon-name {
+      font-size: 24px;
+      font-weight: 800;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+
+    .ribbon-desc {
+      font-family: 'Barlow', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .ribbon-icon {
+      flex-shrink: 0;
+      opacity: 0.5;
+    }
+
+
+    /* ═══════════════════════════════════════════════════
+       CARD 2 — OPTION A: RANKED PODIUM BARS
+       ═══════════════════════════════════════════════════ */
+    .ranked-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .ranked-bar {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding-left: 24px;
+    }
+
+    .ranked-bar:nth-child(1) {
+      height: 76px;
+      background: linear-gradient(to right, var(--c900), var(--c700));
+    }
+    .ranked-bar:nth-child(2) {
+      height: 62px;
+      background: linear-gradient(to right, #6B3318, #A85830);
+    }
+    .ranked-bar:nth-child(3) {
+      height: 52px;
+      background: linear-gradient(to right, #5A2A12, #8B4A28);
+    }
+
+    .ranked-bar-name {
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: white;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ranked-bar-ghost {
+      position: absolute;
+      right: -4px;
+      font-size: 80px;
+      font-weight: 800;
+      color: white;
+      opacity: 0.06;
+      line-height: 1;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .ranked-bar-tag {
+      position: absolute;
+      right: 18px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      z-index: 2;
+    }
+
+    .ranked-bar-num {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: var(--c300);
+      opacity: 0.6;
+    }
+
+
+    /* ═══════════════════════════════════════════════════
+       CARD 2 — OPTION B: TRIPART PILLARS
+       ═══════════════════════════════════════════════════ */
+    .pillars-row {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+
+    .pillar {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 28px 16px 24px;
+      gap: 18px;
+      border: 1px solid rgba(139,74,40,0.15);
+      position: relative;
+      background: #FEFCFA;
+    }
+
+    .pillar + .pillar { border-left: none; }
+
+    .pillar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(to right, var(--c300), var(--c700));
+    }
+
+    .pillar-name {
+      font-size: 17px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--c700);
+      text-align: center;
+      line-height: 1.2;
+    }
+
+
+    /* ═══════════════════════════════════════════════════
+       CARD 2 — OPTION C: DIAGONAL CHEVRONS
+       ═══════════════════════════════════════════════════ */
+    .chevrons-row {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 140px;
+    }
+
+    .chevron-panel {
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-right: -18px;
+    }
+
+    .chevron-panel:nth-child(1) {
+      background: var(--c900);
+      clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 50%, calc(100% - 22px) 100%, 0 100%);
+      z-index: 3;
+    }
+    .chevron-panel:nth-child(2) {
+      background: var(--c700);
+      clip-path: polygon(22px 0, calc(100% - 22px) 0, 100% 50%, calc(100% - 22px) 100%, 22px 100%, 0 50%);
+      z-index: 2;
+    }
+    .chevron-panel:nth-child(3) {
+      background: var(--c500);
+      clip-path: polygon(22px 0, 100% 0, 100% 100%, 22px 100%, 0 50%);
+      z-index: 1;
+      margin-right: 0;
+    }
+
+    .chevron-eyebrow {
+      font-family: 'Barlow', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+    }
+
+    .chevron-name {
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: white;
+      text-align: center;
+      line-height: 1.15;
+      padding: 0 28px;
+    }
+
+    /* ── Footer note ──────────────────────────────────── */
+    .page-footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-note {
+      font-family: 'Barlow', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(245,184,128,0.3);
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─────────────────────────────────────────────────────
+       PAGE HEADER
+       ───────────────────────────────────────────────────── -->
+  <header class="page-header">
+    <div class="page-title-group">
+      <div class="page-eyebrow">Universal Metals Pakistan Limited · CWIEME Berlin 2026</div>
+      <div class="page-title">Panel 7 — Card Design Options</div>
+      <div class="page-subtitle">Card 6 · Certifications &nbsp;&nbsp;|&nbsp;&nbsp; Card 2 · Pakistan's Largest</div>
+    </div>
+    <nav class="page-nav">
+      <a href="#card6" class="nav-link">↓ Card 6</a>
+      <a href="#card2" class="nav-link">↓ Card 2</a>
+    </nav>
+  </header>
+
+  <div class="page-content">
+
+    <!-- ═══════════════════════════════════════════════════
+         CARD 6 — CERTIFICATIONS
+         ═══════════════════════════════════════════════════ -->
+    <section class="section" id="card6">
+      <div class="section-header">
+        <span class="section-chip">Card 6</span>
+        <span class="section-title">Certifications</span>
+      </div>
+
+      <div class="options-grid">
+
+        <!-- ── Option A: Certification Seals ── -->
+        <div class="option-col">
+          <div class="option-meta">
+            <div class="option-header">
+              <div class="option-badge">A</div>
+              <div class="option-name">Certification Seals</div>
+              <span class="recommend-pill">Recommended</span>
+            </div>
+            <p class="option-desc">Four circular medallions that mimic real ISO approval stamps. Engineers and procurement managers instantly recognise the circular-seal visual language — it carries authority without a single word of explanation.</p>
+          </div>
+
+          <div class="card-preview">
+            <span class="card-ghost-num">06</span>
+            <div class="card-heading">Certifications</div>
+            <div class="card-rule"></div>
+            <div class="card-body">
+              <div class="seals-grid">
+                <img class="seal-svg" src="../assets/images/certs/ISO_9001.svg"  alt="ISO 9001:2015 Quality Management">
+                <img class="seal-svg" src="../assets/images/certs/ISO_14001.svg" alt="ISO 14001:2015 Environmental Management">
+                <img class="seal-svg" src="../assets/images/certs/ISO_45001.svg" alt="ISO 45001:2018 Health &amp; Safety">
+                <img class="seal-svg" src="../assets/images/certs/CE_Marking.svg" alt="CE Marking — EU Conformity">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Option B: Engraved Plates ── -->
+        <div class="option-col">
+          <div class="option-meta">
+            <div class="option-header">
+              <div class="option-badge">B</div>
+              <div class="option-name">Engraved Plates</div>
+            </div>
+            <p class="option-desc">Dark copper-background nameplates resembling the metal compliance plates bolted to industrial equipment. Feels authoritative and tactile — like the certifications are physically embedded in the product itself.</p>
+          </div>
+
+          <div class="card-preview">
+            <span class="card-ghost-num">06</span>
+            <div class="card-heading">Certifications</div>
+            <div class="card-rule"></div>
+            <div class="card-body">
+              <div class="plates-grid">
+
+                <div class="engraved-plate">
+                  <div class="plate-corner plate-corner--tl"></div>
+                  <div class="plate-corner plate-corner--tr"></div>
+                  <div class="plate-corner plate-corner--bl"></div>
+                  <div class="plate-corner plate-corner--br"></div>
+                  <span class="plate-standard">ISO</span>
+                  <span class="plate-number">9001:2015</span>
+                  <span class="plate-desc">Quality Management</span>
+                </div>
+
+                <div class="engraved-plate">
+                  <div class="plate-corner plate-corner--tl"></div>
+                  <div class="plate-corner plate-corner--tr"></div>
+                  <div class="plate-corner plate-corner--bl"></div>
+                  <div class="plate-corner plate-corner--br"></div>
+                  <span class="plate-standard">ISO</span>
+                  <span class="plate-number">14001:2015</span>
+                  <span class="plate-desc">Environmental</span>
+                </div>
+
+                <div class="engraved-plate">
+                  <div class="plate-corner plate-corner--tl"></div>
+                  <div class="plate-corner plate-corner--tr"></div>
+                  <div class="plate-corner plate-corner--bl"></div>
+                  <div class="plate-corner plate-corner--br"></div>
+                  <span class="plate-standard">ISO</span>
+                  <span class="plate-number">45001:2018</span>
+                  <span class="plate-desc">Safety Management</span>
+                </div>
+
+                <div class="engraved-plate">
+                  <div class="plate-corner plate-corner--tl"></div>
+                  <div class="plate-corner plate-corner--tr"></div>
+                  <div class="plate-corner plate-corner--bl"></div>
+                  <div class="plate-corner plate-corner--br"></div>
+                  <span class="plate-standard">EU Mark</span>
+                  <span class="plate-number">CE</span>
+                  <span class="plate-desc">EU Conformity</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Option C: Ribbon Banners ── -->
+        <div class="option-col">
+          <div class="option-meta">
+            <div class="option-header">
+              <div class="option-badge">C</div>
+              <div class="option-name">Ribbon Banners</div>
+            </div>
+            <p class="option-desc">Full-width horizontal bands in a dark-to-light copper gradient spectrum. Maximum legibility at trade show distance — each cert name reads instantly from across the hall. Award ribbon icon reinforces the "certified" concept.</p>
+          </div>
+
+          <div class="card-preview">
+            <span class="card-ghost-num">06</span>
+            <div class="card-heading">Certifications</div>
+            <div class="card-rule"></div>
+            <div class="card-body">
+              <div class="ribbon-stack">
+                <div class="ribbon-banner">
+                  <div class="ribbon-left">
+                    <span class="ribbon-eyebrow">Certified</span>
+                    <span class="ribbon-name">ISO 9001:2015</span>
+                    <span class="ribbon-desc">Quality Management Systems</span>
+                  </div>
+                  <svg class="ribbon-icon" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                    <circle cx="18" cy="14" r="10" stroke="white" stroke-width="2"/>
+                    <path d="M11 22L9 34L18 30L27 34L25 22" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                    <circle cx="18" cy="14" r="5" stroke="white" stroke-width="1.5" opacity="0.4"/>
+                  </svg>
+                </div>
+                <div class="ribbon-banner">
+                  <div class="ribbon-left">
+                    <span class="ribbon-eyebrow">Certified</span>
+                    <span class="ribbon-name">ISO 14001:2015</span>
+                    <span class="ribbon-desc">Environmental Management</span>
+                  </div>
+                  <svg class="ribbon-icon" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                    <circle cx="18" cy="14" r="10" stroke="white" stroke-width="2"/>
+                    <path d="M11 22L9 34L18 30L27 34L25 22" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                    <circle cx="18" cy="14" r="5" stroke="white" stroke-width="1.5" opacity="0.4"/>
+                  </svg>
+                </div>
+                <div class="ribbon-banner">
+                  <div class="ribbon-left">
+                    <span class="ribbon-eyebrow">Certified</span>
+                    <span class="ribbon-name">ISO 45001:2018</span>
+                    <span class="ribbon-desc">Occupational Health &amp; Safety</span>
+                  </div>
+                  <svg class="ribbon-icon" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                    <circle cx="18" cy="14" r="10" stroke="white" stroke-width="2"/>
+                    <path d="M11 22L9 34L18 30L27 34L25 22" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                    <circle cx="18" cy="14" r="5" stroke="white" stroke-width="1.5" opacity="0.4"/>
+                  </svg>
+                </div>
+                <div class="ribbon-banner">
+                  <div class="ribbon-left">
+                    <span class="ribbon-eyebrow">EU Marked</span>
+                    <span class="ribbon-name">CE Mark</span>
+                    <span class="ribbon-desc">European Conformity Certification</span>
+                  </div>
+                  <svg class="ribbon-icon" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                    <circle cx="18" cy="14" r="10" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
+                    <path d="M11 22L9 34L18 30L27 34L25 22" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linejoin="round"/>
+                    <circle cx="18" cy="14" r="5" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" opacity="0.4"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════
+         CARD 2 — PAKISTAN'S LARGEST
+         ═══════════════════════════════════════════════════ -->
+    <section class="section" id="card2">
+      <div class="section-header">
+        <span class="section-chip">Card 2</span>
+        <span class="section-title">Pakistan's Largest</span>
+      </div>
+
+      <div class="options-grid">
+
+        <!-- ── Option A: Ranked Bars ── -->
+        <div class="option-col">
+          <div class="option-meta">
+            <div class="option-header">
+              <div class="option-badge">A</div>
+              <div class="option-name">Ranked Podium Bars</div>
+            </div>
+            <p class="option-desc">Three copper gradient bars of tapering heights, like a leaderboard podium. Communicates dominance visually before a word is read. A subtle left accent stripe and ghost watermark reinforce the ranking claim without stating it explicitly.</p>
+          </div>
+
+          <div class="card-preview">
+            <span class="card-ghost-num">02</span>
+            <div class="card-heading">Pakistan's Largest</div>
+            <div class="card-rule"></div>
+            <div class="card-body">
+              <div class="ranked-bars">
+                <div class="ranked-bar">
+                  <div class="ranked-bar-num"></div>
+                  <span class="ranked-bar-name">Copper Rod</span>
+                  <span class="ranked-bar-ghost">1</span>
+                  <span class="ranked-bar-tag">#1 Producer</span>
+                </div>
+                <div class="ranked-bar">
+                  <div class="ranked-bar-num"></div>
+                  <span class="ranked-bar-name">Enamelled Wire</span>
+                  <span class="ranked-bar-ghost">1</span>
+                  <span class="ranked-bar-tag">#1 Producer</span>
+                </div>
+                <div class="ranked-bar">
+                  <div class="ranked-bar-num"></div>
+                  <span class="ranked-bar-name">Paper Covered Strip</span>
+                  <span class="ranked-bar-ghost">1</span>
+                  <span class="ranked-bar-tag">#1 Producer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Option B: Tripart Pillars ── -->
+        <div class="option-col">
+          <div class="option-meta">
+            <div class="option-header">
+              <div class="option-badge">B</div>
+              <div class="option-name">Tripart Pillars</div>
+              <span class="recommend-pill">Recommended</span>
+            </div>
+            <p class="option-desc">Three product columns, each with an abstract geometric SVG icon above the name — coil for wire, layers for strip, cylinder for rod. Each product gets a distinct visual identity. Clean and architectural, like a product catalogue data sheet.</p>
+          </div>
+
+          <div class="card-preview">
+            <span class="card-ghost-num">02</span>
+            <div class="card-heading">Pakistan's Largest</div>
+            <div class="card-rule"></div>
+            <div class="card-body">
+              <div class="pillars-row">
+
+                <!-- Copper Rod: cylinder -->
+                <div class="pillar">
+                  <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="36" cy="16" rx="22" ry="8" stroke="#8B4A28" stroke-width="2.5" fill="#F5B880" fill-opacity="0.2"/>
+                    <line x1="14" y1="16" x2="14" y2="56" stroke="#8B4A28" stroke-width="2.5"/>
+                    <line x1="58" y1="16" x2="58" y2="56" stroke="#8B4A28" stroke-width="2.5"/>
+                    <ellipse cx="36" cy="56" rx="22" ry="8" stroke="#8B4A28" stroke-width="2.5" fill="#F5B880" fill-opacity="0.3"/>
+                    <!-- shine line -->
+                    <line x1="24" y1="16" x2="24" y2="56" stroke="#F5B880" stroke-width="1" opacity="0.4"/>
+                  </svg>
+                  <span class="pillar-name">Copper Rod</span>
+                </div>
+
+                <!-- Enamelled Wire: coil -->
+                <div class="pillar">
+                  <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="36" cy="16" rx="22" ry="7" stroke="#8B4A28" stroke-width="2" fill="#F5B880" fill-opacity="0.15"/>
+                    <path d="M14 16 C14 24 58 24 58 32 C58 40 14 40 14 48 C14 56 58 56 58 56" stroke="#8B4A28" stroke-width="2" fill="none"/>
+                    <ellipse cx="36" cy="56" rx="22" ry="7" stroke="#8B4A28" stroke-width="2" fill="#F5B880" fill-opacity="0.3"/>
+                    <ellipse cx="36" cy="32" rx="22" ry="7" stroke="#8B4A28" stroke-width="1.5" fill="#FAF8F5" fill-opacity="0.6"/>
+                  </svg>
+                  <span class="pillar-name">Enamelled Wire</span>
+                </div>
+
+                <!-- Paper Covered Strip: layered rectangles -->
+                <div class="pillar">
+                  <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="14" width="52" height="11" rx="1.5" stroke="#8B4A28" stroke-width="2" fill="#F5B880" fill-opacity="0.15"/>
+                    <rect x="10" y="30" width="52" height="11" rx="1.5" stroke="#8B4A28" stroke-width="2" fill="#F5B880" fill-opacity="0.22"/>
+                    <rect x="10" y="46" width="52" height="11" rx="1.5" stroke="#8B4A28" stroke-width="2" fill="#F5B880" fill-opacity="0.32"/>
+                    <!-- paper edge lines -->
+                    <line x1="10" y1="16" x2="62" y2="16" stroke="#CE7340" stroke-width="0.8" opacity="0.4"/>
+                    <line x1="10" y1="32" x2="62" y2="32" stroke="#CE7340" stroke-width="0.8" opacity="0.4"/>
+                    <line x1="10" y1="48" x2="62" y2="48" stroke="#CE7340" stroke-width="0.8" opacity="0.4"/>
+                  </svg>
+                  <span class="pillar-name">Paper Covered Strip</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Option C: Diagonal Chevrons ── -->
+        <div class="option-col">
+          <div class="option-meta">
+            <div class="option-header">
+              <div class="option-badge">C</div>
+              <div class="option-name">Diagonal Chevrons</div>
+            </div>
+            <p class="option-desc">Three parallelogram panels with overlapping diagonal cuts — a kinetic, forward-moving composition in deep-to-light copper. Maximum visual impact from across a trade show hall. The directionality suggests momentum and scale.</p>
+          </div>
+
+          <div class="card-preview">
+            <span class="card-ghost-num">02</span>
+            <div class="card-heading">Pakistan's Largest</div>
+            <div class="card-rule"></div>
+            <div class="card-body">
+              <div class="chevrons-row">
+                <div class="chevron-panel">
+                  <span class="chevron-eyebrow">Producer</span>
+                  <span class="chevron-name">Copper Rod</span>
+                </div>
+                <div class="chevron-panel">
+                  <span class="chevron-eyebrow">Producer</span>
+                  <span class="chevron-name">Enamelled Wire</span>
+                </div>
+                <div class="chevron-panel">
+                  <span class="chevron-eyebrow">Producer</span>
+                  <span class="chevron-name">Paper Covered Strip</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div><!-- /page-content -->
+
+  <footer class="page-footer">
+    <span class="footer-note">Panel 7 — Why Us · CWIEME Berlin 2026 · Universal Metals Pakistan Limited</span>
+    <span class="footer-note">Design options preview — select A, B, or C for each card</span>
+  </footer>
+
+</body>
+</html>

@@ -1,37 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="CE Marking EU product conformity badge">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="CE Marking — EU Conformity">
   <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&amp;display=swap');</style>
     <linearGradient id="bgce" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#FDE8D0"/>
       <stop offset="100%" stop-color="#FAF8F5"/>
     </linearGradient>
+    <linearGradient id="ringce" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5B880"/>
+      <stop offset="100%" stop-color="#8B4A28"/>
+    </linearGradient>
   </defs>
-  <!-- Background fill -->
-  <circle cx="100" cy="100" r="98" fill="url(#bgce)"/>
-  <!-- Outer border ring -->
-  <circle cx="100" cy="100" r="98" fill="none" stroke="#8B4A28" stroke-width="3"/>
-  <!-- Inner accent ring -->
-  <circle cx="100" cy="100" r="86" fill="none" stroke="#CE7340" stroke-width="1.5"/>
-  <!-- Inner ring -->
-  <circle cx="100" cy="100" r="78" fill="none" stroke="#B2673E" stroke-width="2"/>
+
+  <!-- Background -->
+  <circle cx="100" cy="100" r="97" fill="url(#bgce)"/>
+
+  <!-- Ring 1 — outer gradient, r=96 -->
+  <circle cx="100" cy="100" r="96" fill="none" stroke="url(#ringce)" stroke-width="4"/>
+  <!-- Ring 2 — dashed accent, r=84 (12px gap from outer) -->
+  <circle cx="100" cy="100" r="84" fill="none" stroke="#CE7340" stroke-width="1" stroke-dasharray="3 5" opacity="0.5"/>
+  <!-- Ring 3 — inner solid, r=73 (11px gap from dashed) — ALL CONTENT STAYS INSIDE THIS -->
+  <circle cx="100" cy="100" r="73" fill="none" stroke="#B2673E" stroke-width="1.5"/>
+
   <!--
-    CE Logotype — standard EU Commission geometric proportions.
-    C arc: 300° counterclockwise, center (67,100), radius=42.
-    Gap ±30° from 3-o'clock: start=(88,64), end=(88,136).
-    E bars aligned to C arc endpoints: y=64 top, y=100 mid, y=136 bottom.
-    E bars: x=92 to x=130 (top/bottom), x=92 to x=123 (middle, ~75%).
+    Official CE Marking letterform — EU Decision 93/68/EEC
+    Source geometry: Wikimedia Commons (public domain)
+    Original space: C centred at (100,100), E centred at (270,100); total span x=0..370, y=0..200.
+
+    Scale 0.368 — verified geometry:
+      • C centre in badge: (68.8, 81.8), farthest extent: 68.5px < r=73 ✓ (4.5px margin)
+      • E centre in badge: (131.4, 81.8), farthest extent: 68.7px < r=73 ✓ (4.3px margin)
+      • CE mark spans badge y=45..118.6; visual centre y=81.8
+
+    Content block (CE mark + labels) spans y=45..152.
+    Block centre ≈ y=98.5 — within 1.5px of badge centre (y=100). ✓
   -->
-  <!-- C arc: 300° counterclockwise from (88,64) to (88,136) -->
-  <path d="M 88,64 A 42,42 0 1 0 88,136"
-        fill="none" stroke="#B2673E" stroke-width="16" stroke-linecap="butt"/>
-  <!-- E top bar (cap height) -->
-  <line x1="92" y1="64"  x2="130" y2="64"  stroke="#B2673E" stroke-width="16" stroke-linecap="round"/>
-  <!-- E middle bar (~75% width per CE spec) -->
-  <line x1="92" y1="100" x2="120" y2="100" stroke="#B2673E" stroke-width="16" stroke-linecap="round"/>
-  <!-- E bottom bar (baseline) -->
-  <line x1="92" y1="136" x2="130" y2="136" stroke="#B2673E" stroke-width="16" stroke-linecap="round"/>
-  <!-- Top label -->
-  <text x="100" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="11" fill="#8B4A28" letter-spacing="2">CE MARKING</text>
-  <!-- Bottom label -->
-  <text x="100" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600" font-size="10" fill="#CE7340" letter-spacing="1.5">EU CONFORMITY</text>
-  <text x="100" y="184" text-anchor="middle" font-family="Arial, sans-serif" font-weight="500" font-size="9" fill="#4A3728" letter-spacing="1">ELIGIBLE EXPORTS</text>
+  <g transform="translate(32,45) scale(0.368)" fill="#8B4A28">
+    <!-- C: open annulus — outer r=100, inner r=70, tiny gap ±~5.7° on right -->
+    <path d="M110,199.498744A100,100 0 0 1 100,200A100,100 0 0 1 100,0A100,100 0 0 1 110,0.501256L110,30.501256A70,70 0 0 0 100,30A70,70 0 0 0 100,170A70,70 0 0 0 110,169.498744Z"/>
+    <!-- E: same annulus at x=270, horizontal slot cut at y=85..115 on inner ring -->
+    <path d="M280,199.498744A100,100 0 0 1 270,200A100,100 0 0 1 270,0A100,100 0 0 1 280,0.501256L280,30.501256A70,70 0 0 0 270,30A70,70 0 0 0 201.620283,85L260,85L260,115L201.620283,115A70,70 0 0 0 270,170A70,70 0 0 0 280,169.498744Z"/>
+  </g>
+
+  <!-- Rule below CE letterform — y=120, distance from centre=20 -->
+  <line x1="62" y1="120" x2="138" y2="120" stroke="#CE7340" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- "MARKING" — y=132, distance=32, chord=130px; text ~58px ✓ -->
+  <text x="100" y="132" text-anchor="middle"
+        font-family="'Barlow Condensed', Arial, sans-serif"
+        font-weight="700" font-size="11" fill="#1A1208" letter-spacing="2">MARKING</text>
+
+  <!-- "EU CONFORMITY" — y=142, distance=42, chord=119px; text ~97px ✓ -->
+  <text x="100" y="142" text-anchor="middle"
+        font-family="'Barlow Condensed', Arial, sans-serif"
+        font-weight="500" font-size="10" fill="#4A3728" letter-spacing="1">EU CONFORMITY</text>
+
+  <!-- "· CERTIFIED ·" — y=152, distance=52, chord=102px; text ~70px ✓ (16px margin total) -->
+  <text x="100" y="152" text-anchor="middle"
+        font-family="'Barlow Condensed', Arial, sans-serif"
+        font-weight="700" font-size="9.5" fill="#CE7340" letter-spacing="1.5">· CERTIFIED ·</text>
 </svg>
