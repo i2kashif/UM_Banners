@@ -22,23 +22,16 @@
   <circle cx="100" cy="100" r="73" fill="none" stroke="#B2673E" stroke-width="1.5"/>
 
   <!--
-    Official CE Marking letterform — EU Decision 93/68/EEC
-    Source geometry: Wikimedia Commons (public domain)
-    Original space: C centred at (100,100), E centred at (270,100); total span x=0..370, y=0..200.
-
-    Scale 0.368 — verified geometry:
-      • C centre in badge: (68.8, 81.8), farthest extent: 68.5px < r=73 ✓ (4.5px margin)
-      • E centre in badge: (131.4, 81.8), farthest extent: 68.7px < r=73 ✓ (4.3px margin)
-      • CE mark spans badge y=45..118.6; visual centre y=81.8
-
-    Content block (CE mark + labels) spans y=45..152.
-    Block centre ≈ y=98.5 — within 1.5px of badge centre (y=100). ✓
+    Official CE Marking letterform — EU Decision 93/465/EEC
+    C centred at (100,100), E centred at (270,100); span x=0..370, y=0..200.
+    Outer R=100, inner r=70 (ratio 0.7). Gap termination at x = centre + R/5.
+    Scale 0.368, translate(32,45) — badge margins verified within r=73.
   -->
   <g transform="translate(32,45) scale(0.368)" fill="#8B4A28">
-    <!-- C: open annulus — outer r=100, inner r=70, tiny gap ±~5.7° on right -->
-    <path d="M110,199.498744A100,100 0 0 1 100,200A100,100 0 0 1 100,0A100,100 0 0 1 110,0.501256L110,30.501256A70,70 0 0 0 100,30A70,70 0 0 0 100,170A70,70 0 0 0 110,169.498744Z"/>
-    <!-- E: same annulus at x=270, horizontal slot cut at y=85..115 on inner ring -->
-    <path d="M280,199.498744A100,100 0 0 1 270,200A100,100 0 0 1 270,0A100,100 0 0 1 280,0.501256L280,30.501256A70,70 0 0 0 270,30A70,70 0 0 0 201.620283,85L260,85L260,115L201.620283,115A70,70 0 0 0 270,170A70,70 0 0 0 280,169.498744Z"/>
+    <!-- C: open arc, gap at x=120; shifted right 10 units for badge margin -->
+    <path d="M120,2.0204 A100,100 0 1 0 120,197.9796 L120,167.0820 A70,70 0 1 1 120,32.9180 Z" transform="translate(30,0)"/>
+    <!-- E: open arc + middle bar from inner circle to x=290 at y=85..115 -->
+    <path d="M290,2.0204 A100,100 0 1 0 290,197.9796 L290,167.0820 A70,70 0 0 1 201.6260,115 L290,115 L290,85 L201.6260,85 A70,70 0 0 1 290,32.9180 Z"/>
   </g>
 
   <!-- Rule below CE letterform — y=120, distance from centre=20 -->
