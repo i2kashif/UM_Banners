@@ -1,15 +1,16 @@
 /*
- * panel-7.css — v6
- * Banner 7: Why Us — Certification Plaque Cards | Universal Metals Pakistan Limited — CWIEME Berlin 2026
+ * panel-7.css — v9
+ * Banner 7: Why Us — Editorial Spread v2 | Universal Metals Pakistan Limited — CWIEME Berlin 2026
  *
- * Design concept: "Certification Plaques"
- *   Five credential points displayed as bordered plaque cards.
- *   Layout: 2-column grid — 2 + 2 + 1 full-width.
- *   Each card: copper top stripe, ghost number watermark bleeding
- *   from bottom-right, bold credential text centered within.
+ * Design concept: "Editorial Spread with Visual Richness"
+ *   Three credential blocks with alternating background bands (white / cream / white).
+ *   Block 1: Bold "Premier Producer" statement on warm copper band.
+ *   Block 2: Sustainability ring gauges — the hero visual of this panel.
+ *   Block 3: Certification seals with standard numbers on warm band.
+ *   Ghost watermark numbers in left margin.
  *
- * Zone A  — "WHY UNIVERSAL METALS" heading     (90px – 783px)
- * p7-grid — 5 credential plaque cards          (783px – 6650px)
+ * Zone A  — "WHY UNIVERSAL METALS" section title   (90px – 783px)
+ * Editorial — 3 credential blocks                   (783px – 6650px)
  *
  * Left edge stripe: marks left wall boundary.
  */
@@ -35,7 +36,7 @@
 
 
 /* ============================================================
-   ZONE A — HEADING
+   ZONE A — SECTION TITLE
    ============================================================ */
 
 #panel-7 .zone-a {
@@ -44,94 +45,103 @@
   justify-content: center;
 }
 
-#panel-7 .p7-heading {
+#panel-7 .p7-section-title {
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
-  font-size: var(--fs-h1);
+  font-size: 150px;
   color: var(--text-copper-bold);
   text-transform: uppercase;
   letter-spacing: var(--ls-wide);
   line-height: var(--lh-heading);
   text-rendering: geometricPrecision;
+  text-align: center;
 }
 
 
 /* ============================================================
-   CREDENTIAL CARDS GRID
-   Spans from zone-b start (783px) to zone-c end (6650px).
-   2-column: cards 1–4 fill rows 1–2, card 5 spans full width.
+   EDITORIAL CONTAINER
    ============================================================ */
 
-#panel-7 .p7-grid {
+#panel-7 .p7-editorial {
   position: absolute;
   top: 783px;
-  left: var(--content-inset);
-  right: var(--content-inset);
+  left: 0;
+  right: 0;
   height: 5867px;
   z-index: 10;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 48px;
-  padding: 64px 0;
-  align-content: stretch;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
 }
 
 
 /* ============================================================
-   INDIVIDUAL PLAQUE CARD
+   EDITORIAL BLOCK — shared base
    ============================================================ */
 
-#panel-7 .p7-card {
+#panel-7 .p7-block {
   position: relative;
-  overflow: hidden;
-  background: var(--bg-white);
-  border: 1.5px solid rgba(139, 74, 40, 0.15);
-  box-shadow:
-    0 4px 24px rgba(139, 74, 40, 0.06),
-    0 12px 80px rgba(139, 74, 40, 0.04);
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 80px;
+  text-align: center;
+  padding: 80px var(--content-inset);
 }
 
-/* Copper gradient stripe pinned to top of each card */
-#panel-7 .p7-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 10px;
+
+/* ─── Alternating background bands ─── */
+#panel-7 .p7-block--premier {
+  background: var(--bg-white);
+}
+
+#panel-7 .p7-block--sustainability {
+  background: var(--bg-white);
+}
+
+#panel-7 .p7-block--certs {
+  background: var(--bg-white);
+}
+
+
+/* ============================================================
+   COPPER RULE SEPARATOR (thicker, more presence)
+   ============================================================ */
+
+#panel-7 .p7-rule {
+  width: 100%;
+  height: 5px;
+  border: none;
+  flex-shrink: 0;
   background: linear-gradient(
     to right,
-    var(--copper-300) 0%,
-    var(--copper-500) 30%,
-    var(--copper-700) 50%,
-    var(--copper-500) 70%,
-    var(--copper-300) 100%
+    transparent 0%,
+    var(--copper-200) 5%,
+    var(--copper-300) 20%,
+    var(--copper-500) 50%,
+    var(--copper-300) 80%,
+    var(--copper-200) 95%,
+    transparent 100%
   );
 }
 
 
-
 /* ============================================================
-   GHOST NUMBER WATERMARK
-   Large numeral bleeding from bottom-right corner.
-   Clipped by card overflow:hidden for the plaque effect.
+   GHOST WATERMARK NUMBERS
    ============================================================ */
 
-#panel-7 .p7-card-ghost {
+#panel-7 .p7-ghost {
   position: absolute;
-  bottom: 30px;
-  right: 60px;
+  left: var(--content-inset);
+  top: 50%;
+  transform: translateY(-50%);
   font-family: var(--font-display);
   font-weight: var(--fw-extrabold);
-  font-size: 300px;
+  font-size: 380px;
   line-height: 1;
-  color: var(--copper-500);
-  opacity: 0.10;
+  color: var(--copper-300);
+  opacity: 0.08;
   pointer-events: none;
   user-select: none;
   letter-spacing: -0.02em;
@@ -139,184 +149,115 @@
 
 
 /* ============================================================
-   CARD BODY — content wrapper inside each card
+   BLOCK 1 — PAKISTAN'S PREMIER PRODUCER
+   Centered header + three inset double-frame product cards.
    ============================================================ */
 
-#panel-7 .p7-card-body {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Premier header — centered text block above cards */
+#panel-7 .p7-premier-header {
   text-align: center;
-  gap: 0;
+  margin-bottom: 80px;
 }
 
-/* Copper underline beneath card body text */
-#panel-7 .p7-card-body::after {
-  content: '';
-  display: block;
-  margin: 48px auto 0;
-  width: 200px;
-  height: 5px;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    var(--copper-300) 20%,
-    var(--copper-500) 50%,
-    var(--copper-300) 80%,
-    transparent 100%
-  );
-  border-radius: 3px;
-}
-
-/* Sustainability card: stat row replaces the underline */
-#panel-7 .p7-card-body--sustainability::after {
-  display: none;
-}
-
-
-/* ============================================================
-   TYPE LINES
-   ============================================================ */
-
-#panel-7 .p7-line {
-  display: block;
+#panel-7 .p7-premier-title {
   font-family: var(--font-display);
-  font-weight: var(--fw-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-wide);
-  text-rendering: geometricPrecision;
-  line-height: 1.04;
-}
-
-/* Main line — primary claim */
-#panel-7 .p7-line--main {
-  font-size: 130px;
+  font-weight: var(--fw-extrabold);
+  font-size: 120px;
   color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.0;
+  text-rendering: geometricPrecision;
 }
 
-/* Sub-line — supporting detail */
-#panel-7 .p7-line--sub {
-  font-size: 88px;
+#panel-7 .p7-premier-sub {
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  font-size: 72px;
   color: var(--copper-500);
-  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  margin-top: 12px;
+  text-rendering: geometricPrecision;
 }
 
-
-/* ============================================================
-   PRODUCT PILLARS (Card 1 — Pakistan's Largest)
-   Three product columns with icon + name, full card width.
-   ============================================================ */
-
-#panel-7 .p7-pillars {
+/* Card grid — three cards side by side */
+#panel-7 .p7-card-grid {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 60px;
   width: 100%;
-  margin-top: 60px;
+  max-width: 2800px;
 }
 
-#panel-7 .p7-pillar {
+/* Individual card — rounded cream with copper border */
+#panel-7 .p7-card {
   flex: 1;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 60px;
-  gap: 48px;
-  position: relative;
-  border: 1px solid rgba(139, 74, 40, 0.12);
-  background: rgba(250, 248, 245, 0.6);
+  background: var(--bg-cream);
+  border-radius: 40px;
+  border: 3px solid var(--copper-300);
+  padding: 80px 40px;
 }
 
-#panel-7 .p7-pillar + .p7-pillar {
-  border-left: none;
-}
-
-/* Copper top stripe on each pillar */
-#panel-7 .p7-pillar::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 6px;
-  background: linear-gradient(
-    to right,
-    var(--copper-300) 0%,
-    var(--copper-700) 100%
-  );
-}
-
-#panel-7 .p7-pillar-icon {
-  display: block;
-}
-
-#panel-7 .p7-pillar-name {
+/* Product name inside card */
+#panel-7 .p7-card-name {
   font-family: var(--font-display);
   font-weight: var(--fw-bold);
-  font-size: 88px;
+  font-size: 72px;
   color: var(--text-copper-bold);
   text-transform: uppercase;
-  letter-spacing: var(--ls-wide);
-  line-height: 1.1;
+  letter-spacing: 0.04em;
+  line-height: 1.06;
   text-align: center;
   text-rendering: geometricPrecision;
 }
 
-/* Hide underline on pillar card body — pillars have their own top stripes */
-#panel-7 .p7-card-body--pillars::after {
-  display: none;
-}
-
 
 /* ============================================================
-   CERTIFICATION SEALS (Card 3)
-   2×2 grid of circular cert stamp images.
+   BLOCK 2 — SUSTAINABILITY
+   Ring gauges as the hero visual. 85% ring is larger (hero).
    ============================================================ */
 
-#panel-7 .p7-seals-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  width: 100%;
-  max-width: 2100px;
-  margin: 60px auto 0;
-}
-
-#panel-7 .p7-seal-img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-
-/* ============================================================
-   SUSTAINABILITY RING GAUGES (Card 4)
-   ============================================================ */
-
-/* Compact eyebrow label above the rings */
-#panel-7 .p7-ring-eyebrow {
+#panel-7 .p7-sustain-title {
   font-family: var(--font-display);
-  font-weight: var(--fw-semibold);
-  font-size: 52px;
+  font-weight: var(--fw-bold);
+  font-size: 130px;
   color: var(--text-copper-bold);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  line-height: 1.3;
-  text-align: center;
-  margin-bottom: 40px;
+  letter-spacing: var(--ls-wide);
+  line-height: 1.05;
+  text-rendering: geometricPrecision;
 }
 
-/* Three rings in a horizontal row */
+#panel-7 .p7-sustain-sub {
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  font-size: 72px;
+  color: var(--copper-500);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wider);
+  line-height: 1.2;
+  margin-top: 8px;
+  text-rendering: geometricPrecision;
+}
+
+/* Three rings in a row — hero ring in the center is larger */
 #panel-7 .p7-rings-row {
-  margin-top: 40px;
+  margin-top: 48px;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 40px;
 }
 
-/* Wrapper: ring SVG + label stacked */
+/* Ring wrapper: SVG + label */
 #panel-7 .p7-ring-wrap {
   display: flex;
   flex-direction: column;
@@ -328,7 +269,7 @@
   display: block;
 }
 
-/* Label beneath each ring */
+/* Ring label */
 #panel-7 .p7-ring-label {
   font-family: var(--font-display);
   font-weight: var(--fw-semibold);
@@ -337,6 +278,88 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   line-height: 1;
+  text-align: center;
+  text-rendering: geometricPrecision;
+}
+
+/* Context line at bottom of sustainability block */
+#panel-7 .p7-context-line {
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  font-size: 52px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wider);
+  line-height: 1.2;
+  margin-top: 40px;
+  text-rendering: geometricPrecision;
+}
+
+
+/* ============================================================
+   BLOCK 3 — CERTIFICATIONS
+   Warm band with title + seals showing standard numbers.
+   ============================================================ */
+
+#panel-7 .p7-certs-title {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 130px;
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  line-height: 1.05;
+  text-rendering: geometricPrecision;
+  margin-bottom: 56px;
+}
+
+/* Certification seals row */
+#panel-7 .p7-seals-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 64px;
+  width: 100%;
+}
+
+#panel-7 .p7-seal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#panel-7 .p7-seal-img {
+  display: block;
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+  border: 4px solid var(--copper-300);
+  border-radius: 50%;
+  padding: 24px;
+  background: var(--bg-white);
+  box-shadow: 0 4px 24px rgba(139, 74, 40, 0.06);
+}
+
+#panel-7 .p7-seal-std {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 52px;
+  color: var(--text-copper-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-align: center;
+  text-rendering: geometricPrecision;
+}
+
+#panel-7 .p7-seal-label {
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  font-size: 52px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
   text-align: center;
   text-rendering: geometricPrecision;
 }
