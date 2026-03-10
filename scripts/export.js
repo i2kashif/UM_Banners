@@ -8,9 +8,11 @@
  * Viewport: 3,012 × 7,441 CSS px at deviceScaleFactor: 2
  *
  * Usage:
- *   node scripts/export.js                 # Export all 8 panels
- *   node scripts/export.js --panel 5       # Export single panel
+ *   node scripts/export.js                 # Export all 8 panels (PNG)
+ *   node scripts/export.js --panel 5       # Export single panel (PNG)
  *   node scripts/export.js --panoramic     # Also export panoramic preview
+ *   node scripts/export.js --pdf           # Export all panels as PDF
+ *   node scripts/export.js --pdf --panel 5 # Export single panel as PDF
  *
  * Prerequisites:
  *   npm install puppeteer sharp
@@ -61,7 +63,12 @@ const CONFIG = {
   // Paths
   PANELS_DIR:           path.resolve(__dirname, '..', 'panels'),
   OUTPUT_DIR:           path.resolve(__dirname, '..', 'output', 'png'),
+  OUTPUT_PDF_DIR:       path.resolve(__dirname, '..', 'output', 'pdf'),
   INDEX_FILE:           path.resolve(__dirname, '..', 'index.html'),
+
+  // Physical panel dimensions
+  PANEL_WIDTH_MM:       982,
+  PANEL_HEIGHT_MM:      2312,
 
   // Total panels
   TOTAL_PANELS:         8,
@@ -102,6 +109,7 @@ function parseArgs() {
   const opts = {
     singlePanel: null,
     includePanoramic: false,
+    pdf: false,
   };
 
   for (let i = 0; i < args.length; i++) {
@@ -111,6 +119,9 @@ function parseArgs() {
     }
     if (args[i] === '--panoramic') {
       opts.includePanoramic = true;
+    }
+    if (args[i] === '--pdf') {
+      opts.pdf = true;
     }
   }
 
@@ -229,6 +240,76 @@ async function exportPanel(page, panel, outputDir) {
 }
 
 /* ============================================================
+   CORE: Export a single panel as PDF
+   ============================================================ */
+
+async function exportPanelPDF(page, panel, outputDir) {
+  const filePath = path.join(CONFIG.PANELS_DIR, panel.file);
+  const fileUrl  = 'file://' + filePath;
+  const outFile  = path.join(outputDir, `panel-${panel.n}.pdf`);
+
+  console.log(`\n[${ panel.n }/${ CONFIG.TOTAL_PANELS }] ${panel.name} (${panel.wall} wall) → PDF`);
+  console.log(`    URL: ${fileUrl}`);
+
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+
+  if (!fs.existsSync(filePath)) {
+    console.error(`    ERROR: Source file not found: ${filePath}`);
+    return { success: false, error: 'Source file not found' };
+  }
+
+  await page.setViewport({
+    width:             CONFIG.VIEWPORT_WIDTH,
+    height:            CONFIG.VIEWPORT_HEIGHT,
+    deviceScaleFactor: 1,
+  });
+
+  await page.goto(fileUrl, { waitUntil: 'networkidle0', timeout: 30000 });
+  await page.evaluateHandle('document.fonts.ready');
+  await new Promise(r => setTimeout(r, CONFIG.FONT_WAIT_MS));
+
+  try {
+    await page.evaluate(() =>
+      Promise.all(
+        [...document.images].map(img =>
+          img.complete ? Promise.resolve() : img.decode().catch(() => Promise.resolve())
+        )
+      )
+    );
+  } catch (e) {}
+
+  await new Promise(r => setTimeout(r, CONFIG.IMAGE_WAIT_MS));
+
+  // Scale content to fill the PDF page height exactly (no second-page overflow).
+  // At 96 CSS px/inch, compute how many px the physical page height represents,
+  // then derive the ratio against our CSS viewport height.
+  const pdfHeightPx = (CONFIG.PANEL_HEIGHT_MM / 25.4) * 96;
+  const scale = pdfHeightPx / CONFIG.VIEWPORT_HEIGHT;
+
+  console.log(`    Scale:  ${scale.toFixed(4)} (to fill ${CONFIG.PANEL_HEIGHT_MM}mm height)`);
+
+  const pdfStart = Date.now();
+  await page.pdf({
+    path:            outFile,
+    width:           `${CONFIG.PANEL_WIDTH_MM}mm`,
+    height:          `${CONFIG.PANEL_HEIGHT_MM}mm`,
+    printBackground: true,
+    scale:           scale,
+    margin:          { top: 0, right: 0, bottom: 0, left: 0 },
+  });
+
+  const pdfMs    = Date.now() - pdfStart;
+  const fileSize = fs.statSync(outFile).size;
+
+  console.log(`    Saved: ${outFile}`);
+  console.log(`    Size: ${formatBytes(fileSize)} | time: ${pdfMs}ms`);
+
+  return { success: true, panel: panel.n, name: panel.name, outputFile: outFile, fileSize, pdfMs };
+}
+
+/* ============================================================
    CORE: Export panoramic review page
    ============================================================ */
 
@@ -289,10 +370,15 @@ async function main() {
   console.log('='.repeat(60));
   console.log('UMPL CWIEME Berlin 2026 — Puppeteer Export');
   console.log('='.repeat(60));
+  console.log(`Mode:      ${opts.pdf ? 'PDF' : 'PNG'}`);
   console.log(`Viewport:  ${CONFIG.VIEWPORT_WIDTH} × ${CONFIG.VIEWPORT_HEIGHT} CSS px`);
-  console.log(`DSF:       ${CONFIG.DEVICE_SCALE_FACTOR}`);
-  console.log(`Output:    ${CONFIG.OUTPUT_WIDTH} × ${CONFIG.OUTPUT_HEIGHT} px @ ${CONFIG.OUTPUT_DPI} DPI`);
-  console.log(`Output dir: ${CONFIG.OUTPUT_DIR}`);
+  if (!opts.pdf) {
+    console.log(`DSF:       ${CONFIG.DEVICE_SCALE_FACTOR}`);
+    console.log(`Output:    ${CONFIG.OUTPUT_WIDTH} × ${CONFIG.OUTPUT_HEIGHT} px @ ${CONFIG.OUTPUT_DPI} DPI`);
+  } else {
+    console.log(`Page size: ${CONFIG.PANEL_WIDTH_MM}mm × ${CONFIG.PANEL_HEIGHT_MM}mm`);
+  }
+  console.log(`Output dir: ${opts.pdf ? CONFIG.OUTPUT_PDF_DIR : CONFIG.OUTPUT_DIR}`);
 
   // Safety check: output dimensions within Chrome limit
   const maxDim = Math.max(CONFIG.OUTPUT_WIDTH, CONFIG.OUTPUT_HEIGHT);
@@ -342,7 +428,9 @@ async function main() {
 
   try {
     for (const panel of panelsToExport) {
-      const result = await exportPanel(page, panel, CONFIG.OUTPUT_DIR);
+      const result = opts.pdf
+        ? await exportPanelPDF(page, panel, CONFIG.OUTPUT_PDF_DIR)
+        : await exportPanel(page, panel, CONFIG.OUTPUT_DIR);
       results.push(result);
     }
 
